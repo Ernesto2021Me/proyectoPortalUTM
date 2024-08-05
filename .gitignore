@@ -2,3 +2,5 @@
 src/assets/pdf/
 node_modules
 .angular
+
+src/assets/docx/
