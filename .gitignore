@@ -1,3 +1,4 @@
 
 src/assets/pdf/
 node_modules
+.angular
