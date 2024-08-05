@@ -1,0 +1,207 @@
+/* Estilos generales para el breadcrumb */
+.breadcrumb {
+    font-family: Georgia, Times New Roman, Serif;
+    font-size: 14px; /* Tamaño de fuente */
+    background-color: #4a1110;
+    padding: 10px 100px; /* Padding ajustado para mover el contenido más a la izquierda */
+    line-height: 1.20;
+    margin: 0px 0 15px 0;
+    font-weight: 400;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    line-height: 1.5; /* Ajustar el espaciado entre líneas si es necesario */
+}
+
+/* Contenedor de los ítems del breadcrumb */
+.breadcrumb__items {
+    list-style: none; /* Eliminar los puntos de la lista */
+    padding: 0; /* Eliminar el padding de la lista */
+    margin: 0; /* Eliminar el margen de la lista */
+    display: flex; /* Usar flexbox para alinear los elementos */
+    gap: 10px; /* Espacio entre los elementos del breadcrumb */
+    letter-spacing: 1px; /* Espacio entre letras */
+}
+
+/* Estilo para cada ítem del breadcrumb */
+.breadcrumb__item {
+    display: flex; /* Usar flexbox para alinear los elementos */
+    align-items: center; /* Alinear verticalmente los elementos */
+}
+
+/* Separador entre los ítems del breadcrumb */
+.breadcrumb__item-separator {
+    margin: 0 10px; /* Aumentar el espacio a los lados del separador */
+    font-size: 20px; /* Tamaño del icono del separador */
+    color: #fff; /* Color blanco para el icono del separador */
+    letter-spacing: 2px; /* Espacio entre el separador y los elementos */
+}
+
+/* Estilo de los enlaces en el breadcrumb */
+.breadcrumb__item a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    background-color: #4a1110; /* Cambia el color del enlace a rojo */
+}
+
+/* Estilo del enlace al pasar el mouse */
+.breadcrumb__item a:hover {
+    text-decoration: underline; /* Subraya el enlace al pasar el ratón */
+}
+
+/* Estilo del texto de los elementos no clicables */
+.breadcrumb__item span {
+    color: #f8d7da; /* Color del texto de los elementos no clicables en un tono más claro */
+}
+
+/* Ajustar el estilo de los iconos de Font Awesome */
+.fa-angle-right {
+    font-family: "Font Awesome 5 Free"; /* Asegúrate de tener Font Awesome incluido */
+    font-weight: 900; /* Peso del icono */
+    color: #fff; /* Color blanco para el icono */
+}
+
+/* Estilos generales del contenedor */
+.content-container {
+    max-width: 1140px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 0 20px; /* Espacio a los lados del contenedor */
+}
+
+/* Estilos para el título de la página */
+h1.page-title {
+    margin-bottom: 20px;
+}
+
+h1.title {
+    margin-top: 0;
+    margin-top: 90px;
+}
+
+h1 {
+    font-size: 40px;
+    font-family: 'Playfair Display', Times New Roman, Serif;
+    line-height: 1.20;
+    padding: 0;
+    margin: 0 0 20px 95px;
+    font-weight: 400;
+}
+
+/* Contenedor de la imagen */
+.image-container {
+    margin: 0 auto 20px auto; /* Centramos la imagen y damos margen inferior */
+    max-width: 1140px; /* Ajustar el ancho máximo del contenedor de la imagen */
+    margin-left: 100px; /* Ajusta este valor según el espacio deseado */
+    margin-bottom: 40px;
+}
+
+/* Estilos para la imagen */
+.field--name-field-portada-nuestra-universida img {
+    width: 730px; /* Asegurarse de que la imagen no se desborde del contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+    
+}
+
+.text-container li {
+  margin-bottom: -5px;
+  text-align: -webkit-match-parent;
+}
+/* Ajustes de estilo para el texto de contenido */
+.text-container {
+    font-family: Georgia, Times New Roman, Serif;
+    max-width: 730px; /* Ancho máximo del contenedor de texto */
+    margin: 0 auto; /* Centrar el contenedor de texto */
+    padding: 0 20px; /* Espacio a los lados del contenedor */
+    line-height: calc(155% + 0.2vw);
+    font-size: calc(0.9em + 0.3vw);
+    margin-left: 90px;
+    margin-bottom: 50px; /* Agregar margen inferior para separar del pie de página */
+}
+
+.text-container ul{
+    font-size: 15px;
+    list-style-type: disc;
+}
+
+.text-container p{
+    margin-bottom:2px;
+    margin-top:2px;
+}
+
+/* Estilo para los enlaces dentro del contenedor de texto */
+.text-container a {
+    transition: all 0.2s ease-in-out;
+    color: #4a1110; /* Cambia el color del enlace a rojo */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    font-size: 15px;
+}
+
+/* Estilo para los enlaces dentro del contenedor de texto cuando se pasa el ratón */
+.text-container a:hover {
+    text-decoration: none; /* Subraya el enlace al pasar el ratón */
+}
+
+/* Estilo adicional para el contenedor del bloque de título */
+#region-content {
+    margin: 0; /* Asegura que no hay márgenes adicionales alrededor del bloque */
+}
+
+
+.wrapper {
+    display: flex; /* Usar flexbox para envolver los elementos */
+    margin-left: 70px;
+    margin-top: -20px;
+
+}
+
+/* Estilos para el menú lateral */
+.region-sidebar-first {
+    flex: 0 0 250px; /* Ancho fijo de la barra lateral */
+    background-color: transparent; /* Color de fondo de la barra lateral */
+    padding: 20px; /* Espacio interno dentro de la barra lateral */
+}
+
+.menu {
+    list-style: none; /* Eliminar los puntos de la lista */
+    padding: 0; /* Eliminar el padding de la lista */
+    margin: 0; /* Eliminar el margen de la lista */
+}
+
+.menu-item {
+    margin-bottom: 5px; /* Espacio entre cada ítem del menú */
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #2d2d2d;
+    padding: 10px 20px;
+    line-height: 150%;
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: padding-left 0.2s ease; /* Agregar una transición suave al padding izquierdo */
+    background-color: transparent !important; /* Hacer el fondo transparente */
+    border: none !important; /* Eliminar cualquier borde */
+}
+
+.menu-item a:hover {
+    padding-left: 30px; /* Aumentar el padding izquierdo al pasar el ratón */
+    background-color: transparent !important; /* Mantener el fondo transparente */
+    border: none !important; /* Mantener sin bordes */
+}
+h2{
+    color: transparent;
+}
+
+.menu-item a::before {
+    content: "\f054"; /* Icono de Font Awesome para el triángulo desplegable */
+    /*content: "\f13a"; /* Icono de Font Awesome para el triángulo desplegable */
+    font-family: "Font Awesome 5 Free"; /* Asegúrate de tener Font Awesome incluido */
+    font-weight: 900; /* Peso del icono */
+    color: #000; /* Color rojo para el icono */
+    font-size: 8px; /* Tamaño del icono */
+    margin-right: 10px;
+    
+}
+
+
+.menu-item a.highlight-red {
+    color: #6D1F1F;
+}

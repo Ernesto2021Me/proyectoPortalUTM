@@ -1,0 +1,228 @@
+/* Estilos del pie de página */
+.footer__section {
+  background-color: #4a1110; /* Color marrón rojo oscuro */
+  color: #ffffff; /* Texto blanco para contraste */
+  padding: 40px 10%; /* Aumenta el padding y ajusta los márgenes laterales */
+  text-align: center;
+  border-top: 1px solid #6D1F1F; /* Borde superior un poco más claro */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 20px; /* Espacio en la parte superior si es necesario */
+}
+
+/* Asegura que el pie de página se mantenga al fondo */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__section {
+  margin-top: auto;
+}
+
+/* Contenedor del contenido del footer */
+.footer-content {
+  display: flex;
+  flex-direction: column; /* Coloca los elementos uno debajo del otro por defecto */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap; /* Permite que el contenido se ajuste en pantallas más pequeñas */
+}
+
+/* Contenedor para el contenido principal */
+.footer-main-content {
+  display: flex;
+  flex-direction: row; /* Coloca las banderas y la búsqueda en fila */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 20px; /* Espacio entre las banderas y la búsqueda */
+  max-width: 1200px; /* Ancho máximo del contenedor */
+  margin-bottom: 20px; /* Espacio debajo del contenedor principal */
+}
+
+/* Contenedor para las banderas */
+.footer-banderas {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columnas */
+  gap: 10px; /* Espacio entre las banderas */
+  max-width: 100%; /* Ajusta el ancho máximo de las banderas */
+}
+
+/* Estilo de las imágenes en el bloque de banderas */
+.footer-banderas img {
+  width: 120px; /* Tamaño un poco más grande para las banderas */
+  height: auto;
+  display: block;
+  -webkit-transition: all .5s;
+  margin: 0 auto; /* Centra las imágenes dentro de las celdas de la cuadrícula */
+}
+
+/* Efecto hover para las imágenes de las banderas */
+.footer-banderas img:hover {
+  -webkit-filter: none;
+}
+
+/* Estilo del contenedor de búsqueda y contacto */
+.search-contact-wrapper {
+  display: flex;
+  flex-direction: column; /* Coloca el formulario de búsqueda y el menú de contacto en una columna */
+  align-items: center;
+  gap: 20px; /* Espacio entre el formulario de búsqueda y el menú de contacto */
+  max-width: 300px; /* Ancho máximo del contenedor */
+  width: 100%;
+}
+
+/* Contenedor de búsqueda */
+.search-form-container {
+  display: flex;
+  flex-direction: row; /* Alinear el input y el botón en una fila */
+  align-items: center;
+  gap: 0; /* Elimina el espacio entre el input y el botón */
+  background-color: #f4f4f4; /* Fondo gris claro para todo el contenedor */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  padding: 0; /* Elimina el padding para un diseño compacto */
+}
+
+/* Campo de búsqueda */
+.search-form-container .form-search {
+  padding: 14px 20px; /* Aumenta el padding para hacer el campo de búsqueda más grande */
+  font-size: 16px; /* Aumenta el tamaño del texto */
+  border: none; /* Elimina el borde predeterminado */
+  background-color: transparent; /* Fondo transparente para que el color del contenedor sea visible */
+  color: #2d2d2d; /* Texto oscuro */
+  border-radius: 5px; /* Bordes redondeados */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  box-sizing: border-box;
+  transition: border-color 0.2s linear; /* Transición suave */
+}
+
+/* Placeholder del campo de búsqueda */
+.search-form-container .form-search::placeholder {
+  color: #888; /* Color del placeholder */
+}
+
+/* Efecto en el campo de búsqueda al enfocarse */
+.search-form-container .form-search:focus {
+  outline: none; /* Elimina el contorno predeterminado del navegador */
+  box-shadow: none; /* Elimina la sombra predeterminada al enfocar */
+}
+
+/* Estilo del botón de búsqueda */
+.search-form-container .search-form__submit {
+  background-color: transparent; /* Fondo transparente para camuflar el ícono */
+  border: none;
+  color: #5C0F0F; /* Color rojo marrón para el ícono */
+  padding: 0; /* Elimina el padding para ajustar el tamaño del botón */
+  cursor: pointer;
+  display: flex;
+  align-items: center; /* Centra el ícono verticalmente */
+  justify-content: center; /* Centra el ícono horizontalmente */
+  transition: color 0.3s ease; /* Transición suave */
+}
+
+/* Estilo del ícono de búsqueda dentro del botón */
+.search-form__submit .search-icon {
+  font-size: 24px; /* Tamaño del ícono más grande */
+  color: #5C0F0F; /* Color del ícono */
+}
+
+/* Efecto hover para el ícono de búsqueda */
+.search-form-container .search-form__submit:hover .search-icon {
+  color: #3F0A0A; /* Color más oscuro para el ícono al pasar el mouse */
+}
+
+/* Estilos para el menú del pie de página */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Estilo para los enlaces del menú */
+.menu .menu-item a {
+  color: #ffffff; /* Color blanco para los enlaces en el menú */
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  position: relative;
+  font-size: 16px; /* Tamaño del texto */
+}
+
+/* Flecha al lado de la palabra "Contacto" */
+.menu-item-arrow {
+  margin-right: 5px;
+  font-weight: bold;
+  transition: margin-left 0.3s ease; /* Transición suave para el movimiento de la flecha */
+}
+
+/* Línea de subrayado al pasar el ratón */
+.menu .menu-item a:hover {
+  text-decoration: none;
+}
+
+.menu .menu-item a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff; /* Color de la línea */
+}
+
+/* Movimiento de la flecha hacia adelante al pasar el ratón */
+.menu .menu-item a:hover .menu-item-arrow {
+  margin-left: 10px; /* Mueve la flecha hacia adelante */
+}
+
+/* Nuevo estilo para el mensaje debajo de las banderas */
+.footer-message {
+  margin-top: 20px; /* Espacio arriba del mensaje */
+  color: #ffffff; /* Texto blanco */
+  font-size: 18px; /* Tamaño del texto */
+  font-weight: bold; /* Negrita */
+}
+
+/* Estilo del enlace en el mensaje */
+.footer-message-link {
+  text-decoration: none; /* Elimina el subrayado */
+  color: #ffffff; /* Color blanco */
+  display: inline-block; /* Asegura que el enlace sea un bloque en línea */
+}
+
+/* Estilo del enlace en el mensaje al pasar el ratón */
+.footer-message-link:hover {
+  text-decoration: underline; /* Subraya el texto al pasar el ratón */
+}
+
+/* Para pantallas pequeñas, el contenido se alinea verticalmente */
+@media (max-width: 768px) {
+  .footer-main-content {
+    flex-direction: column; /* Coloca las banderas y la búsqueda verticalmente en pantallas más pequeñas */
+    gap: 10px; /* Espacio entre las banderas y la búsqueda */
+  }
+
+  .footer-banderas {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas más pequeñas */
+  }
+
+  .search-contact-wrapper {
+    max-width: 100%; /* Asegura que el formulario de búsqueda ocupe el 100% del ancho */
+  }
+
+  .footer-message {
+    margin-top: 30px; /* Espacio arriba del mensaje en pantallas pequeñas */
+    font-size: 16px; /* Tamaño del texto para pantallas pequeñas */
+  }
+}

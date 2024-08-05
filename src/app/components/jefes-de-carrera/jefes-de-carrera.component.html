@@ -1,0 +1,256 @@
+<div class="content">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+        <h2 id="system-breadcrumb" class="visually-hidden"></h2>
+        <ol class="breadcrumb__items">
+            <li class="breadcrumb__item">
+                <a href="/home/web/">
+                    <span>Inicio</span>
+                </a>
+            </li>
+            
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__item-separator fa fa-angle-right"></span>
+                <a href="home/directorio">
+                    <span>Directorio</span>
+                </a>
+            </li>
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__item-separator fa fa-angle-right"></span>
+                <span>Jefes de Carreras</span>
+            </li>
+        </ol>
+    </nav>
+</div>
+
+<div class="wrapper">
+    <div class="region region-sidebar-first">
+        <nav role="navigation" aria-labelledby="block-menuensenanza-menu" id="block-menuensenanza" class="clearfix block block-menu navigation menu--menu-ensenanza">
+            <h4 class="visually-hidden" id="block-menuensenanza-menu">Menú-Enseñanza</h4>
+            <ul class="clearfix menu">
+                <li class="menu-item menu-item--expanded menu-item--active-trail">
+                    <a href="/home/directorio/rectoria" data-drupal-link-system-path="node/38">Rectoria</a>
+                </li>
+                <li class="menu-item menu-item--expanded">
+                    <a href="/home/directorio/vice_rectorias" data-drupal-link-system-path="node/37">Vice-Rectorias</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/home/directorio/division_de_estudios_de_posgrado" data-drupal-link-system-path="node/36" >Division de Estudios de Posgrados</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/home/directorio/directores_de_institutos" data-drupal-link-system-path="node/35" >Directores de Institutos</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/home/directorio/jefes_de_carreras" data-drupal-link-system-path="node/34" class="highlight-red">Jefes de Carreras</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/home/directorio/personal_administrativo" data-drupal-link-system-path="node/405">Personal Administrativo</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/home/directorio/profesores" data-drupal-link-system-path="node/98">Profesores-Investigadores</a>
+                    <ul class="menu">
+                        <li class="menu-item menu-item--expanded menu-item--active-trail">
+                            <a href="/home/directorio/profesores/huajuapan_de_leon" data-drupal-link-system-path="node/45">Huajuapan de Leon</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content-container">
+        <div class="region region-content">
+            <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
+                <div class="content">
+                    <h1 class="title page-title">
+                        <span class="field field--name-title field--type-string field--label-hidden">Jefes de Carreras</span>
+                    </h1>
+                </div>
+            </div>
+
+            <article data-history-node-id="78" role="article" class="node node--type-pagina-inv-cpe node--view-mode-full clearfix">
+                <div class="node__container">
+                    <div class="node__main-content clearfix">
+                        <header class="node__header">
+                            <h2 class="node__title title sr-only">
+                                <span class="field field--name-title field--type-string field--label-hidden">Jefes de Carreras</span>
+                            </h2>
+                        </header>
+
+                        <div class="field field--name-field-portada-inv-cpe field--type-image field--label-hidden field__item">
+                            <img loading="lazy" src="/assets/images/InstAgroindustrias.jpeg" width="1140" height="450" alt="Jefes de Carreras" typeof="foaf:Image" />
+                        </div>
+
+                        <div class="accordion-container">
+                            <div class="panel-group">
+                                <div *ngFor="let panel of panels; let i = index" class="panel">
+                                    <div class="panel-heading" (click)="toggle(i)" [class.active]="isOpen(i)">
+                                        <div class="panel-title">
+                                            {{ panel.title }}
+                                        </div>
+                                    </div>
+                                    <div class="panel-collapse" *ngIf="isOpen(i)">
+                                        <div class="panel-body">
+
+                                       
+                                            <div *ngIf="i === 0">
+                                            
+                                    
+                                             
+                        <div class="accordion-container">
+                            <div class="panel-group2">
+                                <div *ngFor="let panel2 of panels2; let j = index" class="panel2">
+                                    <div class="panel-heading" (click)="toggle2(j)" [class.active]="isOpen2(j)">
+                                        <div class="panel-title">
+                                            {{ panel2.title }}
+                                        </div>
+                                    </div>
+                                    <div class="panel-collapse" *ngIf="isOpen2(j)">
+                                        <div class="panel-body">
+
+                                       
+                                            <div *ngIf="j === 0">
+                                            
+                                                <style>
+                                                   .contact-info {
+                                                        list-style-type: none;
+                                                        padding-left: 0;
+                                                        font-family: Georgia, Times New Roman, Serif;
+                                                    }
+                                                    .contact-info li {
+                                                        margin-bottom: 5px; /* Espacio entre cada ítem */
+                                                        display: flex; /* Usamos flexbox para alinear ícono y texto */
+                                                        align-items: center; /* Alinear verticalmente ícono y texto */
+                                                    }
+                                                    .contact-info h3 {
+                                                        margin-bottom: 2px;
+                                                        margin-top: 4px;
+                                                    }
+                                                    .contact-info i {
+                                                        margin-right: 10px; /* Espacio entre el ícono y el texto */
+                                                        width: 20px; /* Ajustar el ancho del ícono */
+                                                        text-align: center; /* Alinear el texto del ícono */
+                                                        font-size: 10px;
+                                                        color: #000;
+                                                         }
+                                                </style>
+                                            <ul class="contact-info">
+                                                <li><h3>M.C. Enrique Alejandro López</h3></li>
+                                                <li><i class="fas fa-envelope"></i> jccomputacion@mixteco.utm.mx</li>
+                                                <li><i class="fa fa-phone-square"></i> (01) 953 532 02 14, 953 53 245 60, 953 532 03 99, 953 532 29 33</li>
+                                            </ul>
+                                    
+                                            </div>
+                                            <div *ngIf="j === 1">
+                                                <ul class="contact-info">
+                                                    <li><h3>Dr. Edgardo Yescas Mendoza</h3></li>
+                                                    <li><i class="fas fa-envelope"></i> jcelectronica@mixteco.utm.mx</li>
+                                                    <li><i class="fa fa-phone-square"></i> (01) 953 532 02 14, 953 53 245 60, >953 532 03 99, 953 532 29 33</li>
+                                                </ul>
+                                                </div>
+                                                <div *ngIf="j === 2">
+                                                    <ul class="contact-info">
+                                                        <li><h3>M.Adm.C. Itzcóatl Bolaños</h3></li>
+                                                        <li><i class="fas fa-envelope"></i> jcdiseno@mixteco.utm.mx</li>
+                                                        <li><i class="fa fa-phone-square"></i> (01) 953 532 02 14, 953 53 245 60, 953 532 03 99, 953 532 29 33</li>
+                                                    </ul>
+                                            
+                                                    </div>
+                                                    <div *ngIf="j === 3">
+                                                        <ul class="contact-info">
+                                                            <li><h3>Dra. Esther Lugo González<br>Ingeniería en Mecatrónica</h3></li>
+                                                            <li><i class="fas fa-envelope"></i> jcmecatronica@mixteco.utm.mx</li>
+                                                            <li><i class="fa fa-phone-square"></i> (01) 953 532 02 14, 953 53 245 60, 953 532 03 99, 953 532 29 33</li>
+                                                        </ul>
+                                                        </div>
+                                                        <div *ngIf="j === 4">
+                                                            <ul class="contact-info">
+                                                                <li><h3>Dr. Franco Barragán</h3></li>
+                                                                <li><i class="fas fa-envelope"></i> jcmatematicasaplicadas@mixteco.utm.mx</li>
+                                                                <li><i class="fa fa-phone-square"></i> (01) 953 532 02 14, 953 53 245 60, 953 532 03 99, 953 532 29 33</li>
+                                                            </ul>
+                                                            
+                                                    
+                                                            </div>
+                                                            <div *ngIf="j === 5">
+                                                                <ul class="contact-info">
+                                                                    <li><h3>Lic. Francisca Adriana Sánchez</h3></li>
+                                                                    <li><i class="fas fa-envelope"></i> jcempresariales@mixteco.utm.mx</li>
+                                                                    <li><i class="fa fa-phone-square"></i> (01) 953 532 02 14, 953 53 245 60, 953 532 03 99, 953 532 29 33</li>
+                                                                </ul>
+                                                                
+                                                                
+                                                                </div>
+                                                                <div *ngIf="j === 6">
+                                                                    <ul class="contact-info">
+                                                                        <li><h3>Dra. Paula Guadarrama Mendoza<br>Ingeniería en Alimentos</h3></li>
+                                                                        <li><i class="fas fa-envelope"></i> jcagroindustrias@mixteco.utm.mx</li>
+                                                                        <li><i class="fa fa-phone-square"></i> (01) 953 532 02 14, 953 53 245 60, 953 532 03 99, 953 532 29 33</li>
+                                                                    </ul>
+                                                                    
+                                                            
+                                                                    </div>
+                                                                    <div *ngIf="j === 7">
+                                                                        <ul class="contact-info">
+                                                                            <li><h3>Dr. Maxvell Jiménez Escamilla</h3></li>
+                                                                            <li><i class="fas fa-envelope"></i> jcfisicaaplicada@mixteco.utm.mx</li>
+                                                                            <li><i class="fa fa-phone-square"></i> (01) 953 532 02 14, 953 53 245 60, 953 532 03 99, 953 532 29 33</li>
+                                                                        </ul>
+                                                                        </div>
+                                                                        <div *ngIf="j === 8">
+                                                                            <ul class="contact-info">
+                                                                                <li><h3>Dr. Carlos Vázquez Cid de León</h3></li>
+                                                                                <li><i class="fas fa-envelope"></i> jcindustrial@mixteco.utm.mx</li>
+                                                                                <li><i class="fa fa-phone-square"></i> (01) 953 532 02 14, 953 53 245 60, 953 532 03 99, 953 532 29 33</li>
+                                                                            </ul>
+                                                                            
+                                                                        
+                                                                            
+                                                                            </div>
+                                                                            <div *ngIf="j === 9">
+                                                                                <ul class="contact-info">
+                                                                                    <li><h3>M.C. Víctor Manuel Cruz</h3></li>
+                                                                                    <li><i class="fas fa-envelope"></i> jcautomotriz@mixteco.utm.mx</li>
+                                                                                    <li><i class="fa fa-phone-square"></i> (01) 953 532 02 14, 953 53 245 60, 953 532 03 99, 953 532 29 33</li>
+                                                                                </ul>
+                                                                               
+                                                                        
+                                                                                </div>
+                                                                                <div *ngIf="j === 10">
+                                                                                    <ul class="contact-info">
+                                                                                    
+                                                                                        <li><h3>Dr. Héctor Gerardo Campos</h3></li>
+                                                                                        <li><i class="fas fa-envelope"></i> jccivil@mixteco.utm.mx</li>
+                                                                                        <li><i class="fa fa-phone-square"></i> (01) 953 532 02 14, 953 53 245 60, 953 532 03 99, 953 532 29 33</li>
+                                                                                    </ul>
+                                                                                    
+                                                                            
+                                                                                    </div>
+                                                                                    <div *ngIf="j === 11">
+                                                                                        <ul class="contact-info">
+                                                                                            <li><h3>Dra. Beatriz Hernández Carlos</h3></li>
+                                                                                            <li><i class="fas fa-envelope"></i>-</li>
+                                                                                            <li><i class="fa fa-phone-square"></i> (01) 953 532 02 14, 953 53 245 60, 953 532 03 99, 953 532 29 33</li>
+                                                                                        </ul>
+                                                                                        
+                                                                                        </div>
+                                         </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                                            </div>
+                                         </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>

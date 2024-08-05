@@ -1,0 +1,196 @@
+/* Estilos generales para el breadcrumb */
+.breadcrumb {
+    font-family: Georgia, Times New Roman, Serif;
+    font-size: 14px;
+    background-color: #4a1110;
+    padding: 10px 100px;
+    line-height: 1.20;
+    margin: 0px 0 15px 0;
+    font-weight: 400;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
+    margin-top: -7px;
+    margin-left:-7px;
+    margin-right: -7px;
+}
+
+.contenedor{
+    margin-left: 170px;
+}
+/* Contenedor de los ítems del breadcrumb */
+.breadcrumb__items {
+    list-style: none; /* Eliminar los puntos de la lista */
+    padding: 0; /* Eliminar el padding de la lista */
+    margin: 0; /* Eliminar el margen de la lista */
+    display: flex; /* Usar flexbox para alinear los elementos */
+    gap: 10px; /* Espacio entre los elementos del breadcrumb */
+    letter-spacing: 1px; /* Espacio entre letras */
+}
+
+/* Estilo para cada ítem del breadcrumb */
+.breadcrumb__item {
+    display: flex; /* Usar flexbox para alinear los elementos */
+    align-items: center; /* Alinear verticalmente los elementos */
+}
+
+/* Separador entre los ítems del breadcrumb */
+.breadcrumb__item-separator {
+    margin: 0 10px; /* Aumentar el espacio a los lados del separador */
+    font-size: 20px; /* Tamaño del icono del separador */
+    color: #fff; /* Color blanco para el icono del separador */
+    letter-spacing: 2px; /* Espacio entre el separador y los elementos */
+}
+
+/* Estilo de los enlaces en el breadcrumb */
+.breadcrumb__item a {
+    text-decoration: none; /* Eliminar el subrayado de los enlaces */
+    color: #fff; /* Color del enlace en blanco */
+}
+
+/* Estilo del enlace al pasar el mouse */
+.breadcrumb__item a:hover {
+    text-decoration: underline; /* Subrayar el enlace al pasar el mouse */
+}
+
+/* Estilo del texto de los elementos no clicables */
+.breadcrumb__item span {
+    color: #f8d7da; /* Color del texto de los elementos no clicables en un tono más claro */
+}
+
+/* Ajustar el estilo de los iconos de Font Awesome */
+.fa-angle-right {
+    font-family: "Font Awesome 5 Free"; /* Asegúrate de tener Font Awesome incluido */
+    font-weight: 900; /* Peso del icono */
+    color: #fff; /* Color blanco para el icono */
+}
+
+/* Estilos generales del contenedor */
+.wrapper {
+    display: flex; /* Usar flexbox para envolver los elementos */
+    margin-left: 70px;
+    margin-top: -20px;
+}
+
+/* Estilos para el menú lateral */
+.region-sidebar-first {
+    flex: 0 0 250px; /* Ancho fijo de la barra lateral */
+    background-color: transparent; /* Color de fondo de la barra lateral */
+    padding: 20px; /* Espacio interno dentro de la barra lateral */
+}
+
+.menu {
+    list-style: none; /* Eliminar los puntos de la lista */
+    padding: 0; /* Eliminar el padding de la lista */
+    margin: 0; /* Eliminar el margen de la lista */
+}
+
+.menu-item {
+    margin-bottom: 5px; /* Espacio entre cada ítem del menú */
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #2d2d2d;
+    padding: 10px 20px;
+    line-height: 150%;
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: padding-left 0.2s ease; /* Agregar una transición suave al padding izquierdo */
+    background-color: transparent !important; /* Hacer el fondo transparente */
+    border: none !important; /* Eliminar cualquier borde */
+}
+
+.menu-item a:hover {
+    padding-left: 30px; /* Aumentar el padding izquierdo al pasar el ratón */
+    background-color: transparent !important; /* Mantener el fondo transparente */
+    border: none !important; /* Mantener sin bordes */
+}
+
+/* Estilos para el contenido principal */
+.region-content {
+    flex: 1; /* El contenido principal ocupa el espacio restante */
+    padding: 0 20px; /* Espacio a los lados del contenido */
+}
+
+/* Estilos para el título de la página */
+h1.page-title {
+    margin-bottom: 20px;
+}
+
+h1.title {
+    margin-top: 80px;
+    margin-left: 130px; /* Ajusta este valor según el espacio deseado */
+}
+
+h1 {
+    font-size: 40px;
+    font-family: 'Playfair Display', Times New Roman, Serif;
+    line-height: 1.20;
+    padding: 0;
+    margin: 20px 0 15px 0;
+    font-weight: 400;
+}
+
+/* Contenedor de la imagen */
+.image-container {
+    margin: 0 auto 20px auto; /* Centramos la imagen y damos margen inferior */
+    max-width: 730px; /* La imagen ocupa el 100% del contenedor */
+    margin-left: 140px;
+}
+
+/* Estilos para la imagen */
+.field--name-field-portada-nuestra-universida img {
+    width: 100%; /* Asegurarse de que la imagen no se desborde del contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+}
+
+/* Ajustes de estilo para el texto de contenido */
+.text-container {
+    font-family: Georgia, Times New Roman, Serif;
+    max-width: 100%; /* Ancho máximo del contenedor de texto */
+    margin: 0 auto; /* Centrar el contenedor de texto */
+    padding: 0; /* Espacio a los lados del contenedor */
+    line-height: calc(155% + 0.2vw);
+    font-size: calc(0.9em + 0.3vw);
+    margin-bottom: 50px; /* Agregar margen inferior para separar del pie de página */
+}
+
+/* Estilo adicional para el contenedor del bloque de título */
+#region-content {
+    margin: 0; /* Asegura que no hay márgenes adicionales alrededor del bloque */
+}
+
+/* Estilos adicionales según sea necesario */
+.button {
+    background-color: #4a1110; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    padding: 10px 20px; /* Relleno del botón */
+    text-decoration: none; /* Eliminar subrayado del enlace */
+   
+    margin: 0 10px; /* Espacio entre botones */
+}
+
+.button:hover {
+    background-color: #6c1a17; /* Color de fondo al pasar el mouse sobre el botón */
+}
+
+h2{
+color: transparent;
+}
+
+.menu-item a::before {
+    content: "\f054"; /* Icono de Font Awesome para el triángulo desplegable */
+    /*content: "\f13a"; /* Icono de Font Awesome para el triángulo desplegable */
+    font-family: "Font Awesome 5 Free"; /* Asegúrate de tener Font Awesome incluido */
+    font-weight: 900; /* Peso del icono */
+    color: #000; /* Color rojo para el icono */
+    font-size: 8px; /* Tamaño del icono */
+    margin-right: 10px;
+    
+}
+
+
+.menu-item a.is-active{
+    color: #6D1F1F;
+}

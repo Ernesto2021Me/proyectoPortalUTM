@@ -1,0 +1,17 @@
+<!-- pruebas.component.html -->
+
+<div class="carousel">
+  <div class="carousel-track" [style.transform]="translateValue">
+    <a *ngFor="let image of images; let i = index"
+       [href]="image.src" target="_blank"
+       class="carousel-item" [ngClass]="{'active': i === currentIndex}"
+       (click)="changeImage(i)">
+      <img [src]="image.src" [alt]="image.alt">
+    </a>
+  </div>
+  <div class="carousel-dots">
+    <span *ngFor="let image of images; let i = index"
+          class="dot" [ngClass]="{'active': i === currentIndex}"
+          (click)="changeImage(i)"></span>
+  </div>
+</div>

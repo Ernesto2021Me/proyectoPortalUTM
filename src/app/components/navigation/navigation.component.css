@@ -1,0 +1,300 @@
+/* Estilos generales para las imágenes */
+.logo-and-site-name-wrapper {
+  text-align: center; /* Centra el contenido dentro del contenedor */
+}
+
+.logo {
+  display: inline-block; /* Permite que el contenedor se ajuste al tamaño de su contenido */
+  margin-top: 80px; /* Margen de 90px arriba */
+  margin-bottom: 50px; /* Margen de 50px abajo */
+  margin-left: 80px; /* Margen de 40px a la izquierda */
+  margin-right: 80px; /* Margen de 40px a la derecha */
+}
+
+.logo img {
+  display: block; /* Asegura que la imagen se comporte como bloque */
+  max-width: 100%; /* Ajusta la imagen para que no se extienda más allá de su tamaño original */
+  height: auto; /* Mantiene la proporción de la imagen */
+  border: 0; /* Quita el borde predeterminado */
+}
+
+
+
+/* Estilos generales para la barra de navegación */
+nav.navbar {
+  background-color: transparent;
+  padding: 1em 0.5em;
+  position: relative;
+  font-family: Times, Georgia, serif;
+  border-top: 0.001px solid rgba(176, 176, 176, 0.1);
+  box-shadow: var(--lt-shadowDefault);
+  
+  margin-top: 20px;
+  margin-bottom: 0px;
+  z-index: 1000;
+  
+}
+
+/* Estilos para el menú principal */
+.main-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Estilos para los ítems del menú */
+.main-menu > li {
+  position: relative;
+  margin: 0 1em;
+}
+
+/* Estilos para los ítems del menú que tienen submenú */
+.menuparent > a:after {
+  content: "\f107";
+  font-family: 'FontAwesome';
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  font-weight: 400;
+  line-height: 20px;
+  font-size: 8px;
+  color: #2d2d2d;
+  
+  transform: translateY(-50%);
+}
+
+/* Estilos para los botones de los submenús */
+.menu-button {
+  background-color: #fff;
+  border: none;
+  font-family: Times, Georgia, serif;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  color: #2d2d2d;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  position: relative;
+}
+
+
+/* Estilos al pasar el ratón sobre los botones del menú */
+.menu-button:hover,
+.menu-button:focus {
+  background-color: #f1f3f9;
+  color: #007bff;
+}
+
+/* Estilos para los submenús */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid rgba(176, 176, 176, 0.9);
+  box-shadow: var(--lt-shadowDefault);
+  z-index: 1000;
+  min-width: 200px;
+  border-radius: 4px;
+  list-style: none;
+  padding: 0;
+  
+}
+
+/* Mostrar submenú al pasar el ratón sobre el ítem del menú */
+.menuparent:hover > .submenu {
+  display: block;
+  
+}
+
+/* Estilos para los ítems del submenú */
+.submenu li {
+  position: relative;
+  
+}
+
+/* Estilos para los enlaces en el submenú */
+.submenu li a {
+  text-decoration: none;
+  color: #2d2d2d;
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 0.3em 1em;
+  
+}
+
+/* Estilos al pasar el ratón sobre los enlaces en el submenú */
+.submenu li a:hover,
+.submenu li a:focus {
+  background-color: #f1f3f9;
+  color: #007bff;
+}
+
+/* Estilos para los submenús de nivel 2 */
+.sf-depth-2 {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #fff;
+  border: 1px solid rgba(176, 176, 176, 0.9);
+  box-shadow: var(--lt-shadowDefault);
+  z-index: 1000;
+  min-width: 200px;
+  border-radius: 4px;
+  list-style: none;
+  padding: 0;
+}
+
+
+/* Mostrar submenú de nivel 2 al pasar el ratón sobre el ítem del submenú */
+.submenu > li:hover > .sf-depth-2 {
+  display: block;
+}
+
+/* Estilos para los enlaces en el submenú de nivel 2 */
+.sf-depth-2 a {
+  text-decoration: none;
+  color: #2d2d2d;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0.3em 1em;
+}
+
+/* Estilos al pasar el ratón sobre los enlaces en el submenú de nivel 2 */
+.sf-depth-2 a:hover,
+.sf-depth-2 a:focus {
+  background-color: #f1f3f9;
+  color: #007bff;
+}
+
+/* Estilos para los submenús de nivel 3 */
+.sf-depth-3 {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #fff;
+  border: 1px solid rgba(176, 176, 176, 0.9);
+  box-shadow: var(--lt-shadowDefault);
+  z-index: 1000;
+  min-width: 200px;
+  border-radius: 4px;
+  list-style: none;
+  padding: 0;
+}
+
+/* Mostrar submenú de nivel 3 al pasar el ratón sobre el ítem del submenú de nivel 2 */
+.sf-depth-2 > li:hover > .sf-depth-3 {
+  display: block;
+}
+
+/* Estilos para los enlaces en el submenú de nivel 3 */
+.sf-depth-3 a {
+  text-decoration: none;
+  color: #2d2d2d;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0.3em 1em;
+}
+
+/* Estilos al pasar el ratón sobre los enlaces en el submenú de nivel 3 */
+.sf-depth-3 a:hover,
+.sf-depth-3 a:focus {
+  background-color: #f1f3f9;
+  color: #007bff;
+}
+
+/* Estilos para el submenú de nivel 4 */
+.sf-depth-4 {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #fff;
+  border: 1px solid rgba(176, 176, 176, 0.9);
+  box-shadow: var(--lt-shadowDefault);
+  z-index: 1000;
+  min-width: 200px;
+  border-radius: 4px;
+  list-style: none;
+  padding: 0;
+}
+
+/* Mostrar submenú de nivel 4 al pasar el ratón sobre el ítem del submenú de nivel 3 */
+.sf-depth-3 > li:hover > .sf-depth-4 {
+  display: block;
+}
+
+/* Estilos para los enlaces en el submenú de nivel 4 */
+.sf-depth-4 a {
+  text-decoration: none;
+  color: #2d2d2d;
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0.3em 1em;
+}
+
+/* Estilos al pasar el ratón sobre los enlaces en el submenú de nivel 4 */
+.sf-depth-4 a:hover,
+.sf-depth-4 a:focus {
+  background-color: #f1f3f9;
+  color: #007bff;
+}
+
+/* Estilos para el indicador de flecha en los botones de los submenús */
+
+
+/* Estilos para los enlaces en el menú */
+a {
+  color: #2d2d2d;
+  text-decoration: none;
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Estilos para los enlaces en los ítems del menú */
+.header-container ul.menu li a {
+  font-size: 18px;
+  padding: 5px 23px;
+}
+
+/* Estilos para el menú en pantallas pequeñas */
+@media (max-width: 1199px) {
+  .main-menu {
+    text-align: left;
+    flex-direction: column;
+  }
+
+  .main-menu > li {
+    margin: 0;
+  }
+
+  .submenu {
+    position: static;
+    border: 1px solid rgba(176, 176, 176, 0.9);
+    box-shadow: none;
+    display: none;
+  }
+
+  .menuparent:hover > .submenu,
+  .submenu:hover {
+    display: block;
+  }
+
+  .header-container ul.menu li a {
+    margin: 0;
+  }
+}

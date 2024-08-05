@@ -1,0 +1,314 @@
+/* Estilos generales para el breadcrumb */
+.breadcrumb {
+    font-family: Georgia, Times New Roman, Serif;
+    font-size: 14px; /* Tamaño de fuente */
+    background-color: #4a1110;
+    padding: 10px 100px; /* Padding ajustado para mover el contenido más a la izquierda */
+    line-height: 1.20;
+    margin: 20px 0 15px 0;
+    font-weight: 400;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    line-height: 1.5; /* Ajustar el espaciado entre líneas si es necesario */
+}
+
+/* Contenedor de los ítems del breadcrumb */
+.breadcrumb__items {
+    list-style: none; /* Eliminar los puntos de la lista */
+    padding: 0; /* Eliminar el padding de la lista */
+    margin: 0; /* Eliminar el margen de la lista */
+    display: flex; /* Usar flexbox para alinear los elementos */
+    gap: 10px; /* Espacio entre los elementos del breadcrumb */
+    letter-spacing: 1px; /* Espacio entre letras */
+}
+
+/* Estilo para cada ítem del breadcrumb */
+.breadcrumb__item {
+    display: flex; /* Usar flexbox para alinear los elementos */
+    align-items: center; /* Alinear verticalmente los elementos */
+}
+
+/* Separador entre los ítems del breadcrumb */
+.breadcrumb__item-separator {
+    margin: 0 10px; /* Aumentar el espacio a los lados del separador */
+    font-size: 20px; /* Tamaño del icono del separador */
+    color: #fff; /* Color blanco para el icono del separador */
+    letter-spacing: 2px; /* Espacio entre el separador y los elementos */
+}
+
+/* Estilo de los enlaces en el breadcrumb */
+.breadcrumb__item a {
+    text-decoration: none; /* Eliminar el subrayado de los enlaces */
+    color: #fff; /* Color del enlace en blanco */
+}
+
+/* Estilo del enlace al pasar el mouse */
+.breadcrumb__item a:hover {
+    text-decoration: underline; /* Subrayar el enlace al pasar el mouse */
+}
+
+/* Estilo del texto de los elementos no clicables */
+.breadcrumb__item span {
+    color: #f8d7da; /* Color del texto de los elementos no clicables en un tono más claro */
+}
+
+/* Ajustar el estilo de los iconos de Font Awesome */
+.fa-angle-right {
+    font-family: "Font Awesome 5 Free"; /* Asegúrate de tener Font Awesome incluido */
+    font-weight: 900; /* Peso del icono */
+    color: #fff; /* Color blanco para el icono */
+}
+
+/* Estilos generales del contenedor */
+.content-container {
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 0 20px; /* Espacio a los lados del contenedor */
+}
+
+/* Estilos para el título de la página */
+h1.page-title {
+    margin-bottom: 20px;
+}
+
+/* Asegurarse de que el título esté alineado con la imagen */
+h1.title {
+    margin: 20px 0 15px 0; /* Mismo margen que la imagen */
+    padding: 0 20px; /* Igualar el padding a los lados del contenedor del título */
+    text-align: center; /* Centrar el título */
+}
+
+/* Estilos del título de la página */
+h1 {
+    font-size: 40px;
+    font-family: 'Playfair Display', Times New Roman, Serif;
+    line-height: 1.20;
+    padding: 0;
+    margin: 20px 0 15px 0;
+    font-weight: 400;
+    text-align: center; /* Centrar el título */
+}
+
+/* Estilos para los subtítulos */
+h4 {
+    font-size: 26px;
+    font-family: 'Playfair Display', Times New Roman, Serif;
+    line-height: 1.20;
+    padding: 0;
+    margin: 20px 0 15px 0;
+    font-weight: 400;
+}
+
+h5 {
+    font-size: 20px;
+    font-family: 'Playfair Display', Times New Roman, Serif;
+    line-height: 1.20;
+    padding: 0;
+    margin: 20px 0 15px 0;
+    font-weight: 400;
+}
+
+/* Contenedor de la imagen */
+.image-container {
+    width: 100%; /* O el ancho deseado, por ejemplo, 800px */
+    height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+    max-width: 800px; /* Ancho máximo del contenedor de la imagen */
+    max-height: 450px; /* Altura máxima del contenedor de la imagen */
+    margin: 0 auto 20px auto; /* Centrar la imagen y añadir margen inferior */
+    padding: 0 20px; /* Espacio a los lados del contenedor */
+    overflow: hidden; /* Evita que la imagen se desborde del contenedor */
+}
+
+.image-container img {
+    width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+    max-height: 400px; /* Limita la altura máxima para no sobrepasar el contenedor */
+    object-fit: contain; /* Ajusta la imagen para que esté completamente visible */
+}
+
+/* Ajustes de estilo para el texto de contenido */
+.text-container {
+    font-family: Georgia, Times New Roman, Serif;
+    max-width: 800px; /* Asegurar que el contenedor de texto tenga el mismo ancho máximo que la imagen */
+    margin: 0 auto; /* Centrar el contenedor de texto */
+    padding: 0 20px; /* Espacio a los lados del contenedor */
+    line-height: calc(155% + 0.2vw);
+    font-size: calc(0.9em + 0.3vw);
+    margin-bottom: 50px; /* Agregar margen inferior para separar del pie de página */
+}
+
+/* Estilo adicional para el contenedor del bloque de título */
+#region-content {
+    margin: 0; /* Asegura que no hay márgenes adicionales alrededor del bloque */
+}
+
+/* Estilos para el contenedor de los paneles del acordeón */
+.accordion-container {
+    margin: 20px 0; /* Añadir espacio superior e inferior a los paneles del acordeón */
+    max-width: 800px; /* Ajustar el ancho máximo del acordeón para que sea igual al ancho de la imagen */
+    margin-left: auto; /* Alinear el acordeón al centro del contenedor */
+    margin-right: auto; /* Alinear el acordeón al centro del contenedor */
+}
+
+/* Estilo para los paneles del acordeón */
+.panel-group {
+    border: 1px solid #ddd; /* Borde sutil alrededor del acordeón */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+/* Estilo para las cabeceras del panel */
+.panel-heading {
+    background-color: #fff; /* Fondo blanco para las cabeceras */
+    color: #4a1110; /* Texto rojo en las cabeceras */
+    cursor: pointer; /* Cambiar el cursor a mano para indicar que es clickeable */
+    padding: 10px 15px; /* Espaciado interno de la cabecera */
+    border-bottom: 1px solid #ddd; /* Borde inferior para separar las cabeceras del contenido */
+    display: flex; /* Usar flexbox para alinear los elementos */
+    justify-content: space-between; /* Alinear los elementos a los extremos */
+    align-items: center; /* Alinear verticalmente los elementos */
+}
+
+/* Estilo para los títulos de los paneles */
+.panel-title a {
+    color: #4a1110; /* Color rojo para el texto de los enlaces */
+    text-decoration: none; /* Eliminar el subrayado de los enlaces en el acordeón */
+}
+
+/* Estilo para el contenido del panel */
+.panel-body {
+    padding: 10px 15px; /* Espaciado interno del cuerpo del panel */
+    font-size: 14px; /* Tamaño de fuente para el texto del cuerpo */
+    color: #333; /* Color del texto en el cuerpo del panel */
+}
+
+/* Estilo para el contenido del panel cuando está abierto */
+.panel-collapse {
+    border-top: 1px solid #ddd; /* Borde superior para el contenido desplegado */
+    border-bottom-left-radius: 4px; /* Redondear las esquinas inferiores del contenido */
+    border-bottom-right-radius: 4px; /* Redondear las esquinas inferiores del contenido */
+}
+
+/* Mostrar el contenido del panel cuando está abierto */
+.panel-heading.active + .panel-collapse {
+    display: block; /* Mostrar el contenido cuando la cabecera está activa */
+}
+
+/* Estilo para el icono de despliegue en la cabecera */
+.panel-heading::after {
+    content: "\f078"; /* Icono de Font Awesome para el triángulo desplegable */
+    font-family: "Font Awesome 5 Free"; /* Asegúrate de tener Font Awesome incluido */
+    font-weight: 900; /* Peso del icono */
+    color: #4a1110; /* Color rojo para el icono */
+    font-size: 16px; /* Tamaño del icono */
+}
+
+/* Cambiar el icono cuando el panel está abierto */
+.panel-heading.active::after {
+    content: "\f077"; /* Icono de Font Awesome para el triángulo hacia arriba */
+    font-family: "Font Awesome 5 Free"; /* Asegúrate de tener Font Awesome incluido */
+    font-weight: 900; /* Peso del icono */
+    color: #4a1110; /* Color rojo para el icono */
+    font-size: 16px; /* Tamaño del icono */
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    .image-container {
+        max-width: 100%; /* Asegura que la imagen ocupe el 100% del ancho del contenedor */
+    }
+
+    .accordion-container {
+        max-width: 100%; /* Asegura que el acordeón ocupe el 100% del ancho del contenedor */
+    }
+}
+
+/* Estilos para la barra lateral izquierda */
+/* Estilos generales del contenedor */
+.wrapper {
+    display: flex; /* Usar flexbox para envolver los elementos */
+}
+
+/* Estilos para el menú lateral */
+.region-sidebar-first {
+    flex: 0 0 250px; /* Ancho fijo de la barra lateral */
+    background-color: transparent; /* Color de fondo de la barra lateral */
+    padding: 20px; /* Espacio interno dentro de la barra lateral */
+}
+
+/* Estilo para la lista de menús */
+.menu {
+    list-style: none; /* Eliminar los puntos de la lista */
+    padding: 0; /* Eliminar el padding de la lista */
+    margin: 0; /* Eliminar el margen de la lista */
+}
+
+/* Estilo para los ítems del menú principal */
+.menu-item {
+    margin-bottom: 10px; /* Espacio entre cada ítem del menú */
+}
+
+/* Estilo para los enlaces en los ítems del menú */
+.menu-item a {
+    text-decoration: none;
+    color: #2d2d2d;
+    padding: 10px 20px;
+    line-height: 150%;
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: padding-left 0.2s ease; /* Agregar una transición suave al padding izquierdo */
+    background-color: transparent !important; /* Hacer el fondo transparente */
+    border: none !important; /* Eliminar cualquier borde */
+}
+
+/* Indentar los submenús */
+.menu > .menu-item > .menu {
+    margin-left: 20px; /* Indentar los submenús */
+    padding-left: 0; /* Eliminar el padding izquierdo del submenú */
+}
+
+/* Estilo para los ítems en los submenús */
+.menu > .menu-item > .menu > .menu-item {
+    margin-bottom: 5px; /* Espacio entre ítems en el submenú */
+}
+
+/* Estilo para los enlaces en los submenús */
+.menu > .menu-item > .menu > .menu-item > a {
+    font-size: 11px; /* Tamaño de fuente más pequeño para los submenús */
+}
+
+/* Efecto de hover para los ítems del menú lateral */
+.menu-item a:hover {
+    padding-left: 30px; /* Aumentar el padding izquierdo al pasar el ratón */
+    background-color: transparent !important; /* Mantener el fondo transparente */
+    border: none !important; /* Mantener sin bordes */
+}
+
+/* Estilos para los subtítulos */
+h2 {
+    color: transparent; /* Asegura que el color del texto h2 sea transparente */
+}
+
+/* Eliminar el subrayado de los enlaces en el acordeón */
+.panel-title a {
+    text-decoration: none; /* Eliminar el subrayado de los enlaces en el acordeón */
+    color: #4a1110; /* Color del texto de los enlaces del acordeón */
+}
+
+/* Añadir el símbolo '>' antes de cada elemento de la lista en el acordeón */
+.panel-body ul {
+    list-style: none; /* Eliminar los puntos de la lista */
+    padding: 0; /* Eliminar el padding de la lista */
+    margin: 0; /* Eliminar el margen de la lista */
+}
+
+.panel-body ul li {
+    position: relative;
+    padding-left: 20px; /* Espacio para el símbolo '>' */
+}
+
+.panel-body ul li::before {
+    content: '>'; /* Agregar el símbolo '>' antes del contenido de cada <li> */
+    position: absolute;
+    left: 0; /* Posicionar el símbolo '>' a la izquierda */
+    color: #4a1110; /* Ajusta el color del símbolo según sea necesario */
+    font-size: 16px; /* Ajustar el tamaño del símbolo si es necesario */
+}

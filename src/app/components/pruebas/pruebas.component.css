@@ -1,0 +1,56 @@
+
+.carousel {
+    width: 100%; /* Ajusta según tu diseño */
+    max-width: 800px; /* Ejemplo de máximo ancho */
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    border: 1px solid #ddd; /* Borde para resaltar el carrusel */
+  }
+  
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    margin: 0 -10px; /* Margen negativo para separación visual entre ítems */
+  }
+  
+  .carousel-item {
+    flex: 0 0 auto;
+    width: 100%; /* Ajusta el ancho del contenedor de cada imagen */
+    display: none;
+  }
+  
+  .carousel-item.active {
+    display: block;
+  }
+  
+  .carousel-item img {
+    width: 100%; /* Ajuste para que las imágenes se ajusten al contenedor */
+    height: auto; /* Evita distorsiones manteniendo la proporción */
+    object-fit: cover; /* Ajusta la imagen sin distorsionar */
+    display: block;
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+    max-width: 100%; /* Asegura que la imagen no supere el ancho del contenedor */
+    height: 500px; /* Altura fija para todas las imágenes */
+  }
+  
+  .carousel-dots {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .dot {
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: #007BFF;
+  }
+  

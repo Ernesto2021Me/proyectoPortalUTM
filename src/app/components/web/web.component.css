@@ -1,0 +1,201 @@
+/* Estilos para el título "Actualidad centrado" */
+.actualidad-centrado {
+    font-size: 30px;
+    padding-top: 15px; 
+    margin: 20px 0 40px 0;
+    border-width: 2px 0 0 0; 
+    border-top-style: solid;
+    border-color: #eeeeee;
+    font-weight: 300;
+    text-align: center;
+    font-family: 'Playfair Display', Times New Roman, Serif;
+}
+
+/* Estilos para el contenedor de las tarjetas de jornada */
+.jornada-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1200px;
+}
+
+/* Estilo para cada tarjeta */
+.card {
+    background: transparent;
+    border: 0px solid transparent;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: none;
+    width: calc(25% - 15px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+}
+
+/* Encabezado de la tarjeta */
+.card-header {
+    padding: 0;
+    font-weight: 300;
+}
+
+/* Imagen en la tarjeta */
+.card-image-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Estilo para el enlace de la imagen */
+.overlay-target-link {
+    display: block;
+}
+
+/* Imagen en la tarjeta */
+.card-image-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Capa de overlay para oscurecer la imagen */
+.card-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Mostrar el overlay y el icono de "+" cuando el ratón está sobre la imagen */
+.card-image-wrapper:hover::before {
+    opacity: 1;
+}
+
+.card-image-wrapper:hover img {
+    opacity: 0.8;
+}
+
+/* Icono de "+" sobre la imagen */
+.overlay-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Mostrar el icono de "+" cuando el ratón está sobre la imagen */
+.card-image-wrapper:hover .overlay-icon {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Estilo para el enlace "Ver más" en la tarjeta */
+.card-link {
+    margin-top: 10px;
+}
+
+.card-link a {
+    background-color: #4a1110;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 8px 15px;
+    color: #ffffff;
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.card-link a:hover {
+    background-color: #3d0a08;
+}
+
+/* Eliminar el punto de la lista de "Ver más" */
+.card-link ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Playfair Display', Times New Roman, Serif;
+}
+
+/* Estilos para el enlace "Ir al UTEMITA" */
+.more-link {
+    text-align: center;
+    margin: 50px 0 10px 0;
+    font-family: 'Playfair Display', Times New Roman, Serif;
+}
+
+.more-link a {
+    background-color: #4a1110;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 8px 15px;
+    color: #ffffff;
+    display: inline-block;
+    line-height: 1.2;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    text-decoration: none;
+    font-family: 'Playfair Display', Times New Roman, Serif;
+}
+
+.more-link a:hover {
+    background-color: #3d0a08;
+    border-color: #3d0a08;
+}
+
+/* Estilos para los enlaces */
+a {
+    color: #4a1110;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #333;
+}
+
+/* Ajustes generales */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playfair Display', Times New Roman, Serif;
+    font-size: 18px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para el texto dentro de las tarjetas */
+.card-date {
+    color: #000;
+    font-family: 'Playfair Display', Times New Roman, Serif;
+    font-size: 15px;
+}

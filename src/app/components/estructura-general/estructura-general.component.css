@@ -1,0 +1,273 @@
+/* Estilos generales para el breadcrumb */
+.breadcrumb {
+    font-family: Georgia, Times New Roman, Serif;
+    font-size: 14px;
+    background-color: #4a1110;
+    padding: 10px 100px;
+    line-height: 1.20;
+    margin: 0px 0 15px 0;
+    font-weight: 400;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
+}
+
+.breadcrumb__items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    letter-spacing: 1px;
+}
+
+.breadcrumb__item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb__item-separator {
+    margin: 0 10px;
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.breadcrumb__item a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.breadcrumb__item a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb__item span {
+    color: #f8d7da;
+}
+
+.fa-angle-right {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #fff;
+}
+
+/* Estructura principal */
+.wrapper {
+    display: flex;
+    gap: 20px; /* Espacio entre el menú y el contenido */
+    margin-left: 70px;
+    margin-top: -20px;
+}
+
+/* Estilos para el menú lateral */
+.region-sidebar-first {
+    flex: 0 0 250px; /* Ancho fijo del menú lateral */
+    background-color: transparent;
+    padding: 20px;
+}
+
+/* Estilos para el contenido principal */
+.region-content {
+    flex: 1; /* Permitir que el contenido principal use el espacio restante */
+    max-width: 1140px;
+    padding: 20px;
+}
+
+/* Estilos para los elementos de contenido */
+h1.page-title {
+    margin-bottom: 20px;
+}
+
+h1.title {
+    margin-top: 70px;
+    margin-left: 110px; /* Ajusta este valor según el espacio deseado */
+}
+
+h1 {
+    font-size: 40px;
+    font-family: 'Playfair Display', Times New Roman, Serif;
+    line-height: 1.20;
+    padding: 0;
+    margin: 20px 0 15px 0;
+    font-weight: 400;
+}
+
+h4 {
+    font-size: 26px;
+    font-family: 'Playfair Display', Times New Roman, Serif;
+    line-height: 1.20;
+    padding: 0;
+    margin: 20px 0 15px 0;
+    font-weight: 400;
+}
+
+h5 {
+    font-size: 20px;
+    font-family: 'Playfair Display', Times New Roman, Serif;
+    line-height: 1.20;
+    padding: 0;
+    margin: 20px 0 15px 0;
+    font-weight: 400;
+}
+
+.image-container {
+    margin: 0 auto 20px auto;
+    max-width: 1140px;
+    padding: 0 20px; /* Puedes ajustar el padding izquierdo aquí */
+    padding-left: 70px; /* Ajusta este valor para el espacio deseado */
+    margin-left: 50px; /* Ajusta este valor según el espacio deseado */
+    margin-bottom: 40px;
+}
+
+.text-container {
+    font-family: Georgia, Times New Roman, Serif;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0 20px;
+    line-height: calc(155% + 0.2vw);
+    font-size: calc(0.9em + 0.2vw);
+    margin-bottom: 50px;
+    margin-left: 110px; /* Ajusta este valor según el espacio deseado */
+}
+
+.accordion-container {
+    width: 100%; /* Ajusta el ancho del contenedor del acordeón al 100% del contenedor padre */
+    max-width: 800px; /* Ajusta el ancho máximo del contenedor del acordeón */
+    margin: 20px auto; /* Centra el contenedor del acordeón horizontalmente */
+
+}
+
+.panel-group {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    
+}
+
+.panel-heading.active {
+    background-color: #e2e2e2; /* Fondo gris más oscuro cuando está activo */
+    
+}
+
+.panel-heading {
+    background-color: #fff;
+    color: #4a1110;
+    cursor: pointer;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    font-size: 12px;
+}
+
+.panel-title a {
+    color: #4a1110;
+    text-decoration: none;
+}
+
+.panel-body {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+.panel-collapse {
+    border-top: 1px solid #ddd;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.panel-heading.active + .panel-collapse {
+    display: block;
+}
+
+.panel-heading::after {
+    content: "\f078";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #f0f0f0;
+    font-size: 10px;
+    display: inline-block;
+    width: 30px; /* Ancho del círculo */
+    height: 30px; /* Alto del círculo */
+    line-height: 30px; /* Para centrar verticalmente el texto */
+    text-align: center; /* Para centrar horizontalmente el texto */
+    border-radius: 50%; /* Círculo */
+    background-color: #4a1110; /* Color de fondo del círculo */
+    position: absolute; /* Posiciona el círculo en relación al contenedor */
+    right: 10px; /* Ajustar según la ubicación deseada */
+    top: 50%; /* Centrar verticalmente */
+    transform: translateY(-50%); /* Ajustar verticalmente */
+    margin-right: 20px;
+}
+
+.panel-heading.active::after {
+    content: "\f077";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #f0f0f0;
+    font-size: 10px;
+    display: inline-block;
+    width: 30px; /* Ancho del círculo */
+    height: 30px; /* Alto del círculo */
+    line-height: 30px; /* Para centrar verticalmente el texto */
+    text-align: center; /* Para centrar horizontalmente el texto */
+    border-radius: 50%; /* Círculo */
+    background-color: #4a1110; /* Color de fondo del círculo */
+    position: absolute; /* Posiciona el círculo en relación al contenedor */
+    right: 10px; /* Ajustar según la ubicación deseada */
+    top: 50%; /* Centrar verticalmente */
+    transform: translateY(-50%); /* Ajustar verticalmente */
+    margin-right: 20px;
+}
+
+/* Estilos adicionales para el menú lateral */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    margin-bottom: 5px;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #2d2d2d;
+    padding: 10px 20px;
+    line-height: 150%;
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: padding-left 0.2s ease;
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.menu-item a:hover {
+    padding-left: 30px;
+    background-color: transparent !important;
+    border: none !important;
+}
+
+h2 {
+    color: transparent;
+}
+
+.menu-item a::before {
+    content: "\f054"; /* Icono de Font Awesome para el triángulo desplegable */
+    /*content: "\f13a"; /* Icono de Font Awesome para el triángulo desplegable */
+    font-family: "Font Awesome 5 Free"; /* Asegúrate de tener Font Awesome incluido */
+    font-weight: 900; /* Peso del icono */
+    color: #000; /* Color rojo para el icono */
+    font-size: 8px; /* Tamaño del icono */
+    margin-right: 10px;
+    
+}
+
+
+.menu-item a.highlight-red {
+    color: #6D1F1F;
+}
