@@ -309,18 +309,105 @@
                                                 text-decoration: none;
                                                 color:#4a1110;
                                             }
+                                            ul.custom-bullets {
+      list-style-type: none; /* Elimina las viñetas predeterminadas */
+      padding-left: 0; /* Elimina el padding predeterminado */
+    }
+
+    ul.custom-bullets li {
+      position: relative; /* Necesario para posicionar el pseudo-elemento */
+      padding-left: 10px; /* Espacio para el asterisco */
+    }
+
+    ul.custom-bullets li::before {
+      content: "*"; /* Asterisco como contenido */
+      position: absolute; /* Posicionamiento absoluto */
+      left: 0; /* Posiciona el asterisco a la izquierda del texto */
+      color: #4a1110; /* Color del asterisco */
+      font-size: 1.2em; /* Tamaño del asterisco */
+    }
+                                        
                                         </style>
                                         <div class="servicio">
                                         <ul>
-                                            <li><a href="">Solicitud</a></li>
+                                            <li><a href="assets/pdf/2.-RegistroDeServicioSocial.pdf" target="_blank">Solicitud</a></li>
                                             <li>Cronograma de Servicio Social</li>
+                                            
+                                            <ul class="custom-bullets">
+                                            <li><a  href="assets/docx/1.-CronogramaDeActividadesDeServicioSocial.docx" download="1.-CronogramaDeActividadesDeServicioSocial.docx">DOCX</a></li>
+                                            <li><a  href="assets/pdf/1.-CronogramaDeActividadesDeServicioSocial.pdf" download="1.-CronogramaDeActividadesDeServicioSocial.pdf">PDF</a></li>
+                                        </ul>
+                                 
                                             <li>Reporte Mensual</li>
-                                            <li><a href="">Reporte Final</a></li>
-                                            <li><a href="">Evaluación Final</a></li>
+                                            <ul class="custom-bullets">
+                                                <li><a href="assets/docx/3.-ReporteParcialDeActividadesDelServicioSocial.docx" download="3.-ReporteParcialDeActividadesDelServicioSocial.docx">DOCX</a></li>
+                                                <li><a href="assets/pdf/3.-ReporteParcialDeActividadesDelServicioSocial.pdf" download="3.-ReporteParcialDeActividadesDelServicioSocial.pdf">PDF</a></li>
+                                            </ul>
+                                            <li><a href="assets/pdf/4.-ReporteFinalDelServicioSocial.pdf" target="_blank">Reporte Final</a></li>
+                                            <li><a href="assets/pdf/5.-FormatoParaRecepcionDeDocumentosDeServicioSocial.pdf" target="_blank">Recepcion de Documentos</a></li>
                                         </ul>
                                     </div>
                                         </div>
+                                        <div *ngIf="i === 7">
+                                            Estancias profesionales en revision por parte de las autoridades universitarias correspondientes.
+                                        </div>
 
+                                        <div *ngIf="i === 8">
+                                            Proceso de Titulacion en revision por parte de las autoridades universitarias correspondientes.
+                                        </div>
+                                        <div *ngIf="i === 9">
+                                            s
+                                       </div>
+                                       <div *ngIf="i === 10">
+           
+                                    </div>
+                                    <div *ngIf="i === 11">
+                                        <style>
+                                                    ul.formatos {
+      list-style-type: none; /* Elimina las viñetas predeterminadas */
+      padding-left: 0; /* Elimina el padding predeterminado */
+      font-size: 15px;
+    }
+
+    ul.formatos li {
+      position: relative; /* Necesario para posicionar el pseudo-elemento */
+      padding-left: 10px; /* Espacio para el asterisco */
+    }
+
+    ul.formatos li::before {
+      content: "*"; /* Asterisco como contenido */
+      position: absolute; /* Posicionamiento absoluto */
+      left: 0; /* Posiciona el asterisco a la izquierda del texto */
+      color: #4a1110; /* Color del asterisco */
+      font-size: 1.2em; /* Tamaño del asterisco */
+    }
+                                        </style>
+                                        <div class="servicio">
+                                        <ul>
+                                            <li>Curso Propedéutico - Guías de examen</li>
+                                            <ul class="formatos">
+                                                <li><a  href="assets/pdf/GUIA_INGENIERIAS_Y_LIC_MATEMATICAS_APLICADAS.pdf" target="_blank" >Para Ingenierías y Ciencias Exactas</a></li>
+                                                <li><a  href="assets/pdf/GUIA_CIENCIAS_SOCIALES.pdf" target="_blank" >Para Ciencias Sociales</a></li>
+                                            </ul><br>
+                                            <li>Curso Propedéutico - Temarios de examen</li>
+                                            <ul class="formatos">
+                                                <li><a  href="assets/pdf/DisenoAlgoritmos-PropedeuticoCorto.pdf" target="_blank" >Prope corto - Diseño de Algoritmos</a></li>
+                                                <li><a  href="assets/pdf/DisenoAlgoritmos-PropedeuticoLargo.pdf" target="_blank" >Prope largo - Diseño de Algoritmos</a></li>
+                                                <li><a  href="assets/pdf/Fisica-PropedeuticoLargoyCorto.pdf" target="_blank" >Prope largo & corto - Física</a></li>
+                                                <li><a  href="assets/pdf/LogicaIngenieriasyEmpresariales.pdf" target="_blank" >Lógica Matemática - Ingenierías y Empresariales</a></li>
+                                                <li><a  href="assets/pdf/LogicaMatematica-LMA.pdf" target="_blank" >Lógica Matemática - LMA</a></li>
+                                                <li><a  href="assets/pdf/Matematicas-LMA.pdf" target="_blank" >Matemáticas - LMA</a></li>
+                                                <li><a  href="assets/pdf/MatematicasEmpresariales.pdf" target="_blank" > Matemáticas - Empresariales</a></li>
+                                                <li><a  href="assets/pdf/MatematicasIngenierias.pdf" target="_blank" > Matemáticas - Ingenierías</a></li>
+                                            </ul><br>
+                                            <li><a href="">Procedimiento para generar la Línea de Captura para Licenciatura</a></li>
+                                            <li><a href="">Procedimiento para generar la Línea de Captura para Posgrado</a></li>
+                                            <li><a href="">CNBBBJ- Coordinación Nacional de Becas para el Bienestar Benito Juárez
+                                            </a></li>
+                                        </ul>
+                                    </div>
+           
+                                    </div>
                                     </div>
                                     
                                 </div>
