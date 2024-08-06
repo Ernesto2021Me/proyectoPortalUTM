@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfesoresInvestigadoresComponent implements OnInit {
   panels: { title: string, content: string }[] = [];
-  openIndex: number | null = null;
+  openIndex: number | null = 0;
   
 
   constructor() { }
