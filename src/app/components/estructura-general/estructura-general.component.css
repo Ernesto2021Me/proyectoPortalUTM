@@ -26,12 +26,11 @@
 }
 
 .breadcrumb__item-separator {
-    margin: 0 10px;
-    font-size: 20px;
-    color: #fff;
-    letter-spacing: 2px;
+    margin: 0 10px; /* Aumentar el espacio a los lados del separador */
+    font-size: 10px; /* Tamaño del icono del separador */
+    color: #fff; /* Color blanco para el icono del separador */
+    letter-spacing: 2px; /* Espacio entre el separador y los elementos */
 }
-
 .breadcrumb__item a {
     text-decoration: none;
     color: #fff;

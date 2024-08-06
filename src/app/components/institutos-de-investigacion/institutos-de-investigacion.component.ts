@@ -6,7 +6,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./institutos-de-investigacion.component.css']
 })
 export class InstitutosDeInvestigacionComponent implements OnInit {
+  panels: { title: string, content: string }[] = [];
+  openIndex: number | null = 0;
+  
 
+  constructor() { }
+
+  ngOnInit(): void {
+    this.panels = [
+      { title: 'CAMPUS HUAJUAPAN DE LEON', content: 'Contenido del panel 1' },
+      
+    ];   
+    
+  }
+
+  toggle(index: number): void {
+    this.openIndex = this.openIndex === index ? null : index;
+  }
+
+  isOpen(index: number): boolean {
+    return this.openIndex === index;
+  }
+
+  
   campusPanel = {
     title: 'Campus Huajuapan de León',
     isOpen: false,
@@ -25,13 +47,5 @@ export class InstitutosDeInvestigacionComponent implements OnInit {
   };
   
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  toggle(panel: any) {
-    // Alterna el panel actual
-    panel.isOpen = !panel.isOpen;
-  }
 }

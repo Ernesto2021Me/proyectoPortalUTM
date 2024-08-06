@@ -30,11 +30,10 @@
 /* Separador entre los ítems del breadcrumb */
 .breadcrumb__item-separator {
     margin: 0 10px; /* Aumentar el espacio a los lados del separador */
-    font-size: 20px; /* Tamaño del icono del separador */
+    font-size: 10px; /* Tamaño del icono del separador */
     color: #fff; /* Color blanco para el icono del separador */
     letter-spacing: 2px; /* Espacio entre el separador y los elementos */
 }
-
 /* Estilo de los enlaces en el breadcrumb */
 .breadcrumb__item a {
     text-decoration: none; /* Eliminar el subrayado de los enlaces */

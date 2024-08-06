@@ -29,7 +29,7 @@
 /* Separador entre los ítems del breadcrumb */
 .breadcrumb__item-separator {
     margin: 0 10px; /* Aumentar el espacio a los lados del separador */
-    font-size: 20px; /* Tamaño del icono del separador */
+    font-size: 10px; /* Tamaño del icono del separador */
     color: #fff; /* Color blanco para el icono del separador */
     letter-spacing: 2px; /* Espacio entre el separador y los elementos */
 }
@@ -93,7 +93,9 @@ h1 {
 /* Estilo para cada tarjeta de imagen */
 .image-card {
     text-align: center;
+    
     margin-bottom: 30px; /* Espacio inferior para separar de otros componentes */
+    
     
 }
 
@@ -103,8 +105,8 @@ h1 {
 .image-card img {
     max-width: 350px; /* Asegurarse de que la imagen no se desborde */
     height: 100px;
-
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave en las imágenes */
+    
+   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave en las imágenes */
 }
 
 /* Estilo para el enlace dentro de la tarjeta de imagen */

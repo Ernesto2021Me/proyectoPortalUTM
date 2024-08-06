@@ -32,14 +32,13 @@
     </div>
 
     <div class="wrapper">
-        <section class="sidebar__section sidebar-first clearfix fade" data-animate-effect="fadeInLeft">
-            <div class="region region-sidebar-first">
+              <div class="region region-sidebar-first">
                 <!-- Menú lateral -->
                 <nav role="navigation" aria-labelledby="block-menuinvestigacion-menu" id="block-menuinvestigacion" class="clearfix block block-menu navigation menu--menu-investigacion">
                     <h2 class="visually-hidden" id="block-menuinvestigacion-menu">Menú-Investigación</h2>
                     <ul class="clearfix menu">
                         <li class="menu-item menu-item--expanded menu-item--active-trail">
-                            <a href="/home/investigacion/institutos_de_investigacion" data-drupal-link-system-path="node/72" class="is-active">Institutos de Investigación</a>
+                            <a href="/home/investigacion/institutos_de_investigacion" data-drupal-link-system-path="node/72" class="is-active" class="highlight-red">Institutos de Investigación</a>
                             <ul class="menu">
                                 <li class="menu-item menu-item--expanded">
                                     <a href="/home/investigacion/institutos_de_investigacion/huajuapan_de_leon" data-drupal-link-system-path="node/74">Hujuapan de Leon</a>
@@ -84,8 +83,7 @@
                     </ul>
                 </nav>
             </div>
-        </section>
-
+        
         <div class="region region-content">
             <div id="block-suneo-umar-page-title" class="clearfix block block-core block-page-title-block">
                 <div class="content">
@@ -103,31 +101,46 @@
                         </header>
 
                         <div class="image-container">
-                            <img loading="lazy" src="/assets/images/Computacion.png" width="1140" height="450" alt="Institutos de Investigación" />
+                            <img loading="lazy" src="/assets/images/Computacion.png" width="700" height="280" alt="Institutos de Investigación" />
                         </div>
 
-                        <div class="text-container">
-                            <div class="accordion-container" aria-multiselectable="true">
-                                <div class="panel-group">
-                                    <div class="panel">
-                                        <div class="panel-heading" (click)="toggle(campusPanel)" [ngClass]="{'active': campusPanel.isOpen}">
-                                            <div class="panel-title">
-                                                {{ campusPanel.title }}
-                                            </div>
-                                        </div>
-                                        <div class="panel-collapse" *ngIf="campusPanel.isOpen">
-                                            <div class="panel-body">
-                                                <ul class="list--fa-caret-right">
-                                                    <li *ngFor="let instituto of campusPanel.institutos">
-                                                        > <a [href]="instituto.url">{{ instituto.nombre }}</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                        <div class="accordion-container">
+                            <div class="panel-group">
+                                <div *ngFor="let panel of panels; let i = index" class="panel">
+                                    <div class="panel-heading" (click)="toggle(i)" [class.active]="isOpen(i)">
+                                        <div class="panel-title">
+                                            {{ panel.title }}
                                         </div>
                                     </div>
+                                    <div class="panel-collapse" *ngIf="isOpen(i)">
+                                        <div class="panel-body">
+                
+                                       
+                                            <div *ngIf="i === 0">
+                                                
+                                            <div class="text-container">
+                                                <ul>
+                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_computacion">Instituto de Computación</a></li>
+                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_electronica_y_mecatronica">Instituto de Electrónica y Mecatrónica</a></li>
+                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_diseno">Instituto de Diseño</a></li>
+                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_fisica_y_matematicas">Instituto de Física y Matemáticas</a></li>
+                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_ciencias_sociales_y_humanidades">Instituto de Ciencias Sociales y Humanidades</a></li>
+                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_agroindustrias">Instituto de Agroindustrias</a></li>
+                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_hidrologia">Instituto de Hidrología</a></li>
+                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_mineria">Instituto de Minería</a></li>
+                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_ingenieria_industrial_y_automotriz">Instituto de Ingeniería Industrial y Automotriz</a></li>
+                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/centro_de_estudios_de_muevos_materiales">Centro de Estudios de Nuevos Materiales</a></li>   
+                                                </ul>
+                                        </div>
+                                            </div>
+                
+                                         </div>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </article>
