@@ -104,8 +104,9 @@ h1 {
 /* Asegúrate de que las imágenes no se desborden */
 .image-card img {
     max-width: 350px; /* Asegurarse de que la imagen no se desborde */
+    width: 250px;
     height: 100px;
-    
+   
    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave en las imágenes */
 }
 

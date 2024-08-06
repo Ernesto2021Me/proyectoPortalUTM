@@ -1,17 +1,16 @@
-/* Ajustar el padding del breadcrumb para mover el contenido más a la izquierda */
+/* Estilos generales para el breadcrumb */
 .breadcrumb {
     font-family: Georgia, Times New Roman, Serif;
     font-size: 14px; /* Tamaño de fuente */
     background-color: #4a1110;
-    padding: 10px 100px; /* Aumentar el padding a los lados para agregar más espacio (100px) */
-    line-height: 1.20;
+    padding: 10px 100px; /* Padding ajustado para mover el contenido más a la izquierda */
     margin: 0px 0 30px 0; /* Aumentar el margen superior e inferior */
-    font-weight: 400;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    width: 85.5%;
+    line-height: 1.5; /* Ajustar el espaciado entre líneas si es necesario */
+    
 }
 
-/* Centrar el contenido del breadcrumb */
+/* Contenedor de los ítems del breadcrumb */
 .breadcrumb__items {
     list-style: none; /* Eliminar los puntos de la lista */
     padding: 0; /* Eliminar el padding de la lista */
@@ -30,7 +29,7 @@
 /* Separador entre los ítems del breadcrumb */
 .breadcrumb__item-separator {
     margin: 0 10px; /* Aumentar el espacio a los lados del separador */
-    font-size: 20px; /* Tamaño del icono del separador */
+    font-size: 10px; /* Tamaño del icono del separador */
     color: #fff; /* Color blanco para el icono del separador */
     letter-spacing: 2px; /* Espacio entre el separador y los elementos */
 }
@@ -58,83 +57,89 @@
     color: #fff; /* Color blanco para el icono */
 }
 
-/* Ajustes de estilo para el título de la página */
+/* Estilo del título de la página */
 h1.page-title {
-    margin-bottom: 30px; /* Reducir el margen inferior para separar menos del contenido siguiente (30px) */
-    text-align: left; /* Alinea el título a la izquierda */
+    margin-bottom: 20px;
 }
-
-/* Título principal de la página */
 h1.title {
     margin-top: 0;
-    padding: 0 0 10px 0; /* Ajustar el padding para separarlo de otros elementos */
+    margin-left: 110px;
+    margin-top: 80px;
 }
 
-/* Título de nivel 1 */
 h1 {
     font-size: 40px;
     font-family: 'Playfair Display', Times New Roman, Serif;
     line-height: 1.20;
     padding: 0;
-    margin: 0 0 30px 0; /* Reducir el margen inferior a 30px para acortar el espacio entre el título y las tarjetas */
+    margin: 20px 0 15px 0;
     font-weight: 400;
 }
 
-/* Contenedor del contenido principal */
-.region-content {
-    padding: 0 100px; /* Aumentar padding a los lados del contenedor para más espacio (100px) */
+/* Estilos para las imágenes de enlaces */
+.views-view-grid {
+    margin-left: 90px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en la primera fila */
+    gap: 0px; /* Espacio entre las imágenes */
+    margin-bottom: 50px;
 }
 
-/* Estilos para el contenedor de las tarjetas de investigación */
-.cards-grid {
-    display: flex; /* Usar flexbox para mostrar las tarjetas en una fila horizontal */
-    flex-wrap: nowrap; /* Evitar que las tarjetas se envuelvan en una nueva línea */
-    overflow-x: auto; /* Permitir el desplazamiento horizontal si las tarjetas exceden el ancho del contenedor */
-    gap: 20px; /* Espacio de 20px entre las tarjetas */
-    margin: 0; /* Alinea las tarjetas a la izquierda */
+/* Estilo para cada fila */
+.views-row {
+    display: contents; /* Asegura que el diseño del grid se aplique a todos los elementos hijos */
 }
 
-/* Estilos para cada tarjeta dentro del grid */
-.views-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra el contenido de cada tarjeta */
-    text-align: center; /* Centra el texto dentro de cada tarjeta */
+/* Estilo para cada tarjeta de imagen */
+.image-card {
+    text-align: center;
+    
+    margin-bottom: 30px; /* Espacio inferior para separar de otros componentes */
+    
+    
 }
 
-/* Estilos para las imágenes dentro de las tarjetas */
-.views-field-field-portada-investigacion img {
-    max-width: 100%; /* Asegura que la imagen no se desborde del contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
+
+
+/* Asegúrate de que las imágenes no se desborden */
+.image-card img {
+    max-width: 350px; /* Asegurarse de que la imagen no se desborde */
+    width: 250px;
+    height: 100px;
+   
+   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave en las imágenes */
 }
 
-/* Estilos para los títulos dentro de las tarjetas */
-.views-field-title a {
-    font-size: 16px; /* Tamaño de fuente para los títulos */
-    color: #333; /* Color del texto de los títulos */
-    text-decoration: none; /* Eliminar el subrayado de los enlaces */
+/* Estilo para el enlace dentro de la tarjeta de imagen */
+.image-card a {
+    display: block;
+    margin-top: 10px; /* Espacio entre la imagen y el texto */
+    color: #4a1110;
+    font-weight: bold;
+    text-decoration: none;
 }
 
-/* Cambiar el color del enlace al pasar el mouse */
-.views-field-title a:hover {
-    color: #007bff; /* Color del enlace al pasar el mouse */
+/* Estilo del enlace al pasar el mouse */
+.image-card a:hover {
+    color: #4a1110; /* Color al pasar el mouse */
+    text-decoration: underline;
 }
 
-/* Media queries para ajustar el diseño en pantallas más pequeñas */
-@media (max-width: 1200px) {
-    .cards-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas más pequeñas */
+/* Ajustes responsivos para pantallas más pequeñas */
+@media (max-width: 991px) {
+    .views-view-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas medianas */
     }
 }
 
-@media (max-width: 992px) {
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas más pequeñas */
+@media (max-width: 767px) {
+    .views-view-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas pequeñas */
     }
 }
 
-@media (max-width: 768px) {
-    .cards-grid {
-        grid-template-columns: 1fr; /* 1 columna en pantallas más pequeñas */
+@media (max-width: 575px) {
+    .views-view-grid {
+        grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
     }
 }
