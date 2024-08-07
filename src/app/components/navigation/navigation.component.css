@@ -1,14 +1,13 @@
-/* Estilos generales para las imágenes */
 .logo-and-site-name-wrapper {
   text-align: center; /* Centra el contenido dentro del contenedor */
 }
 
 .logo {
   display: inline-block; /* Permite que el contenedor se ajuste al tamaño de su contenido */
-  margin-top: 80px; /* Margen de 90px arriba */
+  margin-top: 80px; /* Margen de 80px arriba */
   margin-bottom: 50px; /* Margen de 50px abajo */
-  margin-left: 80px; /* Margen de 40px a la izquierda */
-  margin-right: 80px; /* Margen de 40px a la derecha */
+  margin-left: 80px; /* Margen de 80px a la izquierda */
+  margin-right: 80px; /* Margen de 80px a la derecha */
 }
 
 .logo img {
@@ -18,8 +17,6 @@
   border: 0; /* Quita el borde predeterminado */
 }
 
-
-
 /* Estilos generales para la barra de navegación */
 nav.navbar {
   background-color: transparent;
@@ -28,11 +25,9 @@ nav.navbar {
   font-family: Times, Georgia, serif;
   border-top: 0.001px solid rgba(176, 176, 176, 0.1);
   box-shadow: var(--lt-shadowDefault);
-  
   margin-top: 20px;
   margin-bottom: 0px;
   z-index: 1000;
-  
 }
 
 /* Estilos para el menú principal */
@@ -44,7 +39,6 @@ nav.navbar {
   justify-content: center;
   align-items: center;
 }
-
 
 /* Estilos para los ítems del menú */
 .main-menu > li {
@@ -58,12 +52,11 @@ nav.navbar {
   font-family: 'FontAwesome';
   position: absolute;
   top: 50%;
-  right: 0px;
+  right: 0;
   font-weight: 400;
   line-height: 20px;
   font-size: 8px;
   color: #2d2d2d;
-  
   transform: translateY(-50%);
 }
 
@@ -82,93 +75,93 @@ nav.navbar {
   font-size: 15px;
   font-weight: 400;
   position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
-/* Estilos al pasar el ratón sobre los botones del menú */
-.menu-button:hover,
-.menu-button:focus {
-  background-color: #f1f3f9;
-  color: #007bff;
-}
 
-/* Estilos para los submenús */
-.submenu {
+/* Estilos generales para los submenús */
+.submenu,
+.sf-depth-2,
+.sf-depth-3,
+.sf-depth-4 {
   display: none;
   position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  border: 1px solid rgba(176, 176, 176, 0.9);
-  box-shadow: var(--lt-shadowDefault);
+  background-color: #f9f9f9; /* Fondo gris claro para los submenús */
+  border: 1px solid rgba(176, 176, 176, 0.3); /* Color más suave del borde */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
   z-index: 1000;
   min-width: 200px;
-  border-radius: 4px;
+  border-radius: 8px; /* Bordes más redondeados */
   list-style: none;
   padding: 0;
-  
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; /* Añadida transición para el desplazamiento */
+  opacity: 0; /* Oculta el submenú inicialmente */
+  visibility: hidden; /* Oculta el submenú inicialmente */
+  transform: translateY(10px); /* Inicialmente desplazado hacia abajo */
 }
 
 /* Mostrar submenú al pasar el ratón sobre el ítem del menú */
-.menuparent:hover > .submenu {
+.menuparent:hover > .submenu,
+.submenu > li:hover > .sf-depth-2,
+.sf-depth-2 > li:hover > .sf-depth-3,
+.sf-depth-3 > li:hover > .sf-depth-4 {
   display: block;
-  
+  opacity: 1; /* Muestra el submenú */
+  visibility: visible; /* Muestra el submenú */
+  transform: translateY(0); /* Desplazado a su posición original */
 }
 
 /* Estilos para los ítems del submenú */
-.submenu li {
+.submenu li,
+.sf-depth-2 li,
+.sf-depth-3 li,
+.sf-depth-4 li {
   position: relative;
-  
 }
 
 /* Estilos para los enlaces en el submenú */
-.submenu li a {
+.submenu li a,
+.sf-depth-2 a,
+.sf-depth-3 a,
+.sf-depth-4 a {
   text-decoration: none;
   color: #2d2d2d;
   display: block;
   font-size: 16px;
   font-weight: 400;
-  padding: 0.3em 1em;
-  
+  padding: 0.5em 1em; /* Espaciado interno */
+  background-color: transparent;
+  border-bottom: 1px solid rgba(176, 176, 176, 0.2); /* Línea sutil entre ítems */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Eliminamos el borde inferior del último ítem en los submenús */
+.submenu li:last-child a,
+.sf-depth-2 li:last-child a,
+.sf-depth-3 li:last-child a,
+.sf-depth-4 li:last-child a {
+  border-bottom: none;
 }
 
 /* Estilos al pasar el ratón sobre los enlaces en el submenú */
 .submenu li a:hover,
-.submenu li a:focus {
+.sf-depth-2 a:hover,
+.sf-depth-3 a:hover,
+.sf-depth-4 a:hover {
   background-color: #f1f3f9;
   color: #007bff;
 }
 
 /* Estilos para los submenús de nivel 2 */
 .sf-depth-2 {
-  display: none;
-  position: absolute;
   top: 0;
   left: 100%;
-  background-color: #fff;
-  border: 1px solid rgba(176, 176, 176, 0.9);
-  box-shadow: var(--lt-shadowDefault);
-  z-index: 1000;
-  min-width: 200px;
-  border-radius: 4px;
-  list-style: none;
-  padding: 0;
-}
-
-
-/* Mostrar submenú de nivel 2 al pasar el ratón sobre el ítem del submenú */
-.submenu > li:hover > .sf-depth-2 {
-  display: block;
 }
 
 /* Estilos para los enlaces en el submenú de nivel 2 */
 .sf-depth-2 a {
-  text-decoration: none;
-  color: #2d2d2d;
-  display: block;
-  font-size: 14px;
-  font-weight: 400;
-  padding: 0.3em 1em;
+  font-size: 14px; /* Tamaño de fuente ajustado */
 }
 
 /* Estilos al pasar el ratón sobre los enlaces en el submenú de nivel 2 */
@@ -180,33 +173,13 @@ nav.navbar {
 
 /* Estilos para los submenús de nivel 3 */
 .sf-depth-3 {
-  display: none;
-  position: absolute;
   top: 0;
   left: 100%;
-  background-color: #fff;
-  border: 1px solid rgba(176, 176, 176, 0.9);
-  box-shadow: var(--lt-shadowDefault);
-  z-index: 1000;
-  min-width: 200px;
-  border-radius: 4px;
-  list-style: none;
-  padding: 0;
-}
-
-/* Mostrar submenú de nivel 3 al pasar el ratón sobre el ítem del submenú de nivel 2 */
-.sf-depth-2 > li:hover > .sf-depth-3 {
-  display: block;
 }
 
 /* Estilos para los enlaces en el submenú de nivel 3 */
 .sf-depth-3 a {
-  text-decoration: none;
-  color: #2d2d2d;
-  display: block;
-  font-size: 14px;
-  font-weight: 400;
-  padding: 0.3em 1em;
+  font-size: 14px; /* Tamaño de fuente ajustado */
 }
 
 /* Estilos al pasar el ratón sobre los enlaces en el submenú de nivel 3 */
@@ -218,33 +191,13 @@ nav.navbar {
 
 /* Estilos para el submenú de nivel 4 */
 .sf-depth-4 {
-  display: none;
-  position: absolute;
   top: 0;
   left: 100%;
-  background-color: #fff;
-  border: 1px solid rgba(176, 176, 176, 0.9);
-  box-shadow: var(--lt-shadowDefault);
-  z-index: 1000;
-  min-width: 200px;
-  border-radius: 4px;
-  list-style: none;
-  padding: 0;
-}
-
-/* Mostrar submenú de nivel 4 al pasar el ratón sobre el ítem del submenú de nivel 3 */
-.sf-depth-3 > li:hover > .sf-depth-4 {
-  display: block;
 }
 
 /* Estilos para los enlaces en el submenú de nivel 4 */
 .sf-depth-4 a {
-  text-decoration: none;
-  color: #2d2d2d;
-  display: block;
-  font-size: 14px;
-  font-weight: 400;
-  padding: 0.3em 1em;
+  font-size: 14px; /* Tamaño de fuente ajustado */
 }
 
 /* Estilos al pasar el ratón sobre los enlaces en el submenú de nivel 4 */
@@ -252,49 +205,4 @@ nav.navbar {
 .sf-depth-4 a:focus {
   background-color: #f1f3f9;
   color: #007bff;
-}
-
-/* Estilos para el indicador de flecha en los botones de los submenús */
-
-
-/* Estilos para los enlaces en el menú */
-a {
-  color: #2d2d2d;
-  text-decoration: none;
-  background-color: transparent;
-  transition: all 0.2s ease-in-out;
-}
-
-/* Estilos para los enlaces en los ítems del menú */
-.header-container ul.menu li a {
-  font-size: 18px;
-  padding: 5px 23px;
-}
-
-/* Estilos para el menú en pantallas pequeñas */
-@media (max-width: 1199px) {
-  .main-menu {
-    text-align: left;
-    flex-direction: column;
-  }
-
-  .main-menu > li {
-    margin: 0;
-  }
-
-  .submenu {
-    position: static;
-    border: 1px solid rgba(176, 176, 176, 0.9);
-    box-shadow: none;
-    display: none;
-  }
-
-  .menuparent:hover > .submenu,
-  .submenu:hover {
-    display: block;
-  }
-
-  .header-container ul.menu li a {
-    margin: 0;
-  }
-}
+   }
