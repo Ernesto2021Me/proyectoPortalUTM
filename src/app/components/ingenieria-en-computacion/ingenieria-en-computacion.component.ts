@@ -32,29 +32,7 @@ export class IngenieriaEnComputacionComponent {
   }
 
   accordionPanels = [
-    { 
-      
     
-      title: 'MISIÓN', 
-      content: `
-        <div class="mision-content">
-          <p>La misión de la Ingeniería en Computación es formar profesionistas capaces de analizar, diseñar, desarrollar, implementar y mantener sistemas de información, con un enfoque ético y de responsabilidad social, preparados para enfrentar los retos tecnológicos del futuro.</p>
-        </div>
-      `, 
-      isOpen: false 
-    },
-    { 
-      title: 'VISIÓN', 
-      content: `...
-      `, 
-      isOpen: false 
-    },
-    { 
-      title: 'OBJETIVO', 
-      content: `....
-      `, 
-      isOpen: false 
-    },
     { 
       title: 'PERFIL DE INGRESO', 
       content: `
