@@ -57,27 +57,10 @@ export class IngenieriaIndustrialComponent implements OnInit {
       `, 
       isOpen: false 
     },
-    { 
-      title: 'OBJETIVO', 
-      content: `
-        <div class="objetivo-content">
-          <p>Formar Ingenieros Industriales con conocimientos en el diseño, instalación y mejoramiento de sistemas integrados por tecnología, materiales, factor humano y energía, para desempeñarse en actividades del ámbito tecnológico, económico y administrativo e incrementar la productividad y sustentabilidad en la sociedad e industria oaxaqueña y mexicana.</p>
-        </div>
-      `, 
-      isOpen: false 
-    },
     {
       title: 'PERFIL DE INGRESO',
       content: `
-        <div class="perfil-ingreso-content">
-          <p><strong>El aspirante a cursar la carrera de Ingeniería Industrial deberá mostrar interés por atender los problemas que implica el desarrollo tecnológico, organizacional y económico del sector productivo regional, estatal y nacional, además de poseer las siguientes competencias:</strong></p>
-          <ul>
-            <li>Conocimientos a nivel medio superior en las áreas físico–matemáticas o económico–administrativas.</li>
-            <li>Habilidades para trabajar en equipo, comunicación, liderazgo y capacidad de análisis.</li>
-            <li>Actitudes y valores de responsabilidad social y ambiental, respeto, tolerancia y disciplina.</li>
-          </ul>
-          <p><span style="color: #999;">Además, se requiere que el aspirante disponga de tiempo completo para sus estudios.</span></p>
-        </div>
+        
       `,
       isOpen: false
     },    
@@ -109,257 +92,258 @@ export class IngenieriaIndustrialComponent implements OnInit {
       title: 'PLAN DE ESTUDIOS',
       content: `
         <div class="plan-de-estudios-content">
-          <table align="center" style="color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-align: start; white-space: normal; text-decoration: none; width: 100%;">
-            <tbody>
-              <tr>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">PRIMER SEMESTRE</font></strong>
+    <table align="center" style="color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-align: start; white-space: normal; text-decoration: none; width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+        <tbody>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">PRIMER SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Cálculo Diferencial <br />
+                                Mecánica Clásica <br />
+                                Dibujo Industrial <br />
+                                Historia del Pensamiento Filosófico <br />
+                                Introducción a la Ingeniería Industrial
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Cálculo Diferencial <br />
-                        Mecánica Clásica <br />
-                        Dibujo Industrial <br />
-                        Historia del Pensamiento Filosófico <br />
-                        Introducción a la Ingeniería Industrial
-                      </span>
-                    </span>
-                  </span>
                 </td>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">SEGUNDO SEMESTRE</font></strong>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">SEGUNDO SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Cálculo Integral <br />
+                                Álgebra Lineal <br />
+                                Electricidad Industrial <br />
+                                Teoría General de Sistemas <br />
+                                Relaciones Industriales
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Cálculo Integral <br />
-                        Álgebra Lineal <br />
-                        Electricidad Industrial <br />
-                        Teoría General de Sistemas <br />
-                        Relaciones Industriales
-                      </span>
-                    </span>
-                  </span>
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">TERCER SEMESTRE</font></strong>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">TERCER SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Ecuaciones Diferenciales <br />
+                                Química General <br />
+                                Electrónica Analógica <br />
+                                Fundamentos de Programación para Ingeniería <br />
+                                Comunicación Efectiva
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Ecuaciones Diferenciales <br />
-                        Química General <br />
-                        Electrónica Analógica <br />
-                        Fundamentos de Programación para Ingeniería <br />
-                        Comunicación Efectiva
-                      </span>
-                    </span>
-                  </span>
                 </td>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">CUARTO SEMESTRE</font></strong>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">CUARTO SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Métodos Numéricos <br />
+                                Fundamentos de Probabilidad <br />
+                                Ciencia de Materiales <br />
+                                Derecho Laboral y Propiedad Industrial <br />
+                                Termodinámica
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Métodos Numéricos <br />
-                        Fundamentos de Probabilidad <br />
-                        Ciencia de Materiales <br />
-                        Derecho Laboral y Propiedad Industrial <br />
-                        Termodinámica
-                      </span>
-                    </span>
-                  </span>
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">QUINTO SEMESTRE</font></strong>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">QUINTO SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Estudio del Trabajo y Productividad <br />
+                                Estadística Aplicada <br />
+                                Tecnología de Materiales <br />
+                                Metrología y Normalización <br />
+                                Mecánica de Fluidos
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Estudio del Trabajo y Productividad <br />
-                        Estadística Aplicada <br />
-                        Tecnología de Materiales <br />
-                        Metrología y Normalización <br />
-                        Mecánica de Fluidos
-                      </span>
-                    </span>
-                  </span>
                 </td>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">SEXTO SEMESTRE</font></strong>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">SEXTO SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Ergonomía <br />
+                                Control Estadístico de Calidad <br />
+                                Mercadotecnia <br />
+                                Procesos de Manufactura I <br />
+                                Maquinaria y Equipo Industrial
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Ergonomía <br />
-                        Control Estadístico de Calidad <br />
-                        Mercadotecnia <br />
-                        Procesos de Manufactura I <br />
-                        Maquinaria y Equipo Industrial
-                      </span>
-                    </span>
-                  </span>
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">SÉPTIMO SEMESTRE</font></strong>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">SÉPTIMO SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Gestión Ambiental <br />
+                                Planeación Organizacional <br />
+                                Administración de Recursos Materiales <br />
+                                Procesos de Manufactura II <br />
+                                Contabilidad y Costos
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Gestión Ambiental <br />
-                        Planeación Organizacional <br />
-                        Administración de Recursos Materiales <br />
-                        Procesos de Manufactura II <br />
-                        Contabilidad y Costos
-                      </span>
-                    </span>
-                  </span>
                 </td>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">OCTAVO SEMESTRE</font></strong>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">OCTAVO SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Higiene y Seguridad Industrial <br />
+                                Logística y Cadena de Suministros <br />
+                                Planeación y Control de la Producción <br />
+                                Sistemas de Manufactura <br />
+                                Ingeniería Económica
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Higiene y Seguridad Industrial <br />
-                        Logística y Cadena de Suministros <br />
-                        Planeación y Control de la Producción <br />
-                        Sistemas de Manufactura <br />
-                        Ingeniería Económica
-                      </span>
-                    </span>
-                  </span>
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">NOVENO SEMESTRE</font></strong>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">NOVENO SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Planeación de Instalaciones <br />
+                                Investigación Operativa <br />
+                                Gestión de Sistemas de Calidad <br />
+                                Seminario de Tesis <br />
+                                Optativa I
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Planeación de Instalaciones <br />
-                        Investigación Operativa <br />
-                        Gestión de Sistemas de Calidad <br />
-                        Seminario de Tesis <br />
-                        Optativa I
-                      </span>
-                    </span>
-                  </span>
                 </td>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">DÉCIMO SEMESTRE</font></strong>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">DÉCIMO SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Automatización para Ingeniería Industrial <br />
+                                Mantenimiento Industrial <br />
+                                Formulación y Evaluación de Proyectos <br />
+                                Optativa II <br />
+                                Optativa III
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Automatización para Ingeniería Industrial <br />
-                        Mantenimiento Industrial <br />
-                        Formulación y Evaluación de Proyectos <br />
-                        Optativa II <br />
-                        Optativa III
-                      </span>
-                    </span>
-                  </span>
                 </td>
-              </tr>
-              <tr>
-                <td colspan="2">
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">Áreas de Especialización</font></strong>
-                    </span>
-                  </div>
-                  <br />
+            </tr>
+            <tr>
+                <td colspan="2" style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">Áreas de Especialización</font></strong>
+                        </span>
+                    </div>
+                    <br />
                 </td>
-              </tr>
-               <tr>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">Manufactura</font></strong>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">Manufactura</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Optativa I: Manufactura Asistida por Computadora <br />
+                                Optativa II: Proyecto de Manufactura <br />
+                                Optativa III: Simulación Industrial 
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Optativa I: Manufactura Asistida por Computadora <br />
-                        Optativa II: Proyecto de Manufactura <br />
-                        Optativa III: Simulación Industrial 
-                      </span>
-                    </span>
-                  </span>
                 </td>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">Gestión Administrativa</font></strong>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">Gestión Administrativa</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Optativa I: Dirección General <br />
+                                Optativa II: Gestión Industrial <br />
+                                Optativa III: Comercio Exterior y Logística Internacional
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                       Optativa I: Dirección General <br />
-                        Optativa II: Gestión Industrial <br />
-                        Optativa III: Comercio Exterior y Logística Internacional
-                      </span>
-                    </span>
-                  </span>
                 </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
       `,
       isOpen: false
     }
