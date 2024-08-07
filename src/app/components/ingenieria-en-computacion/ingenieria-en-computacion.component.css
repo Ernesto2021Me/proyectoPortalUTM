@@ -117,7 +117,9 @@ h1 {
     margin-bottom: 50px; /* Agregar margen inferior para separar del pie de página */
 }
 
-.perfil-ingreso-content{
+.perfil-ingreso-content,
+.perfil-egreso-content,
+.campo-de-accion-content{
     font-family: Georgia, Times New Roman, Serif;
     max-width: 1140px; /* Ancho máximo del contenedor de texto */
     margin: 0 auto; /* Centrar el contenedor de texto */
@@ -126,7 +128,9 @@ h1 {
     font-size: calc(0.8em + 0.2vw);
     color: #2d2d2d;
 }
-.perfil-ingreso-content ul {
+.perfil-ingreso-content ul,
+.perfil-egreso-content ul,
+.campo-de-accion-content ul {
     /* list-style-type: none; /* Elimina los puntos predeterminados */
      padding-left: 0; /* Elimina el margen izquierdo predeterminado */   
      margin-top: 5px;
@@ -134,10 +138,14 @@ h1 {
  }
  
  
- .perfil-ingreso-content a:hover {
+ .perfil-ingreso-content a:hover ,
+ .perfil-egreso-content a:hover,
+ .campo-de-accion-contenta a:hover{
      text-decoration: none;
  }
- .perfil-ingreso-contentr ul li {
+ .perfil-ingreso-contentr ul li, 
+ .perfil-egreso-content ul li,
+ .campo-de-accion-content ul li {
      position: relative; /* Necesario para posicionar el pseudo-elemento */
      padding-left: 5px; /* Espacio para el triángulo, reduce el padding para acercarlo */
      margin-bottom: 2px; /* Espacio entre elementos */
@@ -148,7 +156,9 @@ h1 {
  line-height: 1.5;
  }
  
- .perfil-ingreso-content ul li::before {
+ .perfil-ingreso-content ul li::before,
+.perfil-egreso-content ul li::before,
+.campo-de-accion-content ul li:before {
      margin-left: 10px;
    /*  content: ''; /* El contenido del pseudo-elemento */
     /* position: absolute; /* Posiciona el triángulo en relación al <li> */
