@@ -6,6 +6,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ingenieria-civil.component.css']
 })
 export class IngenieriaCivilComponent implements OnInit {
+  panels: { title: string, content: string }[] = [];
+  openIndex: number | null = null;
+  constructor() { }
+
+  ngOnInit(): void {
+    this.panels = [
+      { title: 'JEFATURA DE CARRERA', content: 'Contenido del panel 1' },
+      { title: 'MISIÓN', content: 'Contenido del panel 2' },
+      { title: 'VISIÓN', content: 'Contenido del panel 3' },
+      { title: 'OBJETIVO', content: 'Contenido del panel 4' },
+      { title: 'PERFIL DE INGRESO', content: 'Contenido del panel 5' },
+      { title: 'PERFIL DE EGRESO', content: 'Contenido del panel 6' },
+      { title: 'CAMPO DE ACCIÓN', content: 'Contenido del panel 7' },
+      { title: 'PLAN DE ESTUDIOS', content: 'Contenido del panel 8' },
+    
+  ];
+  
+  }
+  toggle(index: number): void {
+    this.openIndex = this.openIndex === index ? null : index;
+  }
+  
+  isOpen(index: number): boolean {
+    return this.openIndex === index;
+  }
   accordionPanels = [
     { 
       title: 'JEFATURA DE CARRERA', 
@@ -349,30 +374,5 @@ export class IngenieriaCivilComponent implements OnInit {
   ];
 
 
-  isModalOpen = false; // Variable para controlar el estado del modal
-
-  // Método para abrir el modal
-  openModal() {
-    this.isModalOpen = true;
-  }
-
-  // Método para cerrar el modal
-  closeModal() {
-    this.isModalOpen = false;
-  }
-
-  // Método para manejar la apertura y cierre de los paneles del acordeón
-  toggle(panel: any, panels: any[]) {
-    panel.isOpen = !panel.isOpen;
-    if (!panel.isOpen) {
-      panels.forEach(p => {
-        if (p !== panel) {
-          p.isOpen = false;
-        }
-      });
-    }
-  }
-  ngOnInit(): void {
-  }
-
+  
 }

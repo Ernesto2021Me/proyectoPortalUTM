@@ -29,7 +29,6 @@
 </div>
 
 <div class="wrapper">
-    <section class="sidebar__section sidebar-first clearfix fade" data-animate-effect="fadeInLeft">
         <div class="region region-sidebar-first">
             <nav role="navigation" aria-labelledby="block-menuensenanza-menu" id="block-menuensenanza" class="clearfix block block-menu navigation menu--menu-ensenanza">
                 <h4 class="visually-hidden" id="block-menuensenanza-menu">Menú-Enseñanza</h4>
@@ -62,13 +61,16 @@
                                         <a href="/home/ensenanza/licenciaturas/ingenieria_industrial">Ingeniería Industrial</a>
                                     </li>
                                     <li class="menu-item">
+                                        <a href="http://virtual.utm.mx/licenciatura_estudios_mexicanos.html" target="_blank">Licenciatura en Estudios Mexicanos (modalidad virtual)</a>
+                                    </li>
+                                    <li class="menu-item">
                                         <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecatronica">Ingeniería en Mecatrónica</a>
                                     </li>
                                     <li class="menu-item">
                                         <a href="/home/ensenanza/licenciaturas/ingenieria_en_fisica_aplicada">Ingeniería en Física Aplicada</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz">Ingeniería Mecánica Automotriz</a>
+                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz"  class="highlight-red">Ingeniería Mecánica Automotriz</a>
                                     </li>
                                     <li class="menu-item">
                                         <a href="/home/ensenanza/licenciaturas/ingenieria_civil">Ingeniería Civil</a>
@@ -120,7 +122,7 @@
                                         <a href="/home/ensenanza/posgrados/maestria_en_tecnologia_avanzada_de_manufactura">Maestría en Tecnología Avanzada de Manufactura</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_de_datos">Maestría en Ciencia de Datos (modalidad virtual)</a>
+                                        <a href="http://virtual.utm.mx/maestria_ciencia_datos.html" target="_blank">Maestría en Ciencia de Datos (modalidad virtual)</a>
                                     </li>
                                     <li class="menu-item">
                                         <a href="/home/ensenanza/posgrados/doctorado_en_ciencias_productos_naturales_alimentos">Doctorado en Ciencias: Productos Naturales y Alimentos</a>
@@ -159,7 +161,7 @@
                 </ul>
             </nav>
         </div>
-    </section>
+
 <div class="content-container">
     <div class="region region-content">
         <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
@@ -183,16 +185,44 @@
                         <img loading="lazy" src="/assets/images/InstAgroindustrias.jpeg" width="1140" height="450" alt="Ingenieria en Mecanica Automotriz" typeof="foaf:Image" />
                     </div>
 
-                    <div class="accordion-container" aria-multiselectable="true">
+                    <div class="accordion-container">
                         <div class="panel-group">
-                            <div class="panel" *ngFor="let panel of accordionPanels">
-                                <div class="panel-heading" (click)="toggle(panel, accordionPanels)" [ngClass]="{'active': panel.isOpen}">
+                            <div *ngFor="let panel of panels; let i = index" class="panel">
+                                <div class="panel-heading" (click)="toggle(i)" [class.active]="isOpen(i)">
                                     <div class="panel-title">
                                         {{ panel.title }}
                                     </div>
                                 </div>
-                                <div class="panel-collapse" *ngIf="panel.isOpen">
-                                    <div class="panel-body" [innerHTML]="panel.content">
+                                <div class="panel-collapse" *ngIf="isOpen(i)">
+                                    <div class="panel-body">
+                                        <div *ngIf="i === 0">
+                                            <ul class="contact-info">
+                                                <li><h3>M.C. Víctor Manuel Cruz Martínez</h3></li>
+                                                <li><i class="fas fa-envelope"></i>jcautomotriz@mixteco.utm.mx</li>
+                                            </ul>
+                                        </div>
+                                        <div *ngIf="i === 1">
+                                         
+                                        </div>
+                                        <div *ngIf="i === 2">
+                                            
+                                        </div>
+                                        <div *ngIf="i === 3">
+                                            
+                                        </div>
+                                        <div *ngIf="i === 4">
+                                            
+                                        </div>
+                                        <div *ngIf="i === 5">
+                                            
+                                        </div>
+                                        <div *ngIf="i === 6">
+                                            
+                                        </div>
+                                        <div *ngIf="i === 7">
+                                            
+                                        </div>
+                                       
                                     </div>
                                 </div>
                             </div>
