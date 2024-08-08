@@ -99,34 +99,7 @@ export class IngenieriaEnFisicaAplicadaComponent implements OnInit {
     {
       title: 'PERFIL DE EGRESO',
       content: `
-        <div class="perfil-egreso-content">
-          <p><strong>El ingeniero en Física Aplicada es un profesionista con una sólida formación en Física, Matemáticas e Ingeniería, posee gran capacidad de abstracción, habilidades notables en la implementación creando e innovando en el desarrollo experimental, resuelve y plantea modelos físicos de sistemas variados. Tienen una preparación de calidad que le permite realizar estudios de posgrado en el país y en el extranjero. Se desempeña en el sector público, industrial y de servicios, en centros de investigación científica, así como en instituciones educativas de nivel medio superior y superior.</strong></p>
-          
-          <p><strong>Posee conocimientos en:</strong></p>
-          <ul>
-            <li>Álgebra, Geometría Analítica, Cálculo Diferencial e Integral, Mecánica Clásica, Electricidad y Magnetismo, Análisis Vectorial, Física Moderna, Mecánica Cuántica, Física Clásica, Óptica, Física Estadística, Métodos Matemáticos de la Física, Análisis Numérico, Ecuaciones Diferenciales, Termodinámica, Física del Estado Sólido, Análisis y Diseño de Experimentos, Física Computacional con el uso de Elemento Finito.</li>
-          </ul>
-          
-          <p><strong>Suficientes en:</strong></p>
-          <ul>
-            <li>Electrónica, Procesamiento de Señales, Modelación de Sistemas Dinámicos, Ingeniería de Productos.</li>
-          </ul>
-          
-          <p><strong>Básicos en:</strong></p>
-          <ul>
-            <li>Administración de Empresas, Programación, Química, Dibujo Asistido por computadora y Procesos de Manufactura.</li>
-          </ul>
-          
-          <p><strong>Habilidades:</strong></p>
-          <ul>
-            <li>El Ingeniero en Física Aplicada tiene la capacidad de adaptarse a equipos de trabajo multidisciplinarios en diversas áreas de la ciencia e ingeniería, además posee la habilidad de integrarse a grupos de investigación tanto básica como de desarrollo e innovación tecnológica. Cuenta con la formación académica para continuar con estudios de posgrado en el área de ciencia aplicada, ciencia básica e ingeniería.</li>
-          </ul>
-          
-          <p><strong>Valores:</strong></p>
-          <ul>
-            <li>Profunda preocupación de los problemas internacionales como; la generación de energía, abastecimiento de agua, producción alimenticia, tratamiento de desechos industriales, generación de conciencia en la comunidad, entre otros, dentro del marco del respeto a nuestro medio ambiente, pero sobre todo para dignificar la convivencia humana.</li>
-          </ul>
-        </div>
+       
       `,
       isOpen: false
     },    
@@ -141,238 +114,212 @@ export class IngenieriaEnFisicaAplicadaComponent implements OnInit {
       title: 'PLAN DE ESTUDIOS',
       content: `
         <div class="plan-de-estudios-content">
-          <table align="center" style="color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-align: start; white-space: normal; text-decoration: none; width: 100%;">
-            <tbody>
-              <tr>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">PRIMER SEMESTRE</font></strong>
+    <table align="center" style="color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-align: start; white-space: normal; text-decoration: none; width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+        <tbody>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">PRIMER SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Cálculo Diferencial <br />
+                                Diseño y Análisis de Experimentos <br />
+                                Historia del Pensamiento Filosófico <br />
+                                Mecánica Clásica <br />
+                                Tópicos de Álgebra y Geometría Analítica
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Cálculo Diferencial <br />
-                        Diseño y Análisis de Experimentos <br />
-                        Historia del Pensamiento Filosófico <br />
-                        Mecánica Clásica <br />
-                        Tópicos de Álgebra y Geometría Analítica
-                      </span>
-                    </span>
-                  </span>
                 </td>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">SEGUNDO SEMESTRE</font></strong>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">SEGUNDO SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Álgebra Lineal <br />
+                                Cálculo Integral <br />
+                                Mecánica Vectorial para Ingenieros <br />
+                                Programación Estructurada <br />
+                                Teoría General de Sistemas
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Álgebra Lineal <br />
-                        Cálculo Integral <br />
-                        Mecánica Vectorial para Ingenieros <br />
-                        Programación Estructurada <br />
-                        Teoría General de Sistemas
-                      </span>
-                    </span>
-                  </span>
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">TERCER SEMESTRE</font></strong>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">TERCER SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Análisis Vectorial <br />
+                                Ecuaciones Diferenciales Ordinarias <br />
+                                Electromagnetismo <br />
+                                Fundamentos de Electrónica <br />
+                                Química General
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Análisis Vectorial <br />
-                        Ecuaciones Diferenciales Ordinarias <br />
-                        Electromagnetismo <br />
-                        Fundamentos de Electrónica <br />
-                        Química General
-                      </span>
-                    </span>
-                  </span>
                 </td>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">CUARTO SEMESTRE</font></strong>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">CUARTO SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Análisis Numérico <br />
+                                Dibujo Asistido por Computadora <br />
+                                Física Ondulatoria <br />
+                                Instrumentación Electrónica <br />
+                                Métodos Matemáticos de la Física I
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Análisis Numérico <br />
-                        Dibujo Asistido por Computadora <br />
-                        Física Ondulatoria <br />
-                        Instrumentación Electrónica <br />
-                        Métodos Matemáticos de la Física I
-                      </span>
-                    </span>
-                  </span>
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">QUINTO SEMESTRE</font></strong>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">QUINTO SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Física Moderna <br />
+                                Mecánica Analítica <br />
+                                Métodos Matemáticos de la Física II <br />
+                                Procesos de Manufactura <br />
+                                Termodinámica
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Física Moderna <br />
-                        Mecánica Analítica <br />
-                        Métodos Matemáticos de la Física II <br />
-                        Procesos de Manufactura <br />
-                        Termodinámica
-                      </span>
-                    </span>
-                  </span>
                 </td>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">SEXTO SEMESTRE</font></strong>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">SEXTO SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Introducción a la Administración <br />
+                                Mecánica Cuántica <br />
+                                Probabilidad y Estadística <br />
+                                Química Orgánica <br />
+                                Teoría Electromagnética
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Introducción a la Administración <br />
-                        Mecánica Cuántica <br />
-                        Probabilidad y Estadística <br />
-                        Química Orgánica <br />
-                        Teoría Electromagnética
-                      </span>
-                    </span>
-                  </span>
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">SÉPTIMO SEMESTRE</font></strong>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">SÉPTIMO SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Elemento Finito <br />
+                                Formulación y Evaluación de Proyectos <br />
+                                Mecánica de Fluidos <br />
+                                Óptica Moderna <br />
+                                Sensores y Transductores
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Elemento Finito <br />
-                        Formulación y Evaluación de Proyectos <br />
-                        Mecánica de Fluidos <br />
-                        Óptica Moderna <br />
-                        Sensores y Transductores
-                      </span>
-                    </span>
-                  </span>
                 </td>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">OCTAVO SEMESTRE</font></strong>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">OCTAVO SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Física Estadística <br />
+                                Gestión Empresarial <br />
+                                Procesamiento de Señales Discretas <br />
+                                Productos de Ingeniería <br />
+                                Transferencia de Calor
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Física Estadística <br />
-                        Gestión Empresarial <br />
-                        Procesamiento de Señales Discretas <br />
-                        Productos de Ingeniería <br />
-                        Transferencia de Calor
-                      </span>
-                    </span>
-                  </span>
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">NOVENO SEMESTRE</font></strong>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">NOVENO SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Ciencia de Materiales <br />
+                                Física del Estado Sólido <br />
+                                Metodología de la Investigación <br />
+                                Modelación de Sistemas Dinámicos <br />
+                                Optativa I
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Ciencia de Materiales <br />
-                        Física del Estado Sólido <br />
-                        Metodología de la Investigación <br />
-                        Modelación de Sistemas Dinámicos <br />
-                        Optativa I
-                      </span>
-                    </span>
-                  </span>
                 </td>
-                <td>
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">DÉCIMO SEMESTRE</font></strong>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <div align="center">
+                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                            <strong><font color="#410401">DÉCIMO SEMESTRE</font></strong>
+                        </span>
+                    </div>
+                    <br />
+                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
+                        <span style="background-color:#ffffff;">
+                            <span style="display:inline !important;">
+                                Energía y Medio Ambiente <br />
+                                Nanotecnología <br />
+                                Proyectos de Ingeniería Física <br />
+                                Tópicos de Física Computacional <br />
+                                Optativa II
+                            </span>
+                        </span>
                     </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        Energía y Medio Ambiente <br />
-                        Nanotecnología <br />
-                        Proyectos de Ingeniería Física <br />
-                        Tópicos de Física Computacional <br />
-                        Optativa II
-                      </span>
-                    </span>
-                  </span>
                 </td>
-              </tr>
-              <tr>
-                <td colspan="2">
-                  <div align="center">
-                    <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                      <strong><font color="#410401">Optativas según especialidad</font></strong>
-                    </span>
-                  </div>
-                  <br />
-                  <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                    <span style="background-color:#ffffff;">
-                      <span style="display:inline !important;">
-                        <strong>Optativa I</strong> <br />
-                        Física Computacional y Teórica <br />
-                        Radiación y Propagación Electromagnética <br />
-                        Sistemas Complejos <br />
-                        <strong>Optativa II</strong> <br />
-                        Ciencia de Materiales <br />
-                        Síntesis de Materiales <br />
-                        Caracterización de Materiales <br />
-                        Óptica Aplicada <br />
-                        Aplicaciones Ópticas en la Industria <br />
-                        Óptica del Ojo Humano
-                      </span>
-                    </span>
-                  </span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
       `,
       isOpen: false
     }
