@@ -1,0 +1,580 @@
+/* Estilos generales para el breadcrumb */
+.breadcrumb {
+    font-family: Georgia, Times New Roman, Serif;
+    font-size: 14px; /* Tamaño de fuente */
+    background-color: #4a1110;
+    padding: 10px 100px; /* Padding ajustado para mover el contenido más a la izquierda */
+    line-height: 1.20;
+    margin: -20px 0 15px 0;
+    font-weight: 400;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    line-height: 1.5; /* Ajustar el espaciado entre líneas si es necesario */
+    
+}
+
+/* Contenedor de los ítems del breadcrumb */
+.breadcrumb__items {
+    list-style: none; /* Eliminar los puntos de la lista */
+    padding: 0; /* Eliminar el padding de la lista */
+    margin: 0; /* Eliminar el margen de la lista */
+    display: flex; /* Usar flexbox para alinear los elementos */
+    gap: 0px; /* Espacio entre los elementos del breadcrumb */
+    letter-spacing: 1px; /* Espacio entre letras */
+}
+
+/* Estilo para cada ítem del breadcrumb */
+.breadcrumb__item {
+    display: flex; /* Usar flexbox para alinear los elementos */
+    align-items: center; /* Alinear verticalmente los elementos */
+}
+
+/* Separador entre los ítems del breadcrumb */
+.breadcrumb__item-separator {
+    margin: 0 10px; /* Aumentar el espacio a los lados del separador */
+    font-size: 10px; /* Tamaño del icono del separador */
+    color: #fff; /* Color blanco para el icono del separador */
+    letter-spacing: 2px; /* Espacio entre el separador y los elementos */
+}
+
+/* Estilo de los enlaces en el breadcrumb */
+.breadcrumb__item a {
+    text-decoration: none; /* Eliminar el subrayado de los enlaces */
+    color: #fff; /* Color del enlace en blanco */
+}
+
+/* Estilo del enlace al pasar el mouse */
+.breadcrumb__item a:hover {
+    text-decoration: underline; /* Subrayar el enlace al pasar el mouse */
+}
+
+/* Estilo del texto de los elementos no clicables */
+.breadcrumb__item span {
+    color: #f8d7da; /* Color del texto de los elementos no clicables en un tono más claro */
+}
+
+/* Ajustar el estilo de los iconos de Font Awesome */
+
+/* Estilos generales del contenedor */
+.content-container {
+    max-width: 1140px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 0 20px; /* Espacio a los lados del contenedor */
+}
+
+/* Estilos para el título de la página */
+h1.page-title {
+    margin-bottom: -20px;
+}
+
+h1.title {
+    margin-top: 60px;
+    margin-left: 40px; /* Ajusta este valor según el espacio deseado */
+    margin-bottom: 5px;
+
+}
+
+h1 {
+    font-size: 40px; /* Tamaño del título más pequeño */
+    font-family: 'Playfair Display', Times New Roman, Serif;
+    line-height: 1.20;
+    padding: 0;
+    margin: 20px 0 15px 0;
+    font-weight: 400;
+}
+
+/* Contenedor de la imagen */
+.node__main-content {
+    padding: 0 20px; /* Espacio a los lados del contenido */
+    margin-bottom: 180px; /* Asegurar espacio debajo de la imagen */
+    
+}
+
+
+/* Estilos para la imagen */
+.field--name-field-portada-inv-cpe img {
+    width: 730px; /* Hacer la imagen más pequeña */
+    height: 280px; /* Mantener la proporción de la imagen */
+    display: block; /* Asegurarse de que la imagen no tenga espacio en la parte inferior */
+    margin: 0 auto; /* Centrar la imagen */
+    margin-bottom: 20px;
+}
+
+/* Ajustar el espaciado entre el borde de la página y el contenido */
+.content {
+    padding: 20px 0; /* Añadir espacio en la parte superior e inferior del contenido */
+}
+
+/* Estilo para el contenedor del bloque de título */
+#region-content {
+    padding: 0 20px; /* Añadir padding a los lados del contenido */
+}
+
+/* Ajustes de estilo para el texto de contenido */
+.text-container {
+    font-family: Georgia, Times New Roman, Serif;
+    max-width: 700px; /* Ancho máximo del contenedor de texto */
+    margin: 0 auto; /* Centrar el contenedor de texto */
+    padding: 0 20px; /* Espacio a los lados del contenedor */
+    line-height: calc(155% + 0.2vw);
+    font-size: calc(0.8em + 0.2vw);
+    margin-bottom: 50px; /* Agregar margen inferior para separar del pie de página */
+    margin-left: 20px;
+    color: #000;
+}
+
+.text-container ol {
+ 
+    padding-left: 0; /* Elimina el margen izquierdo predeterminado */   
+     margin-top: 5px;
+     margin-left: 40px;
+     line-height: 1.3;
+}
+
+.text-container a{
+    text-decoration: none;
+    color:#000;
+}
+
+.text-container a:hover {
+    color: #4a1110; /* Cambia el color cuando se pasa el ratón sobre el enlace */
+    text-decoration: none !important;
+}
+.text-container ul li {
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+   
+    margin-bottom: -3px; /* Espacio entre elementos */
+    font-size: 15px;   
+
+}
+
+.text-container ul li::before {
+    margin-left: 10px;
+   /*  content: ''; /* El contenido del pseudo-elemento */
+    /* position: absolute; /* Posiciona el triángulo en relación al <li> */
+     left: 8px; /* Alinea el triángulo más cerca del borde izquierdo del <li> */
+     top: 50%; /* Centra verticalmente el triángulo */
+   /*  transform: translateY(-50%); /* Ajusta la posición vertical */
+     width: 0;
+     height: 0;
+ /*    border-left: 4px solid black; /* Crea la parte izquierda del triángulo negro */
+  /*   border-top: 4px solid transparent; /* Crea la parte superior del triángulo (transparente) */
+  /*   border-bottom: 4px solid transparent; /* Crea la parte inferior del triángulo (transparente) */
+}
+
+
+    
+.iformacion p{
+    margin-bottom: -15px; 
+    font-size: 13px; 
+    line-height: 1.5;
+}
+/* Asegurarse de que el contenedor del título, imagen y contenido esté alineado */
+.node__header, .field--name-field-portada-inv-cpe, .text-container {
+    padding: 0 20px; /* Asegura que el padding sea consistente */
+}
+
+/* Asegurar que la imagen comience justo debajo del título */
+.node__main-content > *:first-child {
+    margin-top: 0; /* Asegura que no haya margen superior adicional */
+}
+
+/* Estilos para el contenedor del acordeón */
+.accordion-container {
+    margin: 0px 0;
+}
+
+
+/* Ajustar el ancho del panel del acordeón para que coincida con el ancho de la imagen */
+.panel-group {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 730px; /* Hacer el ancho del acordeón igual al de la imagen */
+    box-sizing: border-box; /* Asegurarse de que el padding y el borde estén incluidos en el ancho */
+    margin: 0px 20px; /* Centrar el acordeón */
+    margin-bottom: 200px;
+    background-color: #fff;
+ 
+}
+
+/* Estilos para cada panel del acordeón */
+.panel {
+    border-bottom: 1px solid #fff;
+    /*margin-top: 10px;*/
+    
+    
+}
+
+/* Estilo para el encabezado del panel */
+.panel-heading {
+    background-color: #fff; /* Fondo gris claro para el encabezado */
+    cursor: pointer; /* Cambiar el cursor a mano para indicar que es clickeable */
+    padding: 20px; /* Espaciado interno del encabezado este es*/
+    display: flex; /* Usar flexbox para alinear los elementos */
+    justify-content: space-between; /* Alinear los elementos a los extremos */
+    align-items: center; /* Alinear verticalmente los elementos */
+    position: relative;
+            /*padding: 20px; /* Espacio para visualizar el círculo */
+    
+}
+
+/* Estilo para los títulos de los paneles */
+.panel-title  {
+    color: #4a1110;
+    font-family: Georgia, Times New Roman, Serif;
+    text-decoration: none; /* Eliminar el subrayado de los enlaces */
+    font-size: 12px; /* Tamaño de fuente del título */
+    /*font-weight: bold; /* Hacer el texto del título en negrita */
+}
+
+/* Cambiar el color del fondo y el borde cuando el panel está activo */
+.panel-heading.active {
+    background-color: #e2e2e2; /* Fondo gris más oscuro cuando está activo */
+    
+}
+
+.panel-heading {
+    cursor: pointer; /* Muestra un cursor de mano para indicar que es interactivo */
+  }
+  
+  .panel-heading:hover {
+    background-color: #e2e2e2; /* Cambia el color de fondo al pasar el ratón sobre el panel */
+    transition: background-color 0.3s ease; /* Añade una transición suave para el cambio de color */
+  }
+  
+
+/* Estilo para el icono de despliegue en la cabecera */
+.panel-heading::after {
+    content: "\f078"; /* Icono de Font Awesome para el triángulo desplegable */
+    /*content: "\f13a"; /* Icono de Font Awesome para el triángulo desplegable */
+    font-family: "Font Awesome 5 Free"; /* Asegúrate de tener Font Awesome incluido */
+    font-weight: 900; /* Peso del icono */
+    color: #f0f0f0; /* Color rojo para el icono */
+    font-size: 10px; /* Tamaño del icono */
+
+    display: inline-block;
+    width: 30px; /* Ancho del círculo */
+    height: 30px; /* Alto del círculo */
+    line-height: 30px; /* Para centrar verticalmente el texto */
+    text-align: center; /* Para centrar horizontalmente el texto */
+    border-radius: 50%; /* Círculo */
+    background-color: #4a1110; /* Color de fondo del círculo */
+    position: absolute; /* Posiciona el círculo en relación al contenedor */
+    right: 10px; /* Ajustar según la ubicación deseada */
+    top: 50%; /* Centrar verticalmente */
+    transform: translateY(-50%); /* Ajustar verticalmente */
+    margin-right: 20px;
+}
+
+.panel-heading.active::after {
+    content: "\f077"; /* Icono de Font Awesome para el triángulo hacia arriba */
+    font-family: "Font Awesome 5 Free"; /* Asegúrate de tener Font Awesome incluido */
+    font-weight: 900; /* Peso del icono */
+    color: #f0f0f0; /* Color rojo para el icono */
+    font-size: 10px; /* Tamaño del icono */
+
+    display: inline-block;
+            width: 30px; /* Ancho del círculo */
+            height: 30px; /* Alto del círculo */
+            line-height: 30px; /* Para centrar verticalmente el texto */
+            text-align: center; /* Para centrar horizontalmente el texto */
+            border-radius: 50%; /* Círculo */
+            background-color: #4a1110; /* Color de fondo del círculo */
+            position: absolute; /* Posiciona el círculo en relación al contenedor */
+            right: 10px; /* Ajustar según la ubicación deseada */
+            top: 50%; /* Centrar verticalmente */
+            transform: translateY(-50%); /* Ajustar verticalmente */
+}
+
+/* Estilo para el contenido colapsable del panel */
+.panel-collapse {
+    padding: 10px; /* Espaciado interno del contenido */
+    border-top: 1px solid #ddd; /* Borde superior para el contenido desplegado */
+    border-bottom-left-radius: 4px; /* Redondear las esquinas inferiores del contenido */
+    border-bottom-right-radius: 4px; /* Redondear las esquinas inferiores del contenido */
+}
+
+/* Estilo para el contenido del panel */
+.panel-body {
+    font-size: 16px; /* Tamaño de fuente del contenido del panel */
+    line-height: 1.6; /* Espaciado entre líneas del contenido del panel */
+    color: #555; /* Color del texto en el contenido del panel */
+}
+
+/* Estilo para los enlaces en el contenido del acordeón */
+.panel-body a {
+    color: #007bff; /* Color del enlace */
+    text-decoration: none; /* Eliminar el subrayado de los enlaces */
+}
+
+/* Estilo para los enlaces al pasar el mouse */
+.panel-body a:hover {
+    text-decoration: underline; /* Subrayar el enlace al pasar el mouse */
+    
+}
+
+
+/* Estilos para el botón de abrir el modal */
+.btn-open-modal {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4a1110;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-open-modal:hover {
+    background-color: #6b1412;
+}
+
+/* Estilos para la sección de Convocatoria */
+.convocatoria-section {
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Fondo oscuro */
+}
+
+/* Modal activo */
+.modal-active {
+    display: block;
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px; /* Bordes redondeados */
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+}
+
+/* Estilos para el botón de cerrar */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff5722; /* Naranja brillante */
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estilos para el botón de cerrar en hover */
+.close:hover,
+.close:focus {
+    background-color: #e64a19; /* Naranja más oscuro */
+    transform: rotate(90deg); /* Girar al pasar el ratón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Aumentar la sombra */
+    text-decoration: none;
+}
+
+/* Estilos para el botón de cerrar en foco */
+.close:focus {
+    outline: none;
+}
+/* Estilo adicional para el contenedor del bloque de título */
+#region-content {
+    margin: 0; /* Asegura que no hay márgenes adicionales alrededor del bloque */
+}
+
+/* Estilos adicionales según sea necesario */
+/* Estilos generales del menu lateral */
+.wrapper {
+    display: flex;
+    gap: 20px;
+    margin-left: 70px;
+    margin-top: -30px;
+}
+
+.region-sidebar-first {
+    flex: 0 0 340px; /* Ancho fijo de la barra lateral */
+    background-color: transparent; /* Color de fondo de la barra lateral (opcional) */
+    padding: 20px; /* Espacio interno dentro de la barra lateral */
+}
+
+.node__main-content {
+    flex: 1; /* El contenido principal ocupa todo el espacio restante */
+}
+
+.menu {
+    list-style: none; /* Eliminar los puntos de la lista */
+    padding: 0; /* Eliminar el padding de la lista */
+    margin: 0; /* Eliminar el margen de la lista */
+}
+
+.menu-item {
+    margin-bottom: 5px; /* Espacio entre cada ítem del menú */
+   
+    
+}
+.menu-item a.highlight-red {
+    color: #6D1F1F;
+}
+.menu-item a {
+    text-decoration: none;
+    color: #2d2d2d;
+   
+    padding: 5px 20px;
+    line-height: 150%;
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: padding-left 0.2s ease; /* Agregar una transición suave al padding izquierdo */
+    background-color: transparent !important; /* Hacer el fondo transparente */
+    border: none !important; /* Eliminar cualquier borde */
+}
+
+.menu-item a:hover {
+    padding-left: 30px; /* Aumentar el padding izquierdo al pasar el ratón */
+    background-color: transparent !important; /* Mantener el fondo transparente */
+    border: none !important; /* Mantener sin bordes */
+    color: #4a1110;
+}
+
+.menu-item a::before {
+    content: "\f054"; /* Icono de Font Awesome para el triángulo desplegable */
+    /*content: "\f13a"; /* Icono de Font Awesome para el triángulo desplegable */
+    font-family: "Font Awesome 5 Free"; /* Asegúrate de tener Font Awesome incluido */
+    font-weight: 900; /* Peso del icono */
+    color: #000; /* Color rojo para el icono */
+    font-size: 8px; /* Tamaño del icono */
+    margin-right: 10px;
+    
+}
+
+.menu > .menu-item > .menu {
+    margin-left: 20px;
+    padding-left: 0;
+}
+.menu > .menu-item > .menu > .menu-item {
+    margin-bottom: 5px;
+}
+.menu > .menu-item > .menu > .menu-item > a {
+    font-size: 11px;
+}
+/* Estilo para ocultar títulos de secciones */
+
+h4{
+    color: transparent;
+}
+
+/* Estilos para el bloque de convocatoria */
+#block-bloqueconvocatoriapdf {
+    margin-top: 40px; /* Espacio superior para separar de las tarjetas */
+    padding: 20px;
+    background-color: transparent; /* Fondo transparente para el bloque */
+    border: none; /* Elimina todos los bordes */
+    border-top: 1px solid #ddd; /* Solo el borde superior */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center; /* Centra el contenido dentro del bloque */
+}
+
+/* Asegúrate de que el borde redondeado se aplique solo en la parte superior */
+#block-bloqueconvocatoriapdf::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #ddd;
+    border-radius: 8px 8px 0 0;
+    pointer-events: none; /* Asegura que el borde no interfiera con el contenido */
+}
+
+/* Ajusta la posición del bloque para que el borde superior se aplique correctamente */
+#block-bloqueconvocatoriapdf {
+    position: relative;
+    overflow: hidden; /* Asegura que el borde redondeado se muestre correctamente */
+}
+
+#block-bloqueconvocatoriapdf .title {
+    font-size: 24px;
+    font-family: 'Playfair Display', serif;
+    color: #333; /* Color del texto */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+/* Estilo del iframe para visualizar el PDF */
+.pdf-viewer {
+    width: 80%; /* Ajusta el ancho al contenedor, puedes cambiar el porcentaje según tus necesidades */
+    height: 700px; /* Ajusta la altura del iframe, puedes cambiar esta altura */
+    border: none; /* Elimina el borde del iframe */
+    margin: 0 auto; /* Centra el iframe horizontalmente */
+}
+
+/* Asegúrate de que el iframe se comporte correctamente */
+iframe {
+    display: block;
+    overflow: hidden; /* Evita que aparezcan barras de desplazamiento */
+}
+
+.views-view-grid {
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas en la primera fila */
+    gap: 20px; /* Espacio entre las imágenes */
+    margin-bottom: 50px;
+}
+
+.views-row {
+    display: contents; /* Asegura que el diseño del grid se aplique a todos los elementos hijos */
+}
+
+.image-card {
+    text-align: center;
+    margin-bottom: 20px; /* Espacio inferior para separar de otros componentes */
+    padding:  10px; /* Espaciado interno para mejorar el área de visualización */
+    border-radius: 8px; /* Bordes redondeados para las tarjetas */
+    /*background-color: #fff; /* Fondo blanco para las tarjetas */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra inicial */
+}
+
+.image-card img {
+    max-width: 100%; /* Asegurarse de que la imagen no se desborde */
+    height: auto;
+}
+
+.image-card:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el mouse */
+}
+
+.image-card a {
+    display: block;
+    margin-top: 10px; /* Espacio entre la imagen y el texto */
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.image-card a:hover {
+    color: #0056b3; /* Color al pasar el mouse */
+    text-decoration: underline;
+}
