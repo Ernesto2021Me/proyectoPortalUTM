@@ -401,7 +401,7 @@ h1 {
 }
 
 .region-sidebar-first {
-    flex: 0 0 370px; /* Ancho fijo de la barra lateral */
+    flex: 0 0 350px; /* Ancho fijo de la barra lateral */
     background-color: transparent; /* Color de fondo de la barra lateral (opcional) */
     padding: 20px; /* Espacio interno dentro de la barra lateral */
 }
