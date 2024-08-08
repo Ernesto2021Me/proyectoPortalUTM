@@ -108,7 +108,7 @@ h1.page-title {
 
 .text-container li{
     font-size: 15px;
-    margin-bottom: -8px;
+    line-height: 18px;
 }
 
 /* Estilo adicional para el contenedor del bloque de título */
