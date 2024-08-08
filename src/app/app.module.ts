@@ -132,6 +132,7 @@ import { InvestigadoresCPDComponent } from './components/investigadores-cpd/inve
 import { InvestigadoresCIComponent } from './components/investigadores-ci/investigadores-ci.component';
 import { InvestigadoresPCCComponent } from './components/investigadores-pcc/investigadores-pcc.component';
 import { BibliotecasComponent } from './components/bibliotecas/bibliotecas.component';
+import { IngenieriaQuimicaComponent } from './components/ingenieria-quimica/ingenieria-quimica.component';
 
 @NgModule({
   declarations: [
@@ -265,7 +266,8 @@ import { BibliotecasComponent } from './components/bibliotecas/bibliotecas.compo
         InvestigadoresCPDComponent,
         InvestigadoresCIComponent,
         InvestigadoresPCCComponent,
-        BibliotecasComponent
+        BibliotecasComponent,
+        IngenieriaQuimicaComponent
   ],
   imports: [
     BrowserModule,

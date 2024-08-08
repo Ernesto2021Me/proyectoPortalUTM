@@ -32,116 +32,25 @@ export class IngenieriaMecanicaAutomotrizComponent implements OnInit {
     return this.openIndex === index;
   }
   accordionPanels = [
-    {
-      title: 'JEFATURA DE CARRERA',
-      content: `
-        <div class="jefatura-carrera">
-          <p>M.C. Víctor Manuel Cruz Martínez</p>
-          <p><a href="mailto:jcautomotriz@mixteco.utm.mx">jcautomotriz@mixteco.utm.mx</a></p>
-        </div>
-      `,
-      isOpen: false
-    },
-    { 
-      title: 'MISIÓN', 
-      content: `
-        ...
-      `, 
-      isOpen: false 
-    },
-    { 
-      title: 'VISIÓN', 
-      content: `
-       ...
-      `, 
-      isOpen: false 
-    },
-    { 
-      title: 'OBJETIVO', 
-      content: `
-       ...
-      `, 
-      isOpen: false 
-    },
+    
     { 
       title: 'PERFIL DE INGRESO', 
       content: `
-        <div class="perfil-ingreso-content">
-          <p><strong>El aspirante deberá haber cursado su enseñanza media superior preferentemente con una formación en el área físico-matemática o áreas afines, que cuente con lo siguiente:</strong></p>
-          <p><strong>Conocimientos:</strong></p>
-          <ul>
-            <li>Básicos en matemáticas y física.</li>
-          </ul>
-          <p><strong>Habilidades:</strong></p>
-          <ul>
-            <li>Trabajo en equipo.</li>
-            <li>Solución de problemas prácticos.</li>
-            <li>Capacidad para el razonamiento matemático.</li>
-          </ul>
-          <p><strong>Actitudes y Valores:</strong></p>
-          <ul>
-            <li>Responsabilidad social y ambiental.</li>
-            <li>Respeto, tolerancia y disciplina.</li>
-          </ul>
-        </div>
+       
       `, 
       isOpen: false 
     },    
     { 
       title: 'PERFIL DE EGRESO', 
       content: `
-        <div class="perfil-egreso-content">
-          <p><strong>Perfil del Egresado</strong></p>
-          
-          <p>El Ingeniero Mecánico Automotriz será capaz de diseñar, manufacturar y realizar mantenimiento a las partes y componentes de sistemas automotrices.</p>
-          
-          <p><strong>Conocimientos:</strong></p>
-          <ol>
-            <li>En física y matemáticas que le permiten desarrollar las ciencias de la ingeniería mecánica y automotriz.</li>
-            <li>En ciencias de la ingeniería como mecánica vectorial, resistencia e ingeniería de materiales, termodinámica y transferencia de calor, mecánica de fluidos, electromagnetismo, circuitos eléctricos y electrónicos para comprender y analizar el funcionamiento de los diferentes componentes de los sistemas automotrices.</li>
-            <li>De herramientas computacionales para el diseño, modelado y análisis de partes y componentes de sistemas automotrices.</li>
-            <li>De planificación y procesos de manufactura para desarrollar y evaluar prototipos de partes y componentes de sistemas automotrices.</li>
-            <li>De técnicas de diagnóstico para realizar planes de mantenimiento predictivo, preventivo y correctivo de los sistemas automotrices.</li>
-            <li>Para continuar estudios de especialización o posgrado.</li>
-          </ol>
-          
-          <p><strong>Habilidades:</strong></p>
-          <ul>
-            <li>Trabajar en equipos multidisciplinarios y de manera independiente.</li>
-            <li>Proponer soluciones prácticas a problemas reales.</li>
-            <li>Identificar las causas de problemas en el funcionamiento de los sistemas automotrices.</li>
-            <li>Adaptarse y asimilar los cambios tecnológicos en la industria automotriz.</li>
-            <li>Administrar y desarrollar proyectos.</li>
-          </ul>
-          
-          <p><strong>Actitudes y Valores:</strong></p>
-          <ul>
-            <li>Responsabilidad y cumplimiento en tareas asignadas.</li>
-            <li>Proactividad ante problemas que se presenten en el trabajo individual y colectivo.</li>
-            <li>Dignidad y profesionalismo.</li>
-            <li>Promover el respeto por el medio ambiente.</li>
-            <li>Iniciativa para proponer innovación tecnológica.</li>
-          </ul>
-        </div>
+       
       `, 
       isOpen: false 
     },    
     { 
       title: 'CAMPO DE ACCIÓN', 
       content: `
-        <div class="campo-de-accion-content">
-          <p>El Ingeniero Mecánico Automotriz podrá desempeñarse profesionalmente en:</p>
-          <ul>
-            <li>Plantas armadoras de automóviles.</li>
-            <li>Industria de maquinaria agrícola, marítima, ferroviaria, construcción y transporte de carga y pasaje.</li>
-            <li>Centros de investigación y desarrollo tecnológico.</li>
-            <li>Empresas de manufactura de equipo original.</li>
-            <li>Empresas proveedoras de la industria automotriz.</li>
-            <li>Capacitación y consultoría.</li>
-            <li>Agencias y centros de servicio automotriz.</li>
-            <li>Establecer su propia empresa de mantenimiento.</li>
-          </ul>
-        </div>
+        
       `, 
       isOpen: false 
     },    

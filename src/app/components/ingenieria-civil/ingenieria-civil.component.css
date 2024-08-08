@@ -117,6 +117,80 @@ h1 {
     margin-bottom: 50px; /* Agregar margen inferior para separar del pie de página */
 }
 
+
+
+.mision-content,
+.vision-content,
+.objetivo-content,
+.perfil-ingreso-content,
+.perfil-egreso-content,
+.campo-de-accion-content{
+    font-family: Georgia, Times New Roman, Serif;
+    max-width: 1140px; /* Ancho máximo del contenedor de texto */
+    margin: 0 auto; /* Centrar el contenedor de texto */
+    padding: 0 20px; /* Espacio a los lados del contenedor */
+    line-height: calc(155% + 0.2vw);
+    font-size: calc(0.8em + 0.2vw);
+    color: #2d2d2d;
+}
+
+.mision-content ul,
+.vision-content ul,
+.objetivo-content ul,
+.perfil-ingreso-content ul,
+.perfil-egreso-content ul,
+.campo-de-accion-content ul {
+    /* list-style-type: none; /* Elimina los puntos predeterminados */
+     padding-left: 0; /* Elimina el margen izquierdo predeterminado */   
+     margin-top: 5px;
+     margin-left: 40px;
+ }
+ 
+ 
+ .mision-content a:hover,
+.vision-content a:hover,
+.objetivo-content a:hover,
+ .perfil-ingreso-content a:hover ,
+ .perfil-egreso-content a:hover,
+ .campo-de-accion-contenta a:hover{
+     text-decoration: none;
+ }
+
+ .mision-content ul li,
+.vision-content ul li,
+.objetivo-content ul li,
+ .perfil-ingreso-contentr ul li, 
+ .perfil-egreso-content ul li,
+ .campo-de-accion-content ul li {
+     position: relative; /* Necesario para posicionar el pseudo-elemento */
+     padding-left: 5px; /* Espacio para el triángulo, reduce el padding para acercarlo */
+     margin-bottom: 2px; /* Espacio entre elementos */
+     font-size: 15px;   
+ }
+ 
+ .reduce-spacing{
+ line-height: 1.5;
+ }
+ 
+ .mision-content ul li::before,
+.vision-content ul li::before,
+.objetivo-content ul li::before,
+ .perfil-ingreso-content ul li::before,
+.perfil-egreso-content ul li::before,
+.campo-de-accion-content ul li:before {
+     margin-left: 10px;
+   /*  content: ''; /* El contenido del pseudo-elemento */
+    /* position: absolute; /* Posiciona el triángulo en relación al <li> */
+     left: 8px; /* Alinea el triángulo más cerca del borde izquierdo del <li> */
+     top: 50%; /* Centra verticalmente el triángulo */
+   /*  transform: translateY(-50%); /* Ajusta la posición vertical */
+     width: 0;
+     height: 0;
+ /*    border-left: 4px solid black; /* Crea la parte izquierda del triángulo negro */
+  /*   border-top: 4px solid transparent; /* Crea la parte superior del triángulo (transparente) */
+  /*   border-bottom: 4px solid transparent; /* Crea la parte inferior del triángulo (transparente) */
+ }
+
 /* Asegurarse de que el contenedor del título, imagen y contenido esté alineado */
 .node__header, .field--name-field-portada-inv-cpe, .text-container {
     padding: 0 20px; /* Asegura que el padding sea consistente */
