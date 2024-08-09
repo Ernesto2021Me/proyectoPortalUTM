@@ -1,17 +1,138 @@
-<!-- pruebas.component.html -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<div class="carousel">
-  <div class="carousel-track" [style.transform]="translateValue">
-    <a *ngFor="let image of images; let i = index"
-       [href]="image.src" target="_blank"
-       class="carousel-item" [ngClass]="{'active': i === currentIndex}"
-       (click)="changeImage(i)">
-      <img [src]="image.src" [alt]="image.alt">
+<div class="logo-and-site-name-wrapper clearfix">
+  <div class="logo">
+    <a href="home/web/" title="Inicio" rel="home" class="site-branding__logo">
+      <img src="/assets/images/02-UTM.png" alt="Inicio">
     </a>
   </div>
-  <div class="carousel-dots">
-    <span *ngFor="let image of images; let i = index"
-          class="dot" [ngClass]="{'active': i === currentIndex}"
-          (click)="changeImage(i)"></span>
-  </div>
 </div>
+
+<nav class="navbar" id="navbar">
+  <ul class="main-menu">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-sYQs8r3vFNHRJ3wa1ydoAeZ3wAKw9tTU6OQa+gacG2PZX8GdPYY5V/94dsd6oD6u6JG5yL4s2y/SbJccMDs3xg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <li id="main-menu-link-contentf5b189fa-e872-4186-bbab-9cba11f46cc8c" class="sf-depth-1 menuparent">
+      <a href="/home/nuestra_universidad" class="menu-button">NUESTRA UNIVERSIDAD</a>
+      <ul  class="submenu">
+        <li><a href="/home/nuestra_universidad/que_es_la_utm">¿Qué es la UTM?</a></li>
+        <li><a href="/home/nuestra_universidad/historia">Historia</a></li>
+        <li><a href="/home/nuestra_universidad/modelo_educativo">Modelo Educativo</a></li>
+        <li><a href="/home/nuestra_universidad/premios_reconocimientos">Premios y Reconocimientos</a></li>
+        <li><a href="/home/nuestra_universidad/estructura_general">Estructura General</a></li>
+        <li><a href="/home/nuestra_universidad/legislacion_universitaria">Legislación Universitaria</a></li>
+        <li><a href="/home/nuestra_universidad/correo_electronico">Correo electrónico</a></li>
+        <li><a href="/home/nuestra_universidad/contacto">Contacto</a></li>
+      </ul>
+    </li>
+    <li id="main-menu-link-content9d4903a9-bdd1-45c9-9370-685434462d57" class="sf-depth-1 menuparent">
+      <a href="/home/directorio" class="menu-button">DIRECTORIO</a>
+      <ul class="submenu">
+        <li><a href="/home/directorio/rectoria">Rectoría</a></li>
+        <li><a href="/home/directorio/vice_rectorias">Vice-Rectorías</a></li>
+        <li><a href="/home/directorio/division_de_estudios_de_posgrado">División de Estudios de Posgrado</a></li>
+        <li><a href="/home/directorio/directores_de_institutos">Directores de Institutos</a></li>
+        <li><a href="/home/directorio/jefes_de_carreras">Jefes de Carreras</a></li>
+        <li><a href="/home/directorio/personal_administrativo">Personal Administrativo</a></li>
+        <li ><a href="/home/directorio/profesores">Profesores-Investigadores</a>
+          <ul class="sf-depth-2 sf-no-children">
+            <li>
+              <a href="/home/directorio/profesores/huajuapan_de_leon">Campus Huajuapan de León</a> 
+              <ul class="sf-depth-3">
+                <li><a href="/home/directorio/profesores/instituto_de_computacion">Instituto de Computación</a></li>
+                <li><a href="/home/directorio/profesores/instituto_de_electronica_y_mecatronica">Instituto de Electrónica y Mecatrónica</a></li>
+                <li><a href="/home/directorio/profesores/instituto_de_agroindustrias">Instituto de Agroindustrias</a></li>
+                <li><a href="/home/directorio/profesores/instituto_de_fisica_y_matematicas">Instituto de Física y Matemáticas</a></li>
+                <li><a href="/home/directorio/profesores/instituto_de_diseno">Instituto de Diseño</a></li>
+                <li><a href="/home/directorio/profesores/instituto_de_ciencias_sociales_y_humanidades">Instituto de Ciencias Sociales y Humanidades</a></li>
+                <li><a href="/home/directorio/profesores/instituto_de_hidrologia">Instituto de Hidrología</a></li>
+                <li><a href="/home/directorio/profesores/instituto_de_minera">Instituto de Minería</a></li>
+                <li><a href="/home/directorio/profesores/instituto_de_ingenieria_industrial_y_automotriz">Instituto de Ingeniería Industrial y Automotriz</a></li>
+                <li><a href="/home/directorio/profesores/division_de_estudios_de_postgrado">División de Estudios de Postgrado</a></li>
+                <li><a href="/home/directorio/profesores/centro_de_estudios_estrategicos_de_la_empresa">Centro de Estudios Estratégicos de la Empresa</a></li>
+                <li><a href="/home/directorio/profesores/centro_de_estudios_de_nuevos_materiales">Centro de Estudios de Nuevos Materiales</a></li>
+                <li><a href="/home/directorio/profesores/coordinacion_de_promocion_del_desarrollo">Coordinación de Promoción del Desarrollo</a></li>
+                <li><a href="/home/directorio/profesores/centro_de_idiomas">Centro de Idiomas</a></li>
+                <li><a href="/home/directorio/profesores/profesores_de_catedras_conacyt">Profesores de Cátedras (CONACYT)</a></li>
+                
+              </ul>
+            </li>
+          </ul>
+        
+        </li>
+      </ul>
+    </li>
+    <li id="main-menu-link-content330dca3f-d285-4e9c-acc9-350147d398e2" class="sf-depth-1 menuparent">
+      <a href="/home/ensenanza" class="menu-button">ENSEÑANZA</a>
+      <ul class="submenu">
+        <li>
+          <a href="/home/ensenanza/licenciaturas">Licenciaturas</a>
+          <ul class="sf-depth-2 sf-no-children">
+            <li>
+              <a href="/home/ensenanza/licenciaturas/huajuapan_de_leon">Campus Huajuapan de León</a>
+              <ul class="sf-depth-3">
+                <li *ngFor="let licenciatura of licenciaturas">
+                  <a (click)="navigateTo(licenciatura.nombre)">{{ licenciatura.nombre }}</a>
+                </li>      </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="/home/ensenanza/posgrados">Posgrados</a>
+          <ul class="sf-depth-2 sf-no-children">
+            <li>
+              <a href="/home/ensenanza/posgrados/huajuapan_de_leon">Campus Huajuapan de León</a>
+              <ul class="sf-depth-3">
+                <li *ngFor="let posgrado of posgrados">
+                  <a (click)="navigateTo(posgrado.nombre)">{{ posgrado.nombre }}</a>
+                </li>      
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="/home/ensenanza/ingreso_a_licenciatura">Ingreso a Licenciatura</a></li>
+        <li><a href="/home/ensenanza/ingreso_a_posgrado">Ingreso a Posgrado</a></li>
+        <li><a href="/home/ensenanza/becas">Becas</a></li>
+        <li><a href="/home/ensenanza/bibliotecas">Bibliotecas</a></li>
+        
+        <li><a href="/home/ensenanza/servicios_escolares">Servicios Escolares</a></li>
+      </ul>
+    </li>
+    <li id="main-menu-link-contentf5b189fa-e872-4186-bbab-9cba11f46cc8c" class="sf-depth-1 menuparent">
+      <a href="/home/investigacion" class="menu-button">INVESTIGACIÓN</a>
+      <ul class="submenu">
+        <li><a href="/home/investigacion/institutos_de_investigacion">Institutos de Investigación</a>
+          <ul class="sf-depth-2 sf-no-children">
+            <li>
+              <a href="/home/investigacion/institutos_de_investigacion/huajuapan_de_leon">Campus Huajuapan de León</a>
+              <ul class="sf-depth-3">
+                <li *ngFor="let instituto of institutos">
+                  <a (click)="navigateTo(instituto.nombre)">{{instituto.nombre }}</a>
+                </li>     
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="javascript:void(0)">Productos de Investigación</a></li>
+      </ul>
+    </li>
+    <li id="main-menu-link-content260e5efe-067b-4cae-8b1b-dec3b10c14ae" class="sf-depth-1 menuparent">
+      <a href="/home/cultura" class="menu-button">CULTURA</a>
+      <ul class="submenu">
+        <li><a href="/home/cultura/publicaciones">Publicaciones</a></li>
+        <li><a href="/home/cultura/libreria">Libreria</a></li>
+        <li><a href="/home/cultura/actividades_culturales_y_deportivas">Actividades Culturales & Deportivas</a></li>
+        <li><a href="javascript:void(0)">Multimedia</a></li>
+        
+      </ul>
+    </li>
+    <li id="main-menu-link-contentdesarrollo" class="sf-depth-1 menuparent">
+      <a href="/home/promocion_del_desarrollo" class="menu-button">DESARROLLO</a>
+      <ul class="submenu">
+        <li><a href="javascript:void(0)">Actividades</a></li>
+        <li><a href="javascript:void(0)">Informes</a></li>
+        <li><a href="javascript:void(0)">Contacto Promocion del Desarrollo</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>

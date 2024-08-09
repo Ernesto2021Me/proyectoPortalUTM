@@ -4,14 +4,11 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class CarrerasService {
+export class InstitutosService {
 
   constructor(private http: HttpClient) { }
-  list_licenciaturas(){
-    return this.http.get(`${environment.API_URI}/carreras/licenciaturas`);
+  list_institutos_investigacion(){
+    return this.http.get(`${environment.API_URI}/institutos/investigacion`);
   }
 
-  list_posgrados(){
-    return this.http.get(`${environment.API_URI}/carreras/posgrados`);
-  }
 }
