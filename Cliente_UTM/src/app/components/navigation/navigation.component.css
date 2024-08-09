@@ -79,7 +79,14 @@ nav.navbar {
 }
 
 
-
+/* Asegura que el cursor sea de tipo puntero en los botones del menú y submenús */
+.menu-button,
+.submenu li a,
+.sf-depth-2 a,
+.sf-depth-3 a,
+.sf-depth-4 a {
+  cursor: pointer; /* Asegura que el cursor sea de tipo puntero en estos elementos */
+}
 /* Estilos generales para los submenús */
 .submenu,
 .sf-depth-2,

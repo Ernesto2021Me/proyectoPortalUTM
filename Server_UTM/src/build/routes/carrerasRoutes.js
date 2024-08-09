@@ -10,6 +10,8 @@ class CarrerasRoutes {
     config() {
         this.router.get('/licenciaturas', carrerasController_1.carrerasController.list_licenciaturas);
         this.router.get('/posgrados', carrerasController_1.carrerasController.list_posgrados);
+        this.router.post('/perfil_ingreso', carrerasController_1.carrerasController.list_perfil_ingreso);
+        this.router.post('/perfil_egreso', carrerasController_1.carrerasController.list_perfil_egreso);
     }
 }
 const carrerasRoutes = new CarrerasRoutes();

@@ -14,4 +14,9 @@ export class CarrerasService {
   list_posgrados(){
     return this.http.get(`${environment.API_URI}/carreras/posgrados`);
   }
+
+  list_perfil_egreso(Codigocarrera:any){
+    console.log(Codigocarrera)
+    return this.http.post(`${environment.API_URI}/carreras/perfil_egreso`,{"Codigocarrera":Codigocarrera});
+  }
 }

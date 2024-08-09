@@ -4,6 +4,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CarrerasService } from 'src/app/services/carreras.service';
 import { Instituto } from 'src/app/models/institutos';
 import { InstitutosService } from 'src/app/services/institutos.service';
+import { Perfil } from 'src/app/models/perfiles';
 import {Router} from '@angular/router'
 import { Carrera } from 'src/app/models/carreras';
 @Component({
@@ -12,9 +13,13 @@ import { Carrera } from 'src/app/models/carreras';
   styleUrls: ['./pruebas.component.css']
 })
 export class PruebasComponent implements OnInit {
+  
  licenciaturas:Carrera[]=[]
  posgrados: Carrera[]=[]
  institutos: Instituto[]=[]
+ Perfil_egreso: Perfil[]=[]
+ panels: { title: string, content: string }[] = [];
+  openIndex: number | null = null;
  urlMapping: { [key: string]: string } = {
   // Licenciaturas
   'Ingeniería en Computación': '/home/ensenanza/licenciaturas/ingenieria_en_computacion',
@@ -70,6 +75,18 @@ export class PruebasComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   
+    this.panels = [
+      { title: 'JEFATURA DE CARRERA', content: 'Contenido del panel 1' },
+      { title: 'MISIÓN', content: 'Contenido del panel 2' },
+      { title: 'VISIÓN', content: 'Contenido del panel 3' },
+      { title: 'OBJETIVO', content: 'Contenido del panel 4' },
+      { title: 'PERFIL DE INGRESO', content: 'Contenido del panel 5' },
+      { title: 'PERFIL DE EGRESO', content: 'Contenido del panel 6' },
+      { title: 'CAMPO DE ACCIÓN', content: 'Contenido del panel 7' },
+      { title: 'PLAN DE ESTUDIOS', content: 'Contenido del panel 8' },
+    
+  ];
 
     this.CarrerasService.list_licenciaturas( ).subscribe(
       (reslicenciaturas: any) => {
@@ -94,6 +111,14 @@ export class PruebasComponent implements OnInit {
       },
       (err) => console.error(err)
     );
+
+    this.CarrerasService.list_perfil_egreso('02').subscribe(
+      (resperfil: any) => {
+        this.Perfil_egreso = resperfil;
+        console.log(this.Perfil_egreso)
+      },
+      (err) => console.error(err)
+    );
   }
   
   navigateTo(nombre_direccion: string): void {
@@ -110,7 +135,19 @@ export class PruebasComponent implements OnInit {
     } else {
       console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
     }
+
+ 
+  
   }
+  toggle(index: number): void {
+    this.openIndex = this.openIndex === index ? null : index;
+  }
+  
+  isOpen(index: number): boolean {
+    return this.openIndex === index;
+  }
+
+  
     
 
   
