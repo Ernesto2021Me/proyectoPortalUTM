@@ -17,6 +17,6 @@ export class CarrerasService {
 
   list_perfil_egreso(Codigocarrera:any){
     console.log(Codigocarrera)
-    return this.http.post(`${environment.API_URI}/carreras/perfil_egreso`,{"Codigocarrera":Codigocarrera});
+    return this.http.post(`${environment.API_URI}/carreras/jefe_carrera`,{"Codigocarrera":Codigocarrera});
   }
 }

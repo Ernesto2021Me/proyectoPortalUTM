@@ -12,8 +12,10 @@ config() : void
 
 this.router.get('/licenciaturas',carrerasController.list_licenciaturas);
 this.router.get('/posgrados',carrerasController.list_posgrados);
-this.router.post('/perfil_ingreso',carrerasController.list_perfil_ingreso);
-this.router.post('/perfil_egreso',carrerasController.list_perfil_egreso);
+this.router.post('/jefe_carrera',carrerasController.list_one_jefe);
+this.router.post('/mision',carrerasController.list_one_mision)
+this.router.post('/vision',carrerasController.list_one_vision)
+this.router.post('/objetivo',carrerasController.list_one_objetivo)
 }
 }
 const carrerasRoutes= new CarrerasRoutes();

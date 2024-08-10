@@ -41,22 +41,22 @@ class CarrerasController {
             }
         });
     }
-    list_perfil_ingreso(req, res) {
+    list_one_jefe(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { Codigocarrera } = req.body;
             try {
                 // Ejecutar la consulta con parámetros
                 const resultado = yield database_1.default.query(`
-            SELECT 
-                ic.perfil_ingreso, 
-                c.descripcion 
-            FROM 
-                informacion_carreras ic 
-            JOIN 
-                conocimientos c ON ic.id_informacion = c.id_carrera_informacion 
-            WHERE 
-                ic.Codigocarrera = ?
-                AND c.perfil = 1
+            SELECT
+    j.nombre AS nombre_jefe,
+    j.correo AS correo_jefe
+FROM
+    carreras c
+JOIN
+    jefe_carreras j
+ON
+    c.codigoInstituto = j.codigoInstituto 
+WHERE codigoCarrera= ?
         `, [Codigocarrera]);
                 // Devolver los resultados como JSON
                 res.json(resultado); // Asumiendo que 'resultado' tiene una propiedad 'rows'
@@ -67,23 +67,68 @@ class CarrerasController {
             }
         });
     }
-    list_perfil_egreso(req, res) {
+    list_one_mision(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { Codigocarrera } = req.body;
-            console.log(Codigocarrera);
             try {
                 // Ejecutar la consulta con parámetros
                 const resultado = yield database_1.default.query(`
-            SELECT 
-                ic.perfil_egreso, 
-                c.descripcion 
-            FROM 
-                informacion_carreras ic 
-            JOIN 
-                conocimientos c ON ic.id_informacion = c.id_carrera_informacion 
-            WHERE 
-                ic.Codigocarrera = ?
-                AND c.perfil = 2
+           SELECT 
+    c.nombre AS nombre_carrera,
+    c.mision AS mision,
+    mc.descripcion AS descripcion_mision
+FROM carreras c
+LEFT JOIN mision_carreras mc ON c.mision = mc.id_mision
+WHERE codigoCarrera = ?;
+
+        `, [Codigocarrera]);
+                // Devolver los resultados como JSON
+                res.json(resultado); // Asumiendo que 'resultado' tiene una propiedad 'rows'
+            }
+            catch (error) {
+                // Manejar el error y devolver una respuesta adecuada
+                res.status(500).json({ error: 'Error en la consulta' });
+            }
+        });
+    }
+    list_one_vision(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { Codigocarrera } = req.body;
+            try {
+                // Ejecutar la consulta con parámetros
+                const resultado = yield database_1.default.query(`
+          SELECT 
+    c.nombre AS nombre_carrera,
+    c.vision AS vision,
+    vc.descripcion AS descripcion_vision
+FROM carreras c
+LEFT JOIN vision_carreras vc ON c.vision = vc.id_vision
+WHERE codigoCarrera = ?;
+
+        `, [Codigocarrera]);
+                // Devolver los resultados como JSON
+                res.json(resultado); // Asumiendo que 'resultado' tiene una propiedad 'rows'
+            }
+            catch (error) {
+                // Manejar el error y devolver una respuesta adecuada
+                res.status(500).json({ error: 'Error en la consulta' });
+            }
+        });
+    }
+    list_one_objetivo(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { Codigocarrera } = req.body;
+            try {
+                // Ejecutar la consulta con parámetros
+                const resultado = yield database_1.default.query(`
+          SELECT 
+    c.nombre AS nombre_carrera,
+    c.vision AS vision,
+    vc.descripcion AS descripcion_vision
+FROM carreras c
+LEFT JOIN vision_carreras vc ON c.vision = vc.id_vision
+WHERE codigoCarrera = ?;
+
         `, [Codigocarrera]);
                 // Devolver los resultados como JSON
                 res.json(resultado); // Asumiendo que 'resultado' tiene una propiedad 'rows'
