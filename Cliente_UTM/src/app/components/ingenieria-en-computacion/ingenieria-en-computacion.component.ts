@@ -133,5 +133,21 @@ export class IngenieriaEnComputacionComponent implements OnInit {
   formatText(text: string): string {
     return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
   }
+
+  formatTextAsList_2(text: string): string {
+    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    let listItems = lines.map(line => {
+      if (line.startsWith('Análisis de Sistemas:')) {
+        return `<li><strong>Análisis de Sistemas:</strong>${line.slice('Análisis de Sistemas:'.length)}</li>`;
+      } else if (line.startsWith('Auditoría Informática:')) {
+        return `<li><strong>Auditoría Informática:</strong>${line.slice('Auditoría Informática:'.length)}</li>`;
+      } else {
+        return `<li>${line}</li>`;
+      }
+    }).join('');
+    return `<ul class="seccion_campo">${listItems}</ul>`;
+  }
+  
+  
 }
 

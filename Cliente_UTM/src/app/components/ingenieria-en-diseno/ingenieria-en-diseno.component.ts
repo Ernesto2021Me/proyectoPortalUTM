@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CarrerasService } from 'src/app/services/carreras.service';
@@ -8,7 +8,8 @@ import { Carrera } from 'src/app/models/carreras';
 @Component({
   selector: 'app-ingenieria-en-diseno',
   templateUrl: './ingenieria-en-diseno.component.html',
-  styleUrls: ['./ingenieria-en-diseno.component.css']
+  styleUrls: ['./ingenieria-en-diseno.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class IngenieriaEnDisenoComponent implements OnInit {
   licenciaturas: Carrera[] = [];

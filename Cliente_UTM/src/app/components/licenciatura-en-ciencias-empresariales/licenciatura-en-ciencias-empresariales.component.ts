@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -9,7 +9,8 @@ import { Carrera } from 'src/app/models/carreras';
 @Component({
   selector: 'app-licenciatura-en-ciencias-empresariales',
   templateUrl: './licenciatura-en-ciencias-empresariales.component.html',
-  styleUrls: ['./licenciatura-en-ciencias-empresariales.component.css']
+  styleUrls: ['./licenciatura-en-ciencias-empresariales.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LicenciaturaEnCienciasEmpresarialesComponent implements OnInit {
   licenciaturas: Carrera[] = [];
@@ -103,7 +104,9 @@ export class LicenciaturaEnCienciasEmpresarialesComponent implements OnInit {
   }
 
   toggle(index: number): void {
+   
     this.openIndex = this.openIndex === index ? null : index;
+    
   }
 
   isOpen(index: number): boolean {
@@ -116,7 +119,7 @@ export class LicenciaturaEnCienciasEmpresarialesComponent implements OnInit {
       if (['Licenciatura en Estudios Mexicanos', 'Maestría en Ciencia de Datos'].includes(nombre_direccion)) {
         window.open(url, '_blank');
       } else {
-        this.router.navigate([url]);
+        this.router.navigateByUrl(url);
       }
     } else {
       console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
@@ -127,6 +130,12 @@ export class LicenciaturaEnCienciasEmpresarialesComponent implements OnInit {
     let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
     let listItems = lines.map(line => `<li>${line}</li>`).join('');
     return `<ul class="reduce-spacing">${listItems}</ul>`;
+  }
+
+  formatTextAsList_2(text: string): string {
+    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    let listItems = lines.map(line => `<li>${line}</li>`).join('');
+    return `<ul class="egreso">${listItems}</ul>`;
   }
 
   formatText(text: string): string {

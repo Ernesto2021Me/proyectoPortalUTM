@@ -168,10 +168,13 @@ h1 {
 }
 
 .reduce-spacing{
-line-height: 1.0;
-
+line-height: 1.5;
 }
 
+.seccion_campo{
+    line-height: 1.5;
+    list-style-type: none;
+}
 .formatted-text {
     white-space: pre-wrap; /* Mantiene los saltos de línea y espacios múltiples */
   }

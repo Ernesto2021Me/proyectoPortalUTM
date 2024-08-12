@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CarrerasService } from 'src/app/services/carreras.service';
@@ -8,7 +8,8 @@ import { Carrera } from 'src/app/models/carreras';
 @Component({
   selector: 'app-ingenieria-en-electronica',
   templateUrl: './ingenieria-en-electronica.component.html',
-  styleUrls: ['./ingenieria-en-electronica.component.css']
+  styleUrls: ['./ingenieria-en-electronica.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class IngenieriaEnElectronicaComponent implements OnInit {
   licenciaturas: Carrera[] = [];
@@ -131,4 +132,20 @@ export class IngenieriaEnElectronicaComponent implements OnInit {
   formatText(text: string): string {
     return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
   }
+
+  formatText_2(text: string): string {
+    // Define el texto que quieres reemplazar con un enlace
+    const textToReplace = 'Charlas con Egresados';
+    
+    // Define el enlace que quieres insertar
+    const linkHtml = '<a href="https://www.youtube.com/playlist?list=PLryMJrShwg0mNJjF5Coh6KI8x7ZekYlVg" target="_blank">Charlas con Egresados</a>';
+    
+    // Reemplaza el texto específico con el enlace en el texto completo
+    const modifiedText = text.replace(textToReplace, linkHtml);
+    
+    // Procesa el texto modificado y lo envuelve en etiquetas <p>
+    return modifiedText.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
+  }
+  
+  
 }

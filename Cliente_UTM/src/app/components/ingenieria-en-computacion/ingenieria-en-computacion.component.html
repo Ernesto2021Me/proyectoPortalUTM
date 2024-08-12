@@ -130,21 +130,27 @@
                                         <div *ngIf="i === 1">
                                         <div class="mision-content">
                                             <div [innerHTML]="formatText(datos_carrera.mision)"></div>
+                                            <ng-container *ngIf="datos_carrera.descripcion_mision">
                                             <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_mision)"></div>
-                                      </div>
+                                            </ng-container>
+                                          </div>
                                         </div>
                                         <div *ngIf="i === 2">
                                           <div class="vision-content">
                                             <div [innerHTML]="formatText(datos_carrera.vision)"></div>
+                                            <ng-container *ngIf="datos_carrera.descripcion_vision">
+                                        
                                             <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_vision)"></div>
-                                      
+                                            </ng-container>
                                         </div>
                                         </div>
                                         <div *ngIf="i === 3">
                                           <div class="objetivo-content">
                                             <div [innerHTML]="formatText(datos_carrera.objetivos)"></div>
+                                            <ng-container *ngIf="datos_carrera.descripcion_objetivo">
+                                        
                                             <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_objetivo)"></div>
-                                  
+                                            </ng-container>
                                           </div>
                                         </div>
                                         <div *ngIf="i === 4">
@@ -206,8 +212,10 @@
                                         <div *ngIf="i === 6">
                                             <div class="campo-de-accion-content">
                                                  <div [innerHTML]="formatText(datos_carrera.campo_accion)"></div>
-                                            <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_campo)"></div>
-                                             
+                                                 <ng-container *ngIf="datos_carrera.descripcion_campo">
+                                        
+                                            <div [innerHTML]="formatTextAsList_2(datos_carrera.descripcion_campo)"></div>
+                                         </ng-container>     
                         
                                               </div>
                                         </div>

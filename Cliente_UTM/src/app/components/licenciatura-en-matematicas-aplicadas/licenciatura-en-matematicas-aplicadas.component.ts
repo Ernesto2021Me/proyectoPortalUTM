@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CarrerasService } from 'src/app/services/carreras.service';
@@ -8,7 +8,8 @@ import { Carrera } from 'src/app/models/carreras';
 @Component({
   selector: 'app-licenciatura-en-matematicas-aplicadas',
   templateUrl: './licenciatura-en-matematicas-aplicadas.component.html',
-  styleUrls: ['./licenciatura-en-matematicas-aplicadas.component.css']
+  styleUrls: ['./licenciatura-en-matematicas-aplicadas.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LicenciaturaEnMatematicasAplicadasComponent implements OnInit {
   licenciaturas: Carrera[] = [];
@@ -128,6 +129,88 @@ export class LicenciaturaEnMatematicasAplicadasComponent implements OnInit {
     return `<ul class="reduce-spacing">${listItems}</ul>`;
   }
 
+  formatTextAsList_2(text: string): string {
+    // Divide el texto en líneas y limpia espacios innecesarios
+    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    
+    // Variable para almacenar el HTML final
+    let html = '';
+    
+    // Iterar sobre las líneas para construir el HTML
+    for (let line of lines) {
+      // Detectar el patrón específico
+      if (line.startsWith('Sólidos en al menos una de las siguientes líneas terminales con orientación a:')) {
+        // Extraer la parte de la línea que sigue después del patrón
+        let parts = line.split(':');
+        let mainItem = parts[0].trim(); // "Sólidos en las áreas del conocimiento:"
+        let subItems = parts[1] ? parts[1].trim().split(',').map(item => item.trim()) : [];
+  
+        // Construir el HTML para el ítem principal
+        html += `<li>${mainItem}:`;
+        
+        // Construir el HTML para la lista anidada
+        if (subItems.length > 0) {
+          let subListItems = subItems.map(item => {
+            // Añadir punto al final si no lo tiene
+            if (!item.endsWith('.')) {
+              item += '.';
+            }
+            return `<li>${item}</li>`;
+          }).join('');
+          html += `<ul class="reduce-spacing">${subListItems}</ul>`;
+        }
+        
+        // Cerrar el ítem principal
+        html += `</li>`;
+      } else {
+        // Para otras líneas simplemente agregarlas como ítems de lista
+        html += `<li>${line}</li>`;
+      }
+    }
+    
+    // Envolver el HTML en una lista no ordenada
+    return `<ul class="reduce-spacing">${html}</ul>`;
+  }
+
+  formatTextAsList_3(text: string): string {
+    // Divide el texto en líneas y limpia los espacios en blanco.
+    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    
+    // Define los títulos y los rangos de índices para cada categoría.
+    const categories = [
+      {
+        title: 'Como profesionista independiente:',
+        start: 0,
+        end: 4
+      },
+      {
+        title: 'Como miembro de una Empresa o Industria:',
+        start: 4,
+        end: 8
+      },
+      {
+        title: 'Como miembro de alguna Institución u Organización:',
+        start: 8,
+        end: 11
+      }
+    ];
+  
+    // Genera el HTML para las sub-listas.
+    const generateList = (items: string[]): string => {
+      const listItems = items.map(item => `<li>${item}</li>`).join('');
+      return `<ul class="reduce-spacing">${listItems}</ul>`;
+    };
+  
+    // Genera el HTML para las categorías.
+    const categoryHtml = categories.map(category => {
+      const subItems = lines.slice(category.start, category.end);
+      const subListHtml = generateList(subItems);
+      return `<li><strong>${category.title}</strong>${subListHtml}</li>`;
+    }).join('');
+  
+    return `<ul class="reduce-spacing">${categoryHtml}</ul>`;
+  }
+  
   formatText(text: string): string {
     return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
   }

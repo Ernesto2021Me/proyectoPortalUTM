@@ -168,8 +168,15 @@ h1 {
  }
  
  .reduce-spacing{
- line-height: 1.4;
+ line-height: 1.5;
  }
+
+ .egreso{
+    line-height: 1.5;
+    margin-bottom:0px;
+ }
+
+
  
  .mision-content ul li::before,
 .vision-content ul li::before,
@@ -314,6 +321,7 @@ h1 {
     border-bottom-right-radius: 4px; /* Redondear las esquinas inferiores del contenido */
 }
 
+  
 /* Estilo para el contenido del panel */
 .panel-body {
     font-size: 16px; /* Tamaño de fuente del contenido del panel */
