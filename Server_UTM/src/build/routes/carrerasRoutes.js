@@ -14,6 +14,9 @@ class CarrerasRoutes {
         this.router.post('/mision', carrerasController_1.carrerasController.list_one_mision);
         this.router.post('/vision', carrerasController_1.carrerasController.list_one_vision);
         this.router.post('/objetivo', carrerasController_1.carrerasController.list_one_objetivo);
+        this.router.post('/ingreso', carrerasController_1.carrerasController.list_one_ingreso);
+        this.router.post('/egreso', carrerasController_1.carrerasController.list_one_egreso);
+        this.router.post('/campo', carrerasController_1.carrerasController.list_informacion_completa);
     }
 }
 const carrerasRoutes = new CarrerasRoutes();

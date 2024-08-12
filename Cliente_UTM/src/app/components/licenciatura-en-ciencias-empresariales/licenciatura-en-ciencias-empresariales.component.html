@@ -39,45 +39,13 @@
                             <li class="menu-item menu-item--expanded menu-item--active-trail">
                                 <a href="/home/ensenanza/licenciaturas/huajuapan_de_leon" data-drupal-link-system-path="node/45">Huajuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_computacion">Ingeniería en Computación</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_electronica">Ingeniería en Electrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_diseno">Ingeniería en Diseño</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/licenciatura_en_ciencias_empresariales" class="highlight-red">Licenciatura en Ciencias Empresariales</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/licenciatura_en_matematicas_aplicadas">Licenciatura en Matemáticas Aplicadas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_alimentos">Ingeniería en Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_industrial">Ingeniería Industrial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="http://virtual.utm.mx/licenciatura_estudios_mexicanos.html" target="_blank">Licenciatura en Estudios Mexicanos (modalidad virtual)</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecatronica">Ingeniería en Mecatrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_fisica_aplicada">Ingeniería en Física Aplicada</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz">Ingeniería Mecánica Automotriz</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_civil">Ingeniería Civil</a>
-                                    </li>
-                                    <li class="menu-item">
-                                      <a href="/home/ensenanza/licenciaturas/ingenieria_quimica_en_procesos_sostenibles">Ingeniería Química en Procesos Sostenibles</a>
-                                    </li>
+                                  <li class="menu-item" *ngFor="let licenciatura of licenciaturas">
+                                    <a 
+                                      [ngClass]="{ 'highlight-red': licenciatura.nombre === 'Licenciatura en Ciencias Empresariales' }"
+                                      (click)="navigateTo(licenciatura.nombre)">
+                                      {{ licenciatura.nombre }}
+                                    </a>
+                                  </li>   
                                 </ul>
                             </li>
                         </ul>
@@ -88,60 +56,13 @@
                             <li class="menu-item menu-item--expanded">
                                 <a href="/home/ensenanza/posgrados/huajuapan_de_leon" data-drupal-link-system-path="node/58">Huajuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_administracion_negocios">Maestría en Administración de Negocios</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_materiales">Maestría en Ciencias de Materiales</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_productos_naturales_alimentacion">Maestría en Ciencias: Productos Naturales y Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_diseno_modas">Maestría en Diseño de Modas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_diseno_muebles">Maestría en Diseño de Muebles</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_electronica_en_sistemas_inteligentes">Maestría en Electrónica Opción en Sistemas Inteligentes Aplicados</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ingenieria_de_software">Maestría en Ingeniería de Software</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_inteligencia_artificial">Maestría en Inteligencia Artificial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_medios_interactivos">Maestría en Medios Interactivos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_modelacion_matematica">Maestría en Modelación Matemática</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_robotica">Maestría en Robótica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_tecnologia_avanzada_de_manufactura">Maestría en Tecnología Avanzada de Manufactura</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_de_datos">Maestría en Ciencia de Datos (modalidad virtual)</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="http://virtual.utm.mx/maestria_ciencia_datos.html" target="_blank">Maestría en Ciencia de Datos (modalidad virtual)</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados">Doctorado en Electrónica Especialidad Sistemas Inteligentes Aplicados</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_inteligencia_artificial">Doctorado en Inteligencia Artificial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_modelacion_matematica">Doctorado en Modelación Matemática</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_robotica">Doctorado en Robótica</a>
-                                    </li>
+                                  <li class="menu-item" *ngFor="let posgrado of posgrados">
+                                    <a 
+                                      
+                                      (click)="navigateTo(posgrado.nombre)">
+                                      {{ posgrado.nombre }}
+                                    </a>
+                                  </li>  
                                 </ul>
                             </li>
                         </ul>
@@ -200,74 +121,131 @@
                                     <div class="panel-body">
                                         <div *ngIf="i === 0">
                                             <ul class="contact-info">
-                                                <li><h3>Lic. Francisca Adriana Sánchez Meza</h3></li>
-                                                <li><i class="fas fa-envelope"></i>jcempresariales@mixteco.utm.mx</li>
+                                                <li><h3>Lic.  {{ jefe_carrera.nombre_jefe || '-' }}</h3></li>
+                                                <li><i class="fas fa-envelope"></i>{{ jefe_carrera.correo_jefe || '-' }}</li>
                                             </ul>
                                         </div>
                                         <div *ngIf="i === 1">
                                             <div class="mision-content">
-                                                <p>Formar profesionales con habilidades y competencias necesarias para emprender proyectos de negocios y/o dirigir organizaciones bajo una visión integradora, global y estratégica; capaces de aplicar con ética, conocimientos administrativos, contables, financieros y de mercadotecnia, basados en la experiencia transmitida por los profesores investigadores, así como en actividades de vinculación con el sector empresarial e infraestructura óptima, que contribuyan al desarrollo sustentable de la región, del estado y del país.</p>
-                                              </div>
+                                              <p>{{mision.mision}}</p>
+                                              <div *ngIf="mision.descripcion_mision.length > 0">
+         
+                                               <div *ngFor="let desc of mision.descripcion_mision">
+                                                 <p>{{ desc }}</p>
+                                               </div>    
+                                            </div>    
+                                            </div>
                                         </div>
                                         <div *ngIf="i === 2">
                                             <div class="vision-content">
-                                                <p>Ser una licenciatura comprometida con la excelencia académica; líder en el desarrollo empresarial, coadyuvante de la formación de directivos y empresarios capaces de satisfacer las necesidades de mejora continua que demanda la sociedad.</p>
-                                              </div>
+                                              <p>{{vision.vision}}</p>
+                                              <div *ngIf="vision.descripcion_vision.length > 0">
+         
+                                               <div *ngFor="let desc of vision.descripcion_vision">
+                                                 <p>{{ desc }}</p>
+                                               </div>
+                                             </div>      
+                                            </div>
                                         </div>
                                         <div *ngIf="i === 3">
                                             <div class="objetivo-content">
-                                                <p>Formar profesionistas altamente calificados, competitivos, visionarios con sólidos valores, sensibles a las necesidades sociales y de su entorno, comprometidos a contribuir con su conocimiento al desarrollo de la región y del estado.</p>
-                                              </div>
+                                              <p>{{objetivo.objetivo}}</p>
+                                              <div *ngIf="objetivo.descripcion_objetivo.length>0">
+         
+                                               <div *ngFor="let desc of objetivo.descripcion_objetivo">
+                                                 <p>{{ desc }}</p>
+                                               </div>
+                                             </div>   
+                                            </div>
                                         </div>
                                         <div *ngIf="i === 4">
                                             <div class="perfil-ingreso-content">
-                                                <p>El aspirante a la Licenciatura en Ciencias Empresariales deberá contar preferentemente con los siguientes conocimientos, habilidades, actitudes y valores:</p>
-                                                 <ul style="list-style-type: none;">
-                                                <li><strong>Conocimientos en:</strong></li>
-                                                <ul>
-                                                  <li>Administración, contabilidad, economía, derecho y álgebra básica.</li>
-                                                </ul>
+                                                <p>{{perfil_ingreso.perfil}}</p>
+                                                <ul style="list-style-type: none;">
+                                                <div *ngIf="perfil_ingreso.descripcion_conocimiento.length>0">
+                                                  
+                                                    <li><strong>Conocimientos en:</strong></li>
+                                                 <div *ngFor="let desc of perfil_ingreso.descripcion_conocimiento">
+                                                  <ul class="reduce-spacing">
+                                                   <li>{{ desc }}</li>
+                                                  </ul>
+                                                  
+                                                 </div>
+                                               </div>
+                                               <div *ngIf="perfil_ingreso.descripcion_habilidad.length>0">
+                                                  
+                                                <li><strong>Hablidades para:</strong></li>
+                                             <div *ngFor="let desc of perfil_ingreso.descripcion_habilidad">
+                                              <ul class="reduce-spacing">
+                                               <li>{{ desc }}</li>
+                                              </ul>
+                                              
+                                             </div>
+                                           </div>
+                                           <div *ngIf="perfil_ingreso.descripcion_valores.length>0">
+                                                  
+                                            <li><strong>Actitudes y Valores:</strong></li>
+                                         <div *ngFor="let desc of perfil_ingreso.descripcion_valores">
+                                          <ul class="reduce-spacing">
+                                           <li>{{ desc }}</li>
+                                          </ul>
                                           
-                                                <li><strong>Habilidades para:</strong></li>
-                                                <ul>
-                                                  <li>Realizar planteamientos y análisis de casos empresariales.</li>
-                                                  <li>Administración de su tiempo.</li>
-                                                  <li>Realizar trabajo en equipo con personas de su misma formación.</li>
-                                                  <li>Realizar trabajo interdisciplinario.</li>
-                                                </ul>
-                                          
-                                                <li><strong>Actitudes y Valores:</strong></li>
-                                                <ul>
-                                                  <li>Compromiso.</li>
-                                                  <li>Responsabilidad.</li>
-                                                  <li>Honestidad.</li>
-                                                  <li>Perseverancia.</li>
-                                                </ul>
-                                            </ul>
+                                         </div>
+                                       </div>
+                                              </ul> 
                                               </div>
                                         </div>
                                         <div *ngIf="i === 5">
                                             <div class="perfil-egreso-content">
-                                                <p>El egresado de la Licenciatura en Ciencias Empresariales tendrá la capacidad para iniciar una empresa y/o gestionar una existente. De Identificar oportunidades de negocios, de proponer y emprender responsablemente proyectos en beneficio de su entorno. Además, su formación integral, conocimientos, habilidades, actitudes y valores le permitirá:</p>
+                                              <p>{{perfil_egreso.perfil}}</p>
+                                              <ul class="reduce-spacing">
+                                              <div *ngIf="perfil_egreso.descripcion_conocimiento.length>0">
                                                 
-                                                <ul class="reduce-spacing">
-                                                  <li>Identificar y evaluar oportunidades de negocio con una actitud emprendedora.</li>
-                                                  <li>Desarrollar y evaluar proyectos de inversión con ética y responsabilidad social.</li>
-                                                  <li>Crear, dirigir, desarrollar y/o consolidar empresas desde una perspectiva creativa e innovadora.</li>
-                                                  <li>Tomar decisiones efectivas en el manejo y la aplicación de los recursos.</li>
-                                                  <li>Dirigir grupos multidisciplinarios, motivar a las personas y resolver conflictos interpersonales.</li>
-                                                  <li>Coordinar y realizar negociaciones efectivas necesarias para solución de problemas específicos y el logro de objetivos empresariales.</li>
-                                                  <li>Diseñar e implementar estrategias para lograr la competitividad.</li>
-                                                  <li>Coadyuvar en el desarrollo regional y sustentable bajo una perspectiva global.</li>
-                                                  <li>Propiciar la productividad y rentabilidad de la empresa con un enfoque de servicio al cliente, desarrollo organizacional y mejora de la calidad de vida en el trabajo.</li>
-                                                </ul>
+                                                
+                                               <div *ngFor="let desc of perfil_egreso.descripcion_conocimiento">
+                                             
+                                                 <li>{{ desc }}</li>
+                                              
+                                                
+                                               </div>
+                                             </div>
+                                             <div *ngIf="perfil_egreso.descripcion_habilidad.length>0">
+                                                
+                                            
+                                           <div *ngFor="let desc of perfil_egreso.descripcion_habilidad">
+                                       
+                                             <li>{{ desc }}</li>
+                                           
+                                            
+                                           </div>
+                                         </div>
+                                         <div *ngIf="perfil_egreso.descripcion_valores.length>0">
+                                                
+                                          
+                                       <div *ngFor="let desc of perfil_egreso.descripcion_valores">
+                                      
+                                         <li>{{ desc }}</li>
+                                        
+                                        
+                                       </div>
+                                     </div>
+                                            </ul>    
                                                 
                                               </div>
                                         </div>
                                         <div *ngIf="i === 6">
                                             <div class="campo-de-accion-content">
-                                                <p>El Licenciado en Ciencias Empresariales tiene conocimientos, habilidades y aptitudes para desempeñarse en la iniciativa privada, el sector público, en instituciones educativas como docente y centros de investigación. Además, tiene la capacidad para conducir una empresa existente e iniciar una nueva.</p>
-                                              </div>
+                                              <p>{{campos.campo}}</p>
+                                              <div *ngIf="campos.descripcion_campo_accion.length>0">
+                                                <ul class="reduce-spacing"> 
+                                               <div *ngFor="let desc of campos.descripcion_campo_accion">
+                                            
+                                                 <li>{{ desc }}</li>
+                                               
+                                               </div>
+                                              </ul>  
+                                              </div>  
+                                            </div>
                                         </div>
                                         <div *ngIf="i === 7">
                                             <div class="plan-de-estudios-content">

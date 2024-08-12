@@ -41,7 +41,7 @@
                                 <ul class="menu">
                                   <li class="menu-item" *ngFor="let licenciatura of licenciaturas">
                                     <a 
-                                      [ngClass]="{ 'highlight-red': licenciatura.nombre === 'Ingeniería en Alimentos' }"
+                                      [ngClass]="{ 'highlight-red': licenciatura.nombre === 'Ingeniería en Computación' }"
                                       (click)="navigateTo(licenciatura.nombre)">
                                       {{ licenciatura.nombre }}
                                     </a>
@@ -120,73 +120,95 @@
                                 </div>
                                 <div class="panel-collapse" *ngIf="isOpen(i)">
                                     <div class="panel-body">
-                                        <div *ngIf="i === 0">
-                                            <ul class="contact-info">
-                                                <li><h3>M.C. Enrique Alejandro López</h3></li>
-                                                <li><i class="fas fa-envelope"></i>jccomputacion@mixteco.utm.mx</li>
-                                            </ul>
-                                        </div>
+                                      <div *ngIf="i === 0">
+                                        <ul class="contact-info">
+                                          <li><h3>M.C. {{ datos_carrera.nombre_jefe|| '-' }}</h3></li>
+                                          <li><i class="fas fa-envelope"></i>{{datos_carrera.correo_jefe || '-' }}</li>
+                                        </ul>
+                                      </div>
+                                      
                                         <div *ngIf="i === 1">
-                                         <p>Misión en revisión por parte de las autoridades universitarias correspondientes.</p>
+                                        <div class="mision-content">
+                                            <div [innerHTML]="formatText(datos_carrera.mision)"></div>
+                                            <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_mision)"></div>
+                                      </div>
                                         </div>
                                         <div *ngIf="i === 2">
-                                            <p>Revisión en revisión por parte de las autoridades universitarias correspondientes.</p>
+                                          <div class="vision-content">
+                                            <div [innerHTML]="formatText(datos_carrera.vision)"></div>
+                                            <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_vision)"></div>
+                                      
+                                        </div>
                                         </div>
                                         <div *ngIf="i === 3">
-                                            <p>Objetivo en revisión por parte de las autoridades universitarias correspondientes.</p>  
+                                          <div class="objetivo-content">
+                                            <div [innerHTML]="formatText(datos_carrera.objetivos)"></div>
+                                            <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_objetivo)"></div>
+                                  
+                                          </div>
                                         </div>
                                         <div *ngIf="i === 4">
                                             <div class="perfil-ingreso-content">
-                                                <p>El aspirante a ingresar a la carrera de Ingeniería en Computación debe poseer:</p>
-                                                <ul style="list-style-type: none;">
-                                                <li><strong>Conocimientos:</strong></li>
-                                                <ul class="reduce-spacing">
-                                                  <li >Bachillerato terminado, preferentemente con especialidad en informática o en el área de Físico-Matemáticas.</li>
-                                                </ul>
-                                                <li><strong>Habilidades para:</strong></li>
-                                                <ul class="reduce-spacing">
-                                                  <li>Aptitudes para analizar y proponer soluciones prácticas a problemas lógicos y matemáticos.</li>
-                                                  <li >Habilidad en la planeación y realización de tareas individuales y colectivas.</li>
-                                                </ul>
-                                                <li><strong>Actitudes y valores:</strong></li>
-                                                <ul class="reduce-spacing">
-                                                  <li>Compromiso, disciplina y constancia.</li>
-                                                </ul>
-                                            </ul>
-                                              </div>
+                                              <div [innerHTML]="formatText(datos_carrera.perfil_ingreso)"></div>
+
+<ul style="list-style-type: none;">
+  <!-- Mostrar sección de Conocimientos solo si datos_carrera.descripcion_conocimiento_in no es nulo o vacío -->
+  <ng-container *ngIf="datos_carrera.descripcion_conocimiento_ingreso">
+    <li><strong>Conocimientos:</strong></li>
+    <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_conocimiento_ingreso)"></div>
+  </ng-container>
+
+  <!-- Mostrar sección de Habilidades solo si datos_carrera.descripcion_habilidad_in no es nulo o vacío -->
+  <ng-container *ngIf="datos_carrera.descripcion_habilidad_ingreso">
+    <li><strong>Habilidades:</strong></li>
+    <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_habilidad_ingreso)"></div>
+  </ng-container>
+
+  <!-- Mostrar sección de Actitudes y Valores solo si datos_carrera.descripcion_valores_in no es nulo o vacío -->
+  <ng-container *ngIf="datos_carrera.descripcion_valores_ingreso">
+    <li><strong>Actitudes y Valores:</strong></li>
+    <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_valores_ingreso)"></div>
+  </ng-container>
+</ul>
+
+                                          </div>
                                         </div>
                                         <div *ngIf="i === 5">
                                             <div class="perfil-egreso-content">
-                                                <p>Los egresados de la Ingeniería en Computación son profesionistas con las siguientes características:</p>
-                                                <ul style="list-style-type: none;">
-                                                <li><strong>Conocimientos:</strong></li>
-                                                <ul class="reduce-spacing">
-                                                  <li >Formación sólida en matemáticas, teoría de la computación, programación de sistemas, paradigmas de programación, redes de computadoras y sistemas de gestión de bases de datos.</li>
-                                                  <li >Conocimientos en inteligencia artificial e ingeniería de software, con la capacidad de especializarse en alguna de estas áreas.</li>
-                                                </ul>
-                                                <li><strong>Habilidades para:</strong></li>
-                                                <ul class="reduce-spacing">
-                                                  <li>Habilidad para poder realizar trabajo en equipo y ser líder de los mismos.</li>
-                                                  <li>Capacidad para realizar estudios de posgrado, incorporación al sector productivo o para crear su propia empresa.</li>
-                                                </ul>
-                                                <li><strong>Actitudes y valores:</strong></li>
-                                                <ul class="reduce-spacing">
-                                                  <li>Profesional responsable, solidario, ético, comprometido con la sociedad y el medio ambiente.</li>
-                                                </ul>
-                                                <p>El Ingeniero en Computación egresado tiene los conocimientos y aptitudes necesarias para laborar en el sector público o privado, en lugares donde se requieran sistemas de cómputo o donde pueda aplicar su capacidad de análisis y abstracción para resolver problemas de ingeniería.</p>
-                                                <p>Además, el ingeniero en computación está capacitado para desempeñarse en instituciones dedicadas a la docencia o a la investigación, y para continuar con estudios de posgrado en áreas afines.</p>
-                                                <p>En el sector laboral, hay una gran demanda de Ingenieros en Computación, debido al notable incremento de las TI en prácticamente todos los sectores productivos. Nuestros egresados están capacitados en el uso de paquetes de uso comercial y científico, así como en la metodología y desarrollo de aplicaciones usando una variedad de lenguajes de programación.</p>
-                                            </ul>  
+                                              <p>Los egresados de la Ingeniería en Computación son profesionistas con las siguientes características:</p>
+                                              
+<ul style="list-style-type: none;">
+  <!-- Mostrar sección de Conocimientos solo si datos_carrera.descripcion_conocimiento_in no es nulo o vacío -->
+  <ng-container *ngIf="datos_carrera.descripcion_conocimiento_egreso">
+    <li><strong>Conocimientos:</strong></li>
+    <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_conocimiento_egreso)"></div>
+  </ng-container>
+
+  <!-- Mostrar sección de Habilidades solo si datos_carrera.descripcion_habilidad_in no es nulo o vacío -->
+  <ng-container *ngIf="datos_carrera.descripcion_habilidad_egreso">
+    <li><strong>Habilidades:</strong></li>
+    <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_habilidad_egreso)"></div>
+  </ng-container>
+
+  <!-- Mostrar sección de Actitudes y Valores solo si datos_carrera.descripcion_valores_in no es nulo o vacío -->
+  <ng-container *ngIf="datos_carrera.descripcion_valores_egreso">
+    <li><strong>Actitudes y Valores:</strong></li>
+    <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_valores_egreso)"></div>
+  </ng-container>
+</ul>
+<div [innerHTML]="formatText(datos_carrera.perfil_egreso)"></div>
+
+
+                                            
                                             </div>
                                             
                                         </div>
                                         <div *ngIf="i === 6">
                                             <div class="campo-de-accion-content">
-                                                <p>Las principales áreas en que interviene el profesionista en Ingeniería en Computación son:</p>
-                                                <ul class="reduce-spacing">
-                                                  <li><strong>Análisis de Sistemas:</strong> Planificación, análisis y diseño de sistemas de información.</li>
-                                                  <li><strong>Auditoría Informática:</strong> Asesoramiento a las empresas sobre sus problemas informáticos, proponiendo soluciones que agilicen o mejoren su funcionamiento.</li>
-                                                </ul>
+                                                 <div [innerHTML]="formatText(datos_carrera.campo_accion)"></div>
+                                            <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_campo)"></div>
+                                             
+                        
                                               </div>
                                         </div>
                                         <div *ngIf="i === 7">

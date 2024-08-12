@@ -1,11 +1,11 @@
 export class Jefe_carrera {
-    nombre: string;
-     correo: string;
+    nombre_jefe: string;
+     correo_jefe: string;
      telefono: string;
      
      constructor() {
-       this.nombre = '';
-       this.correo = '';
+       this.nombre_jefe = '';
+       this.correo_jefe = '';
        this.telefono='';
      }
    }

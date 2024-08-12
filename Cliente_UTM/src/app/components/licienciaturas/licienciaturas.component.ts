@@ -8,10 +8,11 @@ import {Router} from '@angular/router'
   styleUrls: ['./licienciaturas.component.css']
 })
 export class LicienciaturasComponent implements OnInit {
-  licenciaturas:Carrera[]=[]
- posgrados: Carrera[]=[]
+  licenciaturas: Carrera[] = [];
+  posgrados: Carrera[] = [];
   panels: { title: string, content: string }[] = [];
   openIndex: number | null = 0;
+
   urlMapping: { [key: string]: string } = {
     // Licenciaturas
     'Ingeniería en Computación': '/home/ensenanza/licenciaturas/ingenieria_en_computacion',
@@ -48,32 +49,39 @@ export class LicienciaturasComponent implements OnInit {
     'Doctorado en Modelación Matemática': '/home/ensenanza/posgrados/doctorado_en_modelacion_matematica',
     'Doctorado en Robótica': '/home/ensenanza/posgrados/doctorado_en_robotica',
   }  
-  constructor(private CarrerasService: CarrerasService,private router: Router) { }
+
+  constructor(private carrerasService: CarrerasService, private router: Router) {}
 
   ngOnInit(): void {
-    this.panels = [
-      { title: 'CAMPUS HUAJUAPAN DE LEON', content: 'Contenido del panel 1' },
-      
-    ];   
-
-    this.CarrerasService.list_licenciaturas( ).subscribe(
-      (reslicenciaturas: any) => {
-        this.licenciaturas = reslicenciaturas;
-        console.log(this.licenciaturas)
-      },
-      (err) => console.error(err)
-    );
+    this.initializePanels();
+    this.loadData();
     
-    this.CarrerasService.list_posgrados( ).subscribe(
-      (reslicenciaturas: any) => {
-        this.posgrados = reslicenciaturas;
-        console.log(this.posgrados)
-      },
-      (err) => console.error(err)
-    );
-
     
   }
+
+  private initializePanels(): void {
+    this.panels = [
+      { title: 'CAMPUS HUAJUAPAN DE LEON', content: 'Contenido del panel 1' }
+    ];
+  }
+
+  private loadData(): void {
+    this.loadCarreras();
+  }
+
+
+  private loadCarreras(): void {
+    this.carrerasService.list_licenciaturas().subscribe(
+      (res: any) => this.licenciaturas = res,
+      (err) => console.error(err)
+    );
+
+    this.carrerasService.list_posgrados().subscribe(
+      (res: any) => this.posgrados = res,
+      (err) => console.error(err)
+    );
+  }
+
 
   toggle(index: number): void {
     this.openIndex = this.openIndex === index ? null : index;
@@ -83,16 +91,12 @@ export class LicienciaturasComponent implements OnInit {
     return this.openIndex === index;
   }
 
-  
   navigateTo(nombre_direccion: string): void {
     const url = this.urlMapping[nombre_direccion];
     if (url) {
-      if (nombre_direccion === 'Licenciatura en Estudios Mexicanos' || nombre_direccion === 'Maestría en Ciencia de Datos'){
-        // Redirige a una URL externa
-       // window.location.href = url;
-       window.open(url, '_blank');
+      if (['Licenciatura en Estudios Mexicanos', 'Maestría en Ciencia de Datos'].includes(nombre_direccion)) {
+        window.open(url, '_blank');
       } else {
-        // Redirige a una URL interna
         this.router.navigate([url]);
       }
     } else {
@@ -101,3 +105,4 @@ export class LicienciaturasComponent implements OnInit {
   }
 
 }
+
