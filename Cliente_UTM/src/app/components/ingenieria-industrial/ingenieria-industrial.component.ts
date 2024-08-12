@@ -1,355 +1,142 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
+import { Router } from '@angular/router';
 
+import { CarrerasService } from 'src/app/services/carreras.service';
+import { Informacion_careras } from 'src/app/models/Informacion_carrera';
+import { Carrera } from 'src/app/models/carreras';
 @Component({
   selector: 'app-ingenieria-industrial',
   templateUrl: './ingenieria-industrial.component.html',
-  styleUrls: ['./ingenieria-industrial.component.css']
+  styleUrls: ['./ingenieria-industrial.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class IngenieriaIndustrialComponent implements OnInit {
-  panels: { title: string, content: string }[] = [];
-  openIndex: number | null = null;
-  constructor() { }
-
-  ngOnInit(): void {
-    this.panels = [
-      { title: 'JEFATURA DE CARRERA', content: 'Contenido del panel 1' },
-      { title: 'MISIÓN', content: 'Contenido del panel 2' },
-      { title: 'VISIÓN', content: 'Contenido del panel 3' },
-      { title: 'OBJETIVO', content: 'Contenido del panel 4' },
-      { title: 'PERFIL DE INGRESO', content: 'Contenido del panel 5' },
-      { title: 'PERFIL DE EGRESO', content: 'Contenido del panel 6' },
-      { title: 'CAMPO DE ACCIÓN', content: 'Contenido del panel 7' },
-      { title: 'PLAN DE ESTUDIOS', content: 'Contenido del panel 8' },
+    licenciaturas: Carrera[] = [];
+    posgrados: Carrera[] = [];
+    datos_carrera=new Informacion_careras();
+  
+    panels: { title: string, content: string }[] = [];
+    openIndex: number | null = null;
+  
+    urlMapping: { [key: string]: string } = {
+      // Licenciaturas
+      'Ingeniería en Computación': '/home/ensenanza/licenciaturas/ingenieria_en_computacion',
+      'Ingeniería en Electrónica': '/home/ensenanza/licenciaturas/ingenieria_en_electronica',
+      'Ingeniería en Diseño': '/home/ensenanza/licenciaturas/ingenieria_en_diseno',
+      'Licenciatura en Ciencias Empresariales': '/home/ensenanza/licenciaturas/licenciatura_en_ciencias_empresariales',
+      'Licenciatura en Matemáticas Aplicadas': '/home/ensenanza/licenciaturas/licenciatura_en_matematicas_aplicadas',
+      'Ingeniería en Alimentos': '/home/ensenanza/licenciaturas/ingenieria_en_alimentos',
+      'Ingeniería Industrial': '/home/ensenanza/licenciaturas/ingenieria_industrial',
+      'Licenciatura en Estudios Mexicanos': 'http://virtual.utm.mx/licenciatura_estudios_mexicanos.html',
+      'Ingeniería en Mecatrónica': '/home/ensenanza/licenciaturas/ingenieria_en_mecatronica',
+      'Ingeniería en Física Aplicada': '/home/ensenanza/licenciaturas/ingenieria_en_fisica_aplicada',
+      'Ingeniería Mecánica Automotriz': '/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz',
+      'Ingeniería Civil': '/home/ensenanza/licenciaturas/ingenieria_civil',
+      'Ingeniería Química en Procesos Sostenibles': '/home/ensenanza/licenciaturas/ingenieria_quimica_en_procesos_sostenibles',
     
-  ];
+      // Programas de Posgrado
+      'Maestría en Administración de Negocios': '/home/ensenanza/posgrados/maestria_en_administracion_negocios',
+      'Maestría en Ciencias de Materiales': '/home/ensenanza/posgrados/maestria_en_ciencias_materiales',
+      'Maestría en Ciencias: Productos Naturales y Alimentos': '/home/ensenanza/posgrados/maestria_en_ciencias_productos_naturales_alimentacion',
+      'Maestría en Diseño de Modas': '/home/ensenanza/posgrados/maestria_en_diseno_modas',
+      'Maestría en Diseño de Muebles': '/home/ensenanza/posgrados/maestria_en_diseno_muebles',
+      'Maestría en Electrónica Opción en Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/maestria_en_electronica_en_sistemas_inteligentes',
+      'Maestría en Ingeniería de Software': '/home/ensenanza/posgrados/maestria_en_ingenieria_de_software',
+      'Maestría en Inteligencia Artificial': '/home/ensenanza/posgrados/maestria_en_inteligencia_artificial',
+      'Maestría en Medios Interactivos': '/home/ensenanza/posgrados/maestria_en_medios_interactivos',
+      'Maestría en Modelación Matemática': '/home/ensenanza/posgrados/maestria_en_modelacion_matematica',
+      'Maestría en Robótica': '/home/ensenanza/posgrados/maestria_en_robotica',
+      'Maestría en Tecnología Avanzada de Manufactura': '/home/ensenanza/posgrados/maestria_en_tecnologia_avanzada_de_manufactura',
+      'Maestría en Ciencia de Datos': 'http://virtual.utm.mx/maestria_ciencia_datos.html',
+      'Doctorado en Ciencias: Productos Naturales y Alimentos': '/home/ensenanza/posgrados/doctorado_en_ciencias_productos_naturales_alimentos',
+      'Doctorado en Electrónica Especialidad Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados',
+      'Doctorado en Inteligencia Artificial': '/home/ensenanza/posgrados/doctorado_en_inteligencia_artificial',
+      'Doctorado en Modelación Matemática': '/home/ensenanza/posgrados/doctorado_en_modelacion_matematica',
+      'Doctorado en Robótica': '/home/ensenanza/posgrados/doctorado_en_robotica',
+    }  
+    constructor(private carrerasService: CarrerasService, private router: Router) {}
   
-  }
-  toggle(index: number): void {
-    this.openIndex = this.openIndex === index ? null : index;
-  }
-  
-  isOpen(index: number): boolean {
-    return this.openIndex === index;
-  }
-
-  accordionPanels = [
-    {
-      title: 'JEFATURA DE CARRERA',
-      content: `
-        <div class="jefatura-carrera">
-          <p>Dr. Carlos Vázquez Cid</p>
-          <p><a href="mailto:jcindustrial@mixteco.utm.mx">jcindustrial@mixteco.utm.mx</a></p>
-        </div>
-      `,
-      isOpen: false
-    },
-    { 
-      title: 'MISIÓN', 
-      content: `
-        ...
-      `, 
-      isOpen: false 
-    },
-    { 
-      title: 'VISIÓN', 
-      content: `
-        ...
-      `, 
-      isOpen: false 
-    },
-    {
-      title: 'PERFIL DE INGRESO',
-      content: `
-        
-      `,
-      isOpen: false
-    },    
-    { 
-      title: 'PERFIL DE EGRESO', 
-      content: `
-        <div class="perfil-egreso-content">
-          <p>El egresado de la carrera de Ingeniería Industrial desarrollará las siguientes competencias relacionadas a:</p>
-          
-          <ul>
-            <li>Conocimientos de las ciencias básicas y de la ingeniería aplicables para la solución de problemas del desarrollo industrial sustentable, en el ámbito de estudio del trabajo, gestión de la cadena de suministro, formulación y evaluación de proyectos, sistemas productivos y gestión industrial, en empresas e instituciones donde se desempeñe.</li>
-            <li>Habilidad tecnológica en Ingeniería Industrial con capacidad de análisis, interpretación y modelación de sistemas productivos, así como de crear su propia fuente de empleo fundamentada en la pertinencia regional, estatal y nacional.</li>
-            <li>Actitudes de responsabilidad social y laboral, así como, valores de disciplina, ética, respeto, equidad, honestidad y lealtad.</li>
-          </ul>
-        </div>
-      `, 
-      isOpen: false 
-    },    
-    { 
-      title: 'CAMPO DE ACCIÓN', 
-      content: `
-        <div class="campo-de-accion-content">
-          <p>El Ingeniero Industrial es un profesionista con alta competitividad que puede incorporarse a instituciones públicas o privadas en áreas como: producción, control de calidad, logística, proyectos, administración, investigación, desarrollo de productos, docencia, seguridad e higiene, finanzas, gestión de calidad y desarrollo tecnológico, entre muchas más, de cualquier sector de la industria manufacturera. Además, puede ser un profesionista independiente al crear su propia fuente de trabajo.</p>
-        </div>
-      `, 
-      isOpen: false 
-    },    
-    {
-      title: 'PLAN DE ESTUDIOS',
-      content: `
-        <div class="plan-de-estudios-content">
-    <table align="center" style="color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-align: start; white-space: normal; text-decoration: none; width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
-        <tbody>
-            <tr>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">PRIMER SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Cálculo Diferencial <br />
-                                Mecánica Clásica <br />
-                                Dibujo Industrial <br />
-                                Historia del Pensamiento Filosófico <br />
-                                Introducción a la Ingeniería Industrial
-                            </span>
-                        </span>
-                    </span>
-                </td>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">SEGUNDO SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Cálculo Integral <br />
-                                Álgebra Lineal <br />
-                                Electricidad Industrial <br />
-                                Teoría General de Sistemas <br />
-                                Relaciones Industriales
-                            </span>
-                        </span>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">TERCER SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Ecuaciones Diferenciales <br />
-                                Química General <br />
-                                Electrónica Analógica <br />
-                                Fundamentos de Programación para Ingeniería <br />
-                                Comunicación Efectiva
-                            </span>
-                        </span>
-                    </span>
-                </td>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">CUARTO SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Métodos Numéricos <br />
-                                Fundamentos de Probabilidad <br />
-                                Ciencia de Materiales <br />
-                                Derecho Laboral y Propiedad Industrial <br />
-                                Termodinámica
-                            </span>
-                        </span>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">QUINTO SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Estudio del Trabajo y Productividad <br />
-                                Estadística Aplicada <br />
-                                Tecnología de Materiales <br />
-                                Metrología y Normalización <br />
-                                Mecánica de Fluidos
-                            </span>
-                        </span>
-                    </span>
-                </td>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">SEXTO SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Ergonomía <br />
-                                Control Estadístico de Calidad <br />
-                                Mercadotecnia <br />
-                                Procesos de Manufactura I <br />
-                                Maquinaria y Equipo Industrial
-                            </span>
-                        </span>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">SÉPTIMO SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Gestión Ambiental <br />
-                                Planeación Organizacional <br />
-                                Administración de Recursos Materiales <br />
-                                Procesos de Manufactura II <br />
-                                Contabilidad y Costos
-                            </span>
-                        </span>
-                    </span>
-                </td>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">OCTAVO SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Higiene y Seguridad Industrial <br />
-                                Logística y Cadena de Suministros <br />
-                                Planeación y Control de la Producción <br />
-                                Sistemas de Manufactura <br />
-                                Ingeniería Económica
-                            </span>
-                        </span>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">NOVENO SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Planeación de Instalaciones <br />
-                                Investigación Operativa <br />
-                                Gestión de Sistemas de Calidad <br />
-                                Seminario de Tesis <br />
-                                Optativa I
-                            </span>
-                        </span>
-                    </span>
-                </td>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">DÉCIMO SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Automatización para Ingeniería Industrial <br />
-                                Mantenimiento Industrial <br />
-                                Formulación y Evaluación de Proyectos <br />
-                                Optativa II <br />
-                                Optativa III
-                            </span>
-                        </span>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">Áreas de Especialización</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                </td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">Manufactura</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Optativa I: Manufactura Asistida por Computadora <br />
-                                Optativa II: Proyecto de Manufactura <br />
-                                Optativa III: Simulación Industrial 
-                            </span>
-                        </span>
-                    </span>
-                </td>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">Gestión Administrativa</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Optativa I: Dirección General <br />
-                                Optativa II: Gestión Industrial <br />
-                                Optativa III: Comercio Exterior y Logística Internacional
-                            </span>
-                        </span>
-                    </span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-      `,
-      isOpen: false
+    ngOnInit(): void {
+      this.initializePanels();
+      this.loadData();
+      
+      
     }
-    
-  ];
-
-
   
-}
+    private initializePanels(): void {
+      this.panels = [
+        { title: 'JEFATURA DE CARRERA', content: 'Contenido del panel 1' },
+        { title: 'MISIÓN', content: 'Contenido del panel 2' },
+        { title: 'VISIÓN', content: 'Contenido del panel 3' },
+        { title: 'OBJETIVO', content: 'Contenido del panel 4' },
+        { title: 'PERFIL DE INGRESO', content: 'Contenido del panel 5' },
+        { title: 'PERFIL DE EGRESO', content: 'Contenido del panel 6' },
+        { title: 'CAMPO DE ACCIÓN', content: 'Contenido del panel 7' },
+        { title: 'PLAN DE ESTUDIOS', content: 'Contenido del panel 8' },
+      ];
+    }
+  
+    private loadData(): void {
+      this.loadCarreras();
+      this.loadInformacion_carreras();
+    }
+  
+  
+    private loadCarreras(): void {
+      this.carrerasService.list_licenciaturas().subscribe(
+        (res: any) => this.licenciaturas = res,
+        (err) => console.error(err)
+      );
+  
+      this.carrerasService.list_posgrados().subscribe(
+        (res: any) => this.posgrados = res,
+        (err) => console.error(err)
+      );
+    }
+  
+    private loadInformacion_carreras(): void {
+      this.carrerasService.informacion_carrera('11').subscribe(
+        (res: any) => {this.datos_carrera= res[0]; console.log(this.datos_carrera); },
+        (err) => console.error(err)
+      );
+    }
+  
+    toggle(index: number): void {
+      this.openIndex = this.openIndex === index ? null : index;
+    }
+  
+    isOpen(index: number): boolean {
+      return this.openIndex === index;
+    }
+  
+    navigateTo(nombre_direccion: string): void {
+      const url = this.urlMapping[nombre_direccion];
+      if (url) {
+        if (['Licenciatura en Estudios Mexicanos', 'Maestría en Ciencia de Datos'].includes(nombre_direccion)) {
+          window.open(url, '_blank');
+        } else {
+          this.router.navigate([url]);
+        }
+      } else {
+        console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
+      }
+    }
+  
+    formatTextAsList(text: string): string {
+      let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+      let listItems = lines.map(line => `<li>${line}</li>`).join('');
+      return `<ul class="reduce-spacing">${listItems}</ul>`;
+    }
+
+    formatTextAsList_2(text: string): string {
+        let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+        let listItems = lines.map(line => `<li>${line}</li>`).join('');
+        return `<ul class="perfiles">${listItems}</ul>`;
+      }
+  
+    
+    formatText(text: string): string {
+      return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
+    }
+  }
+  

@@ -39,45 +39,13 @@
                             <li class="menu-item menu-item--expanded menu-item--active-trail">
                                 <a href="/web/ensenanza/licenciaturas/huajuapan_de_leon" data-drupal-link-system-path="node/45">Huajuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_computacion">Ingeniería en Computación</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_electronica">Ingeniería en Electrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_diseno">Ingeniería en Diseño</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/licenciatura_en_ciencias_empresariales">Licenciatura en Ciencias Empresariales</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/licenciatura_en_matematicas_aplicadas">Licenciatura en Matemáticas Aplicadas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_alimentos">Ingeniería en Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_industrial">Ingeniería Industrial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="http://virtual.utm.mx/licenciatura_estudios_mexicanos.html" target="_blank">Licenciatura en Estudios Mexicanos (modalidad virtual)</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecatronica">Ingeniería en Mecatrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_fisica_aplicada">Ingeniería en Física Aplicada</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz"  class="highlight-red">Ingeniería Mecánica Automotriz</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_civil">Ingeniería Civil</a>
-                                    </li>
-                                    <li class="menu-item">
-                                      <a href="/home/ensenanza/licenciaturas/ingenieria_quimica_en_procesos_sostenibles">Ingeniería Química en Procesos Sostenibles</a>
-                                    </li>
+                                  <li class="menu-item" *ngFor="let licenciatura of licenciaturas">
+                                    <a 
+                                      [ngClass]="{ 'highlight-red': licenciatura.nombre === 'Ingeniería en Mecánica Automotriz' }"
+                                      (click)="navigateTo(licenciatura.nombre)">
+                                      {{ licenciatura.nombre }}
+                                    </a>
+                                  </li>   
                                 </ul>
                             </li>
                         </ul>
@@ -88,60 +56,13 @@
                             <li class="menu-item menu-item--expanded">
                                 <a href="/home/ensenanza/posgrados/huajuapan_de_leon" data-drupal-link-system-path="node/58">Huajuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_administracion_negocios">Maestría en Administración de Negocios</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_materiales">Maestría en Ciencias de Materiales</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_productos_naturales_alimentacion">Maestría en Ciencias: Productos Naturales y Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_diseno_modas">Maestría en Diseño de Modas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_diseno_muebles">Maestría en Diseño de Muebles</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_electronica_en_sistemas_inteligentes">Maestría en Electrónica Opción en Sistemas Inteligentes Aplicados</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ingenieria_de_software">Maestría en Ingeniería de Software</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_inteligencia_artificial">Maestría en Inteligencia Artificial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_medios_interactivos">Maestría en Medios Interactivos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_modelacion_matematica">Maestría en Modelación Matemática</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_robotica">Maestría en Robótica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_tecnologia_avanzada_de_manufactura">Maestría en Tecnología Avanzada de Manufactura</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="http://virtual.utm.mx/maestria_ciencia_datos.html" target="_blank">Maestría en Ciencia de Datos (modalidad virtual)</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_ciencias_productos_naturales_alimentos">Doctorado en Ciencias: Productos Naturales y Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados">Doctorado en Electrónica Especialidad Sistemas Inteligentes Aplicados</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_inteligencia_artificial">Doctorado en Inteligencia Artificial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_modelacion_matematica">Doctorado en Modelación Matemática</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_robotica">Doctorado en Robótica</a>
-                                    </li>
+                                  <li class="menu-item" *ngFor="let posgrado of posgrados">
+                                    <a 
+                                      
+                                      (click)="navigateTo(posgrado.nombre)">
+                                      {{ posgrado.nombre }}
+                                    </a>
+                                  </li>  
                                 </ul>
                             </li>
                         </ul>
@@ -200,98 +121,92 @@
                                     <div class="panel-body">
                                         <div *ngIf="i === 0">
                                             <ul class="contact-info">
-                                                <li><h3>M.C. Víctor Manuel Cruz Martínez</h3></li>
-                                                <li><i class="fas fa-envelope"></i>jcautomotriz@mixteco.utm.mx</li>
+                                                <li><h3>M.C. {{ datos_carrera.nombre_jefe||'-' }}</h3></li>
+                                                <li><i class="fas fa-envelope"></i>{{ datos_carrera.correo_jefe||'-' }}</li>
                                             </ul>
                                         </div>
                                         <div *ngIf="i === 1">
                                             <div class="mision-content">
-                                            <p>Misión en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                          
+                                              <div [innerHTML]="formatText(datos_carrera.mision)"></div>
+                                              <ng-container *ngIf="datos_carrera.descripcion_mision">
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_mision)"></div>
+                                              </ng-container>
                                           </div>
                                         </div>
                                         <div *ngIf="i === 2">
                                             <div class="vision-content">
-                                                <p>Visión en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                              
+                                              <div [innerHTML]="formatText(datos_carrera.vision)"></div>
+                                              <ng-container *ngIf="datos_carrera.descripcion_vision">
+                                              <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_vision)"></div>
+                                              </ng-container>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 3">
                                             <div class="objetivo-content">
-                                                <p>Objetivo en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                              </div>
+                                              <div [innerHTML]="formatText(datos_carrera.objetivos)"></div>
+                                              <ng-container *ngIf="datos_carrera.descripcion_objetivo">
+                                                <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_objetivo)"></div>
+                                              </ng-container>   
+                                            </div>
                                         </div>
                                         <div *ngIf="i === 4">
                                             <div class="perfil-ingreso-content">
-                                                <p>El aspirante deberá haber cursado su enseñanza media superior preferentemente con una formación en el área físico-matemática o áreas afines, que cuente con lo siguiente:</p>
-                                                <ul style="list-style-type: none;">
-                                                <li><strong>Conocimientos:</strong></li>
-                                                <ul>
-                                                  <li>Básicos en matemáticas y física.</li>
-                                                </ul>
-                                                <li><strong>Habilidades:</strong></li>
-                                                <ul>
-                                                  <li>Trabajo en equipo.</li>
-                                                  <li>Solución de problemas prácticos.</li>
-                                                  <li>Capacidad para el razonamiento matemático.</li>
-                                                </ul>
-                                                <li><strong>Actitudes y Valores:</strong></li>
-                                                <ul>
-                                                  <li>Responsabilidad social y ambiental.</li>
-                                                  <li>Respeto, tolerancia y disciplina.</li>
-                                                </ul>
-                                            </ul>
+                                              <div [innerHTML]="formatText(datos_carrera.perfil_ingreso)"></div>
+
+                                              <ul style="list-style-type: none;">
+                                                <!-- Mostrar sección de Conocimientos solo si datos_carrera.descripcion_conocimiento_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_conocimiento_ingreso">
+                                                  <li><strong>Conocimientos:</strong></li>
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_conocimiento_ingreso)"></div>
+                                                </ng-container>
+                                              
+                                                <!-- Mostrar sección de Habilidades solo si datos_carrera.descripcion_habilidad_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_habilidad_ingreso">
+                                                  <li><strong>Habilidades:</strong></li>
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_habilidad_ingreso)"></div>
+                                                </ng-container>
+                                              
+                                                <!-- Mostrar sección de Actitudes y Valores solo si datos_carrera.descripcion_valores_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_valores_ingreso">
+                                                  <li><strong>Actitudes y Valores:</strong></li>
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_valores_ingreso)"></div>
+                                                </ng-container>
+                                              </ul>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 5">
                                             <div class="perfil-egreso-content">
                                                
-                                                
-                                                <p>El Ingeniero Mecánico Automotriz será capaz de diseñar, manufacturar y realizar mantenimiento a las partes y componentes de sistemas automotrices.</p>
-                                                <ul style="list-style-type: none;">
-                                                <li><strong>Conocimientos:</strong></li>
-                                                <ul class="reduce-spacing">
-                                                  <li>En física y matemáticas que le permiten desarrollar las ciencias de la ingeniería mecánica y automotriz.</li>
-                                                  <li>En ciencias de la ingeniería como mecánica vectorial, resistencia e ingeniería de materiales, termodinámica y transferencia de calor, mecánica de fluidos, electromagnetismo, circuitos eléctricos y electrónicos para comprender y analizar el funcionamiento de los diferentes componentes de los sistemas automotrices.</li>
-                                                  <li>De herramientas computacionales para el diseño, modelado y análisis de partes y componentes de sistemas automotrices.</li>
-                                                  <li>De planificación y procesos de manufactura para desarrollar y evaluar prototipos de partes y componentes de sistemas automotrices.</li>
-                                                  <li>De técnicas de diagnóstico para realizar planes de mantenimiento predictivo, preventivo y correctivo de los sistemas automotrices.</li>
-                                                  <li>Para continuar estudios de especialización o posgrado.</li>
-                                                </ul>
-                                                
-                                                <li><strong>Habilidades:</strong></li>
-                                                <ul class="reduce-spacing">
-                                                  <li>Trabajar en equipos multidisciplinarios y de manera independiente.</li>
-                                                  <li>Proponer soluciones prácticas a problemas reales.</li>
-                                                  <li>Identificar las causas de problemas en el funcionamiento de los sistemas automotrices.</li>
-                                                  <li>Adaptarse y asimilar los cambios tecnológicos en la industria automotriz.</li>
-                                                  <li>Administrar y desarrollar proyectos.</li>
-                                                </ul>
-                                                
-                                                <li><strong>Actitudes y Valores:</strong></li>
-                                                <ul class="reduce-spacing">
-                                                  <li>Responsabilidad y cumplimiento en tareas asignadas.</li>
-                                                  <li>Proactividad ante problemas que se presenten en el trabajo individual y colectivo.</li>
-                                                  <li>Dignidad y profesionalismo.</li>
-                                                  <li>Promover el respeto por el medio ambiente.</li>
-                                                  <li>Iniciativa para proponer innovación tecnológica.</li>
-                                                </ul>
-                                            </ul>
+                                              <div [innerHTML]="formatText(datos_carrera.perfil_egreso)"></div>
+                                                         
+                                              <ul style="list-style-type: none;">
+                                                <!-- Mostrar sección de Conocimientos solo si datos_carrera.descripcion_conocimiento_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_conocimiento_egreso">
+                                                  <li><strong>Conocimientos:</strong></li>
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_conocimiento_egreso)"></div>
+                                                </ng-container>
+                                              
+                                                <!-- Mostrar sección de Habilidades solo si datos_carrera.descripcion_habilidad_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_habilidad_egreso">
+                                                  <li><strong>Habilidades:</strong></li>
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_habilidad_egreso)"></div>
+                                                </ng-container>
+                                              
+                                                <!-- Mostrar sección de Actitudes y Valores solo si datos_carrera.descripcion_valores_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_valores_egreso">
+                                                  <li><strong>Actitudes y Valores:</strong></li>
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_valores_egreso)"></div>
+                                                </ng-container>
+                                              </ul>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 6">
                                             <div class="campo-de-accion-content">
-                                                <p>El Ingeniero Mecánico Automotriz podrá desempeñarse profesionalmente en:</p>
-                                                <ul class="reduce-spacing">
-                                                  <li>Plantas armadoras de automóviles.</li>
-                                                  <li>Industria de maquinaria agrícola, marítima, ferroviaria, construcción y transporte de carga y pasaje.</li>
-                                                  <li>Centros de investigación y desarrollo tecnológico.</li>
-                                                  <li>Empresas de manufactura de equipo original.</li>
-                                                  <li>Empresas proveedoras de la industria automotriz.</li>
-                                                  <li>Capacitación y consultoría.</li>
-                                                  <li>Agencias y centros de servicio automotriz.</li>
-                                                  <li>Establecer su propia empresa de mantenimiento.</li>
-                                                </ul>
+                                      
+                                                <div [innerHTML]="formatText(datos_carrera.campo_accion)"></div>
+                                                <ng-container *ngIf="datos_carrera.descripcion_campo">
+                                                <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_campo)"></div>
+                                                </ng-container>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 7">

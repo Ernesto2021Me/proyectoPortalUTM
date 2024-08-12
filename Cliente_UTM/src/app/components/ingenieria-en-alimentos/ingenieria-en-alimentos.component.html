@@ -39,45 +39,13 @@
                             <li class="menu-item menu-item--expanded menu-item--active-trail">
                                 <a href="/home/ensenanza/licenciaturas/huajuapan_de_leon" data-drupal-link-system-path="node/45">Huajuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_computacion">Ingeniería en Computación</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_electronica">Ingeniería en Electrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_diseno">Ingeniería en Diseño</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/licenciatura_en_ciencias_empresariales">Licenciatura en Ciencias Empresariales</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/licenciatura_en_matematicas_aplicadas">Licenciatura en Matemáticas Aplicadas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_alimentos" class="highlight-red">Ingeniería en Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_industrial">Ingeniería Industrial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="http://virtual.utm.mx/licenciatura_estudios_mexicanos.html" target="_blank">Licenciatura en Estudios Mexicanos (modalidad virtual)</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecatronica">Ingeniería en Mecatrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_fisica_aplicada">Ingeniería en Física Aplicada</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz">Ingeniería Mecánica Automotriz</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_civil">Ingeniería Civil</a>
-                                    </li>
-                                    <li class="menu-item">
-                                      <a href="/home/ensenanza/licenciaturas/ingenieria_quimica_en_procesos_sostenibles">Ingeniería Química en Procesos Sostenibles</a>
-                                    </li>                                    
+                                  <li class="menu-item" *ngFor="let licenciatura of licenciaturas">
+                                    <a 
+                                      [ngClass]="{ 'highlight-red': licenciatura.nombre === 'Ingeniería en Alimentos' }"
+                                      (click)="navigateTo(licenciatura.nombre)">
+                                      {{ licenciatura.nombre }}
+                                    </a>
+                                  </li>                                     
                                 </ul>
                             </li>
                         </ul>
@@ -88,60 +56,13 @@
                             <li class="menu-item menu-item--expanded">
                                 <a href="/home/ensenanza/posgrados/huajuapan_de_leon" data-drupal-link-system-path="node/58">Huajuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_administracion_negocios">Maestría en Administración de Negocios</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_materiales">Maestría en Ciencias de Materiales</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_productos_naturales_alimentacion">Maestría en Ciencias: Productos Naturales y Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_diseno_modas">Maestría en Diseño de Modas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_diseno_muebles">Maestría en Diseño de Muebles</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_electronica_en_sistemas_inteligentes">Maestría en Electrónica Opción en Sistemas Inteligentes Aplicados</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ingenieria_de_software">Maestría en Ingeniería de Software</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_inteligencia_artificial">Maestría en Inteligencia Artificial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_medios_interactivos">Maestría en Medios Interactivos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_modelacion_matematica">Maestría en Modelación Matemática</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_robotica">Maestría en Robótica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_tecnologia_avanzada_de_manufactura">Maestría en Tecnología Avanzada de Manufactura</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="http://virtual.utm.mx/maestria_ciencia_datos.html" target="_blank">Maestría en Ciencia de Datos (modalidad virtual)</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_ciencias_productos_naturales_alimentos">Doctorado en Ciencias: Productos Naturales y Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados">Doctorado en Electrónica Especialidad Sistemas Inteligentes Aplicados</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_inteligencia_artificial">Doctorado en Inteligencia Artificial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_modelacion_matematica">Doctorado en Modelación Matemática</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_robotica">Doctorado en Robótica</a>
-                                    </li>
+                                  <li class="menu-item" *ngFor="let posgrado of posgrados">
+                                    <a 
+                                      
+                                      (click)="navigateTo(posgrado.nombre)">
+                                      {{ posgrado.nombre }}
+                                    </a>
+                                  </li>  
                                 </ul>
                             </li>
                         </ul>
@@ -200,108 +121,91 @@
                                     <div class="panel-body">
                                         <div *ngIf="i === 0">
                                             <ul class="contact-info">
-                                                <li><h3>Dra. Paula Cecilia Guadarrama Mendoza</h3></li>
-                                                <li><i class="fas fa-envelope"></i>jcagroindustrias@mixteco.utm.mx</li>
+                                                <li><h3>Dra. {{ datos_carrera.nombre_jefe||'-' }}</h3></li>
+                                                <li><i class="fas fa-envelope"></i> {{ datos_carrera.correo_jefe||'-' }}</li>
                                             </ul>
                                         </div>
                                         <div *ngIf="i === 1">
                                             <div class="mision-content">
-                                                <p>Misión en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                              
+                                              <div [innerHTML]="formatText(datos_carrera.mision)"></div>
+                                          <ng-container *ngIf="datos_carrera.descripcion_mision">
+                                              <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_mision)"></div>
+                                          </ng-container>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 2">
-                                            <div class="vision-content">
-                                                <p>Visión en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                              
-                                              </div>
+                                          <div class="vision-content">
+                                          <div [innerHTML]="formatText(datos_carrera.vision)"></div>
+                                          <ng-container *ngIf="datos_carrera.descripcion_vision">
+                                          <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_vision)"></div>
+                                          </ng-container>
+                                        </div>
                                         </div>
                                         <div *ngIf="i === 3">
                                             <div class="objetivo-content">
-                                                <p>Objetivo en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                              
+                                              <div [innerHTML]="formatText(datos_carrera.objetivos)"></div>
+                                              <ng-container *ngIf="datos_carrera.descripcion_objetivo">
+                                                <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_objetivo)"></div>
+                                              </ng-container>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 4">
                                             <div class="perfil-ingreso-content">
-                                                <p>El aspirante a cursar la carrera de Ingeniería en Alimentos en la UTM deberá tener los siguientes conocimientos, habilidades y actitudes:</p>
-                                                <ul style="list-style-type: none;">
-                                                <li><strong>Conocimientos:</strong></li>
-                                                <ul class="reduce-spacing">
-                                                  <li>Básicos en el área físico-matemática.</li>
-                                                  <li>Básicos de redacción para la elaboración de textos.</li>
-                                                </ul>
-                                                <li><strong>Habilidades:</strong></li>
-                                                <ul class="reduce-spacing">
-                                                  <li>Comunicación oral y escrita.</li>
-                                                  <li>Disposición para trabajar en equipo.</li>
-                                                  <li>Creatividad.</li>
-                                                </ul>
-                                                <li><strong>Actitudes y Valores:</strong></li>
-                                                <ul class="reduce-spacing">
-                                                  <li>Interés por el conocimiento, la aplicación tecnológica y la investigación.</li>
-                                                  <li>Capacidad de adaptación al cambio y a la asimilación de nuevos conocimientos.</li>
-                                                  <li>Búsqueda de la superación y mejora personal.</li>
-                                                  <li>Empatía y respeto con sus semejantes.</li>
-                                                  <li>Apertura al diálogo.</li>
-                                                  <li>Comprensión y tolerancia hacia la diversidad étnica, de clase, género, preferencias políticas o sexuales.</li>
-                                                  <li>Respeto y aprecio por la diversidad ecológica.</li>
-                                                  <li>Aprecio por la diversidad cultural de la región, el estado y el país.</li>
-                                                  <li>Responsabilidad y puntualidad.</li>
-                                                </ul>
-                                            </ul>
+                                              <div [innerHTML]="formatText(datos_carrera.perfil_ingreso)"></div>
+
+                                              <ul style="list-style-type: none;">
+                                                <!-- Mostrar sección de Conocimientos solo si datos_carrera.descripcion_conocimiento_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_conocimiento_ingreso">
+                                                  <li><strong>Conocimientos:</strong></li>
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_conocimiento_ingreso)"></div>
+                                                </ng-container>
+                                              
+                                                <!-- Mostrar sección de Habilidades solo si datos_carrera.descripcion_habilidad_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_habilidad_ingreso">
+                                                  <li><strong>Habilidades:</strong></li>
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_habilidad_ingreso)"></div>
+                                                </ng-container>
+                                              
+                                                <!-- Mostrar sección de Actitudes y Valores solo si datos_carrera.descripcion_valores_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_valores_ingreso">
+                                                  <li><strong>Actitudes y Valores:</strong></li>
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_valores_ingreso)"></div>
+                                                </ng-container>
+                                              </ul>
+                                           
                                               </div>
                                         </div>
                                         <div *ngIf="i === 5">
                                             <div class="perfil-egreso-content">
-                                                <p>El egresado de la carrera de Ingeniería en Alimentos de la UTM es un profesionista líder, eficaz, emprendedor, responsable, con compromiso social, elevada capacidad de comunicación y actitud de superación permanente, capaz de aplicar los conocimientos y herramientas científico-tecnológicas al diseño, optimización y evaluación del equipo, plantas, procesos, productos y sistemas de control de calidad, que inciden en la mejora de las condiciones de productividad, conservación, almacenamiento, distribución y manejo de los productos alimenticios, promoviendo así el desarrollo económico, ambiental y social de la región y del país.</p>
-                                                
-                                                <p>Asimismo, el egresado de la carrera de Ingeniería en Alimentos de la UTM posee los siguientes conocimientos, habilidades y actitudes:</p>
-                                                
-                                                <ul style="list-style-type: none;">
-                                                <li><strong>Conocimientos:</strong></li>
-                                                <ul class="reduce-spacing">
-                                                  <li>Ciencias básicas.</li>
-                                                  <li>En las áreas químico-biológicas y físico-matemáticas para la resolución de las problemáticas relacionadas con los alimentos.</li>
-                                                  <li>En el área empresarial y de sistemas de calidad.</li>
-                                                  <li>En las metodologías y tecnologías innovadoras para el desarrollo de productos y procesos de los alimentos.</li>
-                                                  <li>En las estrategias y manejo de la información y comunicación para el alcance de un conocimiento significativo.</li>
-                                                </ul>
-                                                
-                                                <li><strong>Habilidades:</strong></li>
-                                                <ul class="reduce-spacing">
-                                                  <li>Comunicación asertiva tanto verbal como escrita.</li>
-                                                  <li>Identificación, resolución y evaluación de problemáticas.</li>
-                                                  <li>Pensamiento analítico orientado a la resolución de problemas prácticos.</li>
-                                                  <li>Disposición de trabajar en equipo.</li>
-                                                  <li>Creativo.</li>
-                                                </ul>
-                                                
-                                                <li><strong>Actitudes y Valores:</strong></li>
-                                                <ul class="reduce-spacing">
-                                                  <li>Actitud de superación personal y profesional permanente.</li>
-                                                  <li>Ético y con valores morales.</li>
-                                                  <li>Responsable y de compromiso social.</li>
-                                                  <li>Entusiasta y solidario para el trabajo en equipo.</li>
-                                                  <li>Interés por el conocimiento, la aplicación tecnológica y la investigación.</li>
-                                                  <li>Capacidad de adaptación al cambio y a la asimilación de nuevos conocimientos.</li>
-                                                  <li>Apertura al diálogo.</li>
-                                                  <li>Comprensión y tolerancia hacia la diversidad étnica, de clase, género, preferencias políticas o sexuales.</li>
-                                                  <li>Respeto y aprecio por la diversidad ecológica.</li>
-                                                  <li>Aprecio por la diversidad cultural de la región, el estado y el país.</li>
-                                                </ul>
-                                            </ul>
+                                              <div [innerHTML]="formatText(datos_carrera.perfil_egreso)"></div>
+                                                         
+                                              <ul style="list-style-type: none;">
+                                                <!-- Mostrar sección de Conocimientos solo si datos_carrera.descripcion_conocimiento_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_conocimiento_egreso">
+                                                  <li><strong>Conocimientos:</strong></li>
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_conocimiento_egreso)"></div>
+                                                </ng-container>
+                                              
+                                                <!-- Mostrar sección de Habilidades solo si datos_carrera.descripcion_habilidad_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_habilidad_egreso">
+                                                  <li><strong>Habilidades:</strong></li>
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_habilidad_egreso)"></div>
+                                                </ng-container>
+                                              
+                                                <!-- Mostrar sección de Actitudes y Valores solo si datos_carrera.descripcion_valores_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_valores_egreso">
+                                                  <li><strong>Actitudes y Valores:</strong></li>
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_valores_egreso)"></div>
+                                                </ng-container>
+                                              </ul>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 6">
                                             <div class="campo-de-accion-content">
-                                                <p>El Ingeniero en Alimentos es un profesionista que puede incorporarse en:</p>
-                                                <ul class="reduce-spacing">
-                                                  <li>Sector industrial relacionado con el área de alimentos: Control de calidad, producción, desarrollo de nuevos productos.</li>
-                                                  <li>Empresarial: En la dirección de proyectos del área en alimentos.</li>
-                                                  <li>Sector académico/investigación: En el área química o tecnológica relacionada con el área de los alimentos.</li>
-                                                  <li>Auditoría/Consultoría: En la industria de los alimentos.</li>
-                                                </ul>
+                                              <div [innerHTML]="formatText(datos_carrera.campo_accion)"></div>
+                                              <ng-container *ngIf="datos_carrera.descripcion_campo">
+                                              <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_campo)"></div>
+                                              </ng-container>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 7">

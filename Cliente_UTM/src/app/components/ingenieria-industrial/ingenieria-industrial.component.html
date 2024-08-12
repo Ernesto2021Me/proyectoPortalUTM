@@ -39,45 +39,13 @@
                             <li class="menu-item menu-item--expanded menu-item--active-trail">
                                 <a href="/home/ensenanza/licenciaturas/huajuapan_de_leon" data-drupal-link-system-path="node/45">Huajuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_computacion">Ingeniería en Computación</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_electronica">Ingeniería en Electrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_diseno">Ingeniería en Diseño</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/licenciatura_en_ciencias_empresariales">Licenciatura en Ciencias Empresariales</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/licenciatura_en_matematicas_aplicadas">Licenciatura en Matemáticas Aplicadas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_alimentos">Ingeniería en Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_industrial" class="highlight-red">Ingeniería Industrial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="http://virtual.utm.mx/licenciatura_estudios_mexicanos.html" target="_blank">Licenciatura en Estudios Mexicanos (modalidad virtual)</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecatronica">Ingeniería en Mecatrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_fisica_aplicada">Ingeniería en Física Aplicada</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz">Ingeniería Mecánica Automotriz</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_civil">Ingeniería Civil</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_quimica_en_procesos_sostenibles">Ingeniería Química en Procesos Sostenibles</a>
-                                      </li>
+                                    <li class="menu-item" *ngFor="let licenciatura of licenciaturas">
+                                        <a 
+                                          [ngClass]="{ 'highlight-red': licenciatura.nombre === 'Ingeniería Industrial' }"
+                                          (click)="navigateTo(licenciatura.nombre)">
+                                          {{ licenciatura.nombre }}
+                                        </a>
+                                      </li>   
                                 </ul>
                             </li>
                         </ul>
@@ -88,60 +56,13 @@
                             <li class="menu-item menu-item--expanded">
                                 <a href="/home/ensenanza/posgrados/huajuapan_de_leon" data-drupal-link-system-path="node/58">Huajuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_administracion_negocios">Maestría en Administración de Negocios</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_materiales">Maestría en Ciencias de Materiales</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_productos_naturales_alimentacion">Maestría en Ciencias: Productos Naturales y Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_diseno_modas">Maestría en Diseño de Modas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_diseno_muebles">Maestría en Diseño de Muebles</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_electronica_en_sistemas_inteligentes">Maestría en Electrónica Opción en Sistemas Inteligentes Aplicados</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ingenieria_de_software">Maestría en Ingeniería de Software</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_inteligencia_artificial">Maestría en Inteligencia Artificial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_medios_interactivos">Maestría en Medios Interactivos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_modelacion_matematica">Maestría en Modelación Matemática</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_robotica">Maestría en Robótica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_tecnologia_avanzada_de_manufactura">Maestría en Tecnología Avanzada de Manufactura</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="http://virtual.utm.mx/maestria_ciencia_datos.html" target="_blank">Maestría en Ciencia de Datos (modalidad virtual)</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_ciencias_productos_naturales_alimentos">Doctorado en Ciencias: Productos Naturales y Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados">Doctorado en Electrónica Especialidad Sistemas Inteligentes Aplicados</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_inteligencia_artificial">Doctorado en Inteligencia Artificial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_modelacion_matematica">Doctorado en Modelación Matemática</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_robotica">Doctorado en Robótica</a>
-                                    </li>
+                                    <li class="menu-item" *ngFor="let posgrado of posgrados">
+                                        <a 
+                                          
+                                          (click)="navigateTo(posgrado.nombre)">
+                                          {{ posgrado.nombre }}
+                                        </a>
+                                      </li> 
                                 </ul>
                             </li>
                         </ul>
@@ -200,53 +121,92 @@
                                     <div class="panel-body">
                                         <div *ngIf="i === 0">
                                             <ul class="contact-info">
-                                                <li><h3>Dr. Carlos Vázquez Cid</h3></li>
-                                                <li><i class="fas fa-envelope"></i>jcindustrial@mixteco.utm.mx</li>
+                                                <li><h3>Dr. {{ datos_carrera.nombre_jefe||'-' }}</h3></li>
+                                                <li><i class="fas fa-envelope"></i>{{ datos_carrera.correo_jefe||'-' }}</li>
                                             </ul>
                                         </div>
                                         <div *ngIf="i === 1">
                                             <div class="mision-content">
-                                                <p>Misión en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                              
+                                                <div [innerHTML]="formatText(datos_carrera.mision)"></div>
+                                                <ng-container *ngIf="datos_carrera.descripcion_mision">
+                                                    <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_mision)"></div>
+                                                </ng-container>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 2">
                                             <div class="vision-content">
-                                                <p>Visión en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                              
+                                                <div [innerHTML]="formatText(datos_carrera.vision)"></div>
+                                          <ng-container *ngIf="datos_carrera.descripcion_vision">
+                                          <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_vision)"></div>
+                                          </ng-container>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 3">
                                             <div class="objetivo-content">
-                                                <p>Formar Ingenieros Industriales con conocimientos en el diseño, instalación y mejoramiento de sistemas integrados por tecnología, materiales, factor humano y energía, para desempeñarse en actividades del ámbito tecnológico, económico y administrativo e incrementar la productividad y sustentabilidad en la sociedad e industria oaxaqueña y mexicana.</p>
-                                              </div>
+                                                <div [innerHTML]="formatText(datos_carrera.objetivos)"></div>
+                                                <ng-container *ngIf="datos_carrera.descripcion_objetivo">
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_objetivo)"></div>
+                                                </ng-container>  
+                                            </div>
                                         </div>
                                         <div *ngIf="i === 4">
                                             <div class="perfil-ingreso-content">
-                                                <p>El aspirante a cursar la carrera de Ingeniería Industrial deberá mostrar interés por atender los problemas que implica el desarrollo tecnológico, organizacional y económico del sector productivo regional, estatal y nacional, además de poseer las siguientes competencias:</p>
-                                                <ul class="reduce-spacing">
-                                                  <li>Conocimientos a nivel medio superior en las áreas físico–matemáticas o económico–administrativas.</li>
-                                                  <li>Habilidades para trabajar en equipo, comunicación, liderazgo y capacidad de análisis.</li>
-                                                  <li>Actitudes y valores de responsabilidad social y ambiental, respeto, tolerancia y disciplina.</li>
-                                                </ul>
-                                                <p>Además, se requiere que el aspirante disponga de tiempo completo para sus estudios.</p>
+                                                <div [innerHTML]="formatText(datos_carrera.perfil_ingreso)"></div>
+
+                                              
+                                                <!-- Mostrar sección de Conocimientos solo si datos_carrera.descripcion_conocimiento_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_conocimiento_ingreso">
+                                                  
+                                                  <div [innerHTML]="formatTextAsList_2(datos_carrera.descripcion_conocimiento_ingreso)"></div>
+                                                </ng-container>
+                                              
+                                                <!-- Mostrar sección de Habilidades solo si datos_carrera.descripcion_habilidad_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_habilidad_ingreso">
+                                                  
+                                                  <div [innerHTML]="formatTextAsList_2(datos_carrera.descripcion_habilidad_ingreso)"></div>
+                                                </ng-container>
+                                              
+                                                <!-- Mostrar sección de Actitudes y Valores solo si datos_carrera.descripcion_valores_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_valores_ingreso">
+                                                  
+                                                  <div [innerHTML]="formatTextAsList_2(datos_carrera.descripcion_valores_ingreso)"></div>
+                                                </ng-container>
+                                            
+                                               <p>Además, se requiere que el aspirante disponga de tiempo completo para sus estudios.</p>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 5">
                                             <div class="perfil-egreso-content">
-                                                <p>El egresado de la carrera de Ingeniería Industrial desarrollará las siguientes competencias relacionadas a:</p>
+                                                <div [innerHTML]="formatText(datos_carrera.perfil_egreso)"></div>
+                                                         
                                                 
-                                                <ul class="reduce-spacing">
-                                                  <li>Conocimientos de las ciencias básicas y de la ingeniería aplicables para la solución de problemas del desarrollo industrial sustentable, en el ámbito de estudio del trabajo, gestión de la cadena de suministro, formulación y evaluación de proyectos, sistemas productivos y gestión industrial, en empresas e instituciones donde se desempeñe.</li>
-                                                  <li>Habilidad tecnológica en Ingeniería Industrial con capacidad de análisis, interpretación y modelación de sistemas productivos, así como de crear su propia fuente de empleo fundamentada en la pertinencia regional, estatal y nacional.</li>
-                                                  <li>Actitudes de responsabilidad social y laboral, así como, valores de disciplina, ética, respeto, equidad, honestidad y lealtad.</li>
-                                                </ul>
+                                                  <!-- Mostrar sección de Conocimientos solo si datos_carrera.descripcion_conocimiento_in no es nulo o vacío -->
+                                                  <ng-container *ngIf="datos_carrera.descripcion_conocimiento_egreso">
+                                                    
+                                                    <div [innerHTML]="formatTextAsList_2(datos_carrera.descripcion_conocimiento_egreso)"></div>
+                                                  </ng-container>
+                                                
+                                                  <!-- Mostrar sección de Habilidades solo si datos_carrera.descripcion_habilidad_in no es nulo o vacío -->
+                                                  <ng-container *ngIf="datos_carrera.descripcion_habilidad_egreso">
+                                                  
+                                                    <div [innerHTML]="formatTextAsList_2(datos_carrera.descripcion_habilidad_egreso)"></div>
+                                                  </ng-container>
+                                                
+                                                  <!-- Mostrar sección de Actitudes y Valores solo si datos_carrera.descripcion_valores_in no es nulo o vacío -->
+                                                  <ng-container *ngIf="datos_carrera.descripcion_valores_egreso">
+                                                   
+                                                    <div [innerHTML]="formatTextAsList_2(datos_carrera.descripcion_valores_egreso)"></div>
+                                                  </ng-container>
+                                                
                                               </div>
                                         </div>
                                         <div *ngIf="i === 6">
                                             <div class="campo-de-accion-content">
-                                                <p>El Ingeniero Industrial es un profesionista con alta competitividad que puede incorporarse a instituciones públicas o privadas en áreas como: producción, control de calidad, logística, proyectos, administración, investigación, desarrollo de productos, docencia, seguridad e higiene, finanzas, gestión de calidad y desarrollo tecnológico, entre muchas más, de cualquier sector de la industria manufacturera. Además, puede ser un profesionista independiente al crear su propia fuente de trabajo.</p>
-                                              </div>
+                                                <div [innerHTML]="formatText(datos_carrera.campo_accion)"></div>
+                                                <ng-container *ngIf="datos_carrera.descripcion_campo">
+                                                <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_campo)"></div>
+                                                </ng-container>    
+                                            </div>
                                         </div>
                                         <div *ngIf="i === 7">
                                             <div class="plan-de-estudios-content">

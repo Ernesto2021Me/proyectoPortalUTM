@@ -1,339 +1,136 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
+import { Router } from '@angular/router';
 
+import { CarrerasService } from 'src/app/services/carreras.service';
+import { Informacion_careras } from 'src/app/models/Informacion_carrera';
+import { Carrera } from 'src/app/models/carreras';
 @Component({
   selector: 'app-ingenieria-en-mecatronica',
   templateUrl: './ingenieria-en-mecatronica.component.html',
-  styleUrls: ['./ingenieria-en-mecatronica.component.css']
+  styleUrls: ['./ingenieria-en-mecatronica.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class IngenieriaEnMecatronicaComponent implements OnInit {
-  panels: { title: string, content: string }[] = [];
-  openIndex: number | null = null;
-  constructor() { }
-
-  ngOnInit(): void {
-    this.panels = [
-      { title: 'JEFATURA DE CARRERA', content: 'Contenido del panel 1' },
-      { title: 'MISIÓN', content: 'Contenido del panel 2' },
-      { title: 'VISIÓN', content: 'Contenido del panel 3' },
-      { title: 'OBJETIVO', content: 'Contenido del panel 4' },
-      { title: 'PERFIL DE INGRESO', content: 'Contenido del panel 5' },
-      { title: 'PERFIL DE EGRESO', content: 'Contenido del panel 6' },
-      { title: 'CAMPO DE ACCIÓN', content: 'Contenido del panel 7' },
-      { title: 'PLAN DE ESTUDIOS', content: 'Contenido del panel 8' },
+    licenciaturas: Carrera[] = [];
+    posgrados: Carrera[] = [];
+    datos_carrera=new Informacion_careras();
+  
+    panels: { title: string, content: string }[] = [];
+    openIndex: number | null = null;
+  
+    urlMapping: { [key: string]: string } = {
+      // Licenciaturas
+      'Ingeniería en Computación': '/home/ensenanza/licenciaturas/ingenieria_en_computacion',
+      'Ingeniería en Electrónica': '/home/ensenanza/licenciaturas/ingenieria_en_electronica',
+      'Ingeniería en Diseño': '/home/ensenanza/licenciaturas/ingenieria_en_diseno',
+      'Licenciatura en Ciencias Empresariales': '/home/ensenanza/licenciaturas/licenciatura_en_ciencias_empresariales',
+      'Licenciatura en Matemáticas Aplicadas': '/home/ensenanza/licenciaturas/licenciatura_en_matematicas_aplicadas',
+      'Ingeniería en Alimentos': '/home/ensenanza/licenciaturas/ingenieria_en_alimentos',
+      'Ingeniería Industrial': '/home/ensenanza/licenciaturas/ingenieria_industrial',
+      'Licenciatura en Estudios Mexicanos': 'http://virtual.utm.mx/licenciatura_estudios_mexicanos.html',
+      'Ingeniería en Mecatrónica': '/home/ensenanza/licenciaturas/ingenieria_en_mecatronica',
+      'Ingeniería en Física Aplicada': '/home/ensenanza/licenciaturas/ingenieria_en_fisica_aplicada',
+      'Ingeniería Mecánica Automotriz': '/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz',
+      'Ingeniería Civil': '/home/ensenanza/licenciaturas/ingenieria_civil',
+      'Ingeniería Química en Procesos Sostenibles': '/home/ensenanza/licenciaturas/ingenieria_quimica_en_procesos_sostenibles',
     
-  ];
+      // Programas de Posgrado
+      'Maestría en Administración de Negocios': '/home/ensenanza/posgrados/maestria_en_administracion_negocios',
+      'Maestría en Ciencias de Materiales': '/home/ensenanza/posgrados/maestria_en_ciencias_materiales',
+      'Maestría en Ciencias: Productos Naturales y Alimentos': '/home/ensenanza/posgrados/maestria_en_ciencias_productos_naturales_alimentacion',
+      'Maestría en Diseño de Modas': '/home/ensenanza/posgrados/maestria_en_diseno_modas',
+      'Maestría en Diseño de Muebles': '/home/ensenanza/posgrados/maestria_en_diseno_muebles',
+      'Maestría en Electrónica Opción en Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/maestria_en_electronica_en_sistemas_inteligentes',
+      'Maestría en Ingeniería de Software': '/home/ensenanza/posgrados/maestria_en_ingenieria_de_software',
+      'Maestría en Inteligencia Artificial': '/home/ensenanza/posgrados/maestria_en_inteligencia_artificial',
+      'Maestría en Medios Interactivos': '/home/ensenanza/posgrados/maestria_en_medios_interactivos',
+      'Maestría en Modelación Matemática': '/home/ensenanza/posgrados/maestria_en_modelacion_matematica',
+      'Maestría en Robótica': '/home/ensenanza/posgrados/maestria_en_robotica',
+      'Maestría en Tecnología Avanzada de Manufactura': '/home/ensenanza/posgrados/maestria_en_tecnologia_avanzada_de_manufactura',
+      'Maestría en Ciencia de Datos': 'http://virtual.utm.mx/maestria_ciencia_datos.html',
+      'Doctorado en Ciencias: Productos Naturales y Alimentos': '/home/ensenanza/posgrados/doctorado_en_ciencias_productos_naturales_alimentos',
+      'Doctorado en Electrónica Especialidad Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados',
+      'Doctorado en Inteligencia Artificial': '/home/ensenanza/posgrados/doctorado_en_inteligencia_artificial',
+      'Doctorado en Modelación Matemática': '/home/ensenanza/posgrados/doctorado_en_modelacion_matematica',
+      'Doctorado en Robótica': '/home/ensenanza/posgrados/doctorado_en_robotica',
+    }  
+    constructor(private carrerasService: CarrerasService, private router: Router) {}
   
-  }
-  toggle(index: number): void {
-    this.openIndex = this.openIndex === index ? null : index;
+    ngOnInit(): void {
+      this.initializePanels();
+      this.loadData();
+      
+      
+    }
+  
+    private initializePanels(): void {
+      this.panels = [
+        { title: 'JEFATURA DE CARRERA', content: 'Contenido del panel 1' },
+        { title: 'MISIÓN', content: 'Contenido del panel 2' },
+        { title: 'VISIÓN', content: 'Contenido del panel 3' },
+        { title: 'OBJETIVO', content: 'Contenido del panel 4' },
+        { title: 'PERFIL DE INGRESO', content: 'Contenido del panel 5' },
+        { title: 'PERFIL DE EGRESO', content: 'Contenido del panel 6' },
+        { title: 'CAMPO DE ACCIÓN', content: 'Contenido del panel 7' },
+        { title: 'PLAN DE ESTUDIOS', content: 'Contenido del panel 8' },
+      ];
+    }
+  
+    private loadData(): void {
+      this.loadCarreras();
+      this.loadInformacion_carreras();
+    }
+  
+  
+    private loadCarreras(): void {
+      this.carrerasService.list_licenciaturas().subscribe(
+        (res: any) => this.licenciaturas = res,
+        (err) => console.error(err)
+      );
+  
+      this.carrerasService.list_posgrados().subscribe(
+        (res: any) => this.posgrados = res,
+        (err) => console.error(err)
+      );
+    }
+  
+    private loadInformacion_carreras(): void {
+      this.carrerasService.informacion_carrera('14').subscribe(
+        (res: any) => {this.datos_carrera= res[0]; console.log(this.datos_carrera); },
+        (err) => console.error(err)
+      );
+    }
+  
+    toggle(index: number): void {
+      this.openIndex = this.openIndex === index ? null : index;
+    }
+  
+    isOpen(index: number): boolean {
+      return this.openIndex === index;
+    }
+  
+    navigateTo(nombre_direccion: string): void {
+      const url = this.urlMapping[nombre_direccion];
+      if (url) {
+        if (['Licenciatura en Estudios Mexicanos', 'Maestría en Ciencia de Datos'].includes(nombre_direccion)) {
+          window.open(url, '_blank');
+        } else {
+          this.router.navigate([url]);
+        }
+      } else {
+        console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
+      }
+    }
+  
+    formatTextAsList(text: string): string {
+      let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+      let listItems = lines.map(line => `<li>${line}</li>`).join('');
+      return `<ul class="reduce-spacing">${listItems}</ul>`;
+    }
+  
+    
+    formatText(text: string): string {
+      return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
+    }
   }
   
-  isOpen(index: number): boolean {
-    return this.openIndex === index;
-  }
-  accordionPanels = [
-    {
-      title: 'JEFATURA DE CARRERA',
-      content: `
-        <div class="jefatura-carrera">
-          <p>Dr. Esther Lugo</p>
-          <p><a href="mailto:jcmecatronica@mixteco.utm.mx">jcmecatronica@mixteco.utm.mx</a></p>
-        </div>
-      `,
-      isOpen: false
-    },
-    { 
-      title: 'MISIÓN', 
-      content: `
-       ...
-      `, 
-      isOpen: false 
-    },
-    { 
-      title: 'VISIÓN', 
-      content: `
-      ...
-      `, 
-      isOpen: false 
-    },
-    { 
-      title: 'OBJETIVO', 
-      content: `
-        ...
-      `, 
-      isOpen: false 
-    },
-    { 
-      title: 'PERFIL DE INGRESO', 
-      content: `
-        
-      `, 
-      isOpen: false 
-    },    
-    { 
-      title: 'PERFIL DE EGRESO', 
-      content: `
-        
-      `, 
-      isOpen: false 
-    },    
-    { 
-      title: 'CAMPO DE ACCIÓN', 
-      content: `
-        
-      `, 
-      isOpen: false 
-    },    
-    {
-      title: 'PLAN DE ESTUDIOS',
-      content: `
-        <div class="plan-de-estudios-content">
-    <table align="center" style="color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-align: start; white-space: normal; text-decoration: none; width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
-        <tbody>
-            <tr>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">PRIMER SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Cálculo Diferencial e Integral <br />
-                                Dibujo Asistido por Computadora <br />
-                                Historia del Pensamiento Filosófico <br />
-                                Expresión oral y escrita <br />
-                                Programación estructurada
-                            </span>
-                        </span>
-                    </span>
-                </td>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">SEGUNDO SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Cálculo Vectorial <br />
-                                Fundamentos de Probabilidad y Estadística <br />
-                                Teoría General de Sistemas <br />
-                                Álgebra Lineal <br />
-                                Programación Orientada a Objetos
-                            </span>
-                        </span>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">TERCER SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Ecuaciones Diferenciales <br />
-                                Métodos Numéricos <br />
-                                Estática <br />
-                                Ingeniería de Materiales <br />
-                                Electro - Magnetismo
-                            </span>
-                        </span>
-                    </span>
-                </td>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">CUARTO SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Métodos matemáticos para Ingeniería <br />
-                                Dinámica <br />
-                                Mecánica de Materiales <br />
-                                Procesos de Manufactura <br />
-                                Circuitos Eléctricos I
-                            </span>
-                        </span>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">QUINTO SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Metrología y Transductores <br />
-                                Mecanismos <br />
-                                Electrónica Digital <br />
-                                Circuitos Eléctricos II <br />
-                                Electrónica Analógica
-                            </span>
-                        </span>
-                    </span>
-                </td>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">SEXTO SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Modelado y Simulación de Sistemas Dinámicos <br />
-                                Diseño de Elementos de Máquinas <br />
-                                Circuitos Digitales Reconfigurables <br />
-                                Mecánica de Fluidos <br />
-                                Electrónica de Potencia
-                            </span>
-                        </span>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">SÉPTIMO SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Control Clásico <br />
-                                Micro - Controladores <br />
-                                Máquinas Eléctricas <br />
-                                Neumática e Hidráulica <br />
-                                Termodinámica y Transferencia de Calor
-                            </span>
-                        </span>
-                    </span>
-                </td>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">OCTAVO SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Control Moderno <br />
-                                Procesamiento Digital de Señales <br />
-                                Diseño Mecatrónico <br />
-                                Autómatas Programables <br />
-                                Robótica de Manipuladores
-                            </span>
-                        </span>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">NOVENO SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Seminario de Investigación <br />
-                                Optativa I <br />
-                                Proyecto Integrador de Ingeniería Mecatrónica <br />
-                                Optativa II <br />
-                                Administración para Ingenieros
-                            </span>
-                        </span>
-                    </span>
-                </td>
-                <td style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">DÉCIMO SEMESTRE</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                Ecología y Desarrollo Sostenible <br />
-                                Manufactura Avanzada <br />
-                                Optativa III <br />
-                                Formulación y Evaluación de Proyectos <br />
-                                Optativa IV
-                            </span>
-                        </span>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" style="border: 1px solid #ddd; padding: 10px;">
-                    <div align="center">
-                        <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                            <strong><font color="#410401">Optativas según especialidad</font></strong>
-                        </span>
-                    </div>
-                    <br />
-                    <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-                        <span style="background-color:#ffffff;">
-                            <span style="display:inline !important;">
-                                <strong>Optativa I</strong> <br />
-                                Control Avanzado <br />
-                                Elementos Finitos Aplicados a la Ingeniería <br />
-                                Fundamentos de Inteligencia Artificial <br />
-                                <strong>Optativa II</strong> <br />
-                                Control de Máquinas de CD Mediante Convertidores CD-CD <br />
-                                Técnicas de Clustering para el Diagnóstico de Procesos <br />
-                                Vibraciones Mecánicas <br />
-                                <strong>Optativa III</strong> <br />
-                                Control de Máquinas de CA <br />
-                                Control de Vibraciones Mecánicas <br />
-                                Diagnóstico y Supervisión de Procesos <br />
-                                <strong>Optativa IV</strong> <br />
-                                Administración de la Calidad <br />
-                                Nanotecnología <br />
-                                Procesamiento Digital de Imágenes <br />
-                                Recursos y Necesidades de México <br />
-                                Robótica Móvil <br />
-                                Tópicos Selectos de Biomecatrónica
-                            </span>
-                        </span>
-                    </span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-      `,
-      isOpen: false
-    }    
-  ];
-
-
-  
-}

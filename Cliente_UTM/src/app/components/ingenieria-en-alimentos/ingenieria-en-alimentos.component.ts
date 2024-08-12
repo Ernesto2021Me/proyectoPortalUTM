@@ -1,16 +1,69 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
+import { Router } from '@angular/router';
 
+import { CarrerasService } from 'src/app/services/carreras.service';
+import { Informacion_careras } from 'src/app/models/Informacion_carrera';
+import { Carrera } from 'src/app/models/carreras';
 @Component({
   selector: 'app-ingenieria-en-alimentos',
   templateUrl: './ingenieria-en-alimentos.component.html',
-  styleUrls: ['./ingenieria-en-alimentos.component.css']
+  styleUrls: ['./ingenieria-en-alimentos.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class IngenieriaEnAlimentosComponent implements OnInit {
+  licenciaturas: Carrera[] = [];
+  posgrados: Carrera[] = [];
+  datos_carrera=new Informacion_careras();
+
   panels: { title: string, content: string }[] = [];
   openIndex: number | null = null;
-  constructor() { }
+
+  urlMapping: { [key: string]: string } = {
+    // Licenciaturas
+    'Ingeniería en Computación': '/home/ensenanza/licenciaturas/ingenieria_en_computacion',
+    'Ingeniería en Electrónica': '/home/ensenanza/licenciaturas/ingenieria_en_electronica',
+    'Ingeniería en Diseño': '/home/ensenanza/licenciaturas/ingenieria_en_diseno',
+    'Licenciatura en Ciencias Empresariales': '/home/ensenanza/licenciaturas/licenciatura_en_ciencias_empresariales',
+    'Licenciatura en Matemáticas Aplicadas': '/home/ensenanza/licenciaturas/licenciatura_en_matematicas_aplicadas',
+    'Ingeniería en Alimentos': '/home/ensenanza/licenciaturas/ingenieria_en_alimentos',
+    'Ingeniería Industrial': '/home/ensenanza/licenciaturas/ingenieria_industrial',
+    'Licenciatura en Estudios Mexicanos': 'http://virtual.utm.mx/licenciatura_estudios_mexicanos.html',
+    'Ingeniería en Mecatrónica': '/home/ensenanza/licenciaturas/ingenieria_en_mecatronica',
+    'Ingeniería en Física Aplicada': '/home/ensenanza/licenciaturas/ingenieria_en_fisica_aplicada',
+    'Ingeniería Mecánica Automotriz': '/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz',
+    'Ingeniería Civil': '/home/ensenanza/licenciaturas/ingenieria_civil',
+    'Ingeniería Química en Procesos Sostenibles': '/home/ensenanza/licenciaturas/ingenieria_quimica_en_procesos_sostenibles',
+  
+    // Programas de Posgrado
+    'Maestría en Administración de Negocios': '/home/ensenanza/posgrados/maestria_en_administracion_negocios',
+    'Maestría en Ciencias de Materiales': '/home/ensenanza/posgrados/maestria_en_ciencias_materiales',
+    'Maestría en Ciencias: Productos Naturales y Alimentos': '/home/ensenanza/posgrados/maestria_en_ciencias_productos_naturales_alimentacion',
+    'Maestría en Diseño de Modas': '/home/ensenanza/posgrados/maestria_en_diseno_modas',
+    'Maestría en Diseño de Muebles': '/home/ensenanza/posgrados/maestria_en_diseno_muebles',
+    'Maestría en Electrónica Opción en Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/maestria_en_electronica_en_sistemas_inteligentes',
+    'Maestría en Ingeniería de Software': '/home/ensenanza/posgrados/maestria_en_ingenieria_de_software',
+    'Maestría en Inteligencia Artificial': '/home/ensenanza/posgrados/maestria_en_inteligencia_artificial',
+    'Maestría en Medios Interactivos': '/home/ensenanza/posgrados/maestria_en_medios_interactivos',
+    'Maestría en Modelación Matemática': '/home/ensenanza/posgrados/maestria_en_modelacion_matematica',
+    'Maestría en Robótica': '/home/ensenanza/posgrados/maestria_en_robotica',
+    'Maestría en Tecnología Avanzada de Manufactura': '/home/ensenanza/posgrados/maestria_en_tecnologia_avanzada_de_manufactura',
+    'Maestría en Ciencia de Datos': 'http://virtual.utm.mx/maestria_ciencia_datos.html',
+    'Doctorado en Ciencias: Productos Naturales y Alimentos': '/home/ensenanza/posgrados/doctorado_en_ciencias_productos_naturales_alimentos',
+    'Doctorado en Electrónica Especialidad Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados',
+    'Doctorado en Inteligencia Artificial': '/home/ensenanza/posgrados/doctorado_en_inteligencia_artificial',
+    'Doctorado en Modelación Matemática': '/home/ensenanza/posgrados/doctorado_en_modelacion_matematica',
+    'Doctorado en Robótica': '/home/ensenanza/posgrados/doctorado_en_robotica',
+  }  
+  constructor(private carrerasService: CarrerasService, private router: Router) {}
 
   ngOnInit(): void {
+    this.initializePanels();
+    this.loadData();
+    
+    
+  }
+
+  private initializePanels(): void {
     this.panels = [
       { title: 'JEFATURA DE CARRERA', content: 'Contenido del panel 1' },
       { title: 'MISIÓN', content: 'Contenido del panel 2' },
@@ -20,300 +73,63 @@ export class IngenieriaEnAlimentosComponent implements OnInit {
       { title: 'PERFIL DE EGRESO', content: 'Contenido del panel 6' },
       { title: 'CAMPO DE ACCIÓN', content: 'Contenido del panel 7' },
       { title: 'PLAN DE ESTUDIOS', content: 'Contenido del panel 8' },
-    
-  ];
-  
+    ];
   }
+
+  private loadData(): void {
+    this.loadCarreras();
+    this.loadInformacion_carreras();
+  }
+
+
+  private loadCarreras(): void {
+    this.carrerasService.list_licenciaturas().subscribe(
+      (res: any) => this.licenciaturas = res,
+      (err) => console.error(err)
+    );
+
+    this.carrerasService.list_posgrados().subscribe(
+      (res: any) => this.posgrados = res,
+      (err) => console.error(err)
+    );
+  }
+
+  private loadInformacion_carreras(): void {
+    this.carrerasService.informacion_carrera('06').subscribe(
+      (res: any) => {this.datos_carrera= res[0]; console.log(this.datos_carrera); },
+      (err) => console.error(err)
+    );
+  }
+
   toggle(index: number): void {
     this.openIndex = this.openIndex === index ? null : index;
   }
-  
+
   isOpen(index: number): boolean {
     return this.openIndex === index;
   }
 
-  accordionPanels = [
-    {
-      
-      title: 'PERFIL DE INGRESO', 
-      content: `
-        <div class="perfil-ingreso-content">
-          <p><strong>El aspirante a cursar la carrera de Ingeniería en Alimentos en la UTM deberá tener los siguientes conocimientos, habilidades y actitudes:</strong></p>
-          <p><strong>Conocimientos:</strong></p>
-          <ul>
-            <li>Básicos en el área físico-matemática.</li>
-            <li>Básicos de redacción para la elaboración de textos.</li>
-          </ul>
-          <p><strong>Habilidades:</strong></p>
-          <ul>
-            <li>Comunicación oral y escrita.</li>
-            <li>Disposición para trabajar en equipo.</li>
-            <li>Creatividad.</li>
-          </ul>
-          <p><strong>Actitudes y Valores:</strong></p>
-          <ul>
-            <li>Interés por el conocimiento, la aplicación tecnológica y la investigación.</li>
-            <li>Capacidad de adaptación al cambio y a la asimilación de nuevos conocimientos.</li>
-            <li>Búsqueda de la superación y mejora personal.</li>
-            <li>Empatía y respeto con sus semejantes.</li>
-            <li>Apertura al diálogo.</li>
-            <li>Comprensión y tolerancia hacia la diversidad étnica, de clase, género, preferencias políticas o sexuales.</li>
-            <li>Respeto y aprecio por la diversidad ecológica.</li>
-            <li>Aprecio por la diversidad cultural de la región, el estado y el país.</li>
-            <li>Responsabilidad y puntualidad.</li>
-          </ul>
-        </div>
-      `, 
-      isOpen: false 
-    },
-    { 
-      title: 'PERFIL DE EGRESO', 
-      content: `
-      
-      `, 
-      isOpen: false 
-    },
-    { 
-      title: 'CAMPO DE ACCIÓN', 
-      content: `
-        
-      `, 
-      isOpen: false 
-    },
-    { 
-      title: 'PLAN DE ESTUDIOS', 
-      content: `
-        <div class="plan-de-estudios-content">
-  <table align="center" style="color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-align: start; white-space: normal; text-decoration: none; width: 100%; border-collapse: collapse; border: 1px solid #ccc;">
-    <tbody>
-      <tr>
-        <td style="border: 1px solid #ccc; padding: 8px;">
-          <div align="center">
-            <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-              <strong><font color="#410401">PRIMER SEMESTRE</font></strong>
-            </span>
-          </div>
-          <br />
-          <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-            <span style="background-color:#ffffff;">
-              <span style="display:inline !important;">
-                Química General <br />
-                Fundamentos de Matemáticas para Ingenieros <br />
-                Herramientas de Computación <br />
-                Historia del Pensamiento Filosófico <br />
-                Introducción a la Ingeniería en Alimentos
-              </span>
-            </span>
-          </span>
-        </td>
-        <td style="border: 1px solid #ccc; padding: 8px;">
-          <div align="center">
-            <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-              <strong><font color="#410401">SEGUNDO SEMESTRE</font></strong>
-            </span>
-          </div>
-          <br />
-          <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-            <span style="background-color:#ffffff;">
-              <span style="display:inline !important;">
-                Química Orgánica I <br />
-                Cálculo Diferencial e Integral para Ingenieros <br />
-                Mecánica Clásica <br />
-                Teoría General de Sistemas <br />
-                Cálculos Básicos en Ingeniería de Alimentos
-              </span>
-            </span>
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #ccc; padding: 8px;">
-          <div align="center">
-            <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-              <strong><font color="#410401">TERCER SEMESTRE</font></strong>
-            </span>
-          </div>
-          <br />
-          <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-            <span style="background-color:#ffffff;">
-              <span style="display:inline !important;">
-                Química Orgánica II <br />
-                Ecuaciones Diferenciales para Ingenieros <br />
-                Microbiología de Alimentos <br />
-                Balance de Materia y Energía
-              </span>
-            </span>
-          </span>
-        </td>
-        <td style="border: 1px solid #ccc; padding: 8px;">
-          <div align="center">
-            <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-              <strong><font color="#410401">CUARTO SEMESTRE</font></strong>
-            </span>
-          </div>
-          <br />
-          <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-            <span style="background-color:#ffffff;">
-              <span style="display:inline !important;">
-                Bioquímica <br />
-                Química de Alimentos <br />
-                Termodinámica <br />
-                Estadística y Quimiometría <br />
-                Análisis Clásico de Alimentos
-              </span>
-            </span>
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #ccc; padding: 8px;">
-          <div align="center">
-            <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-              <strong><font color="#410401">QUINTO SEMESTRE</font></strong>
-            </span>
-          </div>
-          <br />
-          <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-            <span style="background-color:#ffffff;">
-              <span style="display:inline !important;">
-                Análisis Instrumental de Alimentos <br />
-                Fisicoquímica de Alimentos <br />
-                Transporte de Movimiento con Aplicaciones <br />
-                Diseño y Análisis de Experimentos
-              </span>
-            </span>
-          </span>
-        </td>
-        <td style="border: 1px solid #ccc; padding: 8px;">
-          <div align="center">
-            <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-              <strong><font color="#410401">SEXTO SEMESTRE</font></strong>
-            </span>
-          </div>
-          <br />
-          <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-            <span style="background-color:#ffffff;">
-              <span style="display:inline !important;">
-                Nutrición y Alimentos Funcionales <br />
-                Transferencia de Calor y Masa con Aplicaciones <br />
-                Procesos Tecnológicos de Productos Cárnicos <br />
-                Taller de Evaluación Sensorial
-              </span>
-            </span>
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #ccc; padding: 8px;">
-          <div align="center">
-            <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-              <strong><font color="#410401">SÉPTIMO SEMESTRE</font></strong>
-            </span>
-          </div>
-          <br />
-          <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-            <span style="background-color:#ffffff;">
-              <span style="display:inline !important;">
-                Sistemas de Gestión de la Calidad <br />
-                Operaciones Unitarias con Procesos Térmicos <br />
-                Procesos Biotecnológicos Alimentarios <br />
-                Procesos Tecnológicos de Cereales <br />
-                Herramientas Administrativas y Financieras
-              </span>
-            </span>
-          </span>
-        </td>
-        <td style="border: 1px solid #ccc; padding: 8px;">
-          <div align="center">
-            <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-              <strong><font color="#410401">OCTAVO SEMESTRE</font></strong>
-            </span>
-          </div>
-          <br />
-          <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-            <span style="background-color:#ffffff;">
-              <span style="display:inline !important;">
-                Aseguramiento de la Calidad e Inocuidad Alimentaria <br />
-                Seminario de Planeación y Análisis de Negocios <br />
-                Operaciones por Etapas de Equilibrio <br />
-                Procesos Tecnológicos de Frutas y Hortalizas <br />
-                Metodología de la Investigación
-              </span>
-            </span>
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid #ccc; padding: 8px;">
-          <div align="center">
-            <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-              <strong><font color="#410401">NOVENO SEMESTRE</font></strong>
-            </span>
-          </div>
-          <br />
-          <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-            <span style="background-color:#ffffff;">
-              <span style="display:inline !important;">
-                Procesos de Separación Físico-Mecánicos <br />
-                Procesos Tecnológicos de Productos Lácteos <br />
-                Dibujo en Ingeniería <br />
-                Gestión Ambiental y Sustentabilidad <br />
-                Optativa I
-              </span>
-            </span>
-          </span>
-        </td>
-        <td style="border: 1px solid #ccc; padding: 8px;">
-          <div align="center">
-            <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-              <strong><font color="#410401">DÉCIMO SEMESTRE</font></strong>
-            </span>
-          </div>
-          <br />
-          <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-            <span style="background-color:#ffffff;">
-              <span style="display:inline !important;">
-                Desarrollo de Nuevos Productos <br />
-                Comportamiento Organizacional y Habilidades Directivas <br />
-                Diseño de Plantas Alimentarias <br />
-                Fronteras de la Ingeniería en Alimentos <br />
-                Optativa II
-              </span>
-            </span>
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2" style="border: 1px solid #ccc; padding: 8px;">
-          <div align="center">
-            <span style="font-size:12px; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-              <strong><font color="#410401">Optativas según especialidad</font></strong>
-            </span>
-          </div>
-          <br />
-          <span style="font-size:12px; text-align:start; color:#000000; font-family:Arial, Helvetica, sans-serif;">
-            <span style="background-color:#ffffff;">
-              <span style="display:inline !important;">
-                <strong>Optativa I</strong> <br />
-                Serie Empresarial: Mercadotecnia en la Producción y Comercialización de Alimentos <br />
-                Serie Industrial: Higiene y Seguridad Industrial <br />
-                <strong>Optativa II</strong> <br />
-                Serie Empresarial: Seminario de Ejecución y Evaluación de Negocios <br />
-                Serie Industrial: Planeación y Control de Producción
-              </span>
-            </span>
-          </span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-      `, 
-      isOpen: false 
+  navigateTo(nombre_direccion: string): void {
+    const url = this.urlMapping[nombre_direccion];
+    if (url) {
+      if (['Licenciatura en Estudios Mexicanos', 'Maestría en Ciencia de Datos'].includes(nombre_direccion)) {
+        window.open(url, '_blank');
+      } else {
+        this.router.navigate([url]);
+      }
+    } else {
+      console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
     }
-  ];
+  }
 
+  formatTextAsList(text: string): string {
+    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    let listItems = lines.map(line => `<li>${line}</li>`).join('');
+    return `<ul class="reduce-spacing">${listItems}</ul>`;
+  }
 
-
+  
+  formatText(text: string): string {
+    return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
+  }
 }

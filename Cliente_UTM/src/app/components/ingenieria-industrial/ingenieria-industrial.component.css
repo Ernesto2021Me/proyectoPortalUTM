@@ -170,6 +170,11 @@ h1 {
  .reduce-spacing{
  line-height: 1.5;
  }
+
+ .perfiles{
+    line-height: 1.5;
+    margin-bottom: 0px;
+ }
  
  .mision-content ul li::before,
 .vision-content ul li::before,
@@ -457,7 +462,7 @@ h1 {
 .menu-item a {
     text-decoration: none;
     color: #2d2d2d;
-   
+    width: 85%;
     padding: 5px 20px;
     line-height: 150%;
     display: block;
@@ -466,6 +471,7 @@ h1 {
     transition: padding-left 0.2s ease; /* Agregar una transición suave al padding izquierdo */
     background-color: transparent !important; /* Hacer el fondo transparente */
     border: none !important; /* Eliminar cualquier borde */
+   cursor: pointer;
 }
 
 .menu-item a:hover {

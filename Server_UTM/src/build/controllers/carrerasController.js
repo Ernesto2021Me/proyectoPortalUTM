@@ -247,9 +247,9 @@ WHERE codigoCarrera = ?;
     cc.descripcion_campos AS descripcion_campo
 FROM carreras c
 JOIN jefe_carreras j ON c.codigoCarrera = j.codigoCarrera
-LEFT JOIN mision_carreras mc ON c.mision = mc.id_mision
-LEFT JOIN vision_carreras vc ON c.vision = vc.id_vision
-LEFT JOIN objetivo_carreras oc ON c.objetivo = oc.id_objetivo
+LEFT JOIN mision_carreras mc ON c.id_informacion = mc.id_carrera_informacion
+LEFT JOIN vision_carreras vc ON c.id_informacion = vc.id_carrera_informacion
+LEFT JOIN objetivo_carreras oc ON c.id_informacion = oc.id_carrera_informacion
 LEFT JOIN conocimientos_carreras kc ON c.id_informacion = kc.id_carrera_informacion AND kc.perfil = 1
 LEFT JOIN habilidades_carreras hc ON c.id_informacion = hc.id_carrera_informacion AND hc.perfil = 1
 LEFT JOIN actitudes_valores_carreras avc ON c.id_informacion = avc.id_carrera_informacion AND avc.perfil = 1

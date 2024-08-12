@@ -1,17 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { CarrerasService } from 'src/app/services/carreras.service';
+import { Informacion_careras } from 'src/app/models/Informacion_carrera';
 import { Carrera } from 'src/app/models/carreras';
-import {Router} from '@angular/router'
 @Component({
   selector: 'app-ingenieria-civil',
   templateUrl: './ingenieria-civil.component.html',
-  styleUrls: ['./ingenieria-civil.component.css']
+  styleUrls: ['./ingenieria-civil.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class IngenieriaCivilComponent implements OnInit {
-  licenciaturas:Carrera[]=[]
-  posgrados: Carrera[]=[]
+  licenciaturas: Carrera[] = [];
+  posgrados: Carrera[] = [];
+  datos_carrera=new Informacion_careras();
+
   panels: { title: string, content: string }[] = [];
   openIndex: number | null = null;
+
   urlMapping: { [key: string]: string } = {
     // Licenciaturas
     'Ingeniería en Computación': '/home/ensenanza/licenciaturas/ingenieria_en_computacion',
@@ -48,9 +54,16 @@ export class IngenieriaCivilComponent implements OnInit {
     'Doctorado en Modelación Matemática': '/home/ensenanza/posgrados/doctorado_en_modelacion_matematica',
     'Doctorado en Robótica': '/home/ensenanza/posgrados/doctorado_en_robotica',
   }  
-  constructor(private CarrerasService: CarrerasService,private router: Router) { }
+  constructor(private carrerasService: CarrerasService, private router: Router) {}
 
   ngOnInit(): void {
+    this.initializePanels();
+    this.loadData();
+    
+    
+  }
+
+  private initializePanels(): void {
     this.panels = [
       { title: 'JEFATURA DE CARRERA', content: 'Contenido del panel 1' },
       { title: 'MISIÓN', content: 'Contenido del panel 2' },
@@ -60,43 +73,48 @@ export class IngenieriaCivilComponent implements OnInit {
       { title: 'PERFIL DE EGRESO', content: 'Contenido del panel 6' },
       { title: 'CAMPO DE ACCIÓN', content: 'Contenido del panel 7' },
       { title: 'PLAN DE ESTUDIOS', content: 'Contenido del panel 8' },
-    
-  ];
-
-  this.CarrerasService.list_licenciaturas( ).subscribe(
-    (reslicenciaturas: any) => {
-      this.licenciaturas = reslicenciaturas;
-      console.log(this.licenciaturas)
-    },
-    (err) => console.error(err)
-  );
-  
-  this.CarrerasService.list_posgrados( ).subscribe(
-    (reslicenciaturas: any) => {
-      this.posgrados = reslicenciaturas;
-      console.log(this.posgrados)
-    },
-    (err) => console.error(err)
-  );
-  
+    ];
   }
+
+  private loadData(): void {
+    this.loadCarreras();
+    this.loadInformacion_carreras();
+  }
+
+
+  private loadCarreras(): void {
+    this.carrerasService.list_licenciaturas().subscribe(
+      (res: any) => this.licenciaturas = res,
+      (err) => console.error(err)
+    );
+
+    this.carrerasService.list_posgrados().subscribe(
+      (res: any) => this.posgrados = res,
+      (err) => console.error(err)
+    );
+  }
+
+  private loadInformacion_carreras(): void {
+    this.carrerasService.informacion_carrera('32').subscribe(
+      (res: any) => {this.datos_carrera= res[0]; console.log(this.datos_carrera); },
+      (err) => console.error(err)
+    );
+  }
+
   toggle(index: number): void {
     this.openIndex = this.openIndex === index ? null : index;
   }
-  
+
   isOpen(index: number): boolean {
     return this.openIndex === index;
   }
-  
+
   navigateTo(nombre_direccion: string): void {
     const url = this.urlMapping[nombre_direccion];
     if (url) {
-      if (nombre_direccion === 'Licenciatura en Estudios Mexicanos' || nombre_direccion === 'Maestría en Ciencia de Datos'){
-        // Redirige a una URL externa
-       // window.location.href = url;
-       window.open(url, '_blank');
+      if (['Licenciatura en Estudios Mexicanos', 'Maestría en Ciencia de Datos'].includes(nombre_direccion)) {
+        window.open(url, '_blank');
       } else {
-        // Redirige a una URL interna
         this.router.navigate([url]);
       }
     } else {
@@ -104,7 +122,14 @@ export class IngenieriaCivilComponent implements OnInit {
     }
   }
 
-
+  formatTextAsList(text: string): string {
+    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    let listItems = lines.map(line => `<li>${line}</li>`).join('');
+    return `<ul class="reduce-spacing">${listItems}</ul>`;
+  }
 
   
+  formatText(text: string): string {
+    return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
+  }
 }
