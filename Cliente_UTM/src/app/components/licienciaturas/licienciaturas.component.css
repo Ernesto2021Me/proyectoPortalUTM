@@ -443,6 +443,7 @@ h1 {
     padding-left: 30px; /* Aumentar el padding izquierdo al pasar el ratón */
     background-color: transparent !important; /* Mantener el fondo transparente */
     border: none !important; /* Mantener sin bordes */
+    color:#4a1110;
 }
 
 .menu-item a::before {
