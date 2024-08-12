@@ -112,10 +112,12 @@ export class IngenieriaQuimicaComponent implements OnInit {
   navigateTo(nombre_direccion: string): void {
     const url = this.urlMapping[nombre_direccion];
     if (url) {
-      if (['Licenciatura en Estudios Mexicanos', 'Maestría en Ciencia de Datos'].includes(nombre_direccion)) {
-        window.open(url, '_blank');
+      if (nombre_direccion === 'Licenciatura en Estudios Mexicanos' || nombre_direccion === 'Maestría en Ciencia de Datos') {
+        // Redirige a una URL externa
+        window.location.href = url;
       } else {
-        this.router.navigate([url]);
+        // Redirige a una URL interna y recarga la página
+        window.location.href = url;
       }
     } else {
       console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);

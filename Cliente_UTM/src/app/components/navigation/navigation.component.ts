@@ -25,7 +25,7 @@ export class NavigationComponent implements OnInit {
    'Licenciatura en Estudios Mexicanos': 'http://virtual.utm.mx/licenciatura_estudios_mexicanos.html',
    'Ingeniería en Mecatrónica': '/home/ensenanza/licenciaturas/ingenieria_en_mecatronica',
    'Ingeniería en Física Aplicada': '/home/ensenanza/licenciaturas/ingenieria_en_fisica_aplicada',
-   'Ingeniería Mecánica Automotriz': '/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz',
+   'Ingeniería en Mecánica Automotriz': '/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz',
    'Ingeniería Civil': '/home/ensenanza/licenciaturas/ingenieria_civil',
    'Ingeniería Química en Procesos Sostenibles': '/home/ensenanza/licenciaturas/ingenieria_quimica_en_procesos_sostenibles',
  
@@ -68,47 +68,49 @@ export class NavigationComponent implements OnInit {
    }
  
    ngOnInit(): void {
- 
-     this.CarrerasService.list_licenciaturas( ).subscribe(
-       (reslicenciaturas: any) => {
-         this.licenciaturas = reslicenciaturas;
-         console.log(this.licenciaturas)
-       },
-       (err) => console.error(err)
-     );
-     
-     this.CarrerasService.list_posgrados( ).subscribe(
-       (reslicenciaturas: any) => {
-         this.posgrados = reslicenciaturas;
-         console.log(this.posgrados)
-       },
-       (err) => console.error(err)
-     );
- 
-     this.InstitutosService.list_institutos_investigacion( ).subscribe(
-       (resinstitutos: any) => {
-         this.institutos = resinstitutos;
-         console.log(this.institutos)
-       },
-       (err) => console.error(err)
-     );
+    this.loadData();
    }
    
-   navigateTo(nombre_direccion: string): void {
-     const url = this.urlMapping[nombre_direccion];
-     if (url) {
-       if (nombre_direccion === 'Licenciatura en Estudios Mexicanos' || nombre_direccion === 'Maestría en Ciencia de Datos'){
-         // Redirige a una URL externa
-        // window.location.href = url;
-        window.open(url, '_blank');
-       } else {
-         // Redirige a una URL interna
-         this.router.navigate([url]);
-       }
-     } else {
-       console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
-     }
-   }
-     
+   private loadData(): void {
+    this.loadCarreras();
+    this.loadInstitutos();
+  }
+
+  private loadCarreras(): void {
+    this.CarrerasService.list_licenciaturas().subscribe(
+      (res: any) => this.licenciaturas = res,
+      (err) => console.error(err)
+    );
+
+    this.CarrerasService.list_posgrados().subscribe(
+      (res: any) => this.posgrados = res,
+      (err) => console.error(err)
+    );
+  }
+
+  private loadInstitutos(){
+    this.InstitutosService.list_institutos_investigacion( ).subscribe(
+      (res: any) =>
+        this.institutos = res,
+      (err) => console.error(err)
+    );
+  }
+
+
+  navigateTo(nombre_direccion: string): void {
+    const url = this.urlMapping[nombre_direccion];
+    if (url) {
+      if (nombre_direccion === 'Licenciatura en Estudios Mexicanos' || nombre_direccion === 'Maestría en Ciencia de Datos') {
+        // Redirige a una URL externa
+        window.location.href = url;
+      } else {
+        // Redirige a una URL interna y recarga la página
+        window.location.href = url;
+      }
+    } else {
+      console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
+    }
+  }
+  
   
 }

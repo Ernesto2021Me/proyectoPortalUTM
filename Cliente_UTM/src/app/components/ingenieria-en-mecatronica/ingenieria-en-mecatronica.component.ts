@@ -30,7 +30,7 @@ export class IngenieriaEnMecatronicaComponent implements OnInit {
       'Licenciatura en Estudios Mexicanos': 'http://virtual.utm.mx/licenciatura_estudios_mexicanos.html',
       'Ingeniería en Mecatrónica': '/home/ensenanza/licenciaturas/ingenieria_en_mecatronica',
       'Ingeniería en Física Aplicada': '/home/ensenanza/licenciaturas/ingenieria_en_fisica_aplicada',
-      'Ingeniería Mecánica Automotriz': '/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz',
+      'Ingeniería en Mecánica Automotriz': '/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz',
       'Ingeniería Civil': '/home/ensenanza/licenciaturas/ingenieria_civil',
       'Ingeniería Química en Procesos Sostenibles': '/home/ensenanza/licenciaturas/ingenieria_quimica_en_procesos_sostenibles',
     
@@ -112,16 +112,17 @@ export class IngenieriaEnMecatronicaComponent implements OnInit {
     navigateTo(nombre_direccion: string): void {
       const url = this.urlMapping[nombre_direccion];
       if (url) {
-        if (['Licenciatura en Estudios Mexicanos', 'Maestría en Ciencia de Datos'].includes(nombre_direccion)) {
-          window.open(url, '_blank');
+        if (nombre_direccion === 'Licenciatura en Estudios Mexicanos' || nombre_direccion === 'Maestría en Ciencia de Datos') {
+          // Redirige a una URL externa
+          window.location.href = url;
         } else {
-          this.router.navigate([url]);
+          // Redirige a una URL interna y recarga la página
+          window.location.href = url;
         }
       } else {
         console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
       }
     }
-  
     formatTextAsList(text: string): string {
       let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
       let listItems = lines.map(line => `<li>${line}</li>`).join('');
