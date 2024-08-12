@@ -95,7 +95,7 @@ export class LicenciaturaEnMatematicasAplicadasComponent implements OnInit {
   }
 
   private loadInformacion_carreras(): void {
-    this.carrerasService.informacion_carrera('05').subscribe(
+    this.carrerasService.informacion_carrera('07').subscribe(
       (res: any) => {this.datos_carrera= res[0]; console.log(this.datos_carrera); },
       (err) => console.error(err)
     );

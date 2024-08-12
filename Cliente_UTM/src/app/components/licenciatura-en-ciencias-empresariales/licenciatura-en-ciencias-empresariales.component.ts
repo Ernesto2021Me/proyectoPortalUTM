@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 import { CarrerasService } from 'src/app/services/carreras.service';
+import { Informacion_careras } from 'src/app/models/Informacion_carrera';
 import { Carrera } from 'src/app/models/carreras';
-import { Perfil } from 'src/app/models/perfiles';
-import { Mision } from 'src/app/models/mision';
-import { Campo_accion } from 'src/app/models/campo_accion';
-import { Jefe_carrera } from 'src/app/models/jefe_carreras';
-import { Vision } from 'src/app/models/vision';
-import { Objetivo } from 'src/app/models/objetivo';
+
 @Component({
   selector: 'app-licenciatura-en-ciencias-empresariales',
   templateUrl: './licenciatura-en-ciencias-empresariales.component.html',
@@ -17,13 +14,7 @@ import { Objetivo } from 'src/app/models/objetivo';
 export class LicenciaturaEnCienciasEmpresarialesComponent implements OnInit {
   licenciaturas: Carrera[] = [];
   posgrados: Carrera[] = [];
-  jefe_carrera = new Jefe_carrera();
-  mision = new Mision();
-  vision = new Vision();
-  objetivo = new Objetivo();
-  perfil_egreso = new Perfil();
-  perfil_ingreso = new Perfil();
-  campos = new Campo_accion();
+  datos_carrera=new Informacion_careras();
 
   panels: { title: string, content: string }[] = [];
   openIndex: number | null = null;
@@ -64,12 +55,13 @@ export class LicenciaturaEnCienciasEmpresarialesComponent implements OnInit {
     'Doctorado en Modelación Matemática': '/home/ensenanza/posgrados/doctorado_en_modelacion_matematica',
     'Doctorado en Robótica': '/home/ensenanza/posgrados/doctorado_en_robotica',
   }  
-
   constructor(private carrerasService: CarrerasService, private router: Router) {}
 
   ngOnInit(): void {
     this.initializePanels();
     this.loadData();
+    
+    
   }
 
   private initializePanels(): void {
@@ -86,64 +78,10 @@ export class LicenciaturaEnCienciasEmpresarialesComponent implements OnInit {
   }
 
   private loadData(): void {
-    this.loadJefeCarrera();
     this.loadCarreras();
-    this.loadMision();
-    this.loadVision();
-    this.loadObjetivo();
-    this.loadPerfilIngreso();
-    this.loadPerfilEgreso();
-    this.loadCampoAccion();
+    this.loadInformacion_carreras();
   }
 
-  private loadJefeCarrera(): void {
-    this.carrerasService.list_one_jefe_carrera('05').subscribe(
-      (res: any) => this.jefe_carrera = res[0],
-      (err) => console.error(err)
-    );
-  }
-
-  private loadMision(): void {
-    this.carrerasService.list_one_mision('05').subscribe(
-      (res: any) => this.mision = this.extractMisionData(res),
-      (err) => console.error(err)
-    );
-  }
-
-  private loadVision(): void {
-    this.carrerasService.list_one_vision('05').subscribe(
-      (res: any) => this.vision = this.extractVisionData(res),
-      (err) => console.error(err)
-    );
-  }
-
-  private loadObjetivo(): void {
-    this.carrerasService.list_one_objetivo('05').subscribe(
-      (res: any) => this.objetivo = this.extractObjetivoData(res),
-      (err) => console.error(err)
-    );
-  }
-
-  private loadPerfilIngreso(): void {
-    this.carrerasService.list_perfil_ingreso('05').subscribe(
-      (res: any) => this.perfil_ingreso = this.extractPerfilData(res, 'ingreso'),
-      (err) => console.error(err)
-    );
-  }
-
-  private loadPerfilEgreso(): void {
-    this.carrerasService.list_perfil_egreso('05').subscribe(
-      (res: any) => this.perfil_egreso = this.extractPerfilData(res, 'egreso'),
-      (err) => console.error(err)
-    );
-  }
-
-  private loadCampoAccion(): void {
-    this.carrerasService.list_perfil_campo('05').subscribe(
-      (res: any) => this.campos = this.extractCampoAccionData(res),
-      (err) => console.error(err)
-    );
-  }
 
   private loadCarreras(): void {
     this.carrerasService.list_licenciaturas().subscribe(
@@ -157,59 +95,11 @@ export class LicenciaturaEnCienciasEmpresarialesComponent implements OnInit {
     );
   }
 
-  private extractMisionData(resultados: any[]): Mision {
-    const mision = new Mision();
-    if (resultados.length > 0) {
-      mision.mision = resultados[0].mision || '';
-      mision.descripcion_mision = this.extractUniqueDescriptions(resultados, 'descripcion_mision');
-    }
-    return mision;
-  }
-
-  private extractVisionData(resultados: any[]): Vision {
-    const vision = new Vision();
-    if (resultados.length > 0) {
-      vision.vision = resultados[0].vision || '';
-      vision.descripcion_vision = this.extractUniqueDescriptions(resultados, 'descripcion_vision');
-    }
-    return vision;
-  }
-
-  private extractObjetivoData(resultados: any[]): Objetivo {
-    const objetivo = new Objetivo();
-    if (resultados.length > 0) {
-      objetivo.objetivo = resultados[0].objetivos || '';
-      objetivo.descripcion_objetivo = this.extractUniqueDescriptions(resultados, 'descripcion_objetivo');
-    }
-    return objetivo;
-  }
-
-  private extractPerfilData(resultados: any[], tipo: 'ingreso' | 'egreso'): Perfil {
-    const perfil = new Perfil();
-    if (resultados.length > 0) {
-      perfil.perfil = resultados[0][`perfil_${tipo}`] || '';
-      perfil.descripcion_conocimiento = this.extractUniqueDescriptions(resultados, `descripcion_conocimiento_${tipo}`);
-      perfil.descripcion_habilidad = this.extractUniqueDescriptions(resultados, `descripcion_habilidad_${tipo}`);
-      perfil.descripcion_valores = this.extractUniqueDescriptions(resultados, `descripcion_valores_${tipo}`);
-    }
-    return perfil;
-  }
-
-  private extractCampoAccionData(resultados: any[]): Campo_accion {
-    const campo = new Campo_accion();
-    if (resultados.length > 0) {
-      campo.campo = resultados[0].campo_accion || '';
-      campo.descripcion_campo_accion = this.extractUniqueDescriptions(resultados, 'descripcion_campo');
-    }
-    return campo;
-  }
-
-  private extractUniqueDescriptions(resultados: any[], key: string): string[] {
-    return Array.from(new Set(
-      resultados
-        .map(result => result[key])
-        .filter(desc => desc)
-    ));
+  private loadInformacion_carreras(): void {
+    this.carrerasService.informacion_carrera('05').subscribe(
+      (res: any) => {this.datos_carrera= res[0]; console.log(this.datos_carrera); },
+      (err) => console.error(err)
+    );
   }
 
   toggle(index: number): void {
@@ -231,5 +121,15 @@ export class LicenciaturaEnCienciasEmpresarialesComponent implements OnInit {
     } else {
       console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
     }
+  }
+
+  formatTextAsList(text: string): string {
+    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    let listItems = lines.map(line => `<li>${line}</li>`).join('');
+    return `<ul class="reduce-spacing">${listItems}</ul>`;
+  }
+
+  formatText(text: string): string {
+    return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
   }
 }

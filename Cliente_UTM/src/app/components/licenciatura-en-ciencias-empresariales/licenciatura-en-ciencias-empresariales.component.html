@@ -121,130 +121,90 @@
                                     <div class="panel-body">
                                         <div *ngIf="i === 0">
                                             <ul class="contact-info">
-                                                <li><h3>Lic.  {{ jefe_carrera.nombre_jefe || '-' }}</h3></li>
-                                                <li><i class="fas fa-envelope"></i>{{ jefe_carrera.correo_jefe || '-' }}</li>
+                                                <li><h3>Lic.  {{ datos_carrera.nombre_jefe || '-' }}</h3></li>
+                                                <li><i class="fas fa-envelope"></i>{{ datos_carrera.correo_jefe || '-' }}</li>
                                             </ul>
                                         </div>
                                         <div *ngIf="i === 1">
                                             <div class="mision-content">
-                                              <p>{{mision.mision}}</p>
-                                              <div *ngIf="mision.descripcion_mision.length > 0">
-         
-                                               <div *ngFor="let desc of mision.descripcion_mision">
-                                                 <p>{{ desc }}</p>
-                                               </div>    
-                                            </div>    
+                                              <div [innerHTML]="formatText(datos_carrera.mision)"></div>
+                                              <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_mision)"></div>
+                                        
                                             </div>
                                         </div>
                                         <div *ngIf="i === 2">
                                             <div class="vision-content">
-                                              <p>{{vision.vision}}</p>
-                                              <div *ngIf="vision.descripcion_vision.length > 0">
-         
-                                               <div *ngFor="let desc of vision.descripcion_vision">
-                                                 <p>{{ desc }}</p>
-                                               </div>
-                                             </div>      
+                                              <div [innerHTML]="formatText(datos_carrera.vision)"></div>
+                                              <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_vision)"></div>
+                                       
                                             </div>
                                         </div>
                                         <div *ngIf="i === 3">
                                             <div class="objetivo-content">
-                                              <p>{{objetivo.objetivo}}</p>
-                                              <div *ngIf="objetivo.descripcion_objetivo.length>0">
-         
-                                               <div *ngFor="let desc of objetivo.descripcion_objetivo">
-                                                 <p>{{ desc }}</p>
-                                               </div>
-                                             </div>   
+                                              <div [innerHTML]="formatText(datos_carrera.objetivos)"></div>
+                                              <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_objetivo)"></div>
+                                       
                                             </div>
                                         </div>
                                         <div *ngIf="i === 4">
                                             <div class="perfil-ingreso-content">
-                                                <p>{{perfil_ingreso.perfil}}</p>
-                                                <ul style="list-style-type: none;">
-                                                <div *ngIf="perfil_ingreso.descripcion_conocimiento.length>0">
-                                                  
-                                                    <li><strong>Conocimientos en:</strong></li>
-                                                 <div *ngFor="let desc of perfil_ingreso.descripcion_conocimiento">
-                                                  <ul class="reduce-spacing">
-                                                   <li>{{ desc }}</li>
-                                                  </ul>
-                                                  
-                                                 </div>
-                                               </div>
-                                               <div *ngIf="perfil_ingreso.descripcion_habilidad.length>0">
-                                                  
-                                                <li><strong>Hablidades para:</strong></li>
-                                             <div *ngFor="let desc of perfil_ingreso.descripcion_habilidad">
-                                              <ul class="reduce-spacing">
-                                               <li>{{ desc }}</li>
-                                              </ul>
+                                              <div [innerHTML]="formatText(datos_carrera.perfil_ingreso)"></div>
+
+                                              <ul style="list-style-type: none;">
+                                                <!-- Mostrar sección de Conocimientos solo si datos_carrera.descripcion_conocimiento_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_conocimiento_ingreso">
+                                                  <li><strong>Conocimientos:</strong></li>
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_conocimiento_ingreso)"></div>
+                                                </ng-container>
                                               
-                                             </div>
-                                           </div>
-                                           <div *ngIf="perfil_ingreso.descripcion_valores.length>0">
-                                                  
-                                            <li><strong>Actitudes y Valores:</strong></li>
-                                         <div *ngFor="let desc of perfil_ingreso.descripcion_valores">
-                                          <ul class="reduce-spacing">
-                                           <li>{{ desc }}</li>
-                                          </ul>
-                                          
-                                         </div>
-                                       </div>
+                                                <!-- Mostrar sección de Habilidades solo si datos_carrera.descripcion_habilidad_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_habilidad_ingreso">
+                                                  <li><strong>Habilidades:</strong></li>
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_habilidad_ingreso)"></div>
+                                                </ng-container>
+                                              
+                                                <!-- Mostrar sección de Actitudes y Valores solo si datos_carrera.descripcion_valores_in no es nulo o vacío -->
+                                                <ng-container *ngIf="datos_carrera.descripcion_valores_ingreso">
+                                                  <li><strong>Actitudes y Valores:</strong></li>
+                                                  <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_valores_ingreso)"></div>
+                                                </ng-container>
+                                              
                                               </ul> 
                                               </div>
                                         </div>
                                         <div *ngIf="i === 5">
                                             <div class="perfil-egreso-content">
-                                              <p>{{perfil_egreso.perfil}}</p>
-                                              <ul class="reduce-spacing">
-                                              <div *ngIf="perfil_egreso.descripcion_conocimiento.length>0">
-                                                
-                                                
-                                               <div *ngFor="let desc of perfil_egreso.descripcion_conocimiento">
-                                             
-                                                 <li>{{ desc }}</li>
                                               
+                                             
+                                                <div [innerHTML]="formatText(datos_carrera.perfil_egreso)"></div>
+                                                           
+                                                <ul style="list-style-type: none;">
+                                                  <!-- Mostrar sección de Conocimientos solo si datos_carrera.descripcion_conocimiento_in no es nulo o vacío -->
+                                                  <ng-container *ngIf="datos_carrera.descripcion_conocimiento_egreso">
+                                                    <li><strong>Conocimientos:</strong></li>
+                                                    <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_conocimiento_egreso)"></div>
+                                                  </ng-container>
                                                 
-                                               </div>
-                                             </div>
-                                             <div *ngIf="perfil_egreso.descripcion_habilidad.length>0">
+                                                  <!-- Mostrar sección de Habilidades solo si datos_carrera.descripcion_habilidad_in no es nulo o vacío -->
+                                                  <ng-container *ngIf="datos_carrera.descripcion_habilidad_egreso">
+                                                    <li><strong>Habilidades:</strong></li>
+                                                    <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_habilidad_egreso)"></div>
+                                                  </ng-container>
                                                 
-                                            
-                                           <div *ngFor="let desc of perfil_egreso.descripcion_habilidad">
-                                       
-                                             <li>{{ desc }}</li>
-                                           
-                                            
-                                           </div>
-                                         </div>
-                                         <div *ngIf="perfil_egreso.descripcion_valores.length>0">
-                                                
-                                          
-                                       <div *ngFor="let desc of perfil_egreso.descripcion_valores">
-                                      
-                                         <li>{{ desc }}</li>
-                                        
-                                        
-                                       </div>
-                                     </div>
-                                            </ul>    
-                                                
+                                                  <!-- Mostrar sección de Actitudes y Valores solo si datos_carrera.descripcion_valores_in no es nulo o vacío -->
+                                                  <ng-container *ngIf="datos_carrera.descripcion_valores_egreso">
+                                                    <li><strong>Actitudes y Valores:</strong></li>
+                                                    <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_valores_egreso)"></div>
+                                                  </ng-container>
+                                                </ul>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 6">
                                             <div class="campo-de-accion-content">
-                                              <p>{{campos.campo}}</p>
-                                              <div *ngIf="campos.descripcion_campo_accion.length>0">
-                                                <ul class="reduce-spacing"> 
-                                               <div *ngFor="let desc of campos.descripcion_campo_accion">
+                                              <div [innerHTML]="formatText(datos_carrera.campo_accion)"></div>
+                                              <div [innerHTML]="formatTextAsList(datos_carrera.descripcion_campo)"></div>
+                                          
                                             
-                                                 <li>{{ desc }}</li>
-                                               
-                                               </div>
-                                              </ul>  
-                                              </div>  
                                             </div>
                                         </div>
                                         <div *ngIf="i === 7">
