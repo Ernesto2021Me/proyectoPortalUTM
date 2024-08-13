@@ -256,6 +256,16 @@ line-height: 1.5;
     margin: 0; /* Asegura que no hay márgenes adicionales alrededor del bloque */
 }
 
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%); /* Comienza fuera del borde izquierdo */
+        visibility: visible; /* Asegúrate de que sea visible durante la animación */
+    }
+    to {
+        transform: translateX(0); /* Termina en su posición final */
+    }
+}
 /* Estilos adicionales según sea necesario */
 /* Estilos generales del menu lateral */
 .wrapper {
@@ -269,6 +279,9 @@ line-height: 1.5;
     flex: 0 0 370px; /* Ancho fijo de la barra lateral */
     background-color: transparent; /* Color de fondo de la barra lateral (opcional) */
     padding: 20px; /* Espacio interno dentro de la barra lateral */
+    position: relative; /* Necesario para el posicionamiento */
+    animation: slideIn 0.65s ease-out forwards; /* Aplica la animación */
+    
 }
 
 .node__main-content {
@@ -306,6 +319,7 @@ line-height: 1.5;
     padding-left: 30px; /* Aumentar el padding izquierdo al pasar el ratón */
     background-color: transparent !important; /* Mantener el fondo transparente */
     border: none !important; /* Mantener sin bordes */
+    color: #4a1110;
 }
 
 .menu-item a::before {

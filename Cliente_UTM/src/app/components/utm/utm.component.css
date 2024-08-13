@@ -125,6 +125,17 @@ h1.page-title {
     margin-left: 40px;
     margin-top: -30px;
 }
+
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%); /* Comienza fuera del borde izquierdo */
+        visibility: visible; /* Asegúrate de que sea visible durante la animación */
+    }
+    to {
+        transform: translateX(0); /* Termina en su posición final */
+    }
+}
 /* Estilos para la barra lateral izquierda */
 .menu {
     list-style: none; /* Eliminar los puntos de la lista */
@@ -154,12 +165,15 @@ h1.page-title {
     padding-left: 30px; /* Aumentar el padding izquierdo al pasar el ratón */
     background-color: transparent !important; /* Mantener el fondo transparente */
     border: none !important; /* Mantener sin bordes */
+    color: #4a1110;
 }
 
 .region-sidebar-first {
     flex: 0 0 250px; /* Ancho fijo de la barra lateral */
     background-color: transparent; /* Color de fondo de la barra lateral */
     padding: 20px; /* Espacio interno dentro de la barra lateral */
+    position: relative; /* Necesario para el posicionamiento */
+    animation: slideIn 0.65s ease-out forwards; /* Aplica la animación */
 }
 
 .menu-item a.is-active {

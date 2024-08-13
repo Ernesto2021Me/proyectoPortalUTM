@@ -50,6 +50,16 @@
     color: #fff;
 }
 
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%); /* Comienza fuera del borde izquierdo */
+        visibility: visible; /* Asegúrate de que sea visible durante la animación */
+    }
+    to {
+        transform: translateX(0); /* Termina en su posición final */
+    }
+}
 /* Estructura principal */
 .wrapper {
     display: flex;
@@ -63,6 +73,8 @@
     flex: 0 0 250px; /* Ancho fijo del menú lateral */
     background-color: transparent;
     padding: 20px;
+    position: relative; /* Necesario para el posicionamiento */
+    animation: slideIn 0.65s ease-out forwards; /* Aplica la animación */
 }
 
 /* Estilos para el contenido principal */
@@ -249,6 +261,7 @@ h5 {
     padding-left: 30px;
     background-color: transparent !important;
     border: none !important;
+    color:#4a1110;
 }
 
 h2 {

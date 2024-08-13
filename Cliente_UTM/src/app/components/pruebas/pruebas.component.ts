@@ -30,17 +30,6 @@ campos: Campo_accion=new Campo_accion();
 
   ngOnInit(): void {
    
-   
-    
-    this.CarrerasService.list_perfil_egreso('02').subscribe(
-      (resperfil: any) => {
-       
-        console.log(resperfil)
-        this.perfiles = this.extraerDatos_egreso(resperfil);
-        this.campos=this.extraerDatos_campo(resperfil)
-      },
-      (err) => console.error(err)
-    );
   }
   
   extraerDatos_egreso(resultados: any[]): Perfil {
