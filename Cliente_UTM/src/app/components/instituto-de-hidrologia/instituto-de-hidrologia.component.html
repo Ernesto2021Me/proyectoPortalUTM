@@ -39,36 +39,10 @@
                             <li class="menu-item menu-item--expanded">
                                 <a href="/home/investigacion/institutos_de_investigacion/huajuapan_de_leon" data-drupal-link-system-path="node/74">Huajuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_computacion" data-drupal-link-system-path="node/77">Instituto de Computación</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_electronica_y_mecatronica" data-drupal-link-system-path="node/77">Instituto de Electrónica y Mecatrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_diseno" data-drupal-link-system-path="node/77">Instituto de Diseño</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_fisica_y_matematicas" data-drupal-link-system-path="node/77">Instituto de Física y Matemáticas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_ciencias_sociales_y_humanidades" data-drupal-link-system-path="node/77">Instituto de Ciencias Sociales y Humanidades</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_agroindustrias" data-drupal-link-system-path="node/77">Instituto de Agroindustrias</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_hidrologia" data-drupal-link-system-path="node/77" class="highlight-red">Instituto de Hidrología</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_mineria" data-drupal-link-system-path="node/77">Instituto de Minería</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_ingenieria_industrial_y_automotriz" data-drupal-link-system-path="node/77">Instituto de Ingeniería Industrial y Automotriz</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/centro_de_estudios_de_nuevos_materiales" data-drupal-link-system-path="node/77">Centro de Estudios de Nuevos Materiales</a>
-                                    </li>
+                                    <li class="menu-item" *ngFor="let instituto of institutos">
+                                        <a [ngClass]="{ 'highlight-red': instituto.nombre === 'Instituto de Minería' }" 
+                                        (click)="navigateTo(instituto.nombre)">{{instituto.nombre }}</a>
+                                      </li> 
                                 </ul>
                             </li>
                         </ul>
@@ -109,10 +83,10 @@
 
                         <p><strong>Objetivos Específicos</strong></p>
                         <p>Los objetivos particulares de este instituto son los siguiente:</p>
-                        <ul>
-                            <li class="reduce-spacing">Desarrollar investigación científica y tecnológica que contribuya al manejo y aprovechamiento sostenible del agua, suelo y vegetación.</li>
-                            <li class="reduce-spacing">Aplicar los resultados de las investigaciones para la promoción del desarrollo sostenible de las comunidades en las regiones de Oaxaca.</li>
-                            <li class="reduce-spacing">Formar y capacitar recursos humanos en el manejo y aprovechamiento sostenible del agua, suelo y vegetación.</li>
+                        <ul class="reduce-spacing">
+                            <li >Desarrollar investigación científica y tecnológica que contribuya al manejo y aprovechamiento sostenible del agua, suelo y vegetación.</li>
+                            <li >Aplicar los resultados de las investigaciones para la promoción del desarrollo sostenible de las comunidades en las regiones de Oaxaca.</li>
+                            <li>Formar y capacitar recursos humanos en el manejo y aprovechamiento sostenible del agua, suelo y vegetación.</li>
                         </ul>
 
     

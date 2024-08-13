@@ -39,36 +39,10 @@
                             <li class="menu-item menu-item--expanded">
                                 <a href="/home/investigacion/institutos_de_investigacion/hujuapan_de_leon" data-drupal-link-system-path="node/74">Hujuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_computacion" data-drupal-link-system-path="node/77">Instituto de Computación</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_electronica_y_mecatronica" data-drupal-link-system-path="node/77">Instituto de Electrónica y Mecatrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_diseno" data-drupal-link-system-path="node/77">Instituto de Diseño</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_fisica_y_matematicas" data-drupal-link-system-path="node/77" class="highlight-red">Instituto de Física y Matemáticas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_ciencias_sociales_y_humanidades" data-drupal-link-system-path="node/77">Instituto de Ciencias Sociales y Humanidades</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_agroindustrias" data-drupal-link-system-path="node/77">Instituto de Agroindustrias</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_hidrologia" data-drupal-link-system-path="node/77">Instituto de Hidrología</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_mineria" data-drupal-link-system-path="node/77">Instituto de Minería</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_ingenieria_industrial_y_automotriz" data-drupal-link-system-path="node/77">Instituto de Ingeniería Industrial y Automotriz</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/centro_de_estudios_de_nuevos_materiales" data-drupal-link-system-path="node/77">Centro de Estudios de Nuevos Materiales</a>
-                                    </li>
+                                    <li class="menu-item" *ngFor="let instituto of institutos">
+                                        <a [ngClass]="{ 'highlight-red': instituto.nombre === 'Instituto de Física y Matemáticas' }" 
+                                        (click)="navigateTo(instituto.nombre)">{{instituto.nombre }}</a>
+                                      </li> 
                                 </ul>
                             </li>
                         </ul>
@@ -107,11 +81,11 @@
                         <p>El Instituto cuenta con proyectos aprobados y financiados por Conacyt, esto demuestra la alta calidad y la cantidad de la investigación desarrollada en el IFM. Además, algunos Profesores-Investigadores pertenecen al Sistema Nacional de Investigadores. Con respecto a Cuerpos Académicos, en el IFM se han creado tres: dos en el área de la física y uno en el área de las matemática, y una cantidad importante de Profesores-Investigadores adscritos a estos Cuerpos Académicos cuenta con el perfil PROMEP, esto demuestra también la calidad en la docencia impartida en el IFM.</p>
 
                         <p><strong>Objetivos específicos</strong></p>
-                        <ul>
-                            <li class="reduce-spacing">Formar licenciados en Matemáticas Aplicadas altamente calificados y competitivos a nivel nacional e internacional.</li>
-                            <li class="reduce-spacing">Formar ingenieros en Física Aplicada altamente calificados y competitivos a nivel nacional e internacional.</li>
-                            <li class="reduce-spacing">Impartir los conocimientos, suficientes y de alta calidad, de matemáticas y física a las Ingenierías impartidas por la Universidad para generar Profesionistas altamente calificados y competitivos a nivel nacional e internacional.</li>
-                            <li class="reduce-spacing">Generar investigación científica de alto nivel, competitiva a nivel internacional, en las áreas de las matemáticas, la física y áreas afines.</li>
+                        <ul class="reduce-spacing">
+                            <li >Formar licenciados en Matemáticas Aplicadas altamente calificados y competitivos a nivel nacional e internacional.</li>
+                            <li >Formar ingenieros en Física Aplicada altamente calificados y competitivos a nivel nacional e internacional.</li>
+                            <li >Impartir los conocimientos, suficientes y de alta calidad, de matemáticas y física a las Ingenierías impartidas por la Universidad para generar Profesionistas altamente calificados y competitivos a nivel nacional e internacional.</li>
+                            <li >Generar investigación científica de alto nivel, competitiva a nivel internacional, en las áreas de las matemáticas, la física y áreas afines.</li>
                         </ul>
 
                         <p><strong>Actividades más importantes</strong></p>

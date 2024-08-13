@@ -1,5 +1,5 @@
 export class Informacion_careras {
-
+    nombre_carrera: string;
     nombre_jefe: string;
     correo_jefe: string;
     mision: string;
@@ -18,9 +18,10 @@ export class Informacion_careras {
     descripcion_valores_egreso: string;
     campo_accion: string;
     descripcion_campo:string;
-    
+    url_imagen: string;
     
     constructor() {
+      this.nombre_carrera='';
       this.nombre_jefe = '';
       this.correo_jefe = '';
       this.mision = '';
@@ -39,6 +40,7 @@ export class Informacion_careras {
       this.descripcion_valores_egreso = '';
       this.campo_accion = '';
       this.descripcion_campo='';
+      this.url_imagen='';
     }
   }
   

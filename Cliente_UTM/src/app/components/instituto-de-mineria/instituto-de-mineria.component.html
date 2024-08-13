@@ -39,36 +39,10 @@
                             <li class="menu-item menu-item--expanded">
                                 <a href="/home/investigacion/institutos_de_investigacion/huajuapan_de_leon" data-drupal-link-system-path="node/74">Huajuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_computacion" data-drupal-link-system-path="node/77">Instituto de Computación</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_electronica_y_mecatronica" data-drupal-link-system-path="node/77">Instituto de Electrónica y Mecatrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_diseno" data-drupal-link-system-path="node/77">Instituto de Diseño</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_fisica_y_matematicas" data-drupal-link-system-path="node/77">Instituto de Física y Matemáticas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_ciencias_sociales_y_humanidades" data-drupal-link-system-path="node/77">Instituto de Ciencias Sociales y Humanidades</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_agroindustrias" data-drupal-link-system-path="node/77">Instituto de Agroindustrias</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_hidrologia" data-drupal-link-system-path="node/77">Instituto de Hidrología</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_mineria" data-drupal-link-system-path="node/77" class="highlight-red">Instituto de Minería</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/instituto_de_ingenieria_industrial_y_automotriz" data-drupal-link-system-path="node/77">Instituto de Ingeniería Industrial y Automotriz</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/investigacion/institutos_de_investigacion/centro_de_estudios_de_nuevos_materiales" data-drupal-link-system-path="node/77">Centro de Estudios de Nuevos Materiales</a>
-                                    </li>
+                                    <li class="menu-item" *ngFor="let instituto of institutos">
+                                        <a [ngClass]="{ 'highlight-red': instituto.nombre === 'Instituto de Minería' }" 
+                                        (click)="navigateTo(instituto.nombre)">{{instituto.nombre }}</a>
+                                      </li> 
                                 </ul>
                             </li>
                         </ul>
@@ -127,38 +101,38 @@
                         </div>
 
                         <p><strong>Objetivos Generales</strong></p>
-                        <ul>
-                            <li class="reduce-spacing">Convertirse en un instrumento eficaz que sirva al sector minero del estado de Oaxaca para garantizar, desde un punto de vista tecnológico, su desarrollo y competitividad futura.</li>
-                            <li class="reduce-spacing">Realizar investigación básica y aplicada relacionada al desarrollo integral de la minería en el estado de Oaxaca.</li>
+                        <ul class="reduce-spacing">
+                            <li >Convertirse en un instrumento eficaz que sirva al sector minero del estado de Oaxaca para garantizar, desde un punto de vista tecnológico, su desarrollo y competitividad futura.</li>
+                            <li >Realizar investigación básica y aplicada relacionada al desarrollo integral de la minería en el estado de Oaxaca.</li>
                         </ul>
 
                         <p><strong>Objetivos Específicos</strong></p>
-                        <ul>
-                            <li class="reduce-spacing">Inventariar los recursos mineros de la región.</li>
-                            <li class="reduce-spacing">Evaluar el interés económico de los yacimientos.</li>
-                            <li class="reduce-spacing">Brindar apoyo técnico a comunidades marginadas, grupos indígenas y empresarios de la región Mixteca.</li>
-                            <li class="reduce-spacing">Promover el desarrollo minero de la zona.</li>
-                            <li class="reduce-spacing">Involucrar a los alumnos de las diversas Ingenierías y la licenciatura en proyectos productivos y de transferencia de tecnología.</li>
-                            <li class="reduce-spacing">Desarrollar y poner en marcha proyectos de investigación geofísica y minero-metalúrgica.</li>
+                        <ul class="reduce-spacing">
+                            <li >Inventariar los recursos mineros de la región.</li>
+                            <li >Evaluar el interés económico de los yacimientos.</li>
+                            <li >Brindar apoyo técnico a comunidades marginadas, grupos indígenas y empresarios de la región Mixteca.</li>
+                            <li >Promover el desarrollo minero de la zona.</li>
+                            <li >Involucrar a los alumnos de las diversas Ingenierías y la licenciatura en proyectos productivos y de transferencia de tecnología.</li>
+                            <li >Desarrollar y poner en marcha proyectos de investigación geofísica y minero-metalúrgica.</li>
                         </ul>
 
                         <p><strong>Actividades Más Importantes</strong></p>
                         <p>Las actividades del instituto de Minería son en orden de prioridad:</p>
-                        <ul>
-                            <li class="reduce-spacing">Inventariar los recursos mineros de la región.</li>
-                            <li class="reduce-spacing">Evaluar el interés económico de los yacimientos.</li>
-                            <li class="reduce-spacing">Dar apoyo técnico a las comunidades, grupos indígenas y empresarios de la región Mixteca.</li>
-                            <li class="reduce-spacing">Promover el desarrollo minero de la zona.</li>
-                            <li class="reduce-spacing">Desarrollar y evaluar proyectos de investigación.</li>
-                            <li class="reduce-spacing">Determinar la rentabilidad en el potencial minero de la región Mixteca.</li>
-                            <li class="reduce-spacing">Dar asesoría técnica para respaldar inversiones.</li>
+                        <ul class="reduce-spacing">
+                            <li >Inventariar los recursos mineros de la región.</li>
+                            <li >Evaluar el interés económico de los yacimientos.</li>
+                            <li >Dar apoyo técnico a las comunidades, grupos indígenas y empresarios de la región Mixteca.</li>
+                            <li >Promover el desarrollo minero de la zona.</li>
+                            <li >Desarrollar y evaluar proyectos de investigación.</li>
+                            <li >Determinar la rentabilidad en el potencial minero de la región Mixteca.</li>
+                            <li >Dar asesoría técnica para respaldar inversiones.</li>
                         </ul>
                        <p><strong> Proyectos en Desarrollo</strong></p>
-                       <ul>
-                             <li class="reduce-spacing">Proyecto: Estabilidad de la Espuma en Columnas y Celdas de Flotación: Efecto de la Concentración de Espumante, de Sólidos y la Velocidad Superficial del Aire”.
+                       <ul class="reduce-spacing">
+                             <li >Proyecto: Estabilidad de la Espuma en Columnas y Celdas de Flotación: Efecto de la Concentración de Espumante, de Sólidos y la Velocidad Superficial del Aire”.
                                 Financiamiento: Ciencias Básicas SEP-CONACyT. Proyecto No. 83091.
                                 Duración: 3 años</li>     
-                             <li class="reduce-spacing">Proyecto: Trituradora de Materiales Pétreos en Santa María Yucuhiti, Oax.
+                             <li >Proyecto: Trituradora de Materiales Pétreos en Santa María Yucuhiti, Oax.
                                 Financiamiento: Municipio de Santa María Yucuhiti
                                 Avance del 70%</li>
                             </ul>

@@ -43,36 +43,9 @@
                                 <li class="menu-item menu-item--expanded">
                                     <a href="/home/investigacion/institutos_de_investigacion/huajuapan_de_leon" data-drupal-link-system-path="node/74">Hujuapan de Leon</a>
                                     <ul class="menu">
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_computacion" data-drupal-link-system-path="node/77">Instituto de Computación</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_electronica_y_mecatronica" data-drupal-link-system-path="node/77">Instituto de Electrónica y Mecatrónica</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_diseno" data-drupal-link-system-path="node/77">Instituto de Diseño</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_fisica_y_matematicas" data-drupal-link-system-path="node/77">Instituto de Física y Matemáticas</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_ciencias_sociales_y_humanidades" data-drupal-link-system-path="node/77">Instituto de Ciencias Sociales y Humanidades</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_agroindustrias" data-drupal-link-system-path="node/77">Instituto de Agroindustrias</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_hidrologia" data-drupal-link-system-path="node/77">Instituto de Hidrología</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_mineria" data-drupal-link-system-path="node/77">Instituto de Minería</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_ingenieria_industrial_y_automotriz" data-drupal-link-system-path="node/77">Instituto de Ingeniería Industrial y Automotriz</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/centro_de_estudios_de_nuevos_materiales" data-drupal-link-system-path="node/77">Centro de Estudios de Nuevos Materiales</a>
-                                        </li>
+                                        <li class="menu-item" *ngFor="let instituto of institutos">
+                                            <a (click)="navigateTo(instituto.nombre)">{{instituto.nombre }}</a>
+                                          </li>   
                                     </ul>
                                 </li>
                             </ul>
@@ -120,16 +93,9 @@
                                                 
                                             <div class="text-container">
                                                 <ul>
-                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_computacion">Instituto de Computación</a></li>
-                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_electronica_y_mecatronica">Instituto de Electrónica y Mecatrónica</a></li>
-                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_diseno">Instituto de Diseño</a></li>
-                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_fisica_y_matematicas">Instituto de Física y Matemáticas</a></li>
-                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_ciencias_sociales_y_humanidades">Instituto de Ciencias Sociales y Humanidades</a></li>
-                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_agroindustrias">Instituto de Agroindustrias</a></li>
-                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_hidrologia">Instituto de Hidrología</a></li>
-                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_mineria">Instituto de Minería</a></li>
-                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/instituto_de_ingenieria_industrial_y_automotriz">Instituto de Ingeniería Industrial y Automotriz</a></li>
-                                                    <li><a style="color: #4a1110;" href="/home/investigacion/institutos_de_investigacion/centro_de_estudios_de_muevos_materiales">Centro de Estudios de Nuevos Materiales</a></li>   
+                                                    <li *ngFor="let instituto of institutos">
+                                                        <a style="color: #4a1110;" (click)="navigateTo(instituto.nombre)">{{instituto.nombre }}</a>
+                                                      </li>   
                                                 </ul>
                                         </div>
                                             </div>

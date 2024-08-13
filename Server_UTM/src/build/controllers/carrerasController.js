@@ -73,7 +73,7 @@ WHERE codigoCarrera= ?
             try {
                 // Ejecutar la consulta combinada con parámetros
                 const resultado = yield database_1.default.query(`
-           SELECT 
+          SELECT 
     c.nombre AS nombre_carrera,
     j.nombre AS nombre_jefe,
     j.correo AS correo_jefe,
@@ -92,7 +92,8 @@ WHERE codigoCarrera= ?
     hc2.descripcion_habilidad AS descripcion_habilidad_egreso,
     avc2.descripcion_valores AS descripcion_valores_egreso,
     c.campo_accion,
-    cc.descripcion_campos AS descripcion_campo
+    cc.descripcion_campos AS descripcion_campo,
+      ic.url AS url_imagen
 FROM carreras c
 JOIN jefe_carreras j ON c.codigoCarrera = j.codigoCarrera
 LEFT JOIN mision_carreras mc ON c.id_informacion = mc.id_carrera_informacion
@@ -105,6 +106,7 @@ LEFT JOIN conocimientos_carreras kc2 ON c.id_informacion = kc2.id_carrera_inform
 LEFT JOIN habilidades_carreras hc2 ON c.id_informacion = hc2.id_carrera_informacion AND hc2.perfil = 2
 LEFT JOIN actitudes_valores_carreras avc2 ON c.id_informacion = avc2.id_carrera_informacion AND avc2.perfil = 2
 LEFT JOIN campo_accion_carreras cc ON c.id_informacion = cc.id_carrera_informacion
+LEFT JOIN imagenes_Carreras ic ON c.id_informacion = ic.id_informacion_carrera
 WHERE c.codigoCarrera=?;
         `, [Codigocarrera]);
                 // Devolver los resultados como JSON

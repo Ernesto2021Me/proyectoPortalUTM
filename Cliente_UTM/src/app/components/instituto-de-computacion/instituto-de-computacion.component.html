@@ -46,36 +46,10 @@
                                 <li class="menu-item menu-item--expanded">
                                     <a href="/home/investigacion/institutos_de_investigacion/hujuapan_de_leon" data-drupal-link-system-path="node/74">Huajuapan de Leon</a>
                                     <ul class="menu">
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_computacion" data-drupal-link-system-path="node/77" class="highlight-red">Instituto de Computación</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_electronica_y_mecatronica" data-drupal-link-system-path="node/77">Instituto de Electrónica y Mecatrónica</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_diseno" data-drupal-link-system-path="node/77">Instituto de Diseño</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_fisica_y_matematicas" data-drupal-link-system-path="node/77">Instituto de Física y Matemáticas</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_ciencias_sociales_y_humanidades" data-drupal-link-system-path="node/77">Instituto de Ciencias Sociales y Humanidades</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_agroindustrias" data-drupal-link-system-path="node/77">Instituto de Agroindustrias</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_hidrologia" data-drupal-link-system-path="node/77">Instituto de Hidrología</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_mineria" data-drupal-link-system-path="node/77">Instituto de Minería</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_ingenieria_industrial_y_automotriz" data-drupal-link-system-path="node/77">Instituto de Ingeniería Industrial y Automotriz</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a href="/home/investigacion/institutos_de_investigacion/centro_de_estudios_de_nuevos_materiales" data-drupal-link-system-path="node/77">Centro de Estudios de Nuevos Materiales</a>
-                                        </li>
+                                        <li class="menu-item" *ngFor="let instituto of institutos">
+                                            <a [ngClass]="{ 'highlight-red': instituto.nombre === 'Instituto de Computación' }" 
+                                            (click)="navigateTo(instituto.nombre)">{{instituto.nombre }}</a>
+                                          </li> 
                                     </ul>
                                 </li>
                             </ul>
@@ -123,13 +97,13 @@
 
                                 <ul>
                                     <li style="list-style-type: none;"><strong>Investigación básica y aplicada:</strong> </li>
-                                   <ul>
-                                    <li class="reduce-spacing">El IEC realiza una labor de investigación estrechamente relacionada con la aplicación de nuevas tecnologías, en busca de la solución de problemas regionales, nacionales y de ámbito internacional. El instituto reúne investigadores de tiempo completo en varias ramas de la electrónica y la computación.</li>
-                                    <li class="reduce-spacing">Enmarcados en cinco cuerpos académicos, los investigadores del IEC en colaboración con estudiantes realizan en laboratorios proyectos de dos tipos: los proyectos institucionales, que buscan resolver problemas comunes para el desarrollo, aplicando metodologías y tecnologías, así como los proyectos de investigación básica, con objetivos de difusión académica.</li>
+                                   <ul class="reduce-spacing">
+                                    <li >El IEC realiza una labor de investigación estrechamente relacionada con la aplicación de nuevas tecnologías, en busca de la solución de problemas regionales, nacionales y de ámbito internacional. El instituto reúne investigadores de tiempo completo en varias ramas de la electrónica y la computación.</li>
+                                    <li >Enmarcados en cinco cuerpos académicos, los investigadores del IEC en colaboración con estudiantes realizan en laboratorios proyectos de dos tipos: los proyectos institucionales, que buscan resolver problemas comunes para el desarrollo, aplicando metodologías y tecnologías, así como los proyectos de investigación básica, con objetivos de difusión académica.</li>
                                 </ul>
                                     <li style="list-style-type: none;"><strong>Promoción del Desarrollo y difusión de la cultura:</strong></li>
-                                    <ul>
-                                        <li class="reduce-spacing">El IEC busca también realizar un desarrollo que incluya a la sociedad a la que le debe su trabajo. Es por eso que también realiza labores destinadas a la promoción al desarrollo y difusión cultural. Para esto, realiza labores tradicionales de difusión, como impartición de pláticas y conferencias a la comunidad, así como desarrollo de sistemas de software para dependencias gubernamentales, reparación y mantenimiento de equipos de cómputo en escuelas públicas, y la creación de software que asiste a la educación primaria y para niños con necesidades especiales.</li>
+                                    <ul class="reduce-spacing">
+                                        <li >El IEC busca también realizar un desarrollo que incluya a la sociedad a la que le debe su trabajo. Es por eso que también realiza labores destinadas a la promoción al desarrollo y difusión cultural. Para esto, realiza labores tradicionales de difusión, como impartición de pláticas y conferencias a la comunidad, así como desarrollo de sistemas de software para dependencias gubernamentales, reparación y mantenimiento de equipos de cómputo en escuelas públicas, y la creación de software que asiste a la educación primaria y para niños con necesidades especiales.</li>
                                     </ul>
                                 </ul>
 
