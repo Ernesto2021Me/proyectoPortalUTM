@@ -11,7 +11,7 @@ config() : void
 {
 
 this.router.get('/investigacion',institutosController.list_institutos_investigacion);
-
+this.router.post('/informacion_general',institutosController.one_informacion_general);
 }
 }
 const institutosRoutes= new InstitutosRoutes();

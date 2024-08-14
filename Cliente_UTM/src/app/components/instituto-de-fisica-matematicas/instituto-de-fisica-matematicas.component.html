@@ -22,7 +22,7 @@
             </li>
             <li class="breadcrumb__item">
                 <span class="breadcrumb__item-separator fa fa-angle-right"></span>
-                <span>Instituto de Física y Matemáticas</span>
+                <span>{{instituto_informacion.nombre}}</span>
             </li>
         </ol>
     </nav>
@@ -40,7 +40,7 @@
                                 <a href="/home/investigacion/institutos_de_investigacion/hujuapan_de_leon" data-drupal-link-system-path="node/74">Hujuapan de Leon</a>
                                 <ul class="menu">
                                     <li class="menu-item" *ngFor="let instituto of institutos">
-                                        <a [ngClass]="{ 'highlight-red': instituto.nombre === 'Instituto de Física y Matemáticas' }" 
+                                        <a [ngClass]="{ 'highlight-red': instituto.nombre === instituto_informacion.nombre}" 
                                         (click)="navigateTo(instituto.nombre)">{{instituto.nombre }}</a>
                                       </li> 
                                 </ul>
@@ -58,7 +58,7 @@
     <div class="region region-content">
         <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
             <div class="content">
-                <h1 class="title page-title"><span class="field field--name-title field--type-string field--label-hidden">Instituto de Física y Matemáticas</span></h1>
+                <h1 class="title page-title"><span class="field field--name-title field--type-string field--label-hidden">{{instituto_informacion.nombre}}</span></h1>
             </div>
         </div>
 
@@ -67,50 +67,25 @@
                 <div class="node__main-content clearfix">
                     <header class="node__header">
                         <h2 class="node__title title sr-only">
-                            <span class="field field--name-title field--type-string field--label-hidden">Instituto de Física y Matemáticas</span>
+                            <span class="field field--name-title field--type-string field--label-hidden">{{instituto_informacion.nombre}}</span>
                         </h2>
                     </header>
 
                     <div class="field field--name-field-portada-inv-cpe field--type-image field--label-hidden field__item">
-                        <img loading="lazy" src="/assets/images/fismat1.jpeg" width="730" height="280" alt="Instituto de Física y Matemáticas" typeof="foaf:Image" />
+                        <img loading="lazy" src="{{instituto_informacion.imagen_url}}" width="730" height="280" alt="Instituto de Física y Matemáticas" typeof="foaf:Image" />
                     </div>
 
                     <div class="text-container text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                        <p>El Instituto de Física y Matemáticas, IFM, es el encargado de otorgar los conocimientos suficientes y de alta calidad, tanto de física como de matemáticas a los estudiantes de todas las ingenierías, que imparte la Universidad; para generar profesionistas altamente calificados tanto a nivel nacional como internacional. En cuestión de investigación científica el instituto ha sobresalido con la participación en congresos y la publicación de artículos a nivel nacional e internacional.</p>
-                        
-                        <p>El Instituto cuenta con proyectos aprobados y financiados por Conacyt, esto demuestra la alta calidad y la cantidad de la investigación desarrollada en el IFM. Además, algunos Profesores-Investigadores pertenecen al Sistema Nacional de Investigadores. Con respecto a Cuerpos Académicos, en el IFM se han creado tres: dos en el área de la física y uno en el área de las matemática, y una cantidad importante de Profesores-Investigadores adscritos a estos Cuerpos Académicos cuenta con el perfil PROMEP, esto demuestra también la calidad en la docencia impartida en el IFM.</p>
-
+                        <div [innerHTML]="formatText(instituto_informacion.descripcion_general)"></div>
+                       
+                       
                         <p><strong>Objetivos específicos</strong></p>
-                        <ul class="reduce-spacing">
-                            <li >Formar licenciados en Matemáticas Aplicadas altamente calificados y competitivos a nivel nacional e internacional.</li>
-                            <li >Formar ingenieros en Física Aplicada altamente calificados y competitivos a nivel nacional e internacional.</li>
-                            <li >Impartir los conocimientos, suficientes y de alta calidad, de matemáticas y física a las Ingenierías impartidas por la Universidad para generar Profesionistas altamente calificados y competitivos a nivel nacional e internacional.</li>
-                            <li >Generar investigación científica de alto nivel, competitiva a nivel internacional, en las áreas de las matemáticas, la física y áreas afines.</li>
-                        </ul>
+                        <div [innerHTML]="formatTextAsList(instituto_informacion.objetivos_generales)"></div>
 
                         <p><strong>Actividades más importantes</strong></p>
                         
-                        <ul>
-                            <li style="list-style-type: none;"><strong>Docencia</strong></li>
-                        
-                        <ul>
-                            <li>Preparación e impartición de cursos.</li>
-                            <li>Preparación e impartición de cursos de actualización a profesores de nivel medio superior.</li>
-                            <li>Impartición de asesorías.</li>
-                            <li>Impartición de cursos complementarios para la presentación del examen del Ceneval.</li>
-                            <li>Actualización y creación de planes y programas de estudio.</li>
-                            <li>Generación de material didáctico como apoyo a los cursos impartidos.</li>
-                            <li>Dirección de tesis.</li>
-                        </ul>
-                        <li style="list-style-type:none;"><strong>Investigación</strong></li>
-                        <ul>
-                            <li>Publicación de artículos de investigación.</li>
-                            <li>Participación en congresos nacionales e internacionales.</li>
-                            <li>Creación de proyectos de investigación.</li>
-                            <li>Realización de estancias posdoctorales y sabáticas de investigación.</li>
-                            <li>Estancias cortas de investigación en Institutos de investigación de alto nivel.</li>
-                        </ul>
-                    </ul>
+                        <div [innerHTML]="formatText_2(instituto_informacion.actividades_generales)"></div>
+                       
                     </div>
                 </div>
             </div>

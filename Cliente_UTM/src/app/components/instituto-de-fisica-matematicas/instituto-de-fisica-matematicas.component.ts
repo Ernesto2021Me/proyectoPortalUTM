@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
 import { InstitutosService } from 'src/app/services/institutos.service';
 import {Router} from '@angular/router'
+import { Instituto_informacion_general } from 'src/app/models/Informacion_general_institutos';
 import { Instituto } from 'src/app/models/institutos';
 @Component({
   selector: 'app-instituto-de-fisica-matematicas',
   templateUrl: './instituto-de-fisica-matematicas.component.html',
-  styleUrls: ['./instituto-de-fisica-matematicas.component.css']
+  styleUrls: ['./instituto-de-fisica-matematicas.component.css'],
+  encapsulation: ViewEncapsulation.None
+
 })
 export class InstitutoDeFisicaMatematicasComponent implements OnInit {
   institutos: Instituto[]=[]
+  instituto_informacion=new Instituto_informacion_general();
   urlMapping: { [key: string]: string } = {
     'Instituto de Computación': '/home/investigacion/institutos_de_investigacion/instituto_de_computacion',
     'Instituto de Electrónica y Mecatrónica': '/home/investigacion/institutos_de_investigacion/instituto_de_electronica_y_mecatronica',
@@ -33,12 +37,21 @@ export class InstitutoDeFisicaMatematicasComponent implements OnInit {
 
   loadData(){
     this.loadInstitutos();
+    this.loadInstitutos_informacion();
   }
 
   private loadInstitutos(){
     this.InstitutosService.list_institutos_investigacion( ).subscribe(
       (res: any) =>
-        this.institutos = res,
+        this.institutos= res,
+      (err) => console.error(err)
+    );
+  }
+
+  private loadInstitutos_informacion(){
+    this.InstitutosService.informacion_general_instituto('004' ).subscribe(
+      (res: any) =>
+        this.instituto_informacion= res[0],
       (err) => console.error(err)
     );
   }
@@ -57,4 +70,57 @@ export class InstitutoDeFisicaMatematicasComponent implements OnInit {
       console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
     }
      }
+
+     formatTextAsList(text: string): string {
+      let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+      let listItems = lines.map(line => `<li>${line}</li>`).join('');
+      return `<ul class="reduce-spacing">${listItems}</ul>`;
+    }
+  
+    
+    formatText(text: string): string {
+      return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
+    }
+
+   formatText_2(text: string): string {
+  // Divide el texto en líneas y elimina espacios en blanco
+  const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+
+  // Si no hay líneas, devuelve una cadena vacía
+  if (lines.length === 0) return '';
+
+  // Función para determinar si una línea es un encabezado
+  const isHeader = (line: string) => {
+    return line === "Docencia" || line === "Investigación";
+  };
+
+  // Inicializa el resultado HTML para las listas
+  let html = '';
+  let currentListItems: string[] = [];
+
+  // Itera sobre todas las líneas
+  for (const line of lines) {
+    if (isHeader(line)) {
+      // Si ya hay elementos en currentListItems, agrégales una sublista <ul>
+      if (currentListItems.length > 0) {
+        html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
+        currentListItems = []; // Limpia currentListItems para el siguiente conjunto de elementos
+      }
+      // Agrega el encabezado a la lista principal
+      html += `<li class="list"><strong>${line}</strong></li>`;
+    } else {
+      // Agrega el párrafo a la lista actual
+      currentListItems.push(`<li>${line}</li>`);
+    }
+  }
+
+  // Si quedan elementos en currentListItems, agrégales una sublista <ul>
+  if (currentListItems.length > 0) {
+    html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
+  }
+
+  // Solo devuelve el resultado de la lista
+  return '<ul>' + html + '</ul>';
+}
+
 }

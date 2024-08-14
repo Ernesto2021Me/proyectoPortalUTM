@@ -313,7 +313,10 @@ line-height: 1.5;
     border: none !important; /* Eliminar cualquier borde */
     cursor: pointer;
 }
-
+.list{
+    list-style-type: none;
+     
+}
 .menu-item a:hover {
     padding-left: 30px; /* Aumentar el padding izquierdo al pasar el ratón */
     background-color: transparent !important; /* Mantener el fondo transparente */

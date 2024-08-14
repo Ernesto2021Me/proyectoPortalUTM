@@ -22,7 +22,7 @@
             </li>
             <li class="breadcrumb__item">
                 <span class="breadcrumb__item-separator fa fa-angle-right"></span>
-                <span>Instituto de Agroindustrias</span>
+                <span>{{instituto_informacion.nombre}}</span>
             </li>
         </ol>
     </nav>
@@ -42,7 +42,7 @@
                                 <a href="/home/investigacion/institutos_de_investigacion/huajuapan_de_leon" data-drupal-link-system-path="node/74">Huajuapan de Leon</a>
                                 <ul class="menu">
                                     <li class="menu-item" *ngFor="let instituto of institutos">
-                                        <a [ngClass]="{ 'highlight-red': instituto.nombre === 'Instituto de Agroindustrias' }" 
+                                        <a [ngClass]="{ 'highlight-red': instituto.nombre === instituto_informacion.nombre}" 
                                         (click)="navigateTo(instituto.nombre)">{{instituto.nombre }}</a>
                                       </li> 
                                 </ul>
@@ -61,7 +61,7 @@
     <div class="region region-content">
         <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
             <div class="content">
-                <h1 class="title page-title"><span class="field field--name-title field--type-string field--label-hidden">Instituto de Agroindustrias
+                <h1 class="title page-title"><span class="field field--name-title field--type-string field--label-hidden">{{instituto_informacion.nombre}}
                 </span></h1>
             </div>
         </div>
@@ -71,16 +71,18 @@
                 <div class="node__main-content clearfix">
                     <header class="node__header">
                         <h2 class="node__title title sr-only">
-                            <span class="field field--name-title field--type-string field--label-hidden">Instituto de Agroindustrias
+                            <span class="field field--name-title field--type-string field--label-hidden">{{instituto_informacion.nombre}}
                             </span>
                         </h2>
                     </header>
 
                     <div class="field field--name-field-portada-inv-cpe field--type-image field--label-hidden field__item">
-                        <img loading="lazy" src="/assets/images/InstAgroindustrias.jpeg" width="730" height="280" alt="Instituto de Agroindustrias" typeof="foaf:Image" />
+                        <img loading="lazy" src="{{instituto_informacion.imagen_url}}" width="730" height="280" alt="Instituto de Agroindustrias" typeof="foaf:Image" />
                     </div>
-
+            
                     <div class="text-container text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
+                        <div [innerHTML]="formatText(instituto_informacion.descripcion_general)"></div>
+                     
                         <p>El Instituto de Agroindustrias se creó en 1990 con la finalidad de explotar de forma sustentable los recursos agropecuarios convencionales y no convencionales de la región Mixteca, Oaxaca y en general de México.</p>
                         <p>Actualmente, cuenta con una plantilla de 16 PTC, de los cuales el 87.5% cuenta con posgrado en el área disciplinar de su desempeño y el 50.0% tiene Reconocimiento al Perfil Deseable PRODEP, que otorga la SEP. El 62.50% de los PTC con posgrado cuenta con el máximo grado de habilitación de los cuales, el 60.0% se encuentra en el SNI.</p>
                         <p>Las LGAC que se cultivan en el Instituto de Agroindustrias convergen principalmente en tres:</p>

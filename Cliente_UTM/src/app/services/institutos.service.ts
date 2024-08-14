@@ -11,4 +11,8 @@ export class InstitutosService {
     return this.http.get(`${environment.API_URI}/institutos/investigacion`);
   }
 
+  informacion_general_instituto(codigo:any){
+    return this.http.post(`${environment.API_URI}/institutos/informacion_general`,{"codigo":codigo});
+  }
+
 }

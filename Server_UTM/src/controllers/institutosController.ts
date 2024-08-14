@@ -19,8 +19,42 @@ class InstitutosController
     }
     
 
-
-
+    public async one_informacion_general(req: Request, res: Response): Promise<void> {
+        const { codigo } = req.body;
+        
+        try {
+            // Ejecutar la consulta con parámetros
+            const resultado = await pool.query(`
+                SELECT 
+                    i.codigo AS codigo,
+                    i.nombre AS nombre,
+                    i.descripcion_general AS descripcion_general,
+                    MAX(CASE WHEN ii.Tipo = 'objetivo general' THEN ii.descripcion ELSE NULL END) AS objetivos_generales,
+                    MAX(CASE WHEN ii.Tipo = 'objetivo adicional' THEN ii.descripcion ELSE NULL END) AS objetivos_adicionales,
+                    MAX(CASE WHEN ii.Tipo = 'actividad general' THEN ii.descripcion ELSE NULL END) AS actividades_generales,
+                    MAX(CASE WHEN ii.Tipo = 'actividad adicional' THEN ii.descripcion ELSE NULL END) AS actividades_adicionales,
+                    iI.url AS imagen_url
+                FROM 
+                    institutos i
+                LEFT JOIN 
+                    Informacion_Institutos ii ON i.codigo = ii.codigoInstituto
+                LEFT JOIN 
+                    imagenes_Institutos iI ON i.codigo = iI.codigoInstituto
+                WHERE 
+                    i.codigo = ?  -- Usando parámetro de consulta
+                GROUP BY 
+                    i.codigo, i.nombre, i.descripcion_general;
+            `, [codigo]);
+            
+            // Devolver los resultados como JSON
+            res.json(resultado); // Ajustado según el formato de resultado que devuelves
+        } catch (error) {
+            // Manejar el error y devolver una respuesta adecuada
+            console.error(error); // Para depurar el error en el servidor
+            res.status(500).json({ error: 'Error en la consulta' });
+        }
+    }
+    
 
 
 }

@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
 import { InstitutosService } from 'src/app/services/institutos.service';
 import {Router} from '@angular/router'
+import { Instituto_informacion_general } from 'src/app/models/Informacion_general_institutos';
 import { Instituto } from 'src/app/models/institutos';
 @Component({
   selector: 'app-instituto-de-agroindustrias',
   templateUrl: './instituto-de-agroindustrias.component.html',
-  styleUrls: ['./instituto-de-agroindustrias.component.css']
+  styleUrls: ['./instituto-de-agroindustrias.component.css'],
+  encapsulation: ViewEncapsulation.None
+
 })
 export class InstitutoDeAgroindustriasComponent implements OnInit {
   institutos: Instituto[]=[]
+  instituto_informacion=new Instituto_informacion_general();
   urlMapping: { [key: string]: string } = {
     'Instituto de Computación': '/home/investigacion/institutos_de_investigacion/instituto_de_computacion',
     'Instituto de Electrónica y Mecatrónica': '/home/investigacion/institutos_de_investigacion/instituto_de_electronica_y_mecatronica',
@@ -33,12 +37,21 @@ export class InstitutoDeAgroindustriasComponent implements OnInit {
 
   loadData(){
     this.loadInstitutos();
+    this.loadInstitutos_informacion();
   }
 
   private loadInstitutos(){
     this.InstitutosService.list_institutos_investigacion( ).subscribe(
       (res: any) =>
-        this.institutos = res,
+        this.institutos= res,
+      (err) => console.error(err)
+    );
+  }
+
+  private loadInstitutos_informacion(){
+    this.InstitutosService.informacion_general_instituto('008' ).subscribe(
+      (res: any) =>
+        this.instituto_informacion= res[0],
       (err) => console.error(err)
     );
   }
@@ -57,4 +70,76 @@ export class InstitutoDeAgroindustriasComponent implements OnInit {
       console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
     }
      }
+
+     formatTextAsList(text: string): string {
+      let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+      let listItems = lines.map(line => `<li>${line}</li>`).join('');
+      return `<ul class="reduce-spacing">${listItems}</ul>`;
+    }
+  
+    
+    formatText(text: string): string {
+      // Divide el texto en líneas y elimina espacios en blanco
+      const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    
+      // Si no hay líneas, devuelve una cadena vacía
+      if (lines.length === 0) return '';
+    
+      // Inicializa el resultado HTML para los párrafos y listas
+      let html = '';
+      let currentListItems: string[] = [];
+      let paragraphsAdded = 0;
+    
+      // Itera sobre las líneas
+      for (const line of lines) {
+        // Si hemos agregado menos de 3 párrafos, agrégales <p>
+        if (paragraphsAdded < 3) {
+          html += `<p>${line}</p>`;
+          paragraphsAdded++;
+        } else {
+          // Agrega el párrafo a la lista actual
+          currentListItems.push(`<li>${line}</li>`);
+        }
+      }
+    
+      // Si quedan elementos en currentListItems, agrégales una sublista <ul>
+      if (currentListItems.length > 0) {
+        html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
+      }
+    
+      // Devuelve el HTML con los primeros 3 párrafos y la lista
+      return html;
+    }
+
+
+    formatText_2(text: string): string {
+       // Divide el texto en líneas y elimina espacios en blanco
+  const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+
+  // Si no hay líneas, devuelve una cadena vacía
+  if (lines.length === 0) return '';
+
+  // Inicializa el resultado HTML para los párrafos y listas
+  let html = '';
+  let currentListItems: string[] = [];
+
+  // Si hay al menos una línea, envuelve la primera línea en <p>
+  if (lines.length > 0) {
+    html += `<p>${lines[0]}</p>`;
+  }
+
+  // Itera sobre las líneas restantes
+  for (const line of lines.slice(1)) {
+    // Agrega el párrafo a la lista actual
+    currentListItems.push(`<li>${line}</li>`);
+  }
+
+  // Si quedan elementos en currentListItems, agrégales una sublista <ul>
+  if (currentListItems.length > 0) {
+    html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
+  }
+
+  // Devuelve el HTML con el primer párrafo y la lista
+  return html
+   }
 }

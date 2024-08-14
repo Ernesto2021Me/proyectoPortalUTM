@@ -22,7 +22,7 @@
             </li>
             <li class="breadcrumb__item">
                 <span class="breadcrumb__item-separator fa fa-angle-right"></span>
-                <span>Instituto de Ciencias Sociales y Humanidades</span>
+                <span>{{instituto_informacion.nombre}}</span>
             </li>
         </ol>
     </nav>
@@ -40,7 +40,7 @@
                                 <a href="/home/investigacion/institutos_de_investigacion/huajuapan_de_leon" data-drupal-link-system-path="node/74">Huajuapan de Leon</a>
                                 <ul class="menu">
                                     <li class="menu-item" *ngFor="let instituto of institutos">
-                                        <a [ngClass]="{ 'highlight-red': instituto.nombre === 'Instituto de Ciencias Sociales y Humanidades' }" 
+                                        <a [ngClass]="{ 'highlight-red': instituto.nombre === instituto_informacion.nombre}" 
                                         (click)="navigateTo(instituto.nombre)">{{instituto.nombre }}</a>
                                       </li> 
                                 </ul>
@@ -60,7 +60,7 @@
     <div class="region region-content">
         <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
             <div class="content">
-                <h1 class="title page-title"><span class="field field--name-title field--type-string field--label-hidden">Instituto de Ciencias Sociales y Humanidades
+                <h1 class="title page-title"><span class="field field--name-title field--type-string field--label-hidden">{{instituto_informacion.nombre}}
                 </span></h1>
             </div>
         </div>
@@ -70,36 +70,30 @@
                 <div class="node__main-content clearfix">
                     <header class="node__header">
                         <h2 class="node__title title sr-only">
-                            <span class="field field--name-title field--type-string field--label-hidden">Instituto de Ciencias Sociales y Humanidades
+                            <span class="field field--name-title field--type-string field--label-hidden">{{instituto_informacion.nombre}}
                             </span>
                         </h2>
                     </header>
 
                     <div class="field field--name-field-portada-inv-cpe field--type-image field--label-hidden field__item">
-                        <img loading="lazy" src="/assets/images/sociales2.jpeg" width="730" height="280" alt="Instituto de Ciencias Sociales y Humanidades" typeof="foaf:Image" />
+                        <img loading="lazy" src="{{instituto_informacion.imagen_url}}" width="730" height="280" alt="Instituto de Ciencias Sociales y Humanidades" typeof="foaf:Image" />
                     </div>
 
                     <div class="text-container text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                        <p>El ICSyH está integrado por profesores-investigadores de tiempo completo que realizan una labor de investigación en diversas áreas de las Ciencias Sociales y Humanidades. Estas investigaciones tienen como finalidad contribuir en la búsqueda de soluciones a problemas regionales, estatales, nacionales y de ámbito internacional. El instituto busca difundir los conocimientos entre las comunidades, por lo que también realiza actividades destinadas a la promoción del desarrollo.</p>
-
+                        <div [innerHTML]="formatText(instituto_informacion.descripcion_general)"></div>
+                        
+                        
                         <p><strong>Objetivo General</strong></p>
-                        <p>Fomentar el desarrollo humano y económico-social asesorando a organizaciones públicas y privadas de la Región Mixteca y del Estado mediante la acción participativa.</p>
-
+                        <div [innerHTML]="formatText(instituto_informacion.objetivos_generales)"></div>
+                        
                         <p><strong>Objetivos Particulares</strong></p>
-                        <ul>
-                            <li class="reduce-spacing">Cumplir con los objetivos institucionales referentes al desarrollo económico de la región a través de las investigaciones de campo.</li>
-                            <li class="reduce-spacing">Coadyuvar en el desarrollo de proyectos que reactiven la economía y generen empleos directos e indirectos, revitalizando las comunidades y el entorno regional.</li>
-                        </ul>
+                        <div [innerHTML]="formatTextAsList(instituto_informacion.objetivos_adicionales)"></div>
+                         
+                        
 
                         <p><strong>Actividades Principales</strong></p>
-                        <ul>
-                            <li class="reduce-spacing">Estudios del potencial socio-económico de las comunidades.</li>
-                            <li class="reduce-spacing">Capacitación y asesoría técnica en el área fiscal, contable, mercadotecnia y administración a organizaciones públicas y privadas sin fines de lucro.</li>
-                            <li class="reduce-spacing">Actividades de apoyo a través de la incubación de empresas.</li>
-                            <li class="reduce-spacing">Estudios sobre la cultura regional: formas de organización, principales actividades y toma de decisiones.</li>
-                            <li class="reduce-spacing">Investigaciones sobre aspectos macroeconómicos y su impacto en la región: monto y destino de las remesas, migración, caracterización de las crisis, crecimiento económico, tratados internacionales, entre otros.</li>
-                            <li class="reduce-spacing">Formulación y evaluación de proyectos productivos sustentables.</li>
-                        </ul>
+                        <div [innerHTML]="formatTextAsList(instituto_informacion.actividades_generales)"></div>
+                         
                     </div>
                 </div>
             </div>

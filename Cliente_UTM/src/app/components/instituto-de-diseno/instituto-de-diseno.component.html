@@ -22,7 +22,7 @@
             </li>
             <li class="breadcrumb__item">
                 <span class="breadcrumb__item-separator fa fa-angle-right"></span>
-                <span>Instituto de Diseño</span>
+                <span>{{instituto_informacion.nombre}}</span>
             </li>
         </ol>
     </nav>
@@ -42,7 +42,7 @@
                                 <a href="/home/investigacion/institutos_de_investigacion/huajuapan_de_leon" data-drupal-link-system-path="node/74">Huajuapan de Leon</a>
                                 <ul class="menu">
                                     <li class="menu-item" *ngFor="let instituto of institutos">
-                                        <a [ngClass]="{ 'highlight-red': instituto.nombre === 'Instituto de Diseño' }" 
+                                        <a [ngClass]="{ 'highlight-red': instituto.nombre === instituto_informacion.nombre}" 
                                         (click)="navigateTo(instituto.nombre)">{{instituto.nombre }}</a>
                                       </li> 
                                 </ul>
@@ -61,7 +61,7 @@
     <div class="region region-content">
         <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
             <div class="content">
-                <h1 class="title page-title"><span class="field field--name-title field--type-string field--label-hidden">Instituto de Diseño
+                <h1 class="title page-title"><span class="field field--name-title field--type-string field--label-hidden">{{instituto_informacion.nombre}}
                 </span></h1>
             </div>
         </div>
@@ -71,61 +71,30 @@
                 <div class="node__main-content clearfix">
                     <header class="node__header">
                         <h2 class="node__title title sr-only">
-                            <span class="field field--name-title field--type-string field--label-hidden">Instituto de Diseño
+                            <span class="field field--name-title field--type-string field--label-hidden">{{instituto_informacion.nombre}}
                             </span>
                         </h2>
                     </header>
 
                     <div class="field field--name-field-portada-inv-cpe field--type-image field--label-hidden field__item">
-                        <img loading="lazy" src="/assets/images/disenio2.jpeg" width="730" height="280" alt="Instituto de Diseño" typeof="foaf:Image" />
+                        <img loading="lazy" src="{{instituto_informacion.imagen_url}}" width="730" height="280" alt="Instituto de Diseño" typeof="foaf:Image" />
                     </div>
 
                     <div class="text-container text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                        <p>El Instituto de Diseño se crea en 1991, un año posterior a la formación de la Universidad Tecnológica de la Mixteca.</p>
-                        <p><strong> Objetivo General</strong></p>
-                        <p>Realizar investigación científica y tecnológica en diversas áreas del diseño, que contribuya al desarrollo en la región y en consecuencia, en el estado de Oaxaca y en México.</p>
+                        <div [innerHTML]="formatText(instituto_informacion.descripcion_general)"></div>
                         
+                        <p><strong> Objetivo General</strong></p>
+                        <div [innerHTML]="formatText(instituto_informacion.objetivos_generales)"></div>
+
                         <p><strong>Objetivos Específicos</strong></p>
-                        <p>Los objetivos específicos que busca este instituto son:</p>
-                        <ul>
-                            <li class="reduce-spacing">Proporcionar el desarrollo de las comunidades de Oaxaca mediante proyectos de diseño basados en la identificación de necesidades específicas.</li>
-                            <li class="reduce-spacing">Formar profesionistas que den solución integral a problemas de la sociedad contemporánea a través del desarrollo de objetos y espacios, así como de comunicar visualmente las necesidades y el sentir comunitario a través de sus creaciones.</li>
-                        </ul>
+                        <div [innerHTML]="formatTextAsList_2(instituto_informacion.objetivos_adicionales)"></div>
+                              
+                       
                         
                         <p><strong>Actividades más importantes</strong></p>
-                        <p>Las actividades que realiza este instituto se encuentran clasificadas en 4 categorías:</p>
-                        <ul>
-                            <li><strong>INVESTIGACIÓN:</strong> Investigación básica y aplicada en distintas áreas del diseño.</li>
-                            <li class="reduce-spacing"><strong>PROMOCIÓN AL DESARROLLO:</strong> Desarrollo de proyectos, asesorías técnicas y cursos de capacitación en:
-                                <ul>
-                                    <li>Ingeniería Civil.</li>
-                                    <li>Arquitectura.</li>
-                                    <li>Diseño Industrial.</li>
-                                    <li>Diseño Gráfico.</li>
-                                    <li>Ingeniería en Diseño.</li>
-                                    <li>Ingeniería Textil.</li>
-                                    <li>Ingeniería Mecánica.</li>
-                                    <li>Ciencias y Materiales Cerámicos.</li>
-                                </ul>
-                            </li>
-                            <li><strong>DIFUSIÓN CULTURAL:</strong> Mediante:
-                                <ul>
-                                    <li>Evento bianual de diseño.</li>
-                                    <li>Apoyo a las exposiciones de la semana de la cultura mixteca.</li>
-                                    <li>Apoyo a los institutos de la universidad en sus eventos anuales.</li>
-                                </ul>
-                            </li>
-                            <li class="reduce-spacing"><strong>APOYO AL SISTEMA DE UNIVERSIDADES ESTATALES DE OAXACA (SUNEO):</strong> De la siguiente forma:
-                                <ul>
-                                    <li>Diseño de proyectos ejecutivos (diseño espacial).</li>
-                                    <li>Diseño industrial: mobiliario y señalización.</li>
-                                    <li>Diseño gráfico: imagen corporativa, diseño editorial y multimedia.</li>
-                                    <li>Pruebas de resistencia de materiales.</li>
-                                    <li>Levantamientos topográficos.</li>
-                                    <li>Apoyo en el diseño de la Primera Reunión Estatal de Investigación.</li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <div [innerHTML]="formatText_2(instituto_informacion.actividades_generales)"></div>
+                       
+
                     </div>
                 </div>
             </div>
