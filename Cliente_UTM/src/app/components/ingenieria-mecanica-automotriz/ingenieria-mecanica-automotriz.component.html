@@ -122,7 +122,7 @@
                                     <div class="panel-body">
                                         <div *ngIf="i === 0">
                                             <ul class="contact-info">
-                                                <li><h3>M.C. {{ datos_carrera.nombre_jefe||'-' }}</h3></li>
+                                                <li><h3>{{datos_carrera.grado_jefe}} {{ datos_carrera.nombre_jefe||'-' }}</h3></li>
                                                 <li><i class="fas fa-envelope"></i>{{ datos_carrera.correo_jefe||'-' }}</li>
                                             </ul>
                                         </div>

@@ -78,6 +78,18 @@ h1.page-title {
 }
 
 /* Contenedor de la imagen */
+@keyframes materialize {
+    0% {
+        transform: scale(0.5); /* Empieza más pequeño */
+        opacity: 0; /* Empieza invisible */
+    }
+    100% {
+        transform: scale(1); /* Escala al tamaño original */
+        opacity: 1; /* Se vuelve completamente visible */
+    }
+}
+
+/* Estilo para el contenedor de la imagen */
 .image-container {
     margin: 0 auto 20px auto; /* Centramos la imagen y damos margen inferior */
     max-width: 1140px; /* Ajustar el ancho máximo del contenedor de la imagen */
@@ -92,7 +104,6 @@ h1.page-title {
     height: auto; /* Mantener la proporción de la imagen */
    
 }
-
 /* Ajustes de estilo para el texto de contenido */
 .text-container {
     font-family: Georgia, Times New Roman, Serif;
