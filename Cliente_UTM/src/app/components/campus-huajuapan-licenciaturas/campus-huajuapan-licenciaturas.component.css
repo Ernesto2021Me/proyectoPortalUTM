@@ -574,7 +574,7 @@ iframe {
     color: #4a1110;
     font-weight: bold;
     text-decoration: none;
-    
+    cursor: pointer;
 }
 
 /* Estilo del enlace al pasar el mouse */

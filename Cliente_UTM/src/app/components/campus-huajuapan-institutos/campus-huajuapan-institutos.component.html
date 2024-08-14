@@ -74,57 +74,10 @@
             <div class="view-content">
                 <div class="views-view-grid">
                     <div class="views-row">
-                        <div class="image-card">
-                            <img src="/assets/images/Computacion.png" class="img-fluid" alt="Instituto de Computación"/>
-                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_computacion" hreflang="es">Instituto de Computación</a>
-                        </div>
-                    
-                        <!-- Instituto de Electrónica y Mecatrónica -->
-                        <div class="image-card">
-                            <img src="/assets/images/INSTITUTO_DE_ELECTRONICA_Y_MECATRONICA.jpeg" class="img-fluid" alt="Instituto de Electrónica y Mecatrónica"/>
-                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_electronica_y_mecatronica" hreflang="es">Instituto de Electrónica y Mecatrónica</a>
-                        </div>
-                    
-                        <!-- Instituto de Diseño -->
-                        <div class="image-card">
-                            <img src="/assets/images/disenio2.jpeg" class="img-fluid" alt="Instituto de Diseño"/>
-                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_diseno" hreflang="es">Instituto de Diseño</a>
-                        </div>
-                    
-                        <!-- Instituto de Física y Matemáticas -->
-                        <div class="image-card">
-                            <img src="/assets/images/fismat1.jpeg" class="img-fluid" alt="Instituto de Física y Matemáticas"/>
-                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_fisica_y_matematicas" hreflang="es">Instituto de Física y Matemáticas</a>
-                        </div>
-                    
-                        <!-- Instituto de Ciencias Sociales y Humanidades -->
-                        <div class="image-card">
-                            <img src="/assets/images/sociales2.jpeg" class="img-fluid" alt="Instituto de Ciencias Sociales y Humanidades"/>
-                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_ciencias_sociales_y_humanidades" hreflang="es">Instituto de Ciencias Sociales y Humanidades</a>
-                        </div>
-                    
-                        <!-- Instituto de Agroindustrias -->
-                        <div class="image-card">
-                            <img src="/assets/images/InstAgroindustrias.jpeg" class="img-fluid" alt="Instituto de Agroindustrias"/>
-                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_agroindustrias" hreflang="es">Instituto de Agroindustrias</a>
-                        </div>
-                    
-                        <!-- Instituto de Hidrología -->
-                        <div class="image-card">
-                            <img src="/assets/images/hidrologia1.jpeg" class="img-fluid" alt="Instituto de Hidrología"/>
-                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_hidrologia" hreflang="es">Instituto de Hidrología</a>
-                        </div>
-                    
-                        <!-- Instituto de Minería -->
-                        <div class="image-card">
-                            <img src="/assets/images/mineria1.jpeg" class="img-fluid" alt="Instituto de Minería"/>
-                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_mineria" hreflang="es">Instituto de Minería</a>
-                        </div>
-                    
-                        <!-- Instituto de Ingeniería Industrial y Automotriz -->
-                        <div class="image-card">
-                            <img src="/assets/images/instituto_ingenieria_industrial_automotriz.png" class="img-fluid" alt="Instituto de Ingeniería Industrial y Automotriz"/>
-                            <a href="/home/investigacion/institutos_de_investigacion/instituto_de_ingenieria_industrial_y_automotriz" hreflang="es">Instituto de Ingeniería Industrial y Automotriz</a>
+                       
+                        <div class="image-card" *ngFor="let instituto of institutos">
+                            <img src="{{instituto.url}}" class="img-fluid" alt="{{instituto.nombre}}"/>
+                            <a (click)="navigateTo(instituto.nombre)">{{ instituto.nombre }}</a>
                         </div>
                     
                         

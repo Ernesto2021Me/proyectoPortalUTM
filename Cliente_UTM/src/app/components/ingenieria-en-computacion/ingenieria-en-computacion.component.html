@@ -41,11 +41,12 @@
                                 <ul class="menu">
                                   <li class="menu-item" *ngFor="let licenciatura of licenciaturas">
                                     <a 
-                                      [ngClass]="{ 'highlight-red': licenciatura.nombre === 'Ingeniería en Computación' }"
+                                      [ngClass]="{ 'highlight-red': licenciatura.nombre === datos_carrera.nombre_carrera }"
                                       (click)="navigateTo(licenciatura.nombre)">
                                       {{ licenciatura.nombre }}
                                     </a>
-                                  </li>   
+                                  </li>
+                                  
                                 </ul>
                             </li>
                         </ul>

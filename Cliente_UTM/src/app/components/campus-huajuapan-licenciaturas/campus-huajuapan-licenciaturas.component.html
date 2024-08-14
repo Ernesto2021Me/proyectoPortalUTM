@@ -104,58 +104,12 @@
                     <div class="views-row">
                         
                         
-                        <div class="image-card">
-                            <img src="/assets/images/UTM.png" class="img-fluid" />
-                            <a href="/home/ensenanza/licenciaturas/ingenieria_en_computacion" hreflang="es">Ingeniería en Computación</a>
+                        <div class="image-card" *ngFor="let licienciatura of licenciaturas">
+                            <img src="{{licienciatura.url}}" class="img-fluid" />
+                            <a (click)="navigateTo(licienciatura.nombre)">{{ licienciatura.nombre }}</a>
                         </div>
-                        <div class="image-card">
-                            <img src="/assets/images/UTM.png" class="img-fluid" />
-                            <a href="/home/ensenanza/licenciaturas/ingenieria_en_electronica" hreflang="es">Ingeniería en Electrónica</a>
-                        </div>
-                        <div class="image-card">
-                            <img src="/assets/images/UTM.png" class="img-fluid" />
-                            <a href="/home/ensenanza/licenciaturas/ingenieria_en_diseno" hreflang="es">Ingeniería en Diseño</a>
-                        </div>
-                        <div class="image-card">
-                            <img src="/assets/images/UTM.png" class="img-fluid" />
-                            <a href="/home/ensenanza/licenciaturas/licenciatura_en_ciencias_empresariales" hreflang="es">Licenciatura en Ciencias Empresariales</a>
-                        </div>
-                        <div class="image-card">
-                            <img src="/assets/images/UTM.png" class="img-fluid" />
-                            <a href="/home/ensenanza/licenciaturas/licenciatura_en_matematicas_aplicadas" hreflang="es">Licenciatura en Matemáticas Aplicadas</a>
-                        </div>
-                        <div class="image-card">
-                            <img src="/assets/images/UTM.png" class="img-fluid" />
-                            <a href="/home/ensenanza/licenciaturas/ingenieria_en_alimentos" hreflang="es">Ingeniería en Alimentos</a>
-                        </div>
-                        <div class="image-card">
-                            <img src="/assets/images/UTM.png" class="img-fluid" />
-                            <a href="/home/ensenanza/licenciaturas/ingenieria_industrial" hreflang="es">Ingeniería Industrial</a>
-                        </div>
-                        <div class="image-card">
-                            <img src="/assets/images/UTM.png" class="img-fluid" />
-                            <a href="/home/ensenanza/licenciaturas/licenciatura_en_estudios_mexicanos_modalidad_virtual" hreflang="es">Licenciatura en Estudios Mexicanos (modalidad virtual)</a>
-                        </div>
-                        <div class="image-card">
-                            <img src="/assets/images/UTM.png" class="img-fluid" />
-                            <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecatronica" hreflang="es">Ingeniería en Mecatrónica</a>
-                        </div>
-                        <div class="image-card">
-                            <img src="/assets/images/UTM.png" class="img-fluid" />
-                            <a href="/home/ensenanza/licenciaturas/ingenieria_en_fisica_aplicada" hreflang="es">Ingeniería en Física Aplicada</a>
-                        </div>
-                        <div class="image-card">
-                            <img src="/assets/images/UTM.png" class="img-fluid" />
-                            <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz" hreflang="es">Ingeniería Mecánica Automotriz</a>
-                        </div>
-                        <div class="image-card">
-                            <img src="/assets/images/UTM.png" class="img-fluid" />
-                            <a href="/home/ensenanza/licenciaturas/ingenieria_civil" hreflang="es">Ingeniería Civil</a>
-                        </div>
-                        <div class="image-card">
-                            <img src="/assets/images/UTM.png" class="img-fluid" />
-                            <a href="/home/ensenanza/licenciaturas/ingenieria_quimica_en_procesos_sostenibles" hreflang="es">Ingeniería Química en Procesos Sostenibles</a>
-                        </div>  
+                        
+
                     </div>
                 </div>
             </div>

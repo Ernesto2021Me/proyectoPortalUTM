@@ -84,7 +84,7 @@ export class IngenieriaCivilComponent implements OnInit {
 
   private loadCarreras(): void {
     this.carrerasService.list_licenciaturas().subscribe(
-      (res: any) => this.licenciaturas = res,
+      (res: any) =>{  this.licenciaturas = res; console.log(this.licenciaturas)},
       (err) => console.error(err)
     );
 

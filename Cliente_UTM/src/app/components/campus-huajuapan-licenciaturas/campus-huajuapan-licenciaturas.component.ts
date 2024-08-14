@@ -10,6 +10,7 @@ import {Router} from '@angular/router'
 export class CampusHuajuapanLicenciaturasComponent implements OnInit {
   licenciaturas: Carrera[] = [];
   posgrados: Carrera[] = [];
+  
   panels: { title: string, content: string }[] = [];
   openIndex: number | null = 0;
 
@@ -62,7 +63,8 @@ export class CampusHuajuapanLicenciaturasComponent implements OnInit {
   private loadData(): void {
     this.loadCarreras();
   }
-
+  
+  
 
   private loadCarreras(): void {
     this.carrerasService.list_licenciaturas().subscribe(

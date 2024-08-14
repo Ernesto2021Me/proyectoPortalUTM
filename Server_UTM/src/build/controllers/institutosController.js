@@ -18,10 +18,11 @@ class InstitutosController {
     list_institutos_investigacion(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const respuesta = yield database_1.default.query(`SELECT codigo, nombre
-                 FROM institutos
+                const respuesta = yield database_1.default.query(`SELECT i.codigo, i.nombre, iI.url
+                 FROM institutos i
+                 JOIN imagenes_Institutos iI ON i.codigo = iI.codigoInstituto
                  WHERE nombre LIKE '%Instituto%'
-                    OR nombre LIKE '%Centro de Estudios%'`);
+                    OR nombre LIKE '%Centro de Estudios%';`);
                 res.json(respuesta); // .rows si estás usando pg-pool o pg-promise
             }
             catch (error) {

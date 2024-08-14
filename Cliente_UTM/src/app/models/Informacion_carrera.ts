@@ -1,5 +1,6 @@
 export class Informacion_careras {
     nombre_carrera: string;
+    grado_jefe: string;
     nombre_jefe: string;
     correo_jefe: string;
     mision: string;
@@ -22,6 +23,7 @@ export class Informacion_careras {
     
     constructor() {
       this.nombre_carrera='';
+      this.grado_jefe='';
       this.nombre_jefe = '';
       this.correo_jefe = '';
       this.mision = '';
