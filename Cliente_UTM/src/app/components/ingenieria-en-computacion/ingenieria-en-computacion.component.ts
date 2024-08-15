@@ -115,10 +115,8 @@ export class IngenieriaEnComputacionComponent implements OnInit {
     const url = this.urlMapping[nombre_direccion];
     if (url) {
       if (nombre_direccion === 'Licenciatura en Estudios Mexicanos' || nombre_direccion === 'Maestría en Ciencia de Datos') {
-        // Redirige a una URL externa
         window.location.href = url;
       } else {
-        // Redirige a una URL interna y recarga la página
         window.location.href = url;
       }
     } else {
@@ -126,29 +124,105 @@ export class IngenieriaEnComputacionComponent implements OnInit {
     }
   }
 
-  formatTextAsList(text: string): string {
-    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    let listItems = lines.map(line => `<li>${line}</li>`).join('');
-    return `<ul class="reduce-spacing">${listItems}</ul>`;
-  }
-
   formatText(text: string): string {
     return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
   }
 
-  formatTextAsList_2(text: string): string {
-    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    let listItems = lines.map(line => {
-      if (line.startsWith('Análisis de Sistemas:')) {
-        return `<li><strong>Análisis de Sistemas:</strong>${line.slice('Análisis de Sistemas:'.length)}</li>`;
-      } else if (line.startsWith('Auditoría Informática:')) {
-        return `<li><strong>Auditoría Informática:</strong>${line.slice('Auditoría Informática:'.length)}</li>`;
+  formatText_2(text: string): string {
+    const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    if (lines.length === 0) return '';
+    const firstParagraph = `<p>${lines[0]}</p>`;
+    const isHeader = (line: string) => {
+      return    line === "Conocimientos:"
+               || line=="Habilidades para:"
+               || line=="Actitudes y valores:"
+    };
+  
+    let html = '';
+    let currentListItems: string[] = [];
+    for (const line of lines.slice(1)) {
+      if (isHeader(line)) {
+       
+        if (currentListItems.length > 0) {
+          html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
+          currentListItems = []; 
+        }
+        html += `<li class="list"><strong>${line}</strong></li>`;
       } else {
-        return `<li>${line}</li>`;
+        currentListItems.push(`<li>${line}</li>`);
       }
-    }).join('');
-    return `<ul class="seccion_campo">${listItems}</ul>`;
+    }
+    if (currentListItems.length > 0) {
+      html += `<ul  style="list-style-type: none;" class="reduce-spacing">${currentListItems.join('')}</ul>`;
+    }
+    return firstParagraph + '<ul>' + html + '</ul>';
   }
+  
+
+  formatText_3(text: string): string {
+    const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    if (lines.length === 0) return '';
+    
+    const firstParagraph = `<p>${lines[0]}</p>`;
+    const isHeader = (line: string) => {
+        return line === "Conocimientos:"
+            || line === "Habilidades:"
+            || line === "Actitudes y Valores:";
+    };
+
+    let html = '';
+    let currentListItems: string[] = [];
+    const lastThreeParagraphs = lines.slice(-3);  // Últimos tres párrafos
+
+    for (const line of lines.slice(1, -3)) {  // Excluye los últimos tres párrafos del procesamiento
+        if (isHeader(line)) {
+            if (currentListItems.length > 0) {
+                html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
+                currentListItems = [];
+            }
+            html += `<li class="list"><strong>${line}</strong></li>`;
+        } else {
+            currentListItems.push(`<li>${line}</li>`);
+        }
+    }
+    if (currentListItems.length > 0) {
+        html += `<ul style=" list-style-type: none;" class="reduce-spacing">${currentListItems.join('')}</ul>`;
+    }
+
+    // Añadir los últimos tres párrafos como <p>
+    const lastParagraphsHtml = lastThreeParagraphs.map(paragraph => `<p>${paragraph}</p>`).join('');
+
+    return firstParagraph + '<ul>' + html + '</ul>' + lastParagraphsHtml;
+}
+
+formatText_4(text: string): string {
+  const boldWords = ['Análisis de Sistemas:', 'Auditoría Informática:']; // Palabras específicas en negrita
+
+  let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+  if (lines.length > 0) {
+      let firstParagraph = `<p>${lines[0]}</p>`;
+      
+      // Función para poner en negrita las palabras específicas
+      const applyBold = (line: string): string => {
+          let formattedLine = line;
+          boldWords.forEach(word => {
+              // Escapar caracteres especiales en la palabra
+              const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              // Expresión regular para buscar la palabra completa
+              const regex = new RegExp(escapedWord, 'gi');
+              formattedLine = formattedLine.replace(regex, `<strong>${word}</strong>`);
+          });
+          return formattedLine;
+      };
+
+      let listItems = lines.slice(1).map(line => `<li>${applyBold(line)}</li>`).join('');
+      let list = `<ul class="reduce-spacing list">${listItems}</ul>`;
+      return `${firstParagraph}${list}`;
+  }
+  return '';
+}
+
+
   
   
 }

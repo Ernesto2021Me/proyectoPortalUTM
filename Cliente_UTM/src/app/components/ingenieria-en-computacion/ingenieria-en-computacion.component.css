@@ -144,7 +144,9 @@ h1 {
    margin-left: 40px;
 }
 
-
+.list{
+    list-style-type: none;
+}
 .mision-content a:hover,
 .vision-content a:hover,
 .objetivo-content a:hover,

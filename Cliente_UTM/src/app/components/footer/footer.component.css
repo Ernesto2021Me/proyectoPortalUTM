@@ -206,6 +206,10 @@ body {
   text-decoration: underline; /* Subraya el texto al pasar el ratón */
 }
 
+/* Estilo del botón de volver arriba */
+/* Estilo del botón de volver arriba */
+
+
 /* Para pantallas pequeñas, el contenido se alinea verticalmente */
 @media (max-width: 768px) {
   .footer-main-content {

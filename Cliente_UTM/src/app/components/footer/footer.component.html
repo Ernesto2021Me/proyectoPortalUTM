@@ -6,9 +6,39 @@
   <title>Pie de Página</title>
   <!-- Incluye Material Icons desde Google Fonts -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
- 
+  <style>
+   .scroll-to-top {
+      display: inline-block;
+      padding: 0; /* Ajuste del padding */
+      font-size: 24px; /* Ajusta el tamaño del ícono según sea necesario */
+      color: #fff;
+      background-color: #4a1110;
+      border: none;
+      width: 1.7cm;
+      height: 1.5cm;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      top: -170px;
+      left: 500px;
+      line-height: 1.5; /* Ajusta el line-height según el tamaño del ícono */
+    }
+
+    .scroll-to-top:hover {
+      background-color: #6D1F1F;
+    }
+
+    .scroll-to-top i {
+      font-size: 15px; /* Ajusta el tamaño del ícono según sea necesario */
+      color: #fff; /* Ajusta el color del ícono según sea necesario */
+      vertical-align: middle; /* Alinea el ícono verticalmente en el centro del botón */
+    }
+  </style>
 </head>
 <body>
+  <!-- Botón de volver arriba -->
+
   <div class="row">
     <div class="col-sm-12">
       <div class="clearfix footer__section footer-first fade animated fadeIn" data-animate-effect="fadeIn">
@@ -17,6 +47,11 @@
             <div class="footer-content-inner">
               <!-- Contenedor para las banderas y la barra de búsqueda -->
               <div class="footer-main-content">
+                <!-- Botón añadido aquí -->
+              
+                <button (click)="scrollToTop()" id="scrollToTop" class="scroll-to-top" aria-label="Volver Arriba">
+                  <i class="fas fa-chevron-up fa-xs"></i>
+                </button>
                 <!-- Cuadro para las banderas con organización en 5x2 -->
                 <div class="footer-banderas">
                   <a href="http://www.utm.mx/" target="_blank" title="Universidad Tecnológica de la Mixteca">
