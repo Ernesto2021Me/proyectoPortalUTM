@@ -133,6 +133,9 @@ h1 {
     color: #2d2d2d;
 }
 
+.list{
+    list-style: none;
+}
 .mision-content ul,
 .vision-content ul,
 .objetivo-content ul,

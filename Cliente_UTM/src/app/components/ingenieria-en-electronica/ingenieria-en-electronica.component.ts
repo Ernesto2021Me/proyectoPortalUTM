@@ -114,10 +114,10 @@ export class IngenieriaEnElectronicaComponent implements OnInit {
     const url = this.urlMapping[nombre_direccion];
     if (url) {
       if (nombre_direccion === 'Licenciatura en Estudios Mexicanos' || nombre_direccion === 'Maestría en Ciencia de Datos') {
-        // Redirige a una URL externa
+   
         window.location.href = url;
       } else {
-        // Redirige a una URL interna y recarga la página
+        
         window.location.href = url;
       }
     } else {
@@ -136,16 +136,10 @@ export class IngenieriaEnElectronicaComponent implements OnInit {
   }
 
   formatText_2(text: string): string {
-    // Define el texto que quieres reemplazar con un enlace
+  
     const textToReplace = 'Charlas con Egresados';
-    
-    // Define el enlace que quieres insertar
     const linkHtml = '<a href="https://www.youtube.com/playlist?list=PLryMJrShwg0mNJjF5Coh6KI8x7ZekYlVg" target="_blank">Charlas con Egresados</a>';
-    
-    // Reemplaza el texto específico con el enlace en el texto completo
     const modifiedText = text.replace(textToReplace, linkHtml);
-    
-    // Procesa el texto modificado y lo envuelve en etiquetas <p>
     return modifiedText.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
   }
   
