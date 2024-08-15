@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
 import { InstitutosService } from 'src/app/services/institutos.service';
 import {Router} from '@angular/router'
+import { Instituto_informacion_general } from 'src/app/models/Informacion_general_institutos';
 import { Instituto } from 'src/app/models/institutos';
 @Component({
   selector: 'app-instituto-de-hidrologia',
   templateUrl: './instituto-de-hidrologia.component.html',
-  styleUrls: ['./instituto-de-hidrologia.component.css']
+  styleUrls: ['./instituto-de-hidrologia.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class InstitutoDeHidrologiaComponent implements OnInit {
   institutos: Instituto[]=[]
+  instituto_informacion=new Instituto_informacion_general();
   urlMapping: { [key: string]: string } = {
     'Instituto de Computación': '/home/investigacion/institutos_de_investigacion/instituto_de_computacion',
     'Instituto de Electrónica y Mecatrónica': '/home/investigacion/institutos_de_investigacion/instituto_de_electronica_y_mecatronica',
@@ -26,19 +29,26 @@ export class InstitutoDeHidrologiaComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData();
-    
-    
+  
   }
   
-
   loadData(){
     this.loadInstitutos();
+    this.loadInstitutos_informacion();
   }
 
   private loadInstitutos(){
     this.InstitutosService.list_institutos_investigacion( ).subscribe(
       (res: any) =>
-        this.institutos = res,
+        this.institutos= res,
+      (err) => console.error(err)
+    );
+  }
+
+  private loadInstitutos_informacion(){
+    this.InstitutosService.informacion_general_instituto('009' ).subscribe(
+      (res: any) =>
+        this.instituto_informacion= res[0],
       (err) => console.error(err)
     );
   }
@@ -47,14 +57,28 @@ export class InstitutoDeHidrologiaComponent implements OnInit {
     const url = this.urlMapping[nombre_direccion];
     if (url) {
       if (nombre_direccion === 'Licenciatura en Estudios Mexicanos' || nombre_direccion === 'Maestría en Ciencia de Datos') {
-        // Redirige a una URL externa
         window.location.href = url;
       } else {
-        // Redirige a una URL interna y recarga la página
         window.location.href = url;
       }
     } else {
       console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
     }
      }
+
+     formatText(text: string): string {
+      return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
+    }
+
+
+    formatText_2(text: string): string {
+      let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+      if (lines.length > 0) {
+        let firstParagraph = `<p>${lines[0]}</p>`;
+        let listItems = lines.slice(1).map(line => `<li>${line}</li>`).join('');
+        let list = `<ul class="reduce-spacing">${listItems}</ul>`;
+        return `${firstParagraph}${list}`;
+      }
+      return '';
+    }
 }

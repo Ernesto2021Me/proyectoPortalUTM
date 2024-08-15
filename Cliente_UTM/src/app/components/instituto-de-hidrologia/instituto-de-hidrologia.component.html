@@ -22,7 +22,7 @@
             </li>
             <li class="breadcrumb__item">
                 <span class="breadcrumb__item-separator fa fa-angle-right"></span>
-                <span>Instituto de Hidrología</span>
+                <span>{{instituto_informacion.nombre}}</span>
             </li>
         </ol>
     </nav>
@@ -40,7 +40,7 @@
                                 <a href="/home/investigacion/institutos_de_investigacion/huajuapan_de_leon" data-drupal-link-system-path="node/74">Huajuapan de Leon</a>
                                 <ul class="menu">
                                     <li class="menu-item" *ngFor="let instituto of institutos">
-                                        <a [ngClass]="{ 'highlight-red': instituto.nombre === 'Instituto de Minería' }" 
+                                        <a [ngClass]="{ 'highlight-red': instituto.nombre === instituto_informacion.nombre}" 
                                         (click)="navigateTo(instituto.nombre)">{{instituto.nombre }}</a>
                                       </li> 
                                 </ul>
@@ -58,7 +58,7 @@
     <div class="region region-content">
         <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
             <div class="content">
-                <h1 class="title page-title"><span class="field field--name-title field--type-string field--label-hidden">Instituto de Hidrología</span></h1>
+                <h1 class="title page-title"><span class="field field--name-title field--type-string field--label-hidden">{{instituto_informacion.nombre}}</span></h1>
             </div>
         </div>
 
@@ -67,29 +67,24 @@
                 <div class="node__main-content clearfix">
                     <header class="node__header">
                         <h2 class="node__title title sr-only">
-                            <span class="field field--name-title field--type-string field--label-hidden">Instituto de Hidrología</span>
+                            <span class="field field--name-title field--type-string field--label-hidden">{{instituto_informacion.nombre}}</span>
                         </h2>
                     </header>
 
                     <div class="field field--name-field-portada-inv-cpe field--type-image field--label-hidden field__item">
-                        <img loading="lazy" src="/assets/images/hidrologia1.jpeg" width="730" height="280" alt="Instituto de Hidrología" typeof="foaf:Image" />
+                        <img loading="lazy" src="{{instituto_informacion.imagen_url}}" width="730" height="280" alt="Instituto de Hidrología" typeof="foaf:Image" />
                     </div>
 
                     <div class="text-container text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                        <p>Con la fundación de la Universidad Tecnológica de la Mixteca en 1990, se establecieron institutos de enseñanza e investigación, entre ellos el Instituto de Hidrología, cuyo objetivo se orientó a buscar soluciones científicas a los problemas de degradación de los recursos naturales (agua, suelo y vegetación), base para el desarrollo urbano, agrícola e industrial; buscando con ello incrementar la cantidad y calidad de estos recursos y elevar el nivel de vida de la sociedad en la región mixteca, el estado de Oaxaca y el país.</p>
-                        
+                        <div [innerHTML]="formatText(instituto_informacion.descripcion_general)"></div>
+                      
                         <p><strong>Objetivo</strong></p>
-                        <p>Buscar que la solución de los problemas y el desarrollo de la Hidrología se enfoque como una ciencia con visión integral, cuyo trabajo de investigación se base en un esquema multi e interdisciplinario, para dar soluciones completas e incluyentes, que abarquen los tres pilares del desarrollo sostenible: progreso social, crecimiento económico y protección ambiental.</p>
-
+                        <div [innerHTML]="formatText(instituto_informacion.objetivos_generales)"></div>
+                     
+                     
                         <p><strong>Objetivos Específicos</strong></p>
-                        <p>Los objetivos particulares de este instituto son los siguiente:</p>
-                        <ul class="reduce-spacing">
-                            <li >Desarrollar investigación científica y tecnológica que contribuya al manejo y aprovechamiento sostenible del agua, suelo y vegetación.</li>
-                            <li >Aplicar los resultados de las investigaciones para la promoción del desarrollo sostenible de las comunidades en las regiones de Oaxaca.</li>
-                            <li>Formar y capacitar recursos humanos en el manejo y aprovechamiento sostenible del agua, suelo y vegetación.</li>
-                        </ul>
-
-    
+                        <div [innerHTML]="formatText_2(instituto_informacion.objetivos_adicionales)"></div>
+                     
                     </div>
                 </div>
             </div>

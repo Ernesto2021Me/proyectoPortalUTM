@@ -22,7 +22,7 @@
             </li>
             <li class="breadcrumb__item">
                 <span class="breadcrumb__item-separator fa fa-angle-right"></span>
-                <span>Instituto de Minería</span>
+                <span>{{instituto_informacion.nombre}}</span>
             </li>
         </ol>
     </nav>
@@ -40,7 +40,7 @@
                                 <a href="/home/investigacion/institutos_de_investigacion/huajuapan_de_leon" data-drupal-link-system-path="node/74">Huajuapan de Leon</a>
                                 <ul class="menu">
                                     <li class="menu-item" *ngFor="let instituto of institutos">
-                                        <a [ngClass]="{ 'highlight-red': instituto.nombre === 'Instituto de Minería' }" 
+                                        <a [ngClass]="{ 'highlight-red': instituto.nombre === instituto_informacion.nombre}" 
                                         (click)="navigateTo(instituto.nombre)">{{instituto.nombre }}</a>
                                       </li> 
                                 </ul>
@@ -59,7 +59,7 @@
     <div class="region region-content">
         <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
             <div class="content">
-                <h1 class="title page-title"><span class="field field--name-title field--type-string field--label-hidden">Instituto de Minería</span></h1>
+                <h1 class="title page-title"><span class="field field--name-title field--type-string field--label-hidden">{{instituto_informacion.nombre}}</span></h1>
             </div>
         </div>
 
@@ -68,45 +68,33 @@
                 <div class="node__main-content clearfix">
                     <header class="node__header">
                         <h2 class="node__title title sr-only">
-                            <span class="field field--name-title field--type-string field--label-hidden">Instituto de Minería</span>
+                            <span class="field field--name-title field--type-string field--label-hidden">{{instituto_informacion.nombre}}</span>
                         </h2>
                     </header>
 
                     <div class="field field--name-field-portada-inv-cpe field--type-image field--label-hidden field__item">
-                        <img loading="lazy" src="/assets/images/mineria1.jpeg" width="730" height="280" alt="Instituto de Minería" typeof="foaf:Image" />
+                        <img loading="lazy" src="{{instituto_informacion.imagen_url}}" width="730" height="280" alt="Instituto de Minería" typeof="foaf:Image" />
                     </div>
 
                     <div class="text-container text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                        <p>La evolución del Instituto de Minería desde su creación en 1992 ha tenido etapas de impulso y maduración encaminados a satisfacer las demandas de promoción al desarrollo, investigación, difusión y docencia para contribuir al desarrollo estatal y nacional, así como al cumplimiento de los compromisos Institucionales de la Universidad Tecnológica de la Mixteca.</p>
-
-                        <p>Las primeras bases del Instituto establecieron funciones de investigación, orientadas al desarrollo social y a la atención de las necesidades mineras de la región Mixteca, estableciendo como marco institucional la localización y determinación del potencial minero de la Región Mixteca y de Oaxaca, con planteamientos de tipo técnico-económico encaminados al inicio de actividades de evaluación y cuantificación de reservas mineras existentes.</p>
-
-                        <p>Los logros en los trabajos mineros desarrollados en la región Mixteca por dependencias como el Consejo de Recursos Minerales, Consejo Estatal de Minería e INEGI entre otros, han servido al Instituto de Minería de la UTM, como base para investigar y corroborar el potencial minero de yacimientos de oro, plata, titanio, rutilo, ilmenita, antimonio, arenas sílicas, arcillas, micas, feldespatos, yeso, mármol, canteras, agregados pétreos, etc.</p>
-
-                        <p>Los nuevos esquemas empresariales para promover el aprovechamiento integral del evidente potencial minero, nos orientan a sustentar recomendaciones técnicas que garanticen a las comunidades y grupos indígenas metodologías apropiadas para la implantación de procesos productivos, que les permitan desarrollar los mecanismos necesarios para minimizar los riesgos inherentes a cualquier empresa minera.</p>
-
-                        <p>Las áreas de atención a las que se enfoca este instituto son las siguientes:</p>
-                        <ul>
-                            <li>Geología-Geohidrología</li>
-                            <li>Geofísica</li>
-                            <li>Minería</li>
-                            <li>Metalurgia</li>
-                        </ul>
-
-                        <p>El seguimiento a los proyectos obedece a planes estructurados que permiten una secuencia lógica de aplicación de conocimientos técnicos, administrativos y económicos. Dependiendo del yacimiento mineral del que se trate, requerirá de atención particular ocasionando variaciones y ajustes en la evolución del proyecto. Algunas áreas del proyecto deberán fortalecerse para establecer una conformación práctica en la cadena productiva. De forma general esto se explica con la siguiente gráfica:</p>
-
-                        <!-- Espacio para la gráfica -->
+                        <div [innerHTML]="formatText(instituto_informacion.descripcion_general)"></div>
+                      
+                        
                         <div class="graph-placeholder">
                             <img src="/assets/images/INST_M2.gif" alt="Gráfica de Evolución del Instituto de Minería" />
                         </div>
 
                         <p><strong>Objetivos Generales</strong></p>
+                        <div [innerHTML]="formatText_2(instituto_informacion.objetivos_generales)"></div>
+                      
                         <ul class="reduce-spacing">
                             <li >Convertirse en un instrumento eficaz que sirva al sector minero del estado de Oaxaca para garantizar, desde un punto de vista tecnológico, su desarrollo y competitividad futura.</li>
                             <li >Realizar investigación básica y aplicada relacionada al desarrollo integral de la minería en el estado de Oaxaca.</li>
                         </ul>
 
                         <p><strong>Objetivos Específicos</strong></p>
+                        <div [innerHTML]="formatText_2(instituto_informacion.objetivos_adicionales)"></div>
+                      
                         <ul class="reduce-spacing">
                             <li >Inventariar los recursos mineros de la región.</li>
                             <li >Evaluar el interés económico de los yacimientos.</li>
@@ -117,6 +105,8 @@
                         </ul>
 
                         <p><strong>Actividades Más Importantes</strong></p>
+                        <div [innerHTML]="formatText_3(instituto_informacion.actividades_generales)"></div>
+                      
                         <p>Las actividades del instituto de Minería son en orden de prioridad:</p>
                         <ul class="reduce-spacing">
                             <li >Inventariar los recursos mineros de la región.</li>
@@ -128,6 +118,8 @@
                             <li >Dar asesoría técnica para respaldar inversiones.</li>
                         </ul>
                        <p><strong> Proyectos en Desarrollo</strong></p>
+                       <div [innerHTML]="formatText_2(instituto_informacion.actividades_adicionales)"></div>
+                      
                        <ul class="reduce-spacing">
                              <li >Proyecto: Estabilidad de la Espuma en Columnas y Celdas de Flotación: Efecto de la Concentración de Espumante, de Sólidos y la Velocidad Superficial del Aire”.
                                 Financiamiento: Ciencias Básicas SEP-CONACyT. Proyecto No. 83091.

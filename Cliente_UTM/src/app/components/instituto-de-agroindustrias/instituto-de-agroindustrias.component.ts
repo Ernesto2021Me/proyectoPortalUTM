@@ -70,14 +70,7 @@ export class InstitutoDeAgroindustriasComponent implements OnInit {
       console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
     }
      }
-
-     formatTextAsList(text: string): string {
-      let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-      let listItems = lines.map(line => `<li>${line}</li>`).join('');
-      return `<ul class="reduce-spacing">${listItems}</ul>`;
-    }
   
-    
     formatText(text: string): string {
       let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
       if (lines.length > 0) {
