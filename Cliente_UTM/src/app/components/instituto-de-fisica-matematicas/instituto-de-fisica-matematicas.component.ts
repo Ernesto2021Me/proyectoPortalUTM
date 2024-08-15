@@ -29,12 +29,9 @@ export class InstitutoDeFisicaMatematicasComponent implements OnInit {
   constructor(private InstitutosService: InstitutosService, private router: Router) {}
 
   ngOnInit(): void {
-    this.loadData();
-    
-    
+    this.loadData();  
   }
   
-
   loadData(){
     this.loadInstitutos();
     this.loadInstitutos_informacion();
@@ -60,66 +57,54 @@ export class InstitutoDeFisicaMatematicasComponent implements OnInit {
     const url = this.urlMapping[nombre_direccion];
     if (url) {
       if (nombre_direccion === 'Licenciatura en Estudios Mexicanos' || nombre_direccion === 'Maestría en Ciencia de Datos') {
-        // Redirige a una URL externa
         window.location.href = url;
       } else {
-        // Redirige a una URL interna y recarga la página
         window.location.href = url;
       }
     } else {
       console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
     }
      }
+     
+     formatText(text: string): string {
+      return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
+    }
 
-     formatTextAsList(text: string): string {
+     formatText_2(text: string): string {
       let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
       let listItems = lines.map(line => `<li>${line}</li>`).join('');
       return `<ul class="reduce-spacing">${listItems}</ul>`;
     }
-  
-    
-    formatText(text: string): string {
-      return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
-    }
 
-   formatText_2(text: string): string {
-  // Divide el texto en líneas y elimina espacios en blanco
+   formatText_3(text: string): string {
   const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-
-  // Si no hay líneas, devuelve una cadena vacía
   if (lines.length === 0) return '';
 
-  // Función para determinar si una línea es un encabezado
   const isHeader = (line: string) => {
     return line === "Docencia" || line === "Investigación";
   };
 
-  // Inicializa el resultado HTML para las listas
   let html = '';
   let currentListItems: string[] = [];
 
-  // Itera sobre todas las líneas
+ 
   for (const line of lines) {
     if (isHeader(line)) {
-      // Si ya hay elementos en currentListItems, agrégales una sublista <ul>
+     
       if (currentListItems.length > 0) {
         html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
-        currentListItems = []; // Limpia currentListItems para el siguiente conjunto de elementos
+        currentListItems = []; 
       }
-      // Agrega el encabezado a la lista principal
       html += `<li class="list"><strong>${line}</strong></li>`;
     } else {
-      // Agrega el párrafo a la lista actual
       currentListItems.push(`<li>${line}</li>`);
     }
   }
 
-  // Si quedan elementos en currentListItems, agrégales una sublista <ul>
   if (currentListItems.length > 0) {
     html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
   }
 
-  // Solo devuelve el resultado de la lista
   return '<ul>' + html + '</ul>';
 }
 

@@ -102,10 +102,8 @@ export class NavigationComponent implements OnInit {
     const url = this.urlMapping[nombre_direccion];
     if (url) {
       if (nombre_direccion === 'Licenciatura en Estudios Mexicanos' || nombre_direccion === 'Maestría en Ciencia de Datos') {
-        // Redirige a una URL externa
         window.location.href = url;
       } else {
-        // Redirige a una URL interna y recarga la página
         window.location.href = url;
       }
     } else {

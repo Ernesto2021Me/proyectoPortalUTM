@@ -79,67 +79,26 @@ export class InstitutoDeAgroindustriasComponent implements OnInit {
   
     
     formatText(text: string): string {
-      // Divide el texto en líneas y elimina espacios en blanco
-      const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    
-      // Si no hay líneas, devuelve una cadena vacía
-      if (lines.length === 0) return '';
-    
-      // Inicializa el resultado HTML para los párrafos y listas
-      let html = '';
-      let currentListItems: string[] = [];
-      let paragraphsAdded = 0;
-    
-      // Itera sobre las líneas
-      for (const line of lines) {
-        // Si hemos agregado menos de 3 párrafos, agrégales <p>
-        if (paragraphsAdded < 3) {
-          html += `<p>${line}</p>`;
-          paragraphsAdded++;
-        } else {
-          // Agrega el párrafo a la lista actual
-          currentListItems.push(`<li>${line}</li>`);
-        }
+      let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+      if (lines.length > 0) {
+        let paragraphs = lines.slice(0, 3).map(line => `<p>${line}</p>`).join('');
+      
+        let listItems = lines.slice(3).map(line => `<li>${line}</li>`).join('');
+        let list = `<ul class="reduce-spacing">${listItems}</ul>`;
+        return `${paragraphs}${list}`;
       }
-    
-      // Si quedan elementos en currentListItems, agrégales una sublista <ul>
-      if (currentListItems.length > 0) {
-        html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
-      }
-    
-      // Devuelve el HTML con los primeros 3 párrafos y la lista
-      return html;
+      return '';
     }
 
 
     formatText_2(text: string): string {
-       // Divide el texto en líneas y elimina espacios en blanco
-  const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-
-  // Si no hay líneas, devuelve una cadena vacía
-  if (lines.length === 0) return '';
-
-  // Inicializa el resultado HTML para los párrafos y listas
-  let html = '';
-  let currentListItems: string[] = [];
-
-  // Si hay al menos una línea, envuelve la primera línea en <p>
-  if (lines.length > 0) {
-    html += `<p>${lines[0]}</p>`;
-  }
-
-  // Itera sobre las líneas restantes
-  for (const line of lines.slice(1)) {
-    // Agrega el párrafo a la lista actual
-    currentListItems.push(`<li>${line}</li>`);
-  }
-
-  // Si quedan elementos en currentListItems, agrégales una sublista <ul>
-  if (currentListItems.length > 0) {
-    html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
-  }
-
-  // Devuelve el HTML con el primer párrafo y la lista
-  return html
-   }
+      let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+      if (lines.length > 0) {
+        let firstParagraph = `<p>${lines[0]}</p>`;
+        let listItems = lines.slice(1).map(line => `<li>${line}</li>`).join('');
+        let list = `<ul class="reduce-spacing">${listItems}</ul>`;
+        return `${firstParagraph}${list}`;
+      }
+      return '';
+    }
 }
