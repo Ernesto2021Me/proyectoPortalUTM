@@ -117,6 +117,9 @@ h1 {
     
 }
 
+.list{
+    list-style: none;
+}
 
 .mision-content,
 .vision-content,

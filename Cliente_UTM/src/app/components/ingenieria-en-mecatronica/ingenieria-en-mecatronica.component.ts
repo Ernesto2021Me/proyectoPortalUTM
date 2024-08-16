@@ -116,22 +116,46 @@ export class IngenieriaEnMecatronicaComponent implements OnInit {
           // Redirige a una URL externa
           window.location.href = url;
         } else {
-          // Redirige a una URL interna y recarga la página
           window.location.href = url;
         }
       } else {
         console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
       }
     }
-    formatTextAsList(text: string): string {
-      let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-      let listItems = lines.map(line => `<li>${line}</li>`).join('');
-      return `<ul class="reduce-spacing">${listItems}</ul>`;
-    }
-  
     
     formatText(text: string): string {
       return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
     }
-  }
-  
+
+
+    formatText_2(text: string): string {
+      const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+      if (lines.length === 0) return '';
+      const firstParagraph = `<p>${lines[0]}</p>`;
+      const isHeader = (line: string) => {
+        return    line === "Conocimientos:"
+                 || line=="Habilidades:"
+                 || line=="Valores:"
+      };
+    
+      let html = '';
+      let currentListItems: string[] = [];
+      for (const line of lines.slice(1)) {
+        if (isHeader(line)) {
+         
+          if (currentListItems.length > 0) {
+            html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
+            currentListItems = []; 
+          }
+          html += `<li class="list"><strong>${line}</strong></li>`;
+        } else {
+          currentListItems.push(`<li>${line}</li>`);
+        }
+      }
+      if (currentListItems.length > 0) {
+        html += `<ul  style="list-style-type: none;" class="reduce-spacing">${currentListItems.join('')}</ul>`;
+      }
+      return firstParagraph + '<ul>' + html + '</ul>';
+    }
+
+   }

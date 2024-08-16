@@ -123,15 +123,56 @@ export class IngenieriaQuimicaComponent implements OnInit {
       console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
     }
   }
-
-  formatTextAsList(text: string): string {
-    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    let listItems = lines.map(line => `<li>${line}</li>`).join('');
-    return `<ul class="reduce-spacing">${listItems}</ul>`;
-  }
-
   
   formatText(text: string): string {
     return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
+  }
+
+  formatText_2(text: string): string {
+    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    if (lines.length > 0) {
+        let firstParagraph = `<p>${lines[0]}</p>`;
+        let secondParagraph = lines.length > 1 ? `<p>${lines[1]}</p>` : '';
+        let listItems = lines.slice(2).map(line => `<li>${line}</li>`).join('');
+        let list = `<ul class="reduce-spacing ">${listItems}</ul>`;
+        return `${firstParagraph}${secondParagraph}${list}`;
+    }
+    return '';
+  }
+
+  formatText_3(text: string): string {
+    const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    if (lines.length === 0) return '';
+    const firstParagraph = `<p>${lines[0]}</p>`;
+    const isHeader = (line: string) => {
+      return    line === "Conocimientos"
+               || line=="Actitudes"
+               || line==="Creatividad"
+               ||line==="Ingenio"
+               ||line==="Habilidades de Lenguaje"
+               ||line==="Habilidades Interpersonales"
+                ||line==="Habilidades Matemáticas"
+                 ||line==="Habilidades para Resolver Problemas"
+  
+    };
+  
+    let html = '';
+    let currentListItems: string[] = [];
+    for (const line of lines.slice(1)) {
+      if (isHeader(line)) {
+       
+        if (currentListItems.length > 0) {
+          html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
+          currentListItems = []; 
+        }
+        html += `<li class="list"><strong>${line}</strong></li>`;
+      } else {
+        currentListItems.push(`<li>${line}</li>`);
+      }
+    }
+    if (currentListItems.length > 0) {
+      html += `<ul  style="list-style-type: none;" class="reduce-spacing">${currentListItems.join('')}</ul>`;
+    }
+    return firstParagraph + '<ul>' + html + '</ul>';
   }
 }

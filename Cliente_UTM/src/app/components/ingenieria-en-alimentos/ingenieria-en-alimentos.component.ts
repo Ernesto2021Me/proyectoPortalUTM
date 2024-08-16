@@ -167,4 +167,37 @@ export class IngenieriaEnAlimentosComponent implements OnInit {
     }
     return '';
      }
+
+     formatText_4(text: string): string {
+      const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+      if (lines.length === 0) return '';
+      
+      const firstParagraph = `<p>${lines[0]}</p>`;
+      const secondParagraph = lines.length > 1 ? `<p>${lines[1]}</p>` : '';
+      
+      const isHeader = (line: string) => {
+        return line === "Conocimientos:" || line === "Habilidades:" || line === "Actitudes y Valores:";
+      };
+  
+      let html = '';
+      let currentListItems: string[] = [];
+  
+      for (const line of lines.slice(2)) {
+        if (isHeader(line)) {
+          if (currentListItems.length > 0) {
+            html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
+            currentListItems = []; 
+          }
+          html += `<li class="list"><strong>${line}</strong></li>`;
+        } else {
+          currentListItems.push(`<li>${line}</li>`);
+        }
+      }
+      if (currentListItems.length > 0) {
+        html += `<ul style="list-style-type: none;" class="reduce-spacing">${currentListItems.join('')}</ul>`;
+      }
+  
+      return `${firstParagraph}${secondParagraph}${html}`;
+  }
+  
 }

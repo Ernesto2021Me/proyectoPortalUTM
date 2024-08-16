@@ -117,6 +117,9 @@ h1 {
     margin-bottom: 50px; /* Agregar margen inferior para separar del pie de página */
 }
 
+.list{
+    list-style-type: none;
+}
 
 .mision-content,
 .vision-content,

@@ -124,14 +124,30 @@ export class IngenieriaCivilComponent implements OnInit {
     }
   }
 
-  formatTextAsList(text: string): string {
-    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    let listItems = lines.map(line => `<li>${line}</li>`).join('');
-    return `<ul class="reduce-spacing">${listItems}</ul>`;
-  }
-
   
   formatText(text: string): string {
     return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
   }
+
+  formatText_2(text: string): string {
+    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    if (lines.length > 0) {
+        let firstParagraph = `<p>${lines[0]}</p>`;
+        let listItems = lines.slice(1).map(line => `<li>${line}</li>`).join('');
+        let list = `<ul class="reduce-spacing ">${listItems}</ul>`;
+        return `${firstParagraph}${list}`;
+    }
+    return '';
+}
+formatText_3(text: string): string {
+  let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+  if (lines.length > 0) {
+      let firstParagraph = `<p>${lines[0]}</p>`;
+      let secondParagraph = lines.length > 1 ? `<p>${lines[1]}</p>` : '';
+      let listItems = lines.slice(2).map(line => `<li>${line}</li>`).join('');
+      let list = `<ul class="reduce-spacing ">${listItems}</ul>`;
+      return `${firstParagraph}${secondParagraph}${list}`;
+  }
+  return '';
+}
 }

@@ -80,21 +80,21 @@ WHERE codigoCarrera= ?
     j.grado as grado_jefe,
     j.nombre AS nombre_jefe,
     j.correo AS correo_jefe,
-    MAX(CASE WHEN i.Tipo = 'mision' THEN i.descripcion ELSE NULL END) AS mision,
-    MAX(CASE WHEN i.Tipo = 'vision' THEN i.descripcion ELSE NULL END) AS vision,
-    MAX(CASE WHEN i.Tipo = 'objetivo' THEN i.descripcion ELSE NULL END) AS objetivo,
-    MAX(CASE WHEN i.Tipo = 'perfil ingreso' THEN i.descripcion ELSE NULL END) AS perfil_ingreso,
-    MAX(CASE WHEN i.Tipo = 'perfil egreso' THEN i.descripcion ELSE NULL END) AS perfil_egreso,
-    MAX(CASE WHEN i.Tipo = 'campo accion' THEN i.descripcion ELSE NULL END) AS campo_accion,
+    i.mision,
+    i.vision,
+    i.objetivo,
+    i.perfil_ingreso,
+    i.perfil_egreso,
+    i.campo_accion,
     ic.url AS url_imagen
 FROM
     carreras c
 LEFT JOIN jefe_carreras j ON c.codigoCarrera = j.codigoCarrera
 LEFT JOIN
-    Informacion_carreras i ON c.id_informacion = i.id_carrera_informacion
+    Informacion_carrera2 i ON c.id_informacion = i.id_carrera_informacion
 LEFT JOIN imagenes_Carreras ic ON c.id_informacion = ic.id_informacion_carrera
 WHERE
-    c.codigoCarrera = ? -- Cambia 'tu_codigo_carrera' por el valor deseado
+    c.codigoCarrera =?  -- Cambia 'tu_codigo_carrera' por el valor deseado
 GROUP BY
     c.codigoCarrera, c.nombre;
         `, [Codigocarrera]);
