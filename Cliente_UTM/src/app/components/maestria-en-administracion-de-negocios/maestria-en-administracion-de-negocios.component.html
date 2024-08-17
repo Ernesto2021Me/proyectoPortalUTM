@@ -22,15 +22,14 @@
             </li>
             <li class="breadcrumb__item">
                 <span class="breadcrumb__item-separator fa fa-angle-right"></span>
-                <span>Maestría en Administración de Negocios </span>
+                <span>{{datos_carrera.nombre_carrera}}</span>
             </li>
         </ol>
     </nav>
-</div>
-
-<div class="wrapper">
-    <section class="sidebar__section sidebar-first clearfix fade" data-animate-effect="fadeInLeft">
-        <div class="region region-sidebar-first">
+  </div>
+  
+  <div class="wrapper">
+       <div class="region region-sidebar-first">
             <nav role="navigation" aria-labelledby="block-menuensenanza-menu" id="block-menuensenanza" class="clearfix block block-menu navigation menu--menu-ensenanza">
                 <h4 class="visually-hidden" id="block-menuensenanza-menu">Menú-Enseñanza</h4>
                 <ul class="clearfix menu">
@@ -40,39 +39,13 @@
                             <li class="menu-item menu-item--expanded menu-item--active-trail">
                                 <a href="/home/ensenanza/licenciaturas/huajuapan_de_leon" data-drupal-link-system-path="node/45">Huajuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_computacion">Ingeniería en Computación</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_electronica">Ingeniería en Electrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_diseno">Ingeniería en Diseño</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/licenciatura_en_ciencias_empresariales">Licenciatura en Ciencias Empresariales</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/licenciatura_en_matematicas_aplicadas">Licenciatura en Matemáticas Aplicadas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_alimentos">Ingeniería en Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_industrial">Ingeniería Industrial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecatronica">Ingeniería en Mecatrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_fisica_aplicada">Ingeniería en Física Aplicada</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz">Ingeniería Mecánica Automotriz</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_civil">Ingeniería Civil</a>
-                                    </li>
+                                    <li class="menu-item" *ngFor="let licenciatura of licenciaturas">
+                                        <a 
+                                            (click)="navigateTo(licenciatura.nombre)">
+                                          {{ licenciatura.nombre }}
+                                        </a>
+                                      </li>
+                                       
                                 </ul>
                             </li>
                         </ul>
@@ -83,60 +56,14 @@
                             <li class="menu-item menu-item--expanded">
                                 <a href="/home/ensenanza/posgrados/huajuapan_de_leon" data-drupal-link-system-path="node/58">Huajuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_administracion_negocios">Maestría en Administración de Negocios</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_materiales">Maestría en Ciencias de Materiales</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_productos_naturales_alimentacion">Maestría en Ciencias: Productos Naturales y Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_diseno_modas">Maestría en Diseño de Modas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_diseno_muebles">Maestría en Diseño de Muebles</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_electronica_en_sistemas_inteligentes">Maestría en Electrónica Opción en Sistemas Inteligentes Aplicados</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ingenieria_de_software">Maestría en Ingeniería de Software</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_inteligencia_artificial">Maestría en Inteligencia Artificial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_medios_interactivos">Maestría en Medios Interactivos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_modelacion_matematica">Maestría en Modelación Matemática</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_robotica">Maestría en Robótica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_tecnologia_avanzada_de_manufactura">Maestría en Tecnología Avanzada de Manufactura</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_de_datos">Maestría en Ciencia de Datos (modalidad virtual)</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_ciencias_productos_naturales_alimentos">Doctorado en Ciencias: Productos Naturales y Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados">Doctorado en Electrónica Especialidad Sistemas Inteligentes Aplicados</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_inteligencia_artificial">Doctorado en Inteligencia Artificial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_modelacion_matematica">Doctorado en Modelación Matemática</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_robotica">Doctorado en Robótica</a>
-                                    </li>
+                                    <li class="menu-item" *ngFor="let posgrado of posgrados">
+                                        <a 
+                                        [ngClass]="{ 'highlight-red': posgrado.nombre === datos_carrera.nombre_carrera }"
+                                        
+                                          (click)="navigateTo(posgrado.nombre)">
+                                          {{ posgrado.nombre }}
+                                        </a>
+                                      </li> 
                                 </ul>
                             </li>
                         </ul>
@@ -159,414 +86,117 @@
                 </ul>
             </nav>
         </div>
-    </section>
-
-    <div class="content-container">
-        <div class="region region-content">
-            <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
-                <div class="content">
-                    <h1 class="title page-title">
-                        <span class="field field--name-title field--type-string field--label-hidden">Maestría en Administración de Negocios </span>
-                    </h1>
-                </div>
+  
+  <div class="content-container">
+    <div class="region region-content">
+        <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
+            <div class="content">
+                <h1 class="title page-title">
+                    <span class="field field--name-title field--type-string field--label-hidden">{{datos_carrera.nombre_carrera}}</span>
+                </h1>
             </div>
-
-            <article data-history-node-id="78" role="article" class="node node--type-pagina-inv-cpe node--view-mode-full clearfix">
-                <div class="node__container">
-                    <div class="node__main-content clearfix">
-                        <header class="node__header">
-                            <h2 class="node__title title sr-only">
-                                <span class="field field--name-title field--type-string field--label-hidden">Maestría en Administración de Negocios </span>
-                            </h2>
-                        </header>
-
-                        <div class="field field--name-field-portada-inv-cpe field--type-image field--label-hidden field__item">
-                            <img loading="lazy" src="/assets/images/InstAgroindustrias.jpeg" width="1140" height="450" alt="Maestría en Administración de Negocios " typeof="foaf:Image" />
-                        </div>
-
-                        <div class="accordion-container">
-                            <div class="panel-group">
-                              <div *ngFor="let panel of panels; let i = index" class="panel">
+        </div>
+  
+        <article data-history-node-id="78" role="article" class="node node--type-pagina-inv-cpe node--view-mode-full clearfix">
+            <div class="node__container">
+                <div class="node__main-content clearfix">
+                    <header class="node__header">
+                        <h2 class="node__title title sr-only">
+                            <span class="field field--name-title field--type-string field--label-hidden">{{datos_carrera.nombre_carrera}}</span>
+                        </h2>
+                    </header>
+  
+                    <div class="field field--name-field-portada-inv-cpe field--type-image field--label-hidden field__item">
+                        <img loading="lazy" src="{{datos_carrera.url_imagen}}" width="1140" height="450" alt="{{datos_carrera.nombre_carrera}}" typeof="foaf:Image" />
+                    </div>
+  
+                    <div class="accordion-container">
+                        <div class="panel-group">
+                            <div *ngFor="let panel of panels; let i = index" class="panel">
                                 <div class="panel-heading" (click)="toggle(i)" [class.active]="isOpen(i)">
-                                  <div class="panel-title">
-                                    {{ panel.title }}
-                                  </div>
+                                    <div class="panel-title">
+                                        {{ panel.title }}
+                                    </div>
                                 </div>
                                 <div class="panel-collapse" *ngIf="isOpen(i)">
-                                  <div class="panel-body">
-                                    <div *ngIf="i === 0">
-                                      <p>Misión en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                    </div>
-                                    <div *ngIf="i === 1">
-                                      <p>Visión en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                    </div>
-                                    <div *ngIf="i === 2">
-                                        <p><strong>Objetivo General:</strong><br>
-                                            Formar recursos humanos de alto nivel académico con pensamiento crítico y conocimientos sólidos en investigación aplicada al entorno local a fin de identificar problemáticas reales para generar estrategias que impulsen la competitividad de las organizaciones, promoviendo el desarrollo regional.</p>
+                                    <div class="panel-body">
+                                        <div *ngIf="i === 0">
+                                          <div class="mision-content">
+                                              <div [innerHTML]="formatText(datos_carrera.mision)"></div>
+                                          </div>
+                                        </div>
+                                        <div *ngIf="i === 1">
+                                          <div class="vision-content">
+                                              <div [innerHTML]="formatText(datos_carrera.vision)"></div>
+                                              </div>
+                                        </div>
+                                        <div *ngIf="i === 2">
+                                            <div class="objetivo-content">
+                                              <div [innerHTML]="formatText_2(datos_carrera.objetivo)"></div>
+                                              </div>
+                                        </div>
+                                        <div *ngIf="i === 3">
+                                            <div class="perfil-ingreso-content">
+                                              <div [innerHTML]="formatText(datos_carrera.perfil_ingreso)"></div>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="i === 4">
+                                            <div class="perfil-egreso-content">
+                                              <div [innerHTML]="formatText(datos_carrera.perfil_egreso)"></div>
+                                                </div>
+                                        </div>
+                                        <div *ngIf="i === 5">
+                                           
+                                        </div>
+                                        <div *ngIf="i === 6">
+                                          
+                                                
                                             
-                                            <p><strong>Objetivos Particulares:</strong></p>
-                                            <ol>
-                                              <li>Formar profesionistas de alto nivel con capacidad de aplicar los conocimientos adquiridos para realizar investigación y resolver problemas del entorno regional.</li>
-                                              <li>Desarrollar en el estudiante las habilidades y capacidades para realizar investigación de calidad para que continúe con sus estudios de nivel doctorado y/o trabaje en equipos multidisciplinarios para impulsar el desarrollo regional.</li>
-                                              <li>Otorgar al egresado las bases de conocimiento e investigación para desempeñarse como un profesionista de alto nivel en instituciones públicas y privadas.</li>
-                                            </ol>
-                                           </div>
-                                      <div *ngIf="i === 3">
-                                        <p>El aspirante a ingresar a la Maestría en Administración de Negocios debe ser egresado de programas de licenciatura en áreas de Ciencias Sociales, con conocimientos en ciencias económico-administrativas, metodología de la investigación y matemáticas. Además, debe contar con vocación y compromiso para desarrollar habilidades de investigación que se plasmen en proyectos de tesis.</p> </div>
-                                      <div *ngIf="i === 4">
-                                        <p>El egresado de la Maestría en Administración de Negocios tendrá los conocimientos para desempeñarse como investigador, docente y profesional con capacidad de realizar investigación de alto impacto, generar ideas y proponer alternativas de solución a los problemas de las organizaciones locales, promoviendo el desarrollo regional desde una perspectiva crítica.</p>
+                                        </div>
+                                        <div *ngIf="i === 7">
+                                           
+                                            <body class="custom-body">
+                                                
+                                                <div *ngFor="let nucleo of nucleo_academico" class="profile-container">
+                                                    <div *ngIf="nucleo.imagen_url" class="profile-image">
+                                                        <img src="{{nucleo.imagen_url}}" alt="{{nucleo.nombre}}">
+                                                    </div>
+                                                    <div class="profile-text">
+                                                        <div class="profile">
+                                                            <p><strong>{{nucleo.grado}} {{ nucleo.nombre }}</strong></p>
+                                                            <p><strong><a [href]="'mailto:' + nucleo.correo">{{ nucleo.correo }}</a></strong></p>
+                                                            <div [innerHTML]="formatText(nucleo.descripcion_perfil)"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </body>
+                                            
+                                        </div>
+                                        <div *ngIf="i === 8">
+                                            <div class="universal" *ngFor="let linea of lineas_de_generacion">
+                                                <div *ngIf="linea.descripcion_linea" [innerHTML]="formatText_7(linea.descripcion_linea)"></div>
+                                            </div>
+                                            
+                                      </div>
+                                      <div *ngIf="i === 9"></div>
+                                      <div *ngIf="i === 10"></div>
+                                      <div *ngIf="i === 11"></div>
+                                      <div *ngIf="i === 12"></div>
+                                      <div *ngIf="i === 13"></div>
+                                      <div *ngIf="i === 14">
+                                          <div class="beca-content">
+                                              <div [innerHTML]="formatText(datos_carrera.beca)"></div>
+                                          </div>
+                                      </div>
                                     </div>
-                                    <div *ngIf="i === 5">
-                                        <style>
-                                            body {
-                                                font-family: Arial, sans-serif;
-                                                margin: 20px;
-                                                color: #333;
-                                            }
-                                            table {
-                                                width: 100%;
-                                                border-collapse: collapse;
-                                                margin-bottom: 20px;
-                                            }
-                                            th, td {
-                                                border: 1px solid #ddd;
-                                                padding: 8px;
-                                                text-align: left;
-                                            }
-                                            th {
-                                                background-color: #f4f4f4;
-                                            }
-                                            h2 {
-                                                color: #007BFF;
-                                                margin-left: center;
-                                                text-align: center;
-                                            }
-                                            .center {
-                                                text-align: center;
-                                            }
-                                        </style>
-                                    
-                                    <body>
-                                        
-    
-                                        <h2>Asignaturas por Semestre</h2>
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th class="center">Semestre</th>
-                                                    <th class="center">Asignaturas</th>
-                                                    <th class="center">Clave</th>
-                                                    <th class="center">Créditos</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td rowspan="4" class="center">Primer Semestre</td>
-                                                    <td class="center">Administración Estratégica de la Empresa Familiar</td>
-                                                    <td class="center">53101</td>
-                                                    <td class="center">8</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">Organización y Administración de Recursos Humanos</td>
-                                                    <td class="center">153102</td>
-                                                    <td class="center">8</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">Liderazgo y Cultura Organizacional</td>
-                                                    <td class="center">153103</td>
-                                                    <td class="center">8</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">Seminario de Investigación en Ciencias Económico - Administrativas I</td>
-                                                    <td class="center">153104</td>
-                                                    <td class="center">7</td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="4" class="center">Segundo Semestre</td>
-                                                    <td class="center">Entorno Económico de la Empresa</td>
-                                                    <td class="center">153201</td>
-                                                    <td class="center">8</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">Administración Financiera de la Empresa</td>
-                                                    <td class="center">153202</td>
-                                                    <td class="center">8</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">Ética para los Negocios y Responsabilidad Social</td>
-                                                    <td class="center">153203</td>
-                                                    <td class="center">8</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">Seminario de Investigación en Ciencias Económico - Administrativas II</td>
-                                                    <td class="center">153204</td>
-                                                    <td class="center">7</td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="3" class="center">Tercer Semestre</td>
-                                                    <td class="center">Investigación de Mercados y Mercadotecnia Estratégica</td>
-                                                    <td class="center">153301</td>
-                                                    <td class="center">8</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">Seminario de Investigación en Ciencias Económico - Administrativas III</td>
-                                                    <td class="center">153302</td>
-                                                    <td class="center">7</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">Optativa I</td>
-                                                    <td class="center">-</td>
-                                                    <td class="center">-</td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="2" class="center">Cuarto Semestre</td>
-                                                    <td class="center">Seminario de Investigación en Ciencias Económico - Administrativas IV</td>
-                                                    <td class="center">153401</td>
-                                                    <td class="center">7</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">Optativa II</td>
-                                                    <td class="center">-</td>
-                                                    <td class="center">-</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    
-                                        <h2>Asignaturas Optativas</h2>
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th class="center">Asignatura</th>
-                                                    <th class="center">Clave</th>
-                                                    <th class="center">Créditos</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="center">Formulación y Evaluación de Proyectos de Inversión</td>
-                                                    <td class="center">153303ID</td>
-                                                    <td class="center">8</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">Administración Estratégica de la Cadena de Valor</td>
-                                                    <td class="center">153304CE</td>
-                                                    <td class="center">8</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">Apoyos Financieros para el Emprendimiento</td>
-                                                    <td class="center">153402ID</td>
-                                                    <td class="center">8</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="center">Dirección Estratégica y Competitividad</td>
-                                                    <td class="center">153403CE</td>
-                                                    <td class="center">8</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </body>
-                                       </div>
-                                    <div *ngIf="i === 6">
-                                        <p>Numero de Alumnos Matriculados en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                    </div>
-                                    <div *ngIf="i === 7">
-                                        <style>
-                                            .profile {
-                                                margin-bottom: 20px;
-                                                border: 1px solid #ccc;
-                                                padding: 10px;
-                                                border-radius: 5px;
-                                            }
-                                            .profile img {
-                                                float: left;
-                                                margin-right: 10px;
-                                                border-radius: 50%;
-                                            }
-                                            .profile h2 {
-                                                margin-top: 0;
-                                            }
-                                            .profile p {
-                                                margin-bottom: 5px;
-                                            }
-                                        </style>
-                                       <body>
-                                        <div class="profile">
-                                            <img src="/assets/images/Dra._Lilia.png" alt="Foto de Dra. Lilia Alejandra Flores Castillo">
-                                             <h2>Dra. Lilia Alejandra Flores Castillo</h2>
-                                             <p>E-mail: <a href="mailto:floresaly22@mixteco.utm.mx">floresaly22@mixteco.utm.mx</a></p>
-                                             <p>Lilia Alejandra Flores Castillo es doctora en Ciencias Económicas con especialidad en Finanzas, egresada de la Escuela Superior de Economía del Instituto Politécnico Nacional. Cuenta con un diplomado en Diseño de Investigación y Análisis de datos con Software R. Es miembro del Sistema Nacional de Investigadoras e Investigadores de CONAHCYT, Nivel I. Tiene el reconocimiento PRODEP vigente. Ha sido profesor a nivel licenciatura y posgrado en la Universidad Tecnológica de la Mixteca. Su línea de investigación es Economía y finanzas. Los temas de investigación que ha desarrollado tienen relación con el análisis de variables del entorno económico que influyen en el desarrollo de una región, técnicas de pronóstico de variables económicas, diseño de acciones estratégicas para el fortalecimiento de sectores económicos, gestión financiera en las Mipymes, propuestas de comercialización, redes neuronales artificiales, análisis de portafolio de inversión y administración de riesgo financiero. Además de las actividades académicas en la impartición de cursos, ha publicado artículos en revistas arbitradas e indizadas, capítulos de libro y ha participado en congresos nacionales e internacionales y ha sido evaluador del programa para el Desarrollo Profesional Docente, así también como dictaminador de ponencias de congresos nacionales, comentarista de coloquios de posgrado y evaluador de artículos de revista internacionales.</p>
-
-                                        </div>
-
-                                        <div class="profile">
-                                            <img src="/assets/images/Dra._Yannet.png" alt="Foto de Dra. Yannet Paz Calderón">
-                                            <h2>Dra. Yannet Paz Calderón</h2>
-                                            <p>E-mail: <a href="mailto:ypaz@mixteco.utm.mx">ypaz@mixteco.utm.mx</a></p>
-                                            <p>Yannet Paz Calderón es doctora en Economía Política del Desarrollo, egresada del Centro de Estudios del Desarrollo Económico y Social de la Benemérita Universidad Autónoma de Puebla. Desde febrero de 2002 es profesora investigadora de tiempo completo, adscrita al Instituto de Ciencias Sociales y Humanidades de la Universidad Tecnológica de la Mixteca, en donde ha impartido clases a nivel licenciatura y posgrado. Pertenece al Sistema Nacional de Investigadoras e Investigadores (SNII) del Consejo Nacional de Humanidades, Ciencias y Tecnologías (CONAHCYT), Nivel Candidato y cuenta con el reconocimiento PRODEP vigente. Realiza investigación sobre temas relacionados con el desarrollo regional y el emprendimiento, la cual se ha materializado en la publicación de artículos en revistas arbitradas e indizadas, capítulos de libro, participación en congresos nacionales e internacionales. Además, ha sido evaluador del programa para el Desarrollo Profesional Docente, y dictaminador de ponencias de congresos nacionales, comentarista de coloquios de posgrado y evaluador de artículos de revistas internacionales.</p>
-                                        </div>
-
-                                        <div class="profile">
-                                            <img src="/assets/images/Dra._Monica.png" alt="Foto de Dra. Mónica Teresa Espinosa Espíndola">
-                                            <h2>Dra. Mónica Teresa Espinosa Espíndola</h2>
-                                            <p>E-mail: <a href="mailto:monitte@mixteco.utm.mx">monitte@mixteco.utm.mx</a></p>
-                                            <p>Mónica Teresa Espinosa Espíndola es doctora en Administración, egresada de la Universidad Autónoma de Querétaro. Cuenta con una Maestría en Política y Estudios Internacionales realizada en la Universidad de Warwick, Inglaterra, así como con una Maestría en Administración Pública del CIDE. Es miembro del Sistema Nacional de Investigadoras e Investigadores de CONAHCYT, Nivel I. Tiene el reconocimiento PRODEP vigente y ha sido profesora a nivel licenciatura y posgrado en la Universidad Tecnológica de la Mixteca. Su línea de investigación es Estrategias organizacionales, cultura, competitividad y desarrollo económico. Los temas de investigación que ha desarrollado tienen relación con el análisis organizacional y las variables socioeconómicas del entorno que influyen en la competitividad y el desarrollo económico. Además de la impartición de cursos como parte de su trabajo docente, ha publicado artículos en revistas arbitradas e indizadas, así como libros y capítulos de libro. Ha participado en congresos nacionales e internacionales. Ha sido evaluadora de proyectos del CONAHCYT y del Programa para el Desarrollo Profesional Docente. También ha sido dictaminadora de ponencias de congresos nacionales y evaluadora de artículos de revistas nacionales e internacionales.</p>
-                                        </div>
-                                        
-                                        <div class="profile">
-                                            <img src="/assets/images/Dra._Rosario.png" alt="Foto de Dra. María del Rosario Barradas Martínez">
-                                            <h2>Dra. María del Rosario Barradas Martínez</h2>
-                                            <p>E-mail: <a href="mailto:rosario@mixteco.utm.mx">rosario@mixteco.utm.mx</a></p>
-                                            <p>María del Rosario Barradas Martínez es doctora en Planeación Estratégica y Dirección de Tecnología, por la Universidad Popular Autónoma del Estado de Puebla, parte de sus estudios de doctorado los cursó en la Pontifica Universidad Católica de Valparaíso, Chile. Cuenta con una especialidad en Nuevas Herramientas para la Gestión de Empresas familiares por la Universidad Europea Miguel de Cervantes, España y un diplomado en Diseño y Evaluación de Proyectos Productivos Sostenibles. Es candidata a Investigadora del Sistema Nacional de Investigadoras e Investigadores de CONAHCYT. Cuenta con reconocimiento PRODEP. Ha laborado en instituciones públicas como FIRCO, INEGI y Secretaría de la Reforma Agraria. Ha ocupado los cargos de Jefa de Carrera de la Licenciatura en Ciencias Empresariales, Directora del Centro de Estudios Estratégicos de la Empresa y Directora del Instituto de Ciencias Sociales y Humanidades. Actualmente, es profesora-investigadora en la Universidad Tecnológica de la Mixteca (UTM), México. Su línea de investigación es “Gestión estratégica y competitividad de las organizaciones”. Los temas de investigación que ha desarrollado están relacionados el diseño de estrategias para impulsar sectores estratégicos de la economía, empresa familiar, innovación social, agroindustria alimentaria y modelo de negocios. Es agente capacitador externo acreditada por la Secretaria del Trabajo y Previsión Social, ha impartido diversos cursos a emprendedores y microempresarios rurales para el desarrollo de proyectos productivos como impulso a la economía social. Ha publicado artículos en revistas arbitradas e indizadas y capítulos de libro, además de participar en congresos nacionales e internacionales, también ha colaborado como evaluadora del programa para el Desarrollo Profesional Docente; dictaminadora de ponencias de congresos nacionales; arbitro de artículos en revistas a nivel nacional e internacional y evaluadora externa de la pertinencia y factibilidad de nuevos programas de posgrado.</p>
-                                        </div>
-                                        
-                                        <div class="profile">
-                                            <img src="/assets/images/Dr._Jose.png" alt="Foto de Dr. José Rodríguez Lázaro">
-                                            <h2>Dr. José Rodríguez Lázaro</h2>
-                                            <p>E-mail: <a href="mailto:jose@mixteco.utm.mx">jose@mixteco.utm.mx</a></p>
-                                            <p>José Rodríguez Lázaro es doctor en Planeación Estratégica y Dirección de Tecnología por la Universidad Popular Autónoma del Estado de Puebla (UPAEP), parte de sus estudios de doctorado los cursó en la Pontificia Universidad Católica de Valparaíso (PUCV), Chile. Maestro en Administración de la Transformación por la Universidad Iberoamericana Puebla (UIA). Cuenta con la Especialidad en Valuación por la Benemérita Universidad Autónoma de Puebla (BUAP). Es candidato a Investigador del Sistema Nacional de Investigadoras e Investigadores de CONAHCYT. Cuenta con reconocimiento PRODEP vigente. Actualmente, es profesor investigador a nivel licenciatura y posgrado. Sus líneas de investigación son “Gestión Estratégica y competitividad en las organizaciones” y “Planeación estratégica e innovación”. Los temas de investigación que ha desarrollado están relacionados con la planeación estratégica para desarrollar la competitividad en sectores estratégicos de la economía, modelos Lean para el fomento de la competitividad, modelos estratégicos para el desarrollo de proyectos productivos regionales con principios de sostenibilidad, estrategias de comercialización, formulación y evaluación de proyectos y plan de negocios. Es agente capacitador externo acreditado por la Secretaría del Trabajo y Previsión Social, ha impartido diversos cursos a emprendedores y microempresarios rurales para el desarrollo de proyectos productivos como fomento a la economía social. Ha publicado artículos en revistas arbitradas, indizadas y capítulos de libro, y ha participado en diversos congresos nacionales e internacionales como ponente. También ha colaborado como árbitro de artículos de investigación en revistas a nivel nacional e internacional y ha fungido como evaluador del programa para el Desarrollo Profesional Docente y del comité de pares para la evaluación de cuerpos académicos PRODEP.</p>
-                                        </div>
-                                        
-                                        <div class="profile">
-                                            <img src="/assets/images/Dra._Alicia.png" alt="Foto de Dra. Alicia Santiago Santos">
-                                            <h2>Dra. Alicia Santiago Santos</h2>
-                                            <p>E-mail: <a href="mailto:alicia@mixteco.utm.mx">alicia@mixteco.utm.mx</a></p>
-                                            <p>Alicia Santiago Santos es Doctora en Ciencias Matemáticas del Programa de Doctorado en Ciencias de la UNAM, es Profesora-Investigadora del Instituto de Física y Matemáticas de la Universidad Tecnológica, es miembro del Núcleo Académico Básico de la Maestría en Administración de Negocios, pertenece al Sistema Nacional de Investigadoras e Investigadores nivel I y cuenta con el reconocimiento de profesor con perfil deseable PRODEP que brinda la SEP. Referente a la docencia, ha impartido clases a nivel Licenciatura, Maestría y Doctorado, ha formado recursos humanos, ha sido revisor y sinodal de tesis de Licenciatura, Maestría y Doctorado. Ha participado en diversos congresos tanto nacionales como internacionales. Además, ha sido evaluadora y ha dirigido proyectos de investigación individuales y en conjunto, financiados por PROMEP, por la Fundación Sofía Kovalevskaia (SK) y la Sociedad Matemática Mexicana (SMM). Algunos de sus proyectos de investigación han estado dirigidos al estudio de ciertos tipos de sistemas dinámicos, entre ellos los caóticos, un tema que es de su interés es ocupar los sistemas dinámicos para el análisis económico.</p>
-                                        </div>
-                                        
-                                        <div class="profile">
-                                            <img src="/assets/images/Dr._Adolfo.png" alt="Foto de Dr. Adolfo Maceda Méndez">
-                                            <h2>Dr. Adolfo Maceda Méndez</h2>
-                                            <p>E-mail: <a href="mailto:admm@mixteco.utm.mx">admm@mixteco.utm.mx</a></p>
-                                            <p>Adolfo Maceda Méndez es doctor en Ciencias Matemáticas egresado de la Benemérita Universidad Autónoma de Puebla. Tiene una Maestría en Ciencias con Especialidad en Matemáticas por parte del CINVESTAV del IPN. Cuenta con Perfil PRODEP vigente. Imparte clases a nivel licenciatura y posgrado en la Universidad Tecnológica de la Mixteca. Su línea de investigación es Estrategias Organizacionales, Cultura, Competitividad y Desarrollo. Ha participado en la evaluación de Proyectos PRODEP. Ha publicado artículos de investigación en revistas arbitradas e indizadas, tanto nacionales como internacionales. También ha escrito capítulos de libros arbitrados. Ha participado como ponente en congresos nacionales e internacionales. Ha fungido como árbitro de revistas nacionales e internacionales.</p>
-                                        </div>
-                                        
-                                        <div class="profile">
-                                            <img src="/assets/images/Dr._Conrado.png" alt="Foto de Dr. Conrado Aguilar Cruz">
-                                            <h2>Dr. Conrado Aguilar Cruz</h2>
-                                            <p>E-mail: <a href="mailto:conrado@mixteco.utm.mx">conrado@mixteco.utm.mx</a></p>
-                                            <p>Conrado Aguilar Cruz Doctor en ciencias de administración, maestro en administración de las organizaciones y licenciado en economía por la Universidad Nacional Autónoma de México. Actualmente, Profesor Investigador de tiempo completo en las áreas de economía y administración y Director del Instituto de Ciencias Sociales y Humanidades de la Universidad Tecnológica de la Mixteca. Miembro del Sistema Nacional de Investigadores (SNI). Autor corresponsal, línea de investigación administración de la innovación organizacional.</p>
-                                        </div>
-                                        
-                                        <div class="profile">
-                                            <img src="/assets/images/Dr._Carlos_Vazquez.png" alt="Foto de Dr. Carlos Vazquez Cid de León">
-                                            <h2>Dr. Carlos Vazquez Cid de León</h2>
-                                            <p>E-mail: <a href="mailto:carlosvazquezc@mixteco.utm.mx">carlosvazquezc@mixteco.utm.mx</a></p>
-                                            <p>Carlos Vazquez Cid de León es doctor en ciencias de la administración, egresado de la UABJO, es profesor investigador de tiempo completo desde el 2008, con enfoque en ingeniería industrial y administración, algunos de los principales tópicos impartidos, Logística, Dirección General, Sistemas de Calidad, Relaciones Industriales, Dirección de Proyectos, Manejo de Materiales y Seminarios, líder del cuerpo académico UTMIX-CA-37 Ingeniería Industrial y Entorno, fue representante institucional de la UTM desde el 2013 al 2019, experiencia para bajar recursos federales. En el ámbito industrial cuenta con experiencia en el área de operaciones, producción, auditoria, mantenimiento, seguridad e higiene industrial, desde el año 2002 al 2008. Experiencia profesional fue Director del Campus NovaUniversitas Santos Reyes Nopala y ahora se encuentra laborando en la Universidad Tecnológica de la Mixteca, ambas universidades pertenecientes al SUNEO, con adscripción en el Instituto de Ingeniería Industrial, enlace ejecutivo ante COPLADE, nombramiento del Sistema Nacional de Investigadores (SNI) hasta el 2025, Becario CONAHCYT durante la maestría, becario PRODEP durante el doctorado, mención honorífica en los estudios doctorales, perfil deseable de PRODEP hasta el 2024, representante institucional ante PRODEP y PROFEXCE del 2013 al 2020, miembro evaluador del comité de pares de PRODEP y del Tecnológico Nacional de México desde el 2015. Arbitro en diversas revistas indexadas internacionales.</p>
-                                        </div>
-                                        
-                                        <div class="profile">
-                                            <img src="/assets/images/Mtro._Martin.png" alt="Foto de M.A.N. Martin Reyes Garcia">
-                                            <h2>M.A.N. Martin Reyes Garcia</h2>
-                                            <p>E-mail: <a href="mailto:mreyesg@mixteco.utm.mx">mreyesg@mixteco.utm.mx</a></p>
-                                            <p>Martin Reyes Garcia es Maestro en Administración de Negocios, egresado de la Universidad Tecnológica de la Mixteca, cuenta con reconocimiento PRODEP vigente. Es miembro del Cuerpo Académico Consolidado UTMCA-28. Su producción académica es generada por sus líneas de investigación Competitividad y Desarrollo Económico y el Valor Agregado Comunitario, de donde se desprende su producción académica integrada por artículos en revistas arbitradas e indizadas, capítulos de libro, participación en congresos nacionales e internacionales e impartición de talleres.</p>
-                                        </div>
-                                        
-                                        <div class="profile">
-                                             <h2>Dr. Salvador Montesinos González</h2>
-                                            <p>E-mail: <a href="mailto:smontesinos@mixteco.utm.mx">smontesinos@mixteco.utm.mx</a></p>
-                                            <p>Dr. Salvador Montesinos González es Profesor-Investigador de la Universidad Tecnológica de la Mixteca adscrito al Instituto de Ingeniería Industrial y Automotriz. Doctor en Ciencias de la Administración, egresado de la UABJO, cuenta con una Maestría en Ciencias con especialidad en Sistemas de Producción realizada en el Instituto Politécnico Nacional, unidad Zacatenco e Ingeniero Industrial de profesión, además cuenta con un diplomado en ‘Perfeccionamiento de Competencias Gerenciales’ impartido por el ICAMI/IPADE y tiene la certificación como Lean Six Sigma Yellow Belt por Schneider Electric. En el ámbito industrial cuenta con experiencia en el área de producción y calidad desde el año 2005 al 2009, trabajando en MABE SA de CV como jefe de producción, actualmente funge como director general de la empresa DIMAP, dedicada a la fabricación de productos de plástico desde el 2014. Es miembro del Sistema Nacional de Investigadoras e Investigadores de CONAHCYT, Nivel C. Tiene el reconocimiento PRODEP vigente desde el 2013 a la fecha. Es Miembro honorable del comité académico para estructurar, revisar y evaluar el Examen General de Egreso de la Licenciatura en Ingeniería Industrial desde el 2012 a la fecha. Ha publicado más de treinta artículos JCR, indizados o de divulgación, además ha sido director de siete tesis nivel licenciatura y cuatro de maestría. Su línea de investigación es ‘Mejora continua de Sistemas de Producción y Administración’ específicamente aplicando herramientas para mejorar la productividad, calidad o competitividad de las empresas. Fue becario PRODEP durante el doctorado, ha sido miembro evaluador del comité de pares de PRODEP y árbitro en diversas revistas indexadas.</p>
-                                        </div>
-                                        
-                                    </body>
-                                     </div>
-
-                                     <div *ngIf="i === 8">
-                                        <div><h3>LGAC 1. Identificación y Desarrollo de Oportunidades de Negocio</h3><p>Esta línea de investigación busca desarrollar, a partir de la conformación de un marco de análisis, proyectos de investigación que planteen herramientas adecuadas para identificar y evaluar la factibilidad de un negocio; creando un producto o servicio que satisfaga una necesidad percibida aprovechando las condiciones del entorno empresarial que contribuyan a la generación de beneficios para el emprendedor.</p><h3>LGAC 2. Competitividad y Desarrollo Económico.</h3><p>Esta línea de investigación busca desarrollar, bajo diferentes enfoques, investigación aplicada en donde se estudian y analizan múltiples aspectos relacionados con las problemáticas de diversos tipos de organizaciones de relevancia socioeconómica principalmente en el campo de la teoría empresarial y la práctica de la gestión administrativa, creando y generando propuestas orientadas a solucionar problemáticas que aquejan a las empresas y contribuyendo a la competitividad y desarrollo económico regional.</p></div>
-                                    </div>
-
-                                     <div *ngIf="i === 9">
-                                        <p>Tutoria de Seguimiento Academico en revisión por parte de las autoridades universitarias correspondientes.</p>   
-                                     </div>
-
-                                
-
-                                     <div *ngIf="i === 10">
-                                        <p>Productividad Academica Relevante en revisión por parte de las autoridades universitarias correspondientes.</p> 
-                                     </div>
-  
-                                     <div *ngIf="i === 11">
-                                        
-                                        <p>Vinculacion con Otros Sectores de la Sociedad en revisión por parte de las autoridades universitarias correspondientes.</p>
-
-                                     </div>
-
-                                     <div *ngIf="i === 12">
-                                        
-                                        <p>Egresados en revisión por parte de las autoridades universitarias correspondientes.</p>
-
-                                     </div>
-
-                                     <div *ngIf="i === 13">
-                                        
-                                        <h2>FECHAS</h2>
-    <p>Solicitud y entrega de documentos: 16 de febrero al 26 de junio de 2024</p>
-    <p>Examen de selección: 01 de julio de 2024</p>
-    <p>Entrevista: 02 de julio de 2024</p>
-    <p>Inscripciones al curso propedéutico: 8 al 12 de julio de 2024</p>
-    <p>Curso propedéutico: 29 de julio al 20 de septiembre de 2024</p>
-
-    <h2>Requisitos</h2>
-    <ul>
-      <li>Dos copias del acta de nacimiento actualizada</li>
-      <li>Dos copias del certificado de licenciatura</li>
-      <li>Dos copias del título profesional</li>
-      <li>Dos copias de la cédula profesional</li>
-      <li>Carta de exposición de motivos mínimo 3 y máximo 5 cuartillas</li>
-      <li>Currículum Vitae actualizado</li>
-      <li>Constancia de inglés con una equivalencia de 450 TOEFL para aspirantes a los programas de maestría</li>
-      <li>Seis fotografías tamaño infantil blanco y negro</li>
-      <li>Dos cartas de recomendación avaladas por profesores o investigadores ya sea nacionales o extranjeros</li>
-    </ul>
-
-    <p><strong>Nota:</strong> Toda la documentación debe entregarse en tamaño carta junto con el pago del examen de selección en original y copia.</p>
-
-    <p><strong>A V I S O:</strong> A los interesados en inscribirse al programa. Por favor mandar la documentación vía e-mail al correo: <a href="mailto:blaver102@mixteco.utm.mx">blaver102@mixteco.utm.mx</a>, con la Srita. Blanca Nava, cualquier cambio de fecha se las haremos saber por esta misma vía.</p>
-
-   <p><strong>FORMA DE PAGO DE SERVICIOS:</strong> 
-      <br/>
-      <a href="/assets/pdf/Procedimiento_para_pagar_con_Linea_de_Captura_de_posgrado.pdf">Dar click aquí para ver el manual de apoyo</a> | 
-        <br/>
-      <a href="http://www.finanzasoaxaca.gob.mx/">http://www.finanzasoaxaca.gob.mx/</a>
-    </p>
-
-    <h2>INFORMES</h2>
-    <ul>
-      <li>Av. Doctor Modesto Seara Vázquez No.1, Acatlima, Heroica Ciudad de Huajuapan de León, Oax., México, C.P.69004 División de Estudios de Posgrado y Departamento de Servicios Escolares.</li>
-      <li>Tel. y Fax. (953) 53 2 03 99 ext. 300, 110 y 768, e-mail.- <a href="mailto:jdivisionposgrado@mixteco.utm.mx">jdivisionposgrado@mixteco.utm.mx</a>, Servicios Escolares; <a href="mailto:escolar@mixteco.utm.mx">escolar@mixteco.utm.mx</a></li>
-    </ul>
-
-    <h2>CONTACTO</h2>
-    <ul>
-      <li>Dra. Lilia Alejandra Flores Castillo, Coordinadora Académica<br>
-        E-mail: <a href="mailto:floresaly22@mixteco.utm.mx">floresaly22@mixteco.utm.mx</a><br>
-        Teléfono: (953) 532 03 99 Ext. 450
-      </li>
-      <li>Dr. José Aníbal Arias Aguilar, Jefe de la División de Estudios de Posgrado<br>
-        E-mail: <a href="mailto:jdivisionposgrado@mixteco.utm.mx">jdivisionposgrado@mixteco.utm.mx</a><br>
-        Teléfonos: 953 532 03 99 / 202 14 Ext. 768
-      </li>
-    </ul>
-                                     </div>
-                                     
-                                     <div *ngIf="i === 14">
-                                        
-                                        <p>Informacion de Becas CONACYT en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                     </div>
-                                  </div>
-                                
-                                
-                                
                                 </div>
-                              </div>
                             </div>
-                          </div>
-                          
-                          
-
-            
+                        </div>
                     </div>
+  
                 </div>
-            </article>
-        </div>
+            </div>
+        </article>
     </div>
-</div>
+  </div>
+  

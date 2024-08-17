@@ -22,15 +22,14 @@
             </li>
             <li class="breadcrumb__item">
                 <span class="breadcrumb__item-separator fa fa-angle-right"></span>
-                <span>Maestría en Ciencias Materiales</span>
+                <span>{{datos_carrera.nombre_carrera}}</span>
             </li>
         </ol>
     </nav>
-</div>
-
-<div class="wrapper">
-    <section class="sidebar__section sidebar-first clearfix fade" data-animate-effect="fadeInLeft">
-        <div class="region region-sidebar-first">
+  </div>
+  
+  <div class="wrapper">
+       <div class="region region-sidebar-first">
             <nav role="navigation" aria-labelledby="block-menuensenanza-menu" id="block-menuensenanza" class="clearfix block block-menu navigation menu--menu-ensenanza">
                 <h4 class="visually-hidden" id="block-menuensenanza-menu">Menú-Enseñanza</h4>
                 <ul class="clearfix menu">
@@ -40,39 +39,13 @@
                             <li class="menu-item menu-item--expanded menu-item--active-trail">
                                 <a href="/home/ensenanza/licenciaturas/huajuapan_de_leon" data-drupal-link-system-path="node/45">Huajuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_computacion">Ingeniería en Computación</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_electronica">Ingeniería en Electrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_diseno">Ingeniería en Diseño</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/licenciatura_en_ciencias_empresariales">Licenciatura en Ciencias Empresariales</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/licenciatura_en_matematicas_aplicadas">Licenciatura en Matemáticas Aplicadas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_alimentos">Ingeniería en Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_industrial">Ingeniería Industrial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecatronica">Ingeniería en Mecatrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_fisica_aplicada">Ingeniería en Física Aplicada</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz">Ingeniería Mecánica Automotriz</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_civil">Ingeniería Civil</a>
-                                    </li>
+                                    <li class="menu-item" *ngFor="let licenciatura of licenciaturas">
+                                        <a 
+                                            (click)="navigateTo(licenciatura.nombre)">
+                                          {{ licenciatura.nombre }}
+                                        </a>
+                                      </li>
+                                       
                                 </ul>
                             </li>
                         </ul>
@@ -83,60 +56,14 @@
                             <li class="menu-item menu-item--expanded">
                                 <a href="/home/ensenanza/posgrados/huajuapan_de_leon" data-drupal-link-system-path="node/58">Huajuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_administracion_negocios">Maestría en Administración de Negocios</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_materiales">Maestría en Ciencias de Materiales</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_productos_naturales_alimentacion">Maestría en Ciencias: Productos Naturales y Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_diseno_modas">Maestría en Diseño de Modas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_diseno_muebles">Maestría en Diseño de Muebles</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_electronica_en_sistemas_inteligentes">Maestría en Electrónica Opción en Sistemas Inteligentes Aplicados</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ingenieria_de_software">Maestría en Ingeniería de Software</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_inteligencia_artificial">Maestría en Inteligencia Artificial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_medios_interactivos">Maestría en Medios Interactivos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_modelacion_matematica">Maestría en Modelación Matemática</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_robotica">Maestría en Robótica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_tecnologia_avanzada_de_manufactura">Maestría en Tecnología Avanzada de Manufactura</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_de_datos">Maestría en Ciencia de Datos (modalidad virtual)</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_ciencias_productos_naturales_alimentos">Doctorado en Ciencias: Productos Naturales y Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados">Doctorado en Electrónica Especialidad Sistemas Inteligentes Aplicados</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_inteligencia_artificial">Doctorado en Inteligencia Artificial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_modelacion_matematica">Doctorado en Modelación Matemática</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_robotica">Doctorado en Robótica</a>
-                                    </li>
+                                    <li class="menu-item" *ngFor="let posgrado of posgrados">
+                                        <a 
+                                        [ngClass]="{ 'highlight-red': posgrado.nombre === datos_carrera.nombre_carrera }"
+                                        
+                                          (click)="navigateTo(posgrado.nombre)">
+                                          {{ posgrado.nombre }}
+                                        </a>
+                                      </li> 
                                 </ul>
                             </li>
                         </ul>
@@ -159,601 +86,115 @@
                 </ul>
             </nav>
         </div>
-    </section>
-
-    <div class="content-container">
-        <div class="region region-content">
-            <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
-                <div class="content">
-                    <h1 class="title page-title">
-                        <span class="field field--name-title field--type-string field--label-hidden">Maestría en Ciencias Materiales</span>
-                    </h1>
-                </div>
+  
+  <div class="content-container">
+    <div class="region region-content">
+        <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
+            <div class="content">
+                <h1 class="title page-title">
+                    <span class="field field--name-title field--type-string field--label-hidden">{{datos_carrera.nombre_carrera}}</span>
+                </h1>
             </div>
-
-            <article data-history-node-id="78" role="article" class="node node--type-pagina-inv-cpe node--view-mode-full clearfix">
-                <div class="node__container">
-                    <div class="node__main-content clearfix">
-                        <header class="node__header">
-                            <h2 class="node__title title sr-only">
-                                <span class="field field--name-title field--type-string field--label-hidden">Maestría en Ciencias Materiales</span>
-                            </h2>
-                        </header>
-
-                        <div class="field field--name-field-portada-inv-cpe field--type-image field--label-hidden field__item">
-                            <img loading="lazy" src="/assets/images/InstAgroindustrias.jpeg" width="1140" height="450" alt="Maestría en Ciencias Materiales" typeof="foaf:Image" />
-                        </div>
-
-                        <div class="accordion-container">
-                            <div class="panel-group">
-                              <div *ngFor="let panel of panels; let i = index" class="panel">
+        </div>
+  
+        <article data-history-node-id="78" role="article" class="node node--type-pagina-inv-cpe node--view-mode-full clearfix">
+            <div class="node__container">
+                <div class="node__main-content clearfix">
+                    <header class="node__header">
+                        <h2 class="node__title title sr-only">
+                            <span class="field field--name-title field--type-string field--label-hidden">{{datos_carrera.nombre_carrera}}</span>
+                        </h2>
+                    </header>
+  
+                    <div class="field field--name-field-portada-inv-cpe field--type-image field--label-hidden field__item">
+                        <img loading="lazy" src="{{datos_carrera.url_imagen}}" width="1140" height="450" alt="{{datos_carrera.nombre_carrera}}" typeof="foaf:Image" />
+                    </div>
+  
+                    <div class="accordion-container">
+                        <div class="panel-group">
+                            <div *ngFor="let panel of panels; let i = index" class="panel">
                                 <div class="panel-heading" (click)="toggle(i)" [class.active]="isOpen(i)">
-                                  <div class="panel-title">
-                                    {{ panel.title }}
-                                  </div>
+                                    <div class="panel-title">
+                                        {{ panel.title }}
+                                    </div>
                                 </div>
                                 <div class="panel-collapse" *ngIf="isOpen(i)">
-                                  <div class="panel-body">
-                                    <div *ngIf="i === 0">
-                                    <p>Misión en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                    </div>
-
-                                    <div *ngIf="i === 1">
-                                      <p>Visión en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                    </div>
-                                    
-                                    <div *ngIf="i === 2">
-                                        <h2>Objetivos</h2>
-                                        <ul>
-                                            <li>Formar recursos humanos de alto nivel especializados en ciencias de materiales capaces de:</li>
-                                            <ul>
-                                                <li>Obtener y caracterizar materiales avanzados</li>
-                                                <li>Generar nuevos conocimientos en el área de ciencia de los materiales</li>
-                                                <li>Integrarse al sector productivo para promover el desarrollo científico y tecnológico de la región y del país en el área de ciencia de materiales.</li>
-                                            </ul>
-                                        </ul>
-                                    
-                                        <h2>Metas</h2>
-                                        <h3>Corto plazo</h3>
-                                        <ul>
-                                            <li>Formar estudiantes altamente capacitados para obtener y/o desarrollar y caracterizar materiales avanzados.</li>
-                                            <li>Habilitar en el egresado la capacidad de continuar su desarrollo profesional de forma independiente.</li>
-                                            <li>Construir un posgrado reconocido por su calidad a nivel regional.</li>
-                                            <li>Propiciar temas de investigación acorde a las LGAC del programa, orientados a las necesidades de la región y del país.</li>
-                                        </ul>
-                                    
-                                        <h3>Mediano plazo</h3>
-                                        <ul>
-                                            <li>Generar mediante proyectos de investigación, nuevos conocimientos en el área de ciencia de los materiales.</li>
-                                            <li>Integrar un posgrado reconocido por su calidad a nivel nacional.</li>
-                                            <li>Establecer vínculos con el sector productivo para promover el desarrollo científico y tecnológico de la región y del país en el área.</li>
-                                        </ul>
-                                    
-                                        <h3>Largo plazo</h3>
-                                        <ul>
-                                            <li>Desarrollar proyectos de investigación conjuntos con el sector productivo para aplicar el conocimiento científico al desarrollo tecnológico y contribuir en la atención de las necesidades de la región y del país en el área de ciencia de materiales.</li>
-                                            <li>Consolidar un posgrado reconocido por su calidad a nivel nacional e internacional.</li>
-                                            <li>Generar una red de colaboración especializada con los egresados del programa para propiciar el desarrollo científico y tecnológico.</li>
-                                        </ul>
-                                    </div>
-                                    
-                                      <div *ngIf="i === 3">
-                                        
-                                        <p>La Maestría en Ciencias de Materiales está dirigida a profesionistas que han culminado una licenciatura en Física, Materiales, Nanotecnología, Mecatrónica, Industrial, Electrónica, Química, Mecánica y áreas afines a los campos disciplinarios y que están interesados en profundizar sus conocimientos para desarrollar investigación. Con la finalidad de que el aspirante a estudiar la maestría tenga una mayor garantía de lograr con éxito el perfil de egreso propuesto, se considera que, quienes ingresan en él, deben tener las siguientes características generales:</p>
-
-                                        <ul>
-                                            <li>Haber cubierto el 100% de los créditos de una licenciatura afín.</li>
-                                            <li>Deseable promedio mínimo de 8.0 en el grado anterior.</li>
-                                            <li>Presentar interés por el trabajo científico y tecnológico y ser capaz de asimilar nuevas tecnologías.</li>
-                                            <li>Poseer comprensión básica (a nivel de licenciatura) en las siguientes áreas:</li>
-                                            <ul>
-                                                <li>Física general.</li>
-                                                <li>Química: inorgánica y orgánica.</li>
-                                                <li>Matemáticas: álgebra, cálculo diferencial e integral y cálculo vectorial.</li>
-                                            </ul>
-                                            <li>Deseable un nivel de inglés de al menos 450 puntos en el examen TOEFL o equivalente, respaldado con documento probatorio.</li>
-                                            <li>Aptitudes requeridas:</li>
-                                            <ul>
-                                                <li>Responsabilidad e iniciativa propia.</li>
-                                                <li>Disciplina para el aprendizaje y las actividades escolares.</li>
-                                                <li>Capacidad para trabajar en equipo.</li>
-                                                <li>Auto-aprendizaje.</li>
-                                                <li>Capacidad para la expresión oral y escrita.</li>
-                                                <li>Capacidad de crítica, análisis y síntesis.</li>
-                                                <li>Usar medios y tecnologías de la información.</li>
-                                            </ul>
-                                        </ul>
-
-                                    </div>
-                                    
-                                    <div *ngIf="i === 4">
-                                        
-                                       
-                                        <body>
-                                            <p>El programa de posgrado está orientado a la investigación, en consecuencia los alumnos egresados tendrán:</p>
-                                        
-                                            <ul>
-                                                <li>Conocimientos sólidos de diversas técnicas de síntesis y caracterización de materiales y sus posibles aplicaciones, con sentido innovador y la capacidad de colaborar en un entorno multidisciplinario.</li>
-                                                <li>Una especialización obtenida durante su trabajo de tesis en alguna de las áreas de ciencia de materiales correspondientes a las LGAC, a saber:
-                                                    <ol type="a">
-                                                        <li>Estudio estructural y propiedades eléctricas de materiales avanzados,</li>
-                                                        <li>Estudio de propiedades ópticas de materiales, y</li>
-                                                        <li>Síntesis de materiales.</li>
-                                                    </ol>
-                                                </li>
-                                                <li>Cualidades y aptitudes para reportar de manera eficiente sus resultados de trabajo a distintos sectores o grupos de la sociedad de manera individual o colectiva.</li>
-                                                <li>Los conocimientos y la iniciativa para abordar problemáticas tecnológicas y científicas.</li>
-                                                <li>Un sentido crítico, creativo, analítico, responsable y cooperativo que le permita incorporarse al sector productivo o educativo.</li>
-                                                <li>La capacidad de la autocrítica y asumir un compromiso ético con el medio ambiente en el desarrollo de su ejercicio profesional.</li>
-                                                <li>Un nivel de inglés de al menos 500 puntos en el examen TOEFL o equivalente.</li>
-                                            </ul>
-                                        </body>
-                                        
-                                        
-
-                                       </div>
-
-                                       <div *ngIf="i === 5">
-                                        
-                                        <style>
-                                            table {
-                                                width: 100%;
-                                                border-collapse: collapse;
-                                                margin-bottom: 20px;
-                                            }
-                                            th, td {
-                                                border: 1px solid black;
-                                                padding: 8px;
-                                                text-align: left;
-                                            }
-                                            th {
-                                                background-color: #f2f2f2;
-                                            }
-                                        </style>
-                                    
-                                    <body>
-                                        
-                                    
-                                        <table>
-                                            <tr>
-                                                <th>Semestre</th>
-                                                <th>Asignaturas</th>
-                                                <th>Clave</th>
-                                                <th>Seriación</th>
-                                                <th>Horas Con Docentes</th>
-                                                <th>Horas Independientes</th>
-                                                <th>Créditos</th>
-                                                <th>Instalaciones</th>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="4">Primer Semestre</td>
-                                                <td>Síntesis de materiales</td>
-                                                <td>300101</td>
-                                                <td>-</td>
-                                                <td>85</td>
-                                                <td>54</td>
-                                                <td>8</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tópicos Selectos de Matemáticas</td>
-                                                <td>300102</td>
-                                                <td>-</td>
-                                                <td>85</td>
-                                                 <td>54</td>
-                                                <td>8</td>
-                                                <td>A</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Química de materiales</td>
-                                                <td>300103</td>
-                                                <td>-</td>
-                                                <td>85</td>
-                                                 <td>54</td>
-                                                <td>8</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Seminario de Tesis I</td>
-                                                <td>300104</td>
-                                                <td>-</td>
-                                                <td>64</td>
-                                                <td>120</td>
-                                                <td>10</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="4">Segundo Semestre</td>
-                                                <td>Física del Estado Sólido</td>
-                                                <td>300201</td>
-                                                <td>300101</td>
-                                                <td>85</td>
-                                                <td>54</td>
-                                                <td>8</td>
-                                                <td>A</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Fisicoquímica de los Materiales</td>
-                                                <td>300202</td>
-                                                <td>300101</td>
-                                                <td>85</td>
-                                                <td>54</td>
-                                                <td>8</td>
-                                                <td>A</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Seminario de tesis II</td>
-                                                <td>300203</td>
-                                                <td>300104</td>
-                                                <td>64</td>
-                                                <td>120</td>
-                                                <td>10</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Optativa I</td>
-                                                <td>-</td>
-                                                <td>-</td>
-                                                <td>85</td>
-                                                <td>74</td>
-                                                <td>9</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="3">Tercer Semestre</td>
-                                                <td>Técnicas de Caracterización de Materiales</td>
-                                                <td>300301</td>
-                                                <td>300101, 300201</td>
-                                                <td>85</td>
-                                                <td>54</td>
-                                                <td>8</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Seminario de tesis III</td>
-                                                <td>300302</td>
-                                                <td>300203</td>
-                                                <td>64</td>
-                                                <td>120</td>
-                                                <td>10</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Optativa II</td>
-                                                <td>-</td>
-                                                <td>-</td>
-                                                <td>85</td>
-                                                <td>74</td>
-                                                <td>9</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="1">Cuarto Semestre</td>
-                                                <td>Seminario de Tesis IV</td>
-                                                <td>300401</td>
-                                                <td>300302</td>
-                                                <td>64</td>
-                                                <td>120</td>
-                                                <td>10</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                        </table>
-                                    
-                                       
-                                        <table>
-                                            <tr>
-                                                <th>Asignaturas Optativas</th>
-                                                <th>Clave</th>
-                                                <th>Seriación</th>
-                                                <th>Horas Con Docentes</th>
-                                                <th>Horas Independientes</th>
-                                                <th>Créditos</th>
-                                                <th>Instalaciones</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Cinética de Reacciones Químicas</td>
-                                                <td>300501</td>
-                                                <td>-</td>
-                                                <td>85</td>
-                                                <td>74</td>
-                                                <td>9</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Luminiscencia en Materiales Sólidos</td>
-                                                <td>300502</td>
-                                                <td>-</td>
-                                                <td>85</td> 
-                                                <td>74</td>
-                                                <td>9</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Interacción de la Luz con la Materia</td>
-                                                <td>300503</td>
-                                                <td>-</td>
-                                                <td>85</td> 
-                                                <td>74</td>
-                                                <td>9</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Introducción a la Superconductividad</td>
-                                                <td>300504</td>
-                                                <td>-</td>
-                                                <td>85</td> 
-                                                <td>74</td>
-                                                <td>9</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sistemas dispersos en Ciencia de Materiales</td>
-                                                <td>300505</td>
-                                                <td>-</td>
-                                                <td>85</td> 
-                                                <td>74</td>
-                                                <td>9</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Polímeros</td>
-                                                <td>300506</td>
-                                                <td>-</td>
-                                                <td>85</td> 
-                                                <td>74</td>
-                                                <td>9</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Caracterización Óptica de Películas Delgadas</td>
-                                                <td>300507</td>
-                                                <td>-</td>
-                                                <td>85</td> 
-                                                <td>74</td>
-                                                <td>9</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Cerámica Electrónica</td>
-                                                <td>300508</td>
-                                                <td>-</td>
-                                                <td>85</td> 
-                                                <td>74</td>
-                                                <td>9</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Semiconductores y Dieléctricos</td>
-                                                <td>300509</td>
-                                                <td>-</td>
-                                                <td>85</td> 
-                                                <td>74</td>
-                                                <td>9</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Espectroscopia Vibracional</td>
-                                                <td>300510</td>
-                                                <td>-</td>
-                                                <td>85</td> 
-                                                <td>74</td>
-                                                <td>9</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Polímeros Supramoleculares en Solución</td>
-                                                <td>300511</td>
-                                                <td>300506</td>
-                                                <td>85</td> 
-                                                <td>74</td>
-                                                <td>9</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Propiedades Magnéticas de Materiales</td>
-                                                <td>300512</td>
-                                                <td>-</td>
-                                                <td>85</td> 
-                                                <td>74</td>
-                                                <td>9</td>
-                                                <td>A-L</td>
-                                            </tr>
-                                        </table>
-                                    
-                                    </body>
-                                       </div>
-                                       
-                                    <div *ngIf="i === 6">
-                                        <p>Numero de Alumnos Matriculados en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                    </div>
-                                    
-                                    <div *ngIf="i === 7">
-                                       
-                                        <style>
-                                            .profile {
-                                                margin-bottom: 20px;
-                                                border: 1px solid #ccc;
-                                                padding: 10px;
-                                                border-radius: 5px;
-                                            }
-                                            .profile img {
-                                                float: left;
-                                                margin-right: 10px;
-                                                border-radius: 50%;
-                                            }
-                                            .profile h2 {
-                                                margin-top: 0;
-                                            }
-                                            .profile p {
-                                                margin-bottom: 5px;
-                                            }
-                                        </style>
-                                       <body>
-
-                                        <div class="profile">
-                                            <img src="/assets/images/Guillermo_Juarez_Lopez.jpg" alt="Foto de Dr. Guillermo Juárez López">
-                                            <h2>Dr. Guillermo Juárez López</h2>
-                                            <p>Dr. Guillermo Juárez López realizó estudios de Licenciatura como Ing. Minero Metalúrgico en la Universidad Autónoma del Estado del Hidalgo (UAEH). Los estudios de maestría los realizó en el Instituto Politécnico Nacional y su Doctorado en la UAEH, obteniendo el grado de Doctor en Ciencias de los Materiales. El Dr. Juárez se incorporó a la Universidad Tecnológica de la Mixteca (UTM) en Octubre del 2008 como PTC, adscrito al instituto de Minería. Actualmente cuenta con el nombramiento de profesor titular B y como jefe del Centro de Estudios de Nuevos Materiales. Cuenta con la distinción de profesor investigador con perfil deseable PROMEP, ingresando también al Sistema Nacional de Investigadores (SNI) como candidato y posteriormente con Nivel 1. Cuenta con diferentes publicaciones en revistas arbitradas en JCR, patentes otorgadas y en proceso, participaciones en diferentes congresos nacionales e internacionales. Es director y codirector de tesis de maestría y licenciatura concluidas y en proceso. Integrado al Cuerpo académico UTMIX-CA-41 como responsable, desarrollando las líneas de investigación en Síntesis de materiales y recuperación de metales preciosos por procesos Hidrometalúrgicos. Su experiencia laboral es de 15 años, principalmente en la industria minero-metalúrgica, así como en la industria siderúrgica, perforaciones y rehabilitación de pozos. Su experiencia en docencia es de 27 años (15 años en la UAEH y 12 años en la UTM), impartiendo en estos últimos 5 años los cursos de Ciencia e Ingeniería de materiales y seminario de tesis a nivel licenciatura y Maestría, así como también metodología de la investigación y matemáticas en cursos propedéuticos en licenciatura.</p>
+                                    <div class="panel-body">
+                                        <div *ngIf="i === 0">
+                                          <div class="mision-content">
+                                              <div [innerHTML]="formatText(datos_carrera.mision)"></div>
+                                          </div>
                                         </div>
-                                        
-                                        <div class="profile">
-                                            <img src="/assets/images/Jorge_Gonzalez_Garcia.jpg" alt="Foto de Dr. Jorge González García">
-                                            <h2>Dr. Jorge González García</h2>
-                                            <p>Dr. Jorge González García estudió su licenciatura en electrónica, la maestría la realizó en Instrumentación Óptica y su doctorado en Pulido de Superficies Ópticas. Desde el año 2003, el Dr. Jorge González García es profesor investigador adscrito al Instituto de Física y Matemáticas de la Universidad Tecnológica de la Mixteca, UTM; ha sido director del instituto, y las materias que ha impartido a nivel ingeniería son: Mecánica Clásica, Electrostática, Electrodinámica, Electromagnetismo, Teoría Electromagnética, Física Ondulatoria, Óptica y Óptica Geométrica. Ha participado en tres proyectos financiados, dos por Conacyt y uno por el Promep, además de ser director de una estancia posdoctoral apoyada por Promep; actualmente cuenta con el reconocimiento del perfil Promep y es miembro del cuerpo académico de Óptica Aplicada UTMIX-CA-22. Las líneas de investigación desarrolladas por el Dr. González son: Pulido de Superficies Ópticas, Óptica Adaptativa Refractiva, Diseño Óptico, Pruebas Ópticas y caracterización optimización para la elaboración de elementos sintonizables. El desarrollo de estas líneas de investigación le ha permitido al Dr. González ser co-director de 3 tesis a nivel licenciatura, 5 de maestría y 1 de doctorado, y ser co-autor de 25 artículos JCR y 25 artículos en extenso internacionales.</p>
+                                        <div *ngIf="i === 1">
+                                          <div class="vision-content">
+                                              <div [innerHTML]="formatText(datos_carrera.vision)"></div>
+                                              </div>
                                         </div>
-                                        
-                                        <div class="profile">
-                                            <img src="/assets/images/Julian_Javier_Carmona_Rodriguez.jpg" alt="Foto de Dr. Julián Javier Carmona Rodríguez">
-                                            <h2>Dr. Julián Javier Carmona Rodríguez</h2>
-                                            <p>Dr. Julián Javier Carmona Rodríguez realizó estudios de licenciatura en Física en la Universidad Veracruzana (1995-2000), de maestría (2000-2003) y doctorado (2003-2007) en la Facultad de Ciencias Físico Matemáticas de la Benemérita Universidad Autónoma de Puebla (BUAP) y estancia posdoctoral (2007-2010) en el Centro de Investigación y de Estudios Avanzados del Instituto Politécnico Nacional, unidad Querétaro (CINVESTAV-Qro.), bajo la dirección del Dr. Sergio Jiménez Sandoval. El Dr. Carmona-Rodríguez se encuentra adscrito al Instituto de Física y Matemáticas de la Universidad Tecnológica de la Mixteca (UTM) desde 2013, como profesor investigador titular A. Miembro del SNI del 2010 al 2019 y perfil deseable para PTC (PROMEP) del 2014 al 2019. Pertenece al cuerpo académico UTMIX-CA-20 (Consolidado). Sus áreas de investigación se enfocan en estudios de propiedades ópticas, estructurales y eléctricas de películas semiconductoras obtenidas las técnicas de erosión catódica (Sputtering) y sol-gel. En sus campos de especialidad cuenta hasta la fecha con 18 artículos arbitrados en revistas internacionales (indizadas), 25 trabajos en congresos, 1 tesis de Doctorado, 2 de maestría y 3 de licenciatura (2 en proceso).</p>
+                                        <div *ngIf="i === 2">
+                                            <div class="objetivo-content">
+                                              <div [innerHTML]="formatText_3(datos_carrera.objetivo)"></div>
+                                              </div>
                                         </div>
-                                        
-                                        <div class="profile">
-                                            <img src="/assets/images/Ivan_Rene_Corrales_Mendoza.jpg" alt="Foto de Dr. Iván René Corrales Mendoza">
-                                            <h2>Dr. Iván René Corrales Mendoza</h2>
-                                            <p>Dr. Iván René Corrales Mendoza, realizó sus estudios de licenciatura en Física y Matemáticas en la Escuela Superior de Física y Matemáticas del Instituto Politécnico Nacional (2003-2007). Los estudios de Maestría (2008-2010) y Doctorado (2011-2015) los realizó en el Departamento de Física del Centro de Investigación y de Estudios Avanzados del Instituto Politécnico Nacional (CINVESTAV-IPN), obteniendo el grado de Doctor en Ciencia en la especialidad en Física. El Dr. Corrales se incorporó a la Universidad Tecnológica de la Mixteca (UTM) en octubre del 2015, como PTC adscrito al Instituto de Física y Matemáticas, con el nombramiento de profesor titular B. Desarrolla líneas de investigación en síntesis de materiales mediante el depósito por vapores químicos en sus modalidades: asistido por aerosol (AA-CVD) y mediante fuentes metalorgánicas (MO-CVD), así como la síntesis y caracterización de materiales superconductores. Es miembro del SNI desde 2017 a la fecha (actualmente SNI-1), cuenta con perfil deseable SEP-PROMEP y es miembro del Cuerpo académico "Consolidado" UTMIX-CA-40. Ha publicado en revistas indizadas, participado en congresos nacionales e internacionales, dirigido trabajos de tesis de licenciatura y maestría, e impartido diversos cursos de licenciatura y posgrado.</p>
+                                        <div *ngIf="i === 3">
+                                            <div class="perfil-ingreso-content">
+                                              <div [innerHTML]="formatText_5(datos_carrera.perfil_ingreso)"></div>
+                                            </div>
                                         </div>
-                                        
-                                        <div class="profile">
-                                            <h2>Dra. Mirna Denisse Barreiro Argüelles</h2>
-                                            <p>La Dra. Denisse Barreiro realizó sus estudios de Licenciatura en Física en la Universidad Veracruzana y la Maestría en Física en la Universidad de Guanajuato. Obtuvo el grado de Doctora en Ciencias (Óptica) por el Centro de Investigaciones en Óptica A. C. (CIO). Posteriormente, realizó una estancia posdoctoral en el Instituto de Investigaciones en Materiales de la Universidad Nacional Autónoma de México (IIM-UNAM) a través del programa de estancias posdoctorales CONACYT-SENER-Sustentabilidad energética. Es miembro del Sistema Nacional de Investigadores desde el año 2020 (actualmente SNI I). La Dra. Barreiro- Argüelles se incorporó a la Universidad Tecnológica de la Mixteca (UTM) como profesora-Investigadora en octubre 2022. Sus líneas de investigación se enfocan en el estudio y caracterización de materiales orgánicos, de perovskita e híbridos para la fabricación de dispositivos optoelectrónicos de películas delgadas, así como la caracterización óptica, eléctrica y el análisis de estabilidad de estos.</p>
+                                        <div *ngIf="i === 4">
+                                            <div class="perfil-egreso-content">
+                                              <div [innerHTML]="formatText_3(datos_carrera.perfil_egreso)"></div>
+                                                </div>
                                         </div>
-                                        
-                                        <div class="profile">
-                                            <h2>Dra. María Yesica Espinosa Cerén</h2>
-                                            <p>La Dra. María Yesica Espinosa Cerén realizó estudios de Licenciatura en Física, así como Maestría y Doctorado en Ciencias (Física Aplicada), todos ellos en la Facultad de Ciencias Físico Matemáticas de la Benemérita Universidad Autónoma de Puebla (BUAP). Se incorporó a la Universidad Tecnológica de la Mixteca (UTM) en 2022, como PTC adscrita al Instituto de Física y Matemáticas. El área de investigación que desarrolla es la síntesis y caracterización de materiales luminiscentes en estado vítreo y cristalino. Colaboró en el proyecto A1-S-22057 “Fabricación vanadatos multifuncionales”, financiado por CONACYT. Cuenta con publicaciones en revistas indizadas y ha participado en diversos congresos nacionales e internacionales. Ha impartido cursos de la Licenciatura en Física (BUAP) y de diferentes ingenierías (UTM).</p>
+                                        <div *ngIf="i === 5">
+                                           
                                         </div>
-                                        
-                                        <div class="profile">
-                                           <h2>Dr. Juan Montes Pérez</h2>
-                                            <p>El Dr. Juan Montes Pérez realizó sus estudios de licenciatura, maestría y doctorado en Física en la Benemérita Universidad Autónoma de Puebla (BUAP). Posteriormente, llevó a cabo tres estancias posdoctorales en el Instituto de Energías Renovables de la Universidad Nacional Autónoma de México (UNAM), colaborando con dos investigadores eméritos. Ha sido profesor en la Universidad Tecnológica Emiliano Zapata del Estado de Morelos (UTEZ) y en la UNAM. En 2017 ingresó al Sistema Nacional de Investigadores (SNI) como candidato.</p>
-                                            <p>Ha realizado 4 publicaciones científicas en revistas indexadas de alto impacto como primer autor, destacando la primera persona en encontrar solución a una ecuación que completa el cálculo de las propiedades termodinámicas de fluidos simples. Además, ha presentado 13 ponencias en congresos nacionales e internacionales. Sus áreas de especialidad incluyen métodos numéricos, mecánica estadística, física molecular, fenómenos de transporte, sistemas simples y sistemas complejos.</p>
-                                        </div>
-                                        
-                                        <div class="profile">
-                                            <img src="/assets/images/Olexandr_Bondarchuk.jpg" alt="Foto de Dr. Olexandr Bondarchuk">
-                                            <h2>Dr. Olexandr Bondarchuk</h2>
-                                            <p>El Dr. Olexandr Bondarchuk realizó sus estudios de doctorado en Ciencias Fisicomatemáticas con especialidad en Física de Estado Sólido en la Universidad Nacional Dnipropetrovsk, Ucrania. Sus investigaciones se han centrado en la física de materiales óxidos con efectos no Ohmicos, enfocándose actualmente en el desarrollo de materiales para aplicaciones en energías renovables.</p>
-                                            <p>Ha publicado 39 artículos científicos y ha sido responsable técnico de 4 proyectos financiados por CONACYT. Es miembro del Sistema Nacional de Investigadores (SNI) con Nivel 1 y cuenta con perfil deseable para Profesor de Tiempo Completo (PTC) en el Programa para el Desarrollo Profesional Docente (PROMEP). Además, es integrante del Cuerpo Académico UTMIX-CA-40.</p>
-                                        </div>
-                                        
-                                       </body>
-                                    
-
-                                    </div>
-
-                                    <div *ngIf="i === 8">
-                                        <h2>Estudio estructural y propiedades eléctricas de materiales avanzados</h2>
-                                        <p>Está enfocada en el estudio de la estructura y morfología de materiales cerámicos, películas delgadas, a través de técnicas como: difracción de rayos X (XRD), microscopia electrónica de barrido (SEM), microscopia de fuerza atómica (AFM). Estudio de conducción eléctrica como función de la temperatura, campo eléctrico y humedad relativa; estudio de propiedades dieléctricas. Los estudios van enfocados para aplicaciones: electrodos transparentes, sensores de humedad, varistores y superconductores. Los integrantes del NAB que participan activamente en esta línea son: Dr. Alexandr Bondachuk, Dr. Iván René Corrales y Dr. Julián Javier Carmona Rodríguez.</p>
-                                    
-                                        <h2>Estudio de propiedades ópticas de materiales</h2>
-                                        <p>Está dirigida al estudio de fotoluminiscencia en materiales semiconductores con aplicación en fotocatálisis y óxidos conductores transparentes. Además, caracterización mecánico-óptica de materiales para el diseño, elaboración y análisis de elementos sintonizables para aplicaciones ópticas. Los integrantes del NAB que participan activamente en esta línea son: Dr. Guillermo Juárez López, Dr. Rafael Martínez Martínez, Dr. Julián Javier Carmona Rodríguez y Dr. Jorge Gonzales García.</p>
-                                    
-                                        <h2>Síntesis de materiales</h2>
-                                        <p>Esta línea de investigación se centra en el diseño y síntesis de estructuras supramoleculares (macrociclos, cajas, jaulas y polímeros tipo COF Y MOF), nanomateriales, nanocápsulas, películas semiconductoras, materiales superconductores, cerámicas avanzadas y vidrios, en particular con propiedades luminiscentes, eléctricas y magnéticas para diversas aplicaciones. Los integrantes del NAB que participan activamente en esta línea son: Dr. Domingo Salazar Mendoza, Dra. Laura Márquez De Santis, Dr. Alexandr Bondachuk, Dr. Iván René Corrales, Dr. Julián Javier Carmona Rodríguez, Dr. Guillermo Juárez López y Dr. Rafael Martínez Martínez.</p>                                    
-                                        
-                                    </div>
-
-                                     <div *ngIf="i === 9">
-                                        <p>Tutoria de Seguimiento Academico en revisión por parte de las autoridades universitarias correspondientes.</p>   
-                                     </div>
-
-                                
-
-                                     <div *ngIf="i === 10">
-                                        <p>Productividad Academica Relevante en revisión por parte de las autoridades universitarias correspondientes.</p> 
-                                     </div>
-  
-                                     <div *ngIf="i === 11">
-                                        
-                                        <p>Vinculacion con Otros Sectores de la Sociedad en revisión por parte de las autoridades universitarias correspondientes.</p>
-
-                                     </div>
-
-                                     <div *ngIf="i === 12">
-                                        
-                                        <p>Egresados en revisión por parte de las autoridades universitarias correspondientes.</p>
-
-                                     </div>
-
-                                     <div *ngIf="i === 13">
-                                        
-                                        <body>
-                                            <h2>FECHAS</h2>
-                                            <ul>
-                                              <li><strong>Solicitud y entrega de documentos:</strong> 16 de febrero al 26 de junio de 2024</li>
-                                              <li><strong>Examen de selección:</strong> 01 de julio de 2024</li>
-                                              <li><strong>Entrevista:</strong> 02 de julio de 2024</li>
-                                              <li><strong>Inscripciones al curso propedéutico:</strong> 08 al 12 de julio de 2024</li>
-                                              <li><strong>Curso propedéutico:</strong> 29 de julio al 20 de septiembre de 2024</li>
-                                            </ul>
+                                        <div *ngIf="i === 6">
                                           
-                                            <h2>Requisitos</h2>
-                                            <ul>
-                                              <li>Dos copias del acta de nacimiento actualizada</li>
-                                              <li>Dos copias del certificado de licenciatura</li>
-                                              <li>Dos copias del título profesional</li>
-                                              <li>Dos copias de la cédula profesional</li>
-                                              <li>Carta de exposición de motivos mínimo 3 y máximo 5 cuartillas</li>
-                                              <li>Currículum Vitae actualizado</li>
-                                              <li>Constancia de inglés con una equivalencia de 450 TOEFL</li>
-                                              <li>Seis fotografías tamaño infantil blanco y negro</li>
-                                              <li>Dos cartas de recomendación avaladas por profesores o investigadores ya sea nacionales o extranjeros</li>
-                                            </ul>
-                                          
-                                            <p><strong>Nota:</strong> Toda la documentación debe entregarse en tamaño carta junto con el pago del examen de selección en original y copia.</p>
-                                            <p>En caso de ser extranjero todos los documentos deben venir apostillados.</p>
-                                          
-                                            <h3>A V I S O:</h3>
-                                            <p>A los interesados en inscribirse al programa. Por favor mandar la documentación vía e-mail al correo: <a href="mailto:blaver102@mixteco.utm.mx">blaver102@mixteco.utm.mx</a>, con la Srita. Blanca Nava, cualquier cambio de fecha se las haremos saber por esta misma vía.</p>
-                                          
-                                            <h2>FORMA DE PAGO DE SERVICIOS</h2>
-                                            <p><a href="/assets/pdf/Procedimiento_para_pagar_con_Linea_de_Captura_de_posgrado.pdf" target="_blank">Dar click aquí para ver el manual de apoyo</a></p>
-                                            <ol>
-                                              <li>Entrar a <a href="http://www.finanzasoaxaca.gob.mx/" target="_blank">http://www.finanzasoaxaca.gob.mx/</a></li>
-                                              <li>Seleccionar "Educativos"</li>
-                                              <li>Nuevamente, seleccionar "Educativos"</li>
-                                              <li>Elegir "Universidad Tecnológica de la Mixteca"</li>
-                                              <li>Llenar Formato, imprimir, pagar y presentar el comprobante de pago original</li>
-                                            </ol>
-                                          
-                                            <h2>INFORMES</h2>
-                                            <address>
-                                              Avenida. Doctor Modesto Seara Vázquez, Acatlima, Huajuapan de León, Oax., México, C.P.69000<br>
-                                              División de Estudios de Posgrado y Departamento de Servicios Escolares.<br>
-                                              Tel. y Fax. (953) 53 2 03 99 ext. 300, 110 y 768<br>
-                                              E-mail: <a href="mailto:jdivisionposgrado@mixteco.utm.mx">jdivisionposgrado@mixteco.utm.mx</a>; Servicios Escolares: <a href="mailto:escolar@mixteco.utm.mx">escolar@mixteco.utm.mx</a>
-                                            </address>
-                                          
-                                            <h2>CONTACTO</h2>
-                                            <p>Dr. Iván René Corrales Mendoza, correo electrónico: <a href="mailto:icorrales@mixteco.utm.mx">icorrales@mixteco.utm.mx</a>, teléfono: (953) 53 20 214 ext. 501</p>
-                                            <p>Dr. Julián Javier Carmona Rodríguez, correo electrónico: <a href="mailto:jcarmona@mixteco.utm.mx">jcarmona@mixteco.utm.mx</a>, teléfono: (953) 53 20 399 ext. 510</p>
-                                            <p>Dr. Iván René Corrales Mendoza<br>
-                                              Coordinador Académico<br>
-                                              E-mail: <a href="mailto:icorrales@mixteco.utm.mx">icorrales@mixteco.utm.mx</a><br>
-                                              Teléfonos: 953 532 03 99/202 14 Ext. 500</p>
-                                          </body>
-                                     </div>
-                                     
-                                     <div *ngIf="i === 14">
-                                        
-                                        <p>Informacion de Becas CONACYT en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                     </div>
-                                  </div>
-                                
-                                
-                                
+                                                
+                                            
+                                        </div>
+                                        <div *ngIf="i === 7">
+                                            <body class="custom-body">
+                                                
+                                                <div *ngFor="let nucleo of nucleo_academico" class="profile-container">
+                                                    <div *ngIf="nucleo.imagen_url" class="profile-image">
+                                                        <img src="{{nucleo.imagen_url}}" alt="{{nucleo.nombre}}">
+                                                    </div>
+                                                    <div class="profile-text">
+                                                        <div class="profile">
+                                                            <p><strong>{{nucleo.grado}} {{ nucleo.nombre }}</strong></p>
+                                                            <p><strong><a [href]="'mailto:' + nucleo.correo">{{ nucleo.correo }}</a></strong></p>
+                                                            <div [innerHTML]="formatText(nucleo.descripcion_perfil)"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </body>
+                                            
+                                        </div>
+                                        <div *ngIf="i === 8">
+                                            <div class="universal" *ngFor="let linea of lineas_de_generacion">
+                                                <div *ngIf="linea.descripcion_linea" [innerHTML]="formatText_7(linea.descripcion_linea)"></div>
+                                            </div>
+                                      </div>
+                                      <div *ngIf="i === 9"></div>
+                                      <div *ngIf="i === 10"></div>
+                                      <div *ngIf="i === 11"></div>
+                                      <div *ngIf="i === 12"></div>
+                                      <div *ngIf="i === 13"></div>
+                                      <div *ngIf="i === 14">
+                                          <div class="beca-content">
+                                              <div [innerHTML]="formatText(datos_carrera.beca)"></div>
+                                          </div>
+                                      </div>
+                                    </div>
                                 </div>
-                              </div>
                             </div>
-                          </div>
-                          
-                          
-
-            
+                        </div>
                     </div>
+  
                 </div>
-            </article>
-        </div>
+            </div>
+        </article>
     </div>
-</div>
+  </div>
+  

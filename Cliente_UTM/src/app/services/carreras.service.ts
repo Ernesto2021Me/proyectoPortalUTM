@@ -19,9 +19,19 @@ export class CarrerasService {
     return this.http.post(`${environment.API_URI}/carreras/jefe_carrera`,{"Codigocarrera":Codigocarrera});
   }
 
-  
-
   informacion_carrera(Codigocarrera:any){
-    return this.http.post(`${environment.API_URI}/carreras/informacion_carrera`,{"Codigocarrera":Codigocarrera});
+    return this.http.post(`${environment.API_URI}/carreras/informacion_licenciatura`,{"Codigocarrera":Codigocarrera});
+  }
+
+  informacion_carrera_posgrado(Codigocarrera:any){
+    return this.http.post(`${environment.API_URI}/carreras/informacion_posgrado`,{"Codigocarrera":Codigocarrera});
+  }
+
+  nucleo_academico(Codigocarrera:any){
+    return this.http.post(`${environment.API_URI}/carreras/nucleo_academico`,{"Codigocarrera":Codigocarrera});
+  }
+
+  linea_de_generacion(Codigocarrera:any){
+    return this.http.post(`${environment.API_URI}/carreras/linea_de_generacion`,{"Codigocarrera":Codigocarrera});
   }
 }

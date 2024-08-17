@@ -57,7 +57,7 @@ WHERE codigoCarrera= ?
     }
 }
 
-public async list_informacion_completa(req: Request, res: Response): Promise<void> {
+public async list_informacion_licenciatura(req: Request, res: Response): Promise<void> {
     const { Codigocarrera } = req.body;
     
     try {
@@ -79,7 +79,7 @@ FROM
     carreras c
 LEFT JOIN jefe_carreras j ON c.codigoCarrera = j.codigoCarrera
 LEFT JOIN
-    Informacion_carrera2 i ON c.id_informacion = i.id_carrera_informacion
+    Informacion_licenciaturas i ON c.id_informacion = i.id_carrera_informacion
 LEFT JOIN imagenes_Carreras ic ON c.id_informacion = ic.id_informacion_carrera
 WHERE
     c.codigoCarrera =?  -- Cambia 'tu_codigo_carrera' por el valor deseado
@@ -93,6 +93,91 @@ GROUP BY
         // Manejar el error y devolver una respuesta adecuada
         res.status(500).json({ error: 'Error en la consulta' });
     }
+}
+
+public async list_informacion_posgrado(req: Request, res: Response): Promise<void> {
+    const { Codigocarrera } = req.body;
+    
+    try {
+        // Ejecutar la consulta combinada con parámetros
+        const resultado = await pool.query(`
+          SELECT
+    c.nombre AS nombre_carrera,
+    i.mision,
+    i.vision,
+    i.objetivo,
+    i.perfil_ingreso,
+    i.perfil_egreso,
+    i.Becas As beca,
+    ic.url AS url_imagen
+FROM
+    carreras c
+LEFT JOIN
+    Informacion_posgrados i ON c.id_informacion = i.id_carrera_informacion
+LEFT JOIN imagenes_Carreras ic ON c.id_informacion = ic.id_informacion_carrera
+WHERE
+    c.codigoCarrera =?  -- Cambia 'tu_codigo_carrera' por el valor deseado
+GROUP BY
+    c.codigoCarrera, c.nombre;
+        `, [Codigocarrera]);
+
+        // Devolver los resultados como JSON
+        res.json(resultado); // Asumiendo que 'resultado' tiene una propiedad 'rows'
+    } catch (error) {
+        // Manejar el error y devolver una respuesta adecuada
+        res.status(500).json({ error: 'Error en la consulta' });
+    }
+}
+
+public async nucleo_academico(req: Request, res: Response): Promise<void> {
+    const { Codigocarrera } = req.body;
+    try {
+        const resultado = await pool.query(`
+            SELECT
+                n.codigoCarrera,
+                p.codigoInstituto,
+                p.grado,
+                p.nombre,
+                p.correo,
+                n.descripcion_perfil,
+                n.SNI,
+                n.perfil_deseable,
+                n.image_url as imagen_url
+            FROM
+                nucleo_academico n
+            LEFT JOIN
+                perfil_academico p ON n.id_perfil = p.id
+            WHERE
+                n.codigoCarrera = ?
+        `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
+    
+        // Devolver los resultados como JSON
+        res.json(resultado); // Asegúrate de acceder a 'rows' si esa es la propiedad que contiene los datos
+    } catch (error) {
+        // Manejar el error y devolver una respuesta adecuada
+        res.status(500).json({ error: 'Error en la consulta' });
+    }
+    
+}
+
+public async linea_de_generacion(req: Request, res: Response): Promise<void> {
+    const { Codigocarrera } = req.body;
+    try {
+        const resultado = await pool.query(`
+           SELECT 
+codigoCarrera, 
+descripcion as descripcion_linea
+FROM LineasDeGeneracion 
+WHERE codigoCarrera= ?
+        `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
+    
+        // Devolver los resultados como JSON
+        res.json(resultado); // Asegúrate de acceder a 'rows' si esa es la propiedad que contiene los datos
+    } catch (error) {
+        // Manejar el error y devolver una respuesta adecuada
+        res.status(500).json({ error: 'Error en la consulta' });
+    }
+    
 }
 }
 export const carrerasController = new CarrerasController();

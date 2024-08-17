@@ -114,6 +114,7 @@ import { InvestigadoresCIComponent } from './components/investigadores-ci/invest
 import { InvestigadoresPCCComponent } from './components/investigadores-pcc/investigadores-pcc.component';
 import { BibliotecasComponent } from './components/bibliotecas/bibliotecas.component';
 import { IngenieriaQuimicaComponent } from './components/ingenieria-quimica/ingenieria-quimica.component';
+import { MaestriaEnMediosInteractivosComponent } from './components/maestria-en-medios-interactivos/maestria-en-medios-interactivos.component';
 const routes: Routes = [
   {
     path: "",
@@ -191,7 +192,7 @@ const routes: Routes = [
                     { path: 'ensenanza/posgrados/maestria_en_diseno_modas', component: MaestriaEnDisenoDeModasComponent},
                     { path: 'ensenanza/posgrados/maestria_en_diseno_muebles', component: MaestriaEnDisenoDeMueblesComponent},
                     { path: 'ensenanza/posgrados/maestria_en_electronica_en_sistemas_inteligentes', component: MaestriaEnElectronicaOpcionSistemasInteligentesComponent},
-                    { path: 'ensenanza/posgrados/maestria_en_modelacion_matematica"', component: MaestriaEnModelacionMatematicaComponent},
+                    { path: 'ensenanza/posgrados/maestria_en_modelacion_matematica', component: MaestriaEnModelacionMatematicaComponent},
                     { path: 'ensenanza/posgrados/maestria_en_robotica', component: MaestriaEnRoboticaComponent},
                     { path: 'ensenanza/posgrados/maestria_en_tecnologia_avanzada_de_manufactura', component: MaestriaEnTecnologiaAvanzadaDeManufacturaComponent},
                     { path: 'ensenanza/posgrados/doctorado_en_ciencias_productos_naturales_alimentos', component: DoctoradoEnCienciasProductosNaturalesYAlimentosComponent},
@@ -201,6 +202,7 @@ const routes: Routes = [
                     { path: 'ensenanza/posgrados/doctorado_en_robotica', component: DoctoradoEnRoboticaComponent},
                     { path: 'ensenanza/posgrados/maestria_en_inteligencia_artificial', component: MaestriaEnInteligenciaArtificialComponent},
                     { path: 'ensenanza/posgrados/maestria_en_ingenieria_de_software', component: MaestriaEnIngenieriaDeSoftwareComponent},
+                    { path: 'ensenanza/posgrados/maestria_en_medios_interactivos', component: MaestriaEnMediosInteractivosComponent},
 
 
                 {path: 'ensenanza/ingreso_a_licenciatura',component:IngresoALicenciaturaComponent},    

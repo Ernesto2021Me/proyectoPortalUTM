@@ -69,7 +69,7 @@ WHERE codigoCarrera= ?
             }
         });
     }
-    list_informacion_completa(req, res) {
+    list_informacion_licenciatura(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { Codigocarrera } = req.body;
             try {
@@ -91,7 +91,7 @@ FROM
     carreras c
 LEFT JOIN jefe_carreras j ON c.codigoCarrera = j.codigoCarrera
 LEFT JOIN
-    Informacion_carrera2 i ON c.id_informacion = i.id_carrera_informacion
+    Informacion_licenciaturas i ON c.id_informacion = i.id_carrera_informacion
 LEFT JOIN imagenes_Carreras ic ON c.id_informacion = ic.id_informacion_carrera
 WHERE
     c.codigoCarrera =?  -- Cambia 'tu_codigo_carrera' por el valor deseado
@@ -100,6 +100,91 @@ GROUP BY
         `, [Codigocarrera]);
                 // Devolver los resultados como JSON
                 res.json(resultado); // Asumiendo que 'resultado' tiene una propiedad 'rows'
+            }
+            catch (error) {
+                // Manejar el error y devolver una respuesta adecuada
+                res.status(500).json({ error: 'Error en la consulta' });
+            }
+        });
+    }
+    list_informacion_posgrado(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { Codigocarrera } = req.body;
+            try {
+                // Ejecutar la consulta combinada con parámetros
+                const resultado = yield database_1.default.query(`
+          SELECT
+    c.nombre AS nombre_carrera,
+    i.mision,
+    i.vision,
+    i.objetivo,
+    i.perfil_ingreso,
+    i.perfil_egreso,
+    i.Becas As beca,
+    ic.url AS url_imagen
+FROM
+    carreras c
+LEFT JOIN
+    Informacion_posgrados i ON c.id_informacion = i.id_carrera_informacion
+LEFT JOIN imagenes_Carreras ic ON c.id_informacion = ic.id_informacion_carrera
+WHERE
+    c.codigoCarrera =?  -- Cambia 'tu_codigo_carrera' por el valor deseado
+GROUP BY
+    c.codigoCarrera, c.nombre;
+        `, [Codigocarrera]);
+                // Devolver los resultados como JSON
+                res.json(resultado); // Asumiendo que 'resultado' tiene una propiedad 'rows'
+            }
+            catch (error) {
+                // Manejar el error y devolver una respuesta adecuada
+                res.status(500).json({ error: 'Error en la consulta' });
+            }
+        });
+    }
+    nucleo_academico(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { Codigocarrera } = req.body;
+            try {
+                const resultado = yield database_1.default.query(`
+            SELECT
+                n.codigoCarrera,
+                p.codigoInstituto,
+                p.grado,
+                p.nombre,
+                p.correo,
+                n.descripcion_perfil,
+                n.SNI,
+                n.perfil_deseable,
+                n.image_url as imagen_url
+            FROM
+                nucleo_academico n
+            LEFT JOIN
+                perfil_academico p ON n.id_perfil = p.id
+            WHERE
+                n.codigoCarrera = ?
+        `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
+                // Devolver los resultados como JSON
+                res.json(resultado); // Asegúrate de acceder a 'rows' si esa es la propiedad que contiene los datos
+            }
+            catch (error) {
+                // Manejar el error y devolver una respuesta adecuada
+                res.status(500).json({ error: 'Error en la consulta' });
+            }
+        });
+    }
+    linea_de_generacion(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { Codigocarrera } = req.body;
+            try {
+                const resultado = yield database_1.default.query(`
+           SELECT 
+codigoCarrera, 
+descripcion as descripcion_linea
+FROM LineasDeGeneracion 
+WHERE codigoCarrera= ?
+        `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
+                // Devolver los resultados como JSON
+                res.json(resultado); // Asegúrate de acceder a 'rows' si esa es la propiedad que contiene los datos
             }
             catch (error) {
                 // Manejar el error y devolver una respuesta adecuada

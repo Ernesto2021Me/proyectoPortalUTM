@@ -1,1 +1,184 @@
-<p>maestria-en-robotica works!</p>
+<div class="content">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+        <h2 id="system-breadcrumb" class="visually-hidden"></h2>
+        <ol class="breadcrumb__items">
+            <li class="breadcrumb__item">
+                <a href="/home/web/">
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__item-separator fa fa-angle-right"></span>
+                <a href="home/ensenanza">
+                    <span>Enseñanza</span>
+                </a>
+            </li>
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__item-separator fa fa-angle-right"></span>
+                <a href="home/ensenanza/posgrados">
+                    <span>Posgrados</span>
+                </a>
+            </li>
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__item-separator fa fa-angle-right"></span>
+                <span>{{datos_carrera.nombre_carrera}}</span>
+            </li>
+        </ol>
+    </nav>
+  </div>
+  
+  <div class="wrapper">
+       <div class="region region-sidebar-first">
+            <nav role="navigation" aria-labelledby="block-menuensenanza-menu" id="block-menuensenanza" class="clearfix block block-menu navigation menu--menu-ensenanza">
+                <h4 class="visually-hidden" id="block-menuensenanza-menu">Menú-Enseñanza</h4>
+                <ul class="clearfix menu">
+                    <li class="menu-item menu-item--expanded menu-item--active-trail">
+                        <a href="/home/ensenanza/licenciaturas" data-drupal-link-system-path="node/38">Licenciaturas</a>
+                        <ul class="menu">
+                            <li class="menu-item menu-item--expanded menu-item--active-trail">
+                                <a href="/home/ensenanza/licenciaturas/huajuapan_de_leon" data-drupal-link-system-path="node/45">Huajuapan de Leon</a>
+                                <ul class="menu">
+                                    <li class="menu-item" *ngFor="let licenciatura of licenciaturas">
+                                        <a 
+                                            (click)="navigateTo(licenciatura.nombre)">
+                                          {{ licenciatura.nombre }}
+                                        </a>
+                                      </li>
+                                       
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item menu-item--expanded">
+                        <a href="/home/ensenanza/posgrados" data-drupal-link-system-path="node/37">Posgrados</a>
+                        <ul class="menu">
+                            <li class="menu-item menu-item--expanded">
+                                <a href="/home/ensenanza/posgrados/huajuapan_de_leon" data-drupal-link-system-path="node/58">Huajuapan de Leon</a>
+                                <ul class="menu">
+                                    <li class="menu-item" *ngFor="let posgrado of posgrados">
+                                        <a 
+                                        [ngClass]="{ 'highlight-red': posgrado.nombre === datos_carrera.nombre_carrera }"
+                                        
+                                          (click)="navigateTo(posgrado.nombre)">
+                                          {{ posgrado.nombre }}
+                                        </a>
+                                      </li> 
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/home/ensenanza/ingreso_a_licenciatura" data-drupal-link-system-path="node/36">Ingreso a Licenciatura</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/home/ensenanza/ingreso_a_posgrado" data-drupal-link-system-path="node/35">Ingreso a Posgrado</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/home/ensenanza/becas" data-drupal-link-system-path="node/34">Becas</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/home/ensenanza/bibliotecas" data-drupal-link-system-path="node/405">Bibliotecas</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/home/ensenanza/servicios_escolares" data-drupal-link-system-path="node/98">Servicios Escolares</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+  
+  <div class="content-container">
+    <div class="region region-content">
+        <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
+            <div class="content">
+                <h1 class="title page-title">
+                    <span class="field field--name-title field--type-string field--label-hidden">{{datos_carrera.nombre_carrera}}</span>
+                </h1>
+            </div>
+        </div>
+  
+        <article data-history-node-id="78" role="article" class="node node--type-pagina-inv-cpe node--view-mode-full clearfix">
+            <div class="node__container">
+                <div class="node__main-content clearfix">
+                    <header class="node__header">
+                        <h2 class="node__title title sr-only">
+                            <span class="field field--name-title field--type-string field--label-hidden">{{datos_carrera.nombre_carrera}}</span>
+                        </h2>
+                    </header>
+  
+                    <div class="field field--name-field-portada-inv-cpe field--type-image field--label-hidden field__item">
+                        <img loading="lazy" src="{{datos_carrera.url_imagen}}" width="1140" height="450" alt="{{datos_carrera.nombre_carrera}}" typeof="foaf:Image" />
+                    </div>
+  
+                    <div class="accordion-container">
+                        <div class="panel-group">
+                            <div *ngFor="let panel of panels; let i = index" class="panel">
+                                <div class="panel-heading" (click)="toggle(i)" [class.active]="isOpen(i)">
+                                    <div class="panel-title">
+                                        {{ panel.title }}
+                                    </div>
+                                </div>
+                                <div class="panel-collapse" *ngIf="isOpen(i)">
+                                    <div class="panel-body">
+                                        <div *ngIf="i === 0">
+                                          <div class="mision-content">
+                                              <div [innerHTML]="formatText(datos_carrera.mision)"></div>
+                                          </div>
+                                        </div>
+                                        <div *ngIf="i === 1">
+                                          <div class="vision-content">
+                                              <div [innerHTML]="formatText(datos_carrera.vision)"></div>
+                                              </div>
+                                        </div>
+                                        <div *ngIf="i === 2">
+                                            <div class="objetivo-content">
+                                              <div [innerHTML]="formatText_2(datos_carrera.objetivo)"></div>
+                                              </div>
+                                        </div>
+                                        <div *ngIf="i === 3">
+                                            <div class="perfil-ingreso-content">
+                                              <div [innerHTML]="formatText_2(datos_carrera.perfil_ingreso)"></div>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="i === 4">
+                                            <div class="perfil-egreso-content">
+                                              <div [innerHTML]="formatText_2(datos_carrera.perfil_egreso)"></div>
+                                                </div>
+                                        </div>
+                                        <div *ngIf="i === 5">
+                                           
+                                        </div>
+                                        <div *ngIf="i === 6">
+                                          
+                                                
+                                            
+                                        </div>
+                                        <div *ngIf="i === 7">
+                                           
+                                            
+                                        </div>
+                                        <div *ngIf="i === 8">
+                                          e
+                                      </div>
+                                      <div *ngIf="i === 9"></div>
+                                      <div *ngIf="i === 10"></div>
+                                      <div *ngIf="i === 11"></div>
+                                      <div *ngIf="i === 12"></div>
+                                      <div *ngIf="i === 13"></div>
+                                      <div *ngIf="i === 14">
+                                          <div class="beca-content">
+                                              <div [innerHTML]="formatText_6(datos_carrera.beca)"></div>
+                                          </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+  
+                </div>
+            </div>
+        </article>
+    </div>
+  </div>
+  

@@ -4,7 +4,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CarrerasService } from 'src/app/services/carreras.service';
 import { Instituto } from 'src/app/models/institutos';
 import { InstitutosService } from 'src/app/services/institutos.service';
-import { Perfil } from 'src/app/models/perfiles';
+
 import {Router} from '@angular/router'
 import { Carrera } from 'src/app/models/carreras';
 import { Campo_accion } from 'src/app/models/campo_accion';
@@ -18,7 +18,7 @@ export class PruebasComponent implements OnInit {
  licenciaturas:Carrera[]=[]
  posgrados: Carrera[]=[]
  institutos: Instituto[]=[]
- perfiles: Perfil = new Perfil();
+
 campos: Campo_accion=new Campo_accion();
  panels: { title: string, content: string }[] = [];
   openIndex: number | null = null;
@@ -32,27 +32,7 @@ campos: Campo_accion=new Campo_accion();
    
   }
   
-  extraerDatos_egreso(resultados: any[]): Perfil {
-    const perfil = new Perfil();
-    
-    if (resultados.length > 0) {
-      perfil.perfil = resultados[0].perfil_egreso || '';
-      
-      perfil.descripcion_conocimiento = resultados
-        .map(result => result.descripcion_conocimiento_egreso)
-        .filter(desc => desc);
-        
-      perfil.descripcion_habilidad = resultados
-        .map(result => result.descripcion_habilidad_egreso)
-        .filter(desc => desc);
-        
-      perfil.descripcion_valores = resultados
-        .map(result => result.descripcion_valores_egreso)
-        .filter(desc => desc);
-    }
-    
-    return perfil;
-  }
+  
   
   extraerDatos_campo(resultados: any[]): Campo_accion {
     const campo = new Campo_accion();
