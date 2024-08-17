@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { CarrerasService } from 'src/app/services/carreras.service';
 import { Informacion_careras_posgrados } from 'src/app/models/Informacion_carrera_posgrado';
 import { Carrera } from 'src/app/models/carreras';
+import { Nucleo_academico } from 'src/app/models/nucleo_academico';
+import { Lineas_de_generacion } from 'src/app/models/lineas_de_generacion';
 @Component({
   selector: 'app-maestria-en-diseno-de-muebles',
   templateUrl: './maestria-en-diseno-de-muebles.component.html',
@@ -14,7 +16,8 @@ export class MaestriaEnDisenoDeMueblesComponent implements OnInit {
   licenciaturas: Carrera[] = [];
   posgrados: Carrera[] = [];
   datos_carrera = new Informacion_careras_posgrados();
-
+  nucleo_academico: Nucleo_academico[]=[];
+  lineas_de_generacion:Lineas_de_generacion[]=[];
   panels: { title: string, content: string }[] = [];
   openIndex: number | null = null;
 
@@ -40,7 +43,7 @@ export class MaestriaEnDisenoDeMueblesComponent implements OnInit {
     'Maestría en Ciencias: Productos Naturales y Alimentos': '/home/ensenanza/posgrados/maestria_en_ciencias_productos_naturales_alimentacion',
     'Maestría en Diseño de Modas': '/home/ensenanza/posgrados/maestria_en_diseno_modas',
     'Maestría en Diseño de Muebles': '/home/ensenanza/posgrados/maestria_en_diseno_muebles',
-    'Maestría en Electrónica Opción en Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/maestria_en_electronica_en_sistemas_inteligentes',
+    'Maestría en Electrónica Opción: Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/maestria_en_electronica_en_sistemas_inteligentes',
     'Maestría en Ingeniería de Software': '/home/ensenanza/posgrados/maestria_en_ingenieria_de_software',
     'Maestría en Inteligencia Artificial': '/home/ensenanza/posgrados/maestria_en_inteligencia_artificial',
     'Maestría en Medios Interactivos': '/home/ensenanza/posgrados/maestria_en_medios_interactivos',
@@ -86,6 +89,8 @@ export class MaestriaEnDisenoDeMueblesComponent implements OnInit {
   private loadData(): void {
     this.loadCarreras();
     this.loadInformacion_carreras_posgrado();
+    this.loadNucleo_academico();
+    this.loadlineas_de_generacion();
   }
 
 
@@ -103,7 +108,7 @@ export class MaestriaEnDisenoDeMueblesComponent implements OnInit {
 
   private loadInformacion_carreras_posgrado(): void {
     this.carrerasService.informacion_carrera_posgrado('51').subscribe(
-      (res: any) => { this.datos_carrera = res[0]; console.log(this.datos_carrera); },
+      (res: any) => { this.datos_carrera = res[0];},
       (err) => console.error(err)
     );
   }
@@ -115,7 +120,20 @@ export class MaestriaEnDisenoDeMueblesComponent implements OnInit {
   isOpen(index: number): boolean {
     return this.openIndex === index;
   }
+ 
+  private loadNucleo_academico(){
+    this.carrerasService.nucleo_academico('51').subscribe(
+      (res: any) => { this.nucleo_academico = res;},
+      (err) => console.error(err)
+    );
+  }
 
+  private loadlineas_de_generacion(){
+    this.carrerasService.linea_de_generacion('51').subscribe(
+      (res: any) => { this.lineas_de_generacion = res;},
+      (err) => console.error(err)
+    );
+  }
   navigateTo(nombre_direccion: string): void {
     const url = this.urlMapping[nombre_direccion];
     if (url) {

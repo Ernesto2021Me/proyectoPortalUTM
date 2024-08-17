@@ -155,10 +155,16 @@
                                         </div>
                                         <div *ngIf="i === 7">
                                            
-                                            
+                                            <div class="universal"  *ngFor="let nucleo of nucleo_academico">            
+                                                <ul class="reduce-spancing">
+                                                 <li style="margin-bottom: -20px;">{{nucleo.grado}} {{nucleo.nombre}}</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                         <div *ngIf="i === 8">
-                                          e
+                                            <div class="universal" *ngFor="let linea of lineas_de_generacion">
+                                                <div *ngIf="linea.descripcion_linea" [innerHTML]="formatText(linea.descripcion_linea)"></div>
+                                            </div>
                                       </div>
                                       <div *ngIf="i === 9"></div>
                                       <div *ngIf="i === 10"></div>

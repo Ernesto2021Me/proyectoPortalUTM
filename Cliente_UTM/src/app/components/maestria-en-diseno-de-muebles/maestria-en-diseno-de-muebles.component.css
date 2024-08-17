@@ -120,6 +120,7 @@ h1 {
 .list{
     list-style-type: none;
 }
+.universal,
 .mision-content,
 .vision-content,
 .objetivo-content,
@@ -134,7 +135,7 @@ h1 {
     font-size: calc(0.8em + 0.2vw);
     color: #2d2d2d;
 }
-
+.universal ul,
 .mision-content ul,
 .vision-content ul,
 .objetivo-content ul,
@@ -147,7 +148,7 @@ h1 {
      margin-left: 40px;
  }
  
- 
+ .universal a:hover,
  .mision-content a:hover,
 .vision-content a:hover,
 .objetivo-content a:hover,
@@ -156,11 +157,11 @@ h1 {
  .beca-contenta a:hover{
      text-decoration: none;
  }
-
+ .universal ul li,
  .mision-content ul li,
 .vision-content ul li,
 .objetivo-content ul li,
- .perfil-ingreso-contentr ul li, 
+ .perfil-ingreso-content ul li, 
  .perfil-egreso-content ul li,
  .beca-content ul li {
      position: relative; /* Necesario para posicionar el pseudo-elemento */
@@ -172,7 +173,7 @@ h1 {
  .reduce-spacing{
  line-height: 1.5;
  }
- 
+ .universal ul li::before,
  .mision-content ul li::before,
 .vision-content ul li::before,
 .objetivo-content ul li::before,

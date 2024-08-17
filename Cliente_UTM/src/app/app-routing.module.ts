@@ -203,7 +203,7 @@ const routes: Routes = [
                     { path: 'ensenanza/posgrados/maestria_en_inteligencia_artificial', component: MaestriaEnInteligenciaArtificialComponent},
                     { path: 'ensenanza/posgrados/maestria_en_ingenieria_de_software', component: MaestriaEnIngenieriaDeSoftwareComponent},
                     { path: 'ensenanza/posgrados/maestria_en_medios_interactivos', component: MaestriaEnMediosInteractivosComponent},
-
+                   
 
                 {path: 'ensenanza/ingreso_a_licenciatura',component:IngresoALicenciaturaComponent},    
                 {path: 'ensenanza/ingreso_a_posgrado',component:IngresoAPosgradoComponent},   

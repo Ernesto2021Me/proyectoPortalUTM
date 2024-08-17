@@ -5,6 +5,7 @@ import { CarrerasService } from 'src/app/services/carreras.service';
 import { Informacion_careras_posgrados } from 'src/app/models/Informacion_carrera_posgrado';
 import { Carrera } from 'src/app/models/carreras';
 import { Nucleo_academico } from 'src/app/models/nucleo_academico';
+import { Lineas_de_generacion } from 'src/app/models/lineas_de_generacion';
 @Component({
   selector: 'app-maestria-en-diseno-de-modas',
   templateUrl: './maestria-en-diseno-de-modas.component.html',
@@ -17,6 +18,7 @@ export class MaestriaEnDisenoDeModasComponent implements OnInit {
     posgrados: Carrera[] = [];
     datos_carrera=new Informacion_careras_posgrados();
     nucleo_academico: Nucleo_academico[]=[];
+    lineas_de_generacion: Lineas_de_generacion[]=[];
     panels: { title: string, content: string }[] = [];
     openIndex: number | null = null;
   
@@ -61,8 +63,6 @@ export class MaestriaEnDisenoDeModasComponent implements OnInit {
     ngOnInit(): void {
       this.initializePanels();
       this.loadData();
-      
-      
     }
 
   private initializePanels(): void {
@@ -88,6 +88,8 @@ export class MaestriaEnDisenoDeModasComponent implements OnInit {
   private loadData(): void {
     this.loadCarreras();
     this.loadInformacion_carreras_posgrado();
+    this.loadNucleo_academico();
+    this.loadlineas_de_generacion();
   }
 
 
@@ -105,7 +107,21 @@ export class MaestriaEnDisenoDeModasComponent implements OnInit {
 
   private loadInformacion_carreras_posgrado(): void {
     this.carrerasService.informacion_carrera_posgrado('50').subscribe(
-      (res: any) => {this.datos_carrera= res[0]; console.log(this.datos_carrera); },
+      (res: any) => {this.datos_carrera= res[0];  },
+      (err) => console.error(err)
+    );
+  }
+
+  private loadNucleo_academico(){
+    this.carrerasService.nucleo_academico('50').subscribe(
+      (res: any) => { this.nucleo_academico = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadlineas_de_generacion(){
+    this.carrerasService.linea_de_generacion('50').subscribe(
+      (res: any) => { this.lineas_de_generacion = res;},
       (err) => console.error(err)
     );
   }
@@ -204,4 +220,6 @@ export class MaestriaEnDisenoDeModasComponent implements OnInit {
       }
       return '';
     }
+
+   
 }
