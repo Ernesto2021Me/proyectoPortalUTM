@@ -21,9 +21,13 @@ class CarrerasController
 public async list_posgrados(req: Request, res: Response): Promise<void> {
     try {
         const respuesta = await pool.query(
-            `SELECT * FROM carreras
-             WHERE nombre LIKE 'Maestría%' 
-                OR nombre LIKE 'Doctorado%'`
+            `SELECT * 
+FROM carreras
+WHERE (nombre LIKE 'Maestría%' 
+       OR nombre LIKE 'Doctorado%')
+  AND nombre NOT IN ('Maestría en Tecnologías de Cómputo Aplicado', 
+                     'Doctorado en Tecnologías de Cómputo Aplicado', 
+                     'Maestría en Sistemas Distribuidos');`
         );
         res.json(respuesta);
     } catch (error) {
@@ -135,7 +139,7 @@ public async nucleo_academico(req: Request, res: Response): Promise<void> {
         const resultado = await pool.query(`
             SELECT
                 n.codigoCarrera,
-                p.codigoInstituto,
+                i.nombre as codigoInstituto,
                 p.grado,
                 p.nombre,
                 p.correo,
@@ -146,7 +150,9 @@ public async nucleo_academico(req: Request, res: Response): Promise<void> {
             FROM
                 nucleo_academico n
             LEFT JOIN
-                perfil_academico p ON n.id_perfil = p.id
+                profesores_posgrados p ON n.id_perfil = p.id
+            LEFT JOIN
+                institutos i on i.codigo=p.codigoInstituto
             WHERE
                 n.codigoCarrera = ?
         `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera

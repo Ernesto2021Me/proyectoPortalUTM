@@ -33,9 +33,13 @@ class CarrerasController {
     list_posgrados(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const respuesta = yield database_1.default.query(`SELECT * FROM carreras
-             WHERE nombre LIKE 'Maestría%' 
-                OR nombre LIKE 'Doctorado%'`);
+                const respuesta = yield database_1.default.query(`SELECT * 
+FROM carreras
+WHERE (nombre LIKE 'Maestría%' 
+       OR nombre LIKE 'Doctorado%')
+  AND nombre NOT IN ('Maestría en Tecnologías de Cómputo Aplicado', 
+                     'Doctorado en Tecnologías de Cómputo Aplicado', 
+                     'Maestría en Sistemas Distribuidos');`);
                 res.json(respuesta);
             }
             catch (error) {
@@ -148,7 +152,7 @@ GROUP BY
                 const resultado = yield database_1.default.query(`
             SELECT
                 n.codigoCarrera,
-                p.codigoInstituto,
+                i.nombre as codigoInstituto,
                 p.grado,
                 p.nombre,
                 p.correo,
@@ -159,7 +163,9 @@ GROUP BY
             FROM
                 nucleo_academico n
             LEFT JOIN
-                perfil_academico p ON n.id_perfil = p.id
+                profesores_posgrados p ON n.id_perfil = p.id
+            LEFT JOIN
+                institutos i on i.codigo=p.codigoInstituto
             WHERE
                 n.codigoCarrera = ?
         `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
