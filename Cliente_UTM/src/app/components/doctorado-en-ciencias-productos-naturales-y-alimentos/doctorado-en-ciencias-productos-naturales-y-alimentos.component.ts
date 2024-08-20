@@ -1,17 +1,81 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
+import { CarrerasService } from 'src/app/services/carreras.service';
+import { Informacion_careras_posgrados } from 'src/app/models/Informacion_carrera_posgrado';
+import { Carrera } from 'src/app/models/carreras';
+import { Nucleo_academico } from 'src/app/models/nucleo_academico';
+import { Lineas_de_generacion } from 'src/app/models/lineas_de_generacion';
+import { TutoriaSeguimiento } from 'src/app/models/tutoria_segumiento';
+import { Alumnos_matriculados } from 'src/app/models/alumnos_matriculados_posgrado';
+import { vinculacion_sector } from 'src/app/models/Vinculacion_sector';
+import { Productividad_academica_publicaciones } from 'src/app/models/productividad_academica_pub';
+import { Productividad_academica_eventos } from 'src/app/models/productividad-academica_event';
+import { Productividad_academica_proyectos } from 'src/app/models/productividad_academica_pro';
 @Component({
   selector: 'app-doctorado-en-ciencias-productos-naturales-y-alimentos',
   templateUrl: './doctorado-en-ciencias-productos-naturales-y-alimentos.component.html',
-  styleUrls: ['./doctorado-en-ciencias-productos-naturales-y-alimentos.component.css']
+  styleUrls: ['./doctorado-en-ciencias-productos-naturales-y-alimentos.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DoctoradoEnCienciasProductosNaturalesYAlimentosComponent implements OnInit {
-
+  licenciaturas: Carrera[] = [];
+  posgrados: Carrera[] = [];
+  datos_carrera = new Informacion_careras_posgrados();
+  nucleo_academico: Nucleo_academico[]=[];
+  lineas_de_generacion: Lineas_de_generacion[]=[];
   panels: { title: string, content: string }[] = [];
   openIndex: number | null = null;
-  constructor() { }
+  tutoria_segumiento: TutoriaSeguimiento[]=[];
+  alumnos_matriculados: Alumnos_matriculados[]=[];
+  vinculacion_sector: vinculacion_sector[]=[];
+  productividad_publicaciones: Productividad_academica_publicaciones[]=[];
+  productividad_eventos: Productividad_academica_eventos[]=[];
+  productividad_proyectos: Productividad_academica_proyectos[]=[];
+  urlMapping: { [key: string]: string } = {
+    // Licenciaturas
+    'Ingeniería en Computación': '/home/ensenanza/licenciaturas/ingenieria_en_computacion',
+    'Ingeniería en Electrónica': '/home/ensenanza/licenciaturas/ingenieria_en_electronica',
+    'Ingeniería en Diseño': '/home/ensenanza/licenciaturas/ingenieria_en_diseno',
+    'Licenciatura en Ciencias Empresariales': '/home/ensenanza/licenciaturas/licenciatura_en_ciencias_empresariales',
+    'Licenciatura en Matemáticas Aplicadas': '/home/ensenanza/licenciaturas/licenciatura_en_matematicas_aplicadas',
+    'Ingeniería en Alimentos': '/home/ensenanza/licenciaturas/ingenieria_en_alimentos',
+    'Ingeniería Industrial': '/home/ensenanza/licenciaturas/ingenieria_industrial',
+    'Licenciatura en Estudios Mexicanos': 'http://virtual.utm.mx/licenciatura_estudios_mexicanos.html',
+    'Ingeniería en Mecatrónica': '/home/ensenanza/licenciaturas/ingenieria_en_mecatronica',
+    'Ingeniería en Física Aplicada': '/home/ensenanza/licenciaturas/ingenieria_en_fisica_aplicada',
+    'Ingeniería en Mecánica Automotriz': '/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz',
+    'Ingeniería Civil': '/home/ensenanza/licenciaturas/ingenieria_civil',
+    'Ingeniería Química en Procesos Sostenibles': '/home/ensenanza/licenciaturas/ingenieria_quimica_en_procesos_sostenibles',
+
+    // Programas de Posgrado
+    'Maestría en Administración de Negocios': '/home/ensenanza/posgrados/maestria_en_administracion_negocios',
+    'Maestría en Ciencias de Materiales': '/home/ensenanza/posgrados/maestria_en_ciencias_materiales',
+    'Maestría en Ciencias: Productos Naturales y Alimentos': '/home/ensenanza/posgrados/maestria_en_ciencias_productos_naturales_alimentacion',
+    'Maestría en Diseño de Modas': '/home/ensenanza/posgrados/maestria_en_diseno_modas',
+    'Maestría en Diseño de Muebles': '/home/ensenanza/posgrados/maestria_en_diseno_muebles',
+    'Maestría en Electrónica Opción en Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/maestria_en_electronica_en_sistemas_inteligentes',
+    'Maestría en Ingeniería de Software': '/home/ensenanza/posgrados/maestria_en_ingenieria_de_software',
+    'Maestría en Inteligencia Artificial': '/home/ensenanza/posgrados/maestria_en_inteligencia_artificial',
+    'Maestría en Medios Interactivos': '/home/ensenanza/posgrados/maestria_en_medios_interactivos',
+    'Maestría en Modelación Matemática': '/home/ensenanza/posgrados/maestria_en_modelacion_matematica',
+    'Maestría en Robótica': '/home/ensenanza/posgrados/maestria_en_robotica',
+    'Maestría en Tecnología Avanzada de Manufactura': '/home/ensenanza/posgrados/maestria_en_tecnologia_avanzada_de_manufactura',
+    'Maestría en Ciencia de Datos': 'http://virtual.utm.mx/maestria_ciencia_datos.html',
+    'Doctorado en Ciencias: Productos Naturales y Alimentos': '/home/ensenanza/posgrados/doctorado_en_ciencias_productos_naturales_alimentos',
+    'Doctorado en Electrónica Especialidad Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados',
+    'Doctorado en Inteligencia Artificial': '/home/ensenanza/posgrados/doctorado_en_inteligencia_artificial',
+    'Doctorado en Modelación Matemática': '/home/ensenanza/posgrados/doctorado_en_modelacion_matematica',
+    'Doctorado en Robótica': '/home/ensenanza/posgrados/doctorado_en_robotica',
+  }
+  constructor(private carrerasService: CarrerasService, private router: Router) { }
 
   ngOnInit(): void {
+    this.initializePanels();
+    this.loadData();
+  }
+
+  private initializePanels(): void {
     this.panels = [
       { title: 'MISIÓN', content: 'Contenido del panel 1' },
       { title: 'VISIÓN', content: 'Contenido del panel 2' },
@@ -25,17 +89,296 @@ export class DoctoradoEnCienciasProductosNaturalesYAlimentosComponent implements
       { title: 'TUTORÍA DE SEGUIMIENTO ACADÉMICO', content: 'Contenido del panel 10' },
       { title: 'PRODUCTIVIDAD ACADÉMICA RELEVANTE', content: 'Contenido del panel 11' },
       { title: 'VINCULACIÓN CON OTROS SECTORES DE LA SOCIEDAD', content: 'Contenido del panel 12' },
-      { title: 'EGRESADOS', content: 'Contenido del panel 13' }, 
-      { title: 'PROCESOS ADMINISTRATIVOS', content: 'Contenido del panel 14' }, 
-      { title: 'INFORMACIÓN DE BECAS CONACYT', content: 'Contenido del panel 15' }, 
-  ];
-  
+      { title: 'EGRESADOS', content: 'Contenido del panel 13' },
+      { title: 'PROCESOS ADMINISTRATIVOS', content: 'Contenido del panel 14' },
+      { title: 'INFORMACIÓN DE BECAS CONACYT', content: 'Contenido del panel 15' },
+    ];
+
   }
+  private loadData(): void {
+    this.loadCarreras();
+    this.loadInformacion_carreras_posgrado();
+    this.loadNucleo_academico();
+    this.loadlineas_de_generacion();
+    this.loadtutoria_seguimiento();
+    this.loadalumnos_matriculados();
+    this.loadvinculacion_sector();
+    this.loadproductividad_publicaciones();
+    this.loadproductividad_eventos();
+    this.loadproductividad_proyectos();
+  }
+
+
+  private loadCarreras(): void {
+    this.carrerasService.list_licenciaturas().subscribe(
+      (res: any) => this.licenciaturas = res,
+      (err) => console.error(err)
+    );
+
+    this.carrerasService.list_posgrados().subscribe(
+      (res: any) => this.posgrados = res,
+      (err) => console.error(err)
+    );
+  }
+
+  private loadInformacion_carreras_posgrado(): void {
+    this.carrerasService.informacion_carrera_posgrado('67').subscribe(
+      (res: any) => { this.datos_carrera = res[0];},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadNucleo_academico(){
+    this.carrerasService.nucleo_academico('67').subscribe(
+      (res: any) => { this.nucleo_academico = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadlineas_de_generacion(){
+    this.carrerasService.linea_de_generacion('67').subscribe(
+      (res: any) => { this.lineas_de_generacion = res;},
+      (err) => console.error(err)
+    );
+  }
+  private loadtutoria_seguimiento(){
+    this.carrerasService.tutoria_seguimiento('67').subscribe(
+      (res: any) => { this.tutoria_segumiento = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadalumnos_matriculados(){
+    this.carrerasService.alumnos_matriculados('67').subscribe(
+      (res: any) => { this.alumnos_matriculados = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadvinculacion_sector(){
+    this.carrerasService.vinculacion_sector('67').subscribe(
+      (res: any) => { this.vinculacion_sector = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadproductividad_publicaciones(){
+    this.carrerasService.productividad_publicaciones('67').subscribe(
+      (res: any) => { this.productividad_publicaciones = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadproductividad_eventos(){
+    this.carrerasService.productividad_eventos('67').subscribe(
+      (res: any) => { this.productividad_eventos = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadproductividad_proyectos(){
+    this.carrerasService.productividad_proyectos('67').subscribe(
+      (res: any) => { this.productividad_proyectos = res;},
+      (err) => console.error(err)
+    );
+  }
+
   toggle(index: number): void {
     this.openIndex = this.openIndex === index ? null : index;
   }
-  
+
   isOpen(index: number): boolean {
     return this.openIndex === index;
   }
+
+  navigateTo(nombre_direccion: string): void {
+    const url = this.urlMapping[nombre_direccion];
+    if (url) {
+      if (nombre_direccion === 'Licenciatura en Estudios Mexicanos' || nombre_direccion === 'Maestría en Ciencia de Datos') {
+        window.location.href = url;
+      } else {
+        window.location.href = url;
+      }
+    } else {
+      console.error('URL no encontrada para el nombre de carrera:', nombre_direccion);
+    }
+  }
+
+
+
+  formatText(text: string): string {
+    return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
+  }
+
+  formatText_2(text: string): string {
+    const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    if (lines.length === 0) return '';
+    const firstParagraph = `<p>${lines[0]}</p>`;
+    const isHeader = (line: string) => {
+      return line === "Objetivos Particulares:"
+      ||line==="Perfil de conocimientos."
+      ||line==="Perfil de habilidades."
+      ||line==="Perfil de destrezas."
+      ||line==="Perfil de actitudes.";
+    };
+
+    let html = '';
+    let currentListItems: string[] = [];
+    for (const line of lines.slice(1)) {
+      if (isHeader(line)) {
+
+        if (currentListItems.length > 0) {
+          html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
+          currentListItems = [];
+        }
+        html += `<li class="list"><strong>${line}</strong></li>`;
+      } else {
+        currentListItems.push(`<li>${line}</li>`);
+      }
+    }
+    if (currentListItems.length > 0) {
+      html += `<ul  style="list-style-type: none;" class="reduce-spacing">${currentListItems.join('')}</ul>`;
+    }
+    return firstParagraph + '<ul>' + html + '</ul>';
+  }
+
+  formatText_3(text: string): string {
+    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    if (lines.length > 0) {
+      let firstParagraph = `<p>${lines[0]}</p>`;
+      let listItems = lines.slice(1).map(line => `<li>${line}</li>`).join('');
+      let list = `<ul class="reduce-spacing">${listItems}</ul>`;
+      return `${firstParagraph}${list}`;
+    }
+    return '';
+  }
+ 
+
+  formatText_4(text: string): string {
+    // Función auxiliar para escapar caracteres especiales en expresiones regulares
+    function escapeRegExp(string: string): string {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    // Objeto con los textos a reemplazar y sus respectivos enlaces
+    const replacements: { [key: string]: string } = {
+        'Resumen Seminarios 2018': 'assets/pdf/carreras/posgrados/MCPNA/Resumen_seminarios_2018.pdf',
+        'Resumen Seminarios 2019': 'assets/pdf/carreras/posgrados/MCPNA/Resumen_seminarios_2019.pdf',
+        'Resumen Seminarios 2020': 'assets/pdf/carreras/posgrados/MCPNA/Resumen_seminarios_2020.pdf',
+        'Seminarios 2018 ': 'assets/pdf/carreras/posgrados/MCPNA/Programa_seminarios_2018.pdf',
+        'Seminarios 2019 ': 'assets/pdf/carreras/posgrados/MCPNA/Programa_seminarios_2019.pdf',
+        'Seminarios 2020 ': 'assets/pdf/carreras/posgrados/MCPNA/Programa_seminarios_2020.pdf',
+        'Reunión con apicultores': 'assets/pdf/carreras/posgrados/MCPNA/Relatoria_1_reunion_con_Apicultores.pdf',
+        'Taller para obtención de aceites esenciales': 'assets/pdf/carreras/posgrados/MCPNA/Relatoria_2_Taller_aceites_esenciales.pdf',
+        'Taller de secado solar': 'assets/pdf/carreras/posgrados/MCPNA/Relatoria_3_Taller_secado_solar.pdf',
+        'Memorias': 'assets/pdf/carreras/posgrados/MCPNA/MEMORIAS_DEL_III_FPNAyCP.pdf',
+        'Reporte técnico': 'javascript:void(0);'
+    };
+
+    // Ordenar las claves por longitud descendente para evitar reemplazos incorrectos
+    const orderedKeys = Object.keys(replacements).sort((a, b) => b.length - a.length);
+
+    // Reemplazamos los textos en el texto original con los enlaces HTML
+    let modifiedText = text;
+    orderedKeys.forEach(textToReplace => {
+        const url = replacements[textToReplace];
+        const linkHtml = `<a href="${url}" target="_blank">${textToReplace}</a>`;
+        
+        // Usamos una expresión regular con delimitadores de palabra para evitar reemplazos parciales
+        const escapedText = escapeRegExp(textToReplace);
+        const regex = new RegExp(`(?:^|\\W)${escapedText}(?:$|\\W)`, 'g');
+        modifiedText = modifiedText.replace(regex, (match) => {
+            return match.replace(textToReplace, linkHtml);
+        });
+    });
+
+    // Procesamos el texto modificado
+    let lines = modifiedText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    if (lines.length > 0) {
+        let firstParagraph = `<p>${lines[0]}</p>`;
+        let listItems = lines.slice(1).map(line => `<li>${line}</li>`).join('');
+        let list = `<ul class="reduce-spacing">${listItems}</ul>`;
+        return `${firstParagraph}${list}`;
+    }
+    return '';
+}
+// Función auxiliar para escapar caracteres especiales en expresiones regulares
+
+
+      formatText_5(text: string): string {
+        const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+    if (lines.length === 0) return '';
+    
+    const firstParagraph = `<p>${lines[0]}</p>`;
+    const secondParagraph = lines.length > 1 ? `<p>${lines[1]}</p>` : '';
+    
+    const isHeader = (line: string) => {
+      return line === "Conocimientos:" || line === "Habilidades:" || line === "Actitudes y Valores:";
+    };
+
+    let html = '';
+    let currentListItems: string[] = [];
+
+    for (const line of lines.slice(2)) {
+      if (isHeader(line)) {
+        if (currentListItems.length > 0) {
+          html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
+          currentListItems = []; 
+        }
+        html += `<li class="list"><strong>${line}</strong></li>`;
+      } else {
+        currentListItems.push(`<li>${line}</li>`);
+      }
+    }
+    if (currentListItems.length > 0) {
+      html += `<ul style="list-style-type: none;" class="reduce-spacing">${currentListItems.join('')}</ul>`;
+    }
+
+    return `${firstParagraph}${secondParagraph}${html}`;
+}
+    
+    
+formatText_6(text: string): string {
+  // Objeto con los textos a reemplazar y sus respectivos enlaces
+  const replacements: { [key: string]: string } = {
+      'https://www.conacyt.gob.mx/Becas-nacionales.html.': 'https://www.conacyt.gob.mx/Becas-nacionales.html.',
+      'https://www.ejemplo.com': 'https://www.ejemplo.com',
+      // Añade más pares texto-enlace aquí según sea necesario
+  };
+
+  // Reemplazamos los textos en el texto original con los enlaces HTML
+  let modifiedText = text;
+  for (const [textToReplace, url] of Object.entries(replacements)) {
+      const linkHtml = `<a href="${url}" target="_blank">${url}</a>`;
+      modifiedText = modifiedText.replace(textToReplace, linkHtml);
+  }
+
+  // Dividimos el texto en líneas, quitamos espacios innecesarios, eliminamos líneas vacías y convertimos en párrafos HTML
+  return modifiedText
+      .split('\n')
+      .map(line => line.trim())
+      .filter(line => line.length > 0)
+      .map(paragraph => `<p>${paragraph}</p>`)
+      .join('');
+}
+
+  
+  formatText_7(text: string): string {
+    const paragraphs = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+
+    if (paragraphs.length === 0) {
+        return '';
+    }
+
+    const formattedParagraphs = paragraphs.map((paragraph, index) => {
+        return index === 0 
+            ? `<p><strong>${paragraph}</strong></p>` 
+            : `<p>${paragraph}</p>`;
+    });
+
+    return formattedParagraphs.join('');
+}
+
+    
+    
 }

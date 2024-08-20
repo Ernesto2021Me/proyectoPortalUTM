@@ -34,4 +34,28 @@ export class CarrerasService {
   linea_de_generacion(Codigocarrera:any){
     return this.http.post(`${environment.API_URI}/carreras/linea_de_generacion`,{"Codigocarrera":Codigocarrera});
   }
+
+  tutoria_seguimiento(Codigocarrera:any){
+    return this.http.post(`${environment.API_URI}/carreras/tutoria`,{"Codigocarrera":Codigocarrera});
+  }
+
+ alumnos_matriculados(Codigocarrera:any){
+    return this.http.post(`${environment.API_URI}/carreras/alumnos_matriculados`,{"Codigocarrera":Codigocarrera});
+  }
+
+  vinculacion_sector(Codigocarrera:any){
+    return this.http.post(`${environment.API_URI}/carreras/vinculacion_sectores`,{"Codigocarrera":Codigocarrera});
+  }
+
+  productividad_publicaciones(Codigocarrera:any){
+    return this.http.post(`${environment.API_URI}/carreras/productividad_academica_pub`,{"Codigocarrera":Codigocarrera});
+  }
+
+  productividad_eventos(Codigocarrera:any){
+    return this.http.post(`${environment.API_URI}/carreras/productividad_academica_even`,{"Codigocarrera":Codigocarrera});
+  }
+
+  productividad_proyectos(Codigocarrera:any){
+    return this.http.post(`${environment.API_URI}/carreras/productividad_academica_pro`,{"Codigocarrera":Codigocarrera});
+  }
 }

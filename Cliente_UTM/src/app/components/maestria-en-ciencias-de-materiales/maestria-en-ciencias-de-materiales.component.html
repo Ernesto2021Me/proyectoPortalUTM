@@ -175,8 +175,29 @@
                                             <div class="universal" *ngFor="let linea of lineas_de_generacion">
                                                 <div *ngIf="linea.descripcion_linea" [innerHTML]="formatText_7(linea.descripcion_linea)"></div>
                                             </div>
+                                            f
                                       </div>
-                                      <div *ngIf="i === 9"></div>
+                                      <div *ngIf="i === 9">
+                                        <body>
+                                            <h1>Tabla de Estudiantes y Tutores</h1>
+                                            <table class="tabla-estudiantes">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ALUMNO</th>
+                                                        <th>DIRECTOR DE TESIS</th>
+                                                        <th>TUTOR DE SEGUIMIENTO ACADÉMICO</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let tutoria of tutoria_segumiento">
+                                                        <td>{{tutoria.Alumno}}</td>
+                                                        <td>{{tutoria.grado_dir}} {{tutoria.nombre_dir}}</td>
+                                                        <td>{{tutoria.grado_tutor}} {{tutoria.nombre_tutor}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </body>
+                                      </div>
                                       <div *ngIf="i === 10"></div>
                                       <div *ngIf="i === 11"></div>
                                       <div *ngIf="i === 12"></div>

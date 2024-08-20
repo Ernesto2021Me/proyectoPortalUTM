@@ -6,6 +6,7 @@ import { Informacion_careras_posgrados } from 'src/app/models/Informacion_carrer
 import { Carrera } from 'src/app/models/carreras';
 import { Nucleo_academico } from 'src/app/models/nucleo_academico';
 import { Lineas_de_generacion } from 'src/app/models/lineas_de_generacion';
+import { TutoriaSeguimiento } from 'src/app/models/tutoria_segumiento';
 @Component({
   selector: 'app-maestria-en-ciencias-de-materiales',
   templateUrl: './maestria-en-ciencias-de-materiales.component.html',
@@ -18,6 +19,7 @@ export class MaestriaEnCienciasDeMaterialesComponent implements OnInit {
   datos_carrera = new Informacion_careras_posgrados();
   nucleo_academico: Nucleo_academico[]=[];
   lineas_de_generacion: Lineas_de_generacion[]=[];
+  tutoria_segumiento: TutoriaSeguimiento[]=[]
   panels: { title: string, content: string }[] = [];
   openIndex: number | null = null;
 
@@ -91,6 +93,7 @@ export class MaestriaEnCienciasDeMaterialesComponent implements OnInit {
     this.loadInformacion_carreras_posgrado();
     this.loadNucleo_academico();
     this.loadlineas_de_generacion();
+    this.loadtutoria_seguimiento();
   }
 
 
@@ -123,6 +126,13 @@ export class MaestriaEnCienciasDeMaterialesComponent implements OnInit {
   private loadlineas_de_generacion(){
     this.carrerasService.linea_de_generacion('53').subscribe(
       (res: any) => { this.lineas_de_generacion = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadtutoria_seguimiento(){
+    this.carrerasService.tutoria_seguimiento('53').subscribe(
+      (res: any) => { this.tutoria_segumiento = res;},
       (err) => console.error(err)
     );
   }

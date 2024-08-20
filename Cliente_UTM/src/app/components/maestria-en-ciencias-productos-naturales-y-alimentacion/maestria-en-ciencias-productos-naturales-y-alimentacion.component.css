@@ -588,3 +588,109 @@ h4{
 .profile p {
     margin: 0 0 10px 0; /* Espacio debajo de cada párrafo */
 }
+
+.tabla-estudiantes {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+.tabla-estudiantes, .tabla-estudiantes th, .tabla-estudiantes td {
+    border: 1px solid #ddd;
+}
+.tabla-estudiantes th, .tabla-estudiantes td {
+    padding: 8px;
+    text-align: left;
+}
+.tabla-estudiantes th {
+    background-color: #DDCC62; /* Color de fondo para el encabezado */
+    text-align: center;
+}
+
+.matriculados td{
+    text-align: center;
+}
+
+.tabla-publicaciones {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    table-layout: fixed;
+    
+    margin-left: 0px;
+}
+.tabla-publicaciones , .tabla-publicaciones  th, .tabla-publicaciones td {
+    border: 1px solid #ddd;
+}
+.tabla-publicaciones  th, .tabla-publicaciones td {
+    padding: 8px ;
+    text-align: left;
+   
+}
+.tabla-publicaciones  th {
+    background-color: #DDCC62; /* Color de fondo para el encabezado */
+    text-align: center;
+}
+
+
+.publicaciones-td {
+    width: 800px; /* Ajusta el valor según sea necesario */
+    overflow-wrap: break-word;
+    }
+
+.autores-td {
+    width: 150px; /* Ajusta el valor según sea necesario */
+    overflow-wrap: break-word;
+    line-height: 1.2;
+}
+
+/* Estilos para el bloque de convocatoria */
+#block-bloqueconvocatoriapdf {
+    margin-top: 40px; /* Espacio superior para separar de las tarjetas */
+    padding: 20px;
+    background-color: transparent; /* Fondo transparente para el bloque */
+    border: none; /* Elimina todos los bordes */
+    border-top: 1px solid #ddd; /* Solo el borde superior */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center; /* Centra el contenido dentro del bloque */
+}
+
+/* Asegúrate de que el borde redondeado se aplique solo en la parte superior */
+#block-bloqueconvocatoriapdf::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #ddd;
+    border-radius: 8px 8px 0 0;
+    pointer-events: none; /* Asegura que el borde no interfiera con el contenido */
+}
+
+/* Ajusta la posición del bloque para que el borde superior se aplique correctamente */
+#block-bloqueconvocatoriapdf {
+    position: relative;
+    overflow: hidden; /* Asegura que el borde redondeado se muestre correctamente */
+}
+
+#block-bloqueconvocatoriapdf .title {
+    font-size: 24px;
+    font-family: 'Playfair Display', serif;
+    color: #333; /* Color del texto */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+/* Estilo del iframe para visualizar el PDF */
+.pdf-viewer {
+    width: 700px; /* Ajusta el ancho al contenedor, puedes cambiar el porcentaje según tus necesidades */
+    height: 600px; /* Ajusta la altura del iframe, puedes cambiar esta altura */
+    border: none; /* Elimina el borde del iframe */
+    margin: 0 auto; /* Centra el iframe horizontalmente */
+}
+
+/* Asegúrate de que el iframe se comporte correctamente */
+iframe {
+    display: block;
+    overflow: hidden; /* Evita que aparezcan barras de desplazamiento */
+}

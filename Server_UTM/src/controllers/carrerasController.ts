@@ -185,5 +185,133 @@ WHERE codigoCarrera= ?
     }
     
 }
+
+public async alumnos_matriculados(req: Request, res: Response): Promise<void> {
+    const { Codigocarrera } = req.body;
+    try {
+        const resultado = await pool.query(`
+           SELECT * FROM 
+alumnos_matriculados_pos
+WHERE codigoCarrera= ?
+        `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
+    
+        // Devolver los resultados como JSON
+        res.json(resultado); // Asegúrate de acceder a 'rows' si esa es la propiedad que contiene los datos
+    } catch (error) {
+        // Manejar el error y devolver una respuesta adecuada
+        res.status(500).json({ error: 'Error en la consulta' });
+    }
+    
+}
+
+public async tutoria_seguimiento(req: Request, res: Response): Promise<void> {
+    const { Codigocarrera } = req.body;
+    try {
+        const resultado = await pool.query(`
+         SELECT
+    t.codigoCarrera,
+    t.Alumno,
+    t.Generacion,
+    dir.grado As grado_dir,
+    dir.nombre AS nombre_dir,  -- Nombre del director
+    cod.grado AS grado_cod,   
+    cod.nombre AS nombre_cod,  -- Nombre del codirector
+    tuto.grado As grado_tutor,
+    tuto.nombre AS nombre_tutor, -- Nombre del tutor
+    t.tema_tes,
+    t.linea_inv
+FROM
+    tutoria_seguimiento t
+LEFT JOIN
+    profesores_posgrados dir ON dir.id = t.dir_tes  -- Unir por el ID del director
+LEFT JOIN
+    profesores_posgrados cod ON cod.id = t.codir_tes  -- Unir por el ID del codirector
+LEFT JOIN
+    profesores_posgrados tuto ON tuto.id = t.tutor_tes  -- Unir por el ID del tutor
+WHERE
+    t.codigoCarrera =?
+        `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
+    
+        // Devolver los resultados como JSON
+        res.json(resultado); // Asegúrate de acceder a 'rows' si esa es la propiedad que contiene los datos
+    } catch (error) {
+        // Manejar el error y devolver una respuesta adecuada
+        res.status(500).json({ error: 'Error en la consulta' });
+    }
+    
+}
+
+public async productividad_academica_pub(req: Request, res: Response): Promise<void> {
+    const { Codigocarrera } = req.body;
+    try {
+        const resultado = await pool.query(`
+         SELECT * FROM 
+productividad_academica_publicaciones 
+WHERE codigoCarrera=?
+        `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
+    
+        // Devolver los resultados como JSON
+        res.json(resultado); // Asegúrate de acceder a 'rows' si esa es la propiedad que contiene los datos
+    } catch (error) {
+        // Manejar el error y devolver una respuesta adecuada
+        res.status(500).json({ error: 'Error en la consulta' });
+    }
+    
+}
+
+public async productividad_academica_event(req: Request, res: Response): Promise<void> {
+    const { Codigocarrera } = req.body;
+    try {
+        const resultado = await pool.query(`
+           SELECT * FROM 
+productividad_academica_eventos
+WHERE codigoCarrera=?
+        `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
+    
+        // Devolver los resultados como JSON
+        res.json(resultado); // Asegúrate de acceder a 'rows' si esa es la propiedad que contiene los datos
+    } catch (error) {
+        // Manejar el error y devolver una respuesta adecuada
+        res.status(500).json({ error: 'Error en la consulta' });
+    }
+    
+}
+
+public async productividad_academica_pro(req: Request, res: Response): Promise<void> {
+    const { Codigocarrera } = req.body;
+    try {
+        const resultado = await pool.query(`
+           SELECT * FROM 
+productividad_academica_proyectos
+WHERE codigoCarrera=?
+        `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
+    
+        // Devolver los resultados como JSON
+        res.json(resultado); // Asegúrate de acceder a 'rows' si esa es la propiedad que contiene los datos
+    } catch (error) {
+        // Manejar el error y devolver una respuesta adecuada
+        res.status(500).json({ error: 'Error en la consulta' });
+    }
+    
+}
+
+public async vinculacion_sec(req: Request, res: Response): Promise<void> {
+    const { Codigocarrera } = req.body;
+    try {
+        const resultado = await pool.query(`
+           SELECT * FROM 
+vinculacion_sector_pos
+WHERE codigoCarrera=?
+        `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
+    
+        // Devolver los resultados como JSON
+        res.json(resultado); // Asegúrate de acceder a 'rows' si esa es la propiedad que contiene los datos
+    } catch (error) {
+        // Manejar el error y devolver una respuesta adecuada
+        res.status(500).json({ error: 'Error en la consulta' });
+    }
+    
+}
+
 }
 export const carrerasController = new CarrerasController();
