@@ -176,27 +176,35 @@
                                         </div>
                                         <div *ngIf="i === 7">
                                            
-                                            <body class="custom-body">
-                                                <div *ngIf="nucleo_academico.length > 0; else noData">
-                                                <div *ngFor="let nucleo of nucleo_academico" class="profile-container">
-                                                    <div *ngIf="nucleo.imagen_url" class="profile-image">
-                                                        <img src="{{nucleo.imagen_url}}" alt="{{nucleo.nombre}}">
+                                            <div class="universal universal2" *ngIf="nucleo_academico.length>0; else noData">
+                                               <p>Los profesores que integran el Núcleo Académico Básico están adscritos a los Institutos de: Física y Matemáticas, Computación, Hidrología, Ciencias Sociales y Humanidades y al CentroGeo* de Conacyt.</p>
+                                                <div *ngFor="let nucleo of nucleo_academico">
+                                                  <h1>{{nucleo.grado}} {{nucleo.nombre}}</h1>
+                                                  <div *ngIf="nucleo.correo">
+                                                  <p><strong>Email:</strong> {{nucleo.correo}}</p>
+                                                  </div>
+                                                  <div *ngIf="nucleo.SNI">
+                                                  <p><strong>Pertenencia al SNI:</strong> {{nucleo.SNI}}</p>
+                                                  </div>
+                                                  <div *ngIf="nucleo.perfil_deseable">
+                                                    <p><strong>Perfil deseable:</strong> {{nucleo.perfil_deseable}}</p>
                                                     </div>
-                                                    <div class="profile-text">
-                                                        <div class="profile">
-                                                            <p><strong>{{nucleo.grado}} {{ nucleo.nombre }}</strong></p>
-                                                            <p><strong><a [href]="'mailto:' + nucleo.correo">{{ nucleo.correo }}</a></strong></p>
-                                                            <div [innerHTML]="formatDocumentText(nucleo.descripcion_perfil)"></div>
-                                                        </div>
-                                                    </div>
+                                                 <br>
+                                                  <div *ngIf="nucleo.imagen_url" class="profile-image">
+                                                    <img src="{{nucleo.imagen_url}}" alt="{{nucleo.nombre}}">
                                                 </div>
-                                            </div>
+                                                  <p>{{nucleo.descripcion_perfil}}</p>
+                                                  <br>
+                                                </div>
+                                            
+                                                </div>
+                                            
                                                 <ng-template #noData>
                                                     <div class="universal">
                                                     <p>Núcleo Académico en revisión por parte de las autoridades universitarias correspondientes.</p>
                                                 </div>
                                                 </ng-template>
-                                            </body>
+                                            
                                             
                                         </div>
                                         <div *ngIf="i === 8">
@@ -245,6 +253,16 @@
 
                                       <div *ngIf="i === 10">
                                         <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
+            
+                                            <p>Participación en congresos, seminarios y talleres:</p>
+                                            
+                                            <div *ngFor="let proyectos of productividad_proyectos">
+                                            <p><strong>{{proyectos.descripcion}}.</strong> {{proyectos.Proyecto}}. Autores: <strong>{{proyectos.participantes}}</strong></p>
+                                            
+                                               
+                                        </div>
+
+ <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
 
                                        
                                                             
@@ -307,6 +325,9 @@
                                        </body>
 
                                     </div>
+                                
+                                        
+                                    </div>
                                 </div>
                                 <ng-template #noData>
                                 <div class="universal">
@@ -328,13 +349,7 @@
                                       </div>
                                       <div *ngIf="i === 12">
                                         <div class="universal">
-                                            <div class="content">
-                                                <div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item">
-                                                    <p>
-                                                        <iframe class="pdf-viewer" src="assets/pdf/carreras/posgrados/MCPNA/seguimiento.pdf" lang="en" width="100%" height="600px"></iframe>
-                                                    </p>
-                                                </div>
-                                            </div>
+                                           <p>Egresados en revisión por las autoridades universitarias correspondientes.</p>
                                         </div>
                                       </div>
                                       <div *ngIf="i === 13">

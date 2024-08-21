@@ -176,48 +176,26 @@
                                         </div>
                                         <div *ngIf="i === 7">
                                            
-                                            <div *ngIf="nucleo_academico.length>0; else noData">
-
-                                                <div class="universal">
-                                                  <body>
-                                                  <table class="tabla-estudiantes">
-                                                      <thead>
-                                                          <tr>
-                                                              <th>Nombre del Profesor</th>
-                                                              <th>Grado</th>
-                                                              <th>Instituto</th>
-                                                              <th>SNI</th>
-                                                              <th>PROMEP</th>
-                                                          </tr>
-                                                      </thead>
-                                                      <tbody>
-                                                          <tr *ngFor="let nucleo of nucleo_academico">
-                                                              <td>{{nucleo.nombre}}</td>
-                                                              <td>{{nucleo.grado}}</td>
-                                                              <td>{{nucleo.codigoInstituto}}</td>
-                                                              <td>{{nucleo.SNI}}</td>
-                                                              <td>{{nucleo.perfil_deseable}}</td>
-                                                          </tr>
-                                                      </tbody>
-                                                  </table>
-                                              </body>
-                                                </div>
-                                               
-                                                <body class="custom-body">
-                                                 
-                                                    <div *ngFor="let nucleo of nucleo_academico" class="profile-container">
-                                                        <div *ngIf="nucleo.imagen_url" class="profile-image">
-                                                            <img src="{{nucleo.imagen_url}}" alt="{{nucleo.nombre}}">
-                                                        </div>
-                                                        <div class="profile-text">
-                                                            <div class="profile">
-                                                                <p><strong>{{nucleo.grado}} {{ nucleo.nombre }}</strong></p>
-                                                                <p><strong><a [href]="'mailto:' + nucleo.correo">{{ nucleo.correo }}</a></strong></p>
-                                                                <div [innerHTML]="formatDocumentText(nucleo.descripcion_perfil)"></div>
-                                                            </div>
-                                                        </div>
+                                            <div class="universal universal2" *ngIf="nucleo_academico.length>0; else noData">
+                                               <p>Los profesores que integran el Núcleo Académico Básico están adscritos a los Institutos de: Física y Matemáticas, Computación, Hidrología, Ciencias Sociales y Humanidades y al CentroGeo* de Conacyt.</p>
+                                                <div *ngFor="let nucleo of nucleo_academico">
+                                                  <h1>{{nucleo.grado}} {{nucleo.nombre}}</h1>
+                                                  <div *ngIf="nucleo.correo">
+                                                  <p><strong>Email:</strong> {{nucleo.correo}}</p>
+                                                  </div>
+                                                  <div *ngIf="nucleo.SNI">
+                                                  <p><strong>Pertenencia al SNI:</strong> {{nucleo.SNI}}</p>
+                                                  </div>
+                                                  <div *ngIf="nucleo.perfil_deseable">
+                                                    <p><strong>Perfil deseable:</strong> {{nucleo.perfil_deseable}}</p>
                                                     </div>
-                                                </body>
+                                                  <div *ngIf="nucleo.imagen_url" class="profile-image">
+                                                    <img src="{{nucleo.imagen_url}}" alt="{{nucleo.nombre}}">
+                                                </div>
+                                                  <p>{{nucleo.descripcion_perfil}}</p>
+                                                  <br>
+                                                </div>
+                                            
                                                 </div>
                                             
                                                 <ng-template #noData>
@@ -274,31 +252,27 @@
 
                                       <div *ngIf="i === 10">
                                         <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
-
-                                       
-                                                            
+            
                                         <div class="universal">
-                                            <body>
-                                            <p style="text-align: center; font-size: 18px;"><strong>Publicaciones</strong></p>
-                                            <table class="tabla-publicaciones">   
-                                                <thead>
-                                                   
-                                                    <tr>
-                                                       
-                                                        <th class="autores-td">Año</th>
-                                                        <th class="publicacion-td">Publicación</th>
-                                                        <th class="publicacion-td">descripcion</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class="publicaciones" *ngFor="let publicacion of productividad_publicaciones">
-                                                        <td class="autores-td">{{publicacion.year}}</td>
-                                                        <td class="publicacion-td">{{publicacion.publicacion}}</td>
-                                                        <td  class="publicacion-td">{{publicacion.descripcion}}</td>
-                                                     </tr>
-                                                </tbody>
-                                            </table>
-                                        </body>
+                                            <p>La Productividad Académica del Núcleo Académico Básico de la Maestría en Inteligencia Artificial incluye principalmente: … .</p>
+                                            
+                                            <p>La producción académica más relevante de los últimos seis años se describe a continuación, comenzando con los artículos en revistas, capítulos de libros y memorias en extenso:</p>
+                                            
+                                            <div *ngFor="let publicaciones of productividad_publicaciones">
+                                            <p><strong>{{publicaciones.year}}:</strong></p>
+                                            <p style="text-align: center;"><strong>{{publicaciones.publicacion}}</strong></p>
+                                            <p>{{publicaciones.descripcion}}</p>
+                                               
+                                        </div> 
+                                            <br>
+                                            <p>Participación en congresos, seminarios y talleres:</p>
+                                            
+                                            <div *ngFor="let eventos of productividad_eventos">
+                                            <p><strong>{{eventos.descripcion}}.</strong> {{eventos.Evento}}. Ponente: <strong>{{eventos.Ponente}}</strong></p>
+                                            
+                                               
+                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <ng-template #noData>

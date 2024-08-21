@@ -120,7 +120,6 @@ h1 {
 .list{
     list-style-type: none;
 }
-
 .universal,
 .mision-content,
 .vision-content,
@@ -194,6 +193,7 @@ h1 {
   /*   border-bottom: 4px solid transparent; /* Crea la parte inferior del triángulo (transparente) */
  }
 
+
 /* Asegurarse de que el contenedor del título, imagen y contenido esté alineado */
 .node__header, .field--name-field-portada-inv-cpe, .text-container {
     padding: 0 20px; /* Asegura que el padding sea consistente */
@@ -207,6 +207,7 @@ h1 {
 /* Estilos para el contenedor del acordeón */
 .accordion-container {
     margin: 0px 0;
+    margin-left: 10px;
 }
 
 /* Ajustar el ancho del panel del acordeón para que coincida con el ancho de la imagen */
@@ -560,12 +561,18 @@ h4{
     margin-bottom: 20px; /* Espacio debajo del contenedor de perfiles */
 }
 
-/* Estilos para la imagen del perfil */
-.profile-image img {
+.profile-image {
+    display: flex;         /* Utiliza flexbox para alinear el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center;   /* Centra el contenido verticalmente (opcional) */
     border-radius: 8px;
-    max-width: 150px;
-    height: auto;
-    border: 2px solid #ddd; /* Añadir un borde sutil alrededor de la imagen */
+   
+    padding: 10px;         /* Añadir algo de espacio alrededor de la imagen */
+   
+}
+
+.universal2 p{
+    margin-bottom: -20px;
 }
 
 /* Estilos para el texto del perfil */
@@ -587,3 +594,58 @@ h4{
 .profile p {
     margin: 0 0 10px 0; /* Espacio debajo de cada párrafo */
 }
+
+.tabla-estudiantes {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+.tabla-estudiantes, .tabla-estudiantes th, .tabla-estudiantes td {
+    border: 1px solid #ddd;
+}
+.tabla-estudiantes th, .tabla-estudiantes td {
+    padding: 8px;
+    text-align: left;
+}
+.tabla-estudiantes th {
+    background-color: #DDCC62; /* Color de fondo para el encabezado */
+    text-align: center;
+}
+
+.matriculados td{
+    text-align: center;
+}
+
+.tabla-publicaciones {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    table-layout: fixed;
+    
+    margin-left: 0px;
+}
+.tabla-publicaciones , .tabla-publicaciones  th, .tabla-publicaciones td {
+    border: 1px solid #ddd;
+}
+.tabla-publicaciones  th, .tabla-publicaciones td {
+    padding: 8px ;
+    text-align: left;
+   
+}
+.tabla-publicaciones  th {
+    background-color: #DDCC62; /* Color de fondo para el encabezado */
+    text-align: center;
+}
+
+
+.publicaciones-td {
+    width: 800px; /* Ajusta el valor según sea necesario */
+    overflow-wrap: break-word;
+    }
+
+.autores-td {
+    width: 150px; /* Ajusta el valor según sea necesario */
+    overflow-wrap: break-word;
+    line-height: 1.2;
+}
+

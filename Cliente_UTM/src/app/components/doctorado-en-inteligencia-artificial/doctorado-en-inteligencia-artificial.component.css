@@ -561,12 +561,18 @@ h4{
     margin-bottom: 20px; /* Espacio debajo del contenedor de perfiles */
 }
 
-/* Estilos para la imagen del perfil */
-.profile-image img {
+.profile-image {
+    display: flex;         /* Utiliza flexbox para alinear el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center;   /* Centra el contenido verticalmente (opcional) */
     border-radius: 8px;
-    max-width: 150px;
-    height: auto;
-    border: 2px solid #ddd; /* Añadir un borde sutil alrededor de la imagen */
+   
+    padding: 10px;         /* Añadir algo de espacio alrededor de la imagen */
+   
+}
+
+.universal2 p{
+    margin-bottom: -20px;
 }
 
 /* Estilos para el texto del perfil */
@@ -633,16 +639,13 @@ h4{
 
 
 .publicaciones-td {
-   /* width: 800px; /* Ajusta el valor según sea necesario */
+    width: 800px; /* Ajusta el valor según sea necesario */
     overflow-wrap: break-word;
     }
 
-.tabla-publicaciones td {
-        font-size: 12px;
-        line-height: 1.2;
-    }
 .autores-td {
-    width: 50px; /* Ajusta el valor según sea necesario */
+    width: 150px; /* Ajusta el valor según sea necesario */
     overflow-wrap: break-word;
+    line-height: 1.2;
 }
 
