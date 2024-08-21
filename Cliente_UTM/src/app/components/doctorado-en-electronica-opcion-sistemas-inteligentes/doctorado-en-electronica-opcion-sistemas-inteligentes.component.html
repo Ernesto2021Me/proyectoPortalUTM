@@ -22,15 +22,14 @@
             </li>
             <li class="breadcrumb__item">
                 <span class="breadcrumb__item-separator fa fa-angle-right"></span>
-                <span>Doctorado en Electrónica Especialidad: Sistemas Inteligentes Aplicados </span>
+                <span>{{datos_carrera.nombre_carrera}}</span>
             </li>
         </ol>
     </nav>
-</div>
-
-<div class="wrapper">
-    <section class="sidebar__section sidebar-first clearfix fade" data-animate-effect="fadeInLeft">
-        <div class="region region-sidebar-first">
+  </div>
+  
+  <div class="wrapper">
+       <div class="region region-sidebar-first">
             <nav role="navigation" aria-labelledby="block-menuensenanza-menu" id="block-menuensenanza" class="clearfix block block-menu navigation menu--menu-ensenanza">
                 <h4 class="visually-hidden" id="block-menuensenanza-menu">Menú-Enseñanza</h4>
                 <ul class="clearfix menu">
@@ -40,39 +39,13 @@
                             <li class="menu-item menu-item--expanded menu-item--active-trail">
                                 <a href="/home/ensenanza/licenciaturas/huajuapan_de_leon" data-drupal-link-system-path="node/45">Huajuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_computacion">Ingeniería en Computación</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_electronica">Ingeniería en Electrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_diseno">Ingeniería en Diseño</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/licenciatura_en_ciencias_empresariales">Licenciatura en Ciencias Empresariales</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/licenciatura_en_matematicas_aplicadas">Licenciatura en Matemáticas Aplicadas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_alimentos">Ingeniería en Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_industrial">Ingeniería Industrial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecatronica">Ingeniería en Mecatrónica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_fisica_aplicada">Ingeniería en Física Aplicada</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_en_mecanica_automotriz">Ingeniería Mecánica Automotriz</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/licenciaturas/ingenieria_civil">Ingeniería Civil</a>
-                                    </li>
+                                    <li class="menu-item" *ngFor="let licenciatura of licenciaturas">
+                                        <a 
+                                            (click)="navigateTo(licenciatura.nombre)">
+                                          {{ licenciatura.nombre }}
+                                        </a>
+                                      </li>
+                                       
                                 </ul>
                             </li>
                         </ul>
@@ -83,60 +56,14 @@
                             <li class="menu-item menu-item--expanded">
                                 <a href="/home/ensenanza/posgrados/huajuapan_de_leon" data-drupal-link-system-path="node/58">Huajuapan de Leon</a>
                                 <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_administracion_negocios">Maestría en Administración de Negocios</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_materiales">Maestría en Ciencias de Materiales</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_productos_naturales_alimentacion">Maestría en Ciencias: Productos Naturales y Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_diseno_modas">Maestría en Diseño de Modas</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_diseno_muebles">Maestría en Diseño de Muebles</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_electronica_en_sistemas_inteligentes">Maestría en Electrónica Opción en Sistemas Inteligentes Aplicados</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ingenieria_de_software">Maestría en Ingeniería de Software</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_inteligencia_artificial">Maestría en Inteligencia Artificial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_medios_interactivos">Maestría en Medios Interactivos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_modelacion_matematica">Maestría en Modelación Matemática</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_robotica">Maestría en Robótica</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_tecnologia_avanzada_de_manufactura">Maestría en Tecnología Avanzada de Manufactura</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/maestria_en_ciencias_de_datos">Maestría en Ciencia de Datos (modalidad virtual)</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_ciencias_productos_naturales_alimentos">Doctorado en Ciencias: Productos Naturales y Alimentos</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados">Doctorado en Electrónica Especialidad Sistemas Inteligentes Aplicados</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_inteligencia_artificial">Doctorado en Inteligencia Artificial</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_modelacion_matematica">Doctorado en Modelación Matemática</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="/home/ensenanza/posgrados/doctorado_en_robotica">Doctorado en Robótica</a>
-                                    </li>
+                                    <li class="menu-item" *ngFor="let posgrado of posgrados">
+                                        <a 
+                                        [ngClass]="{ 'highlight-red': posgrado.nombre === datos_carrera.nombre_carrera }"
+                                        
+                                          (click)="navigateTo(posgrado.nombre)">
+                                          {{ posgrado.nombre }}
+                                        </a>
+                                      </li> 
                                 </ul>
                             </li>
                         </ul>
@@ -159,120 +86,241 @@
                 </ul>
             </nav>
         </div>
-    </section>
-
-    <div class="content-container">
-        <div class="region region-content">
-            <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
-                <div class="content">
-                    <h1 class="title page-title">
-                        <span class="field field--name-title field--type-string field--label-hidden">Doctorado en Electrónica Especialidad: Sistemas Inteligentes Aplicados </span>
-                    </h1>
-                </div>
+  
+  <div class="content-container">
+    <div class="region region-content">
+        <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
+            <div class="content">
+                <h1 class="title page-title">
+                    <span class="field field--name-title field--type-string field--label-hidden">{{datos_carrera.nombre_carrera}}</span>
+                </h1>
             </div>
-
-            <article data-history-node-id="78" role="article" class="node node--type-pagina-inv-cpe node--view-mode-full clearfix">
-                <div class="node__container">
-                    <div class="node__main-content clearfix">
-                        <header class="node__header">
-                            <h2 class="node__title title sr-only">
-                                <span class="field field--name-title field--type-string field--label-hidden">Doctorado en Electrónica Especialidad: Sistemas Inteligentes Aplicados </span>
-                            </h2>
-                        </header>
-
-                        <div class="field field--name-field-portada-inv-cpe field--type-image field--label-hidden field__item">
-                            <img loading="lazy" src="/assets/images/InstAgroindustrias.jpeg" width="1140" height="450" alt="Doctorado en Electrónica Especialidad: Sistemas Inteligentes Aplicados " typeof="foaf:Image" />
-                        </div>
-
-                        
-                        <div class="accordion-container">
-                            <div class="panel-group">
-                              <div *ngFor="let panel of panels; let i = index" class="panel">
+        </div>
+  
+        <article data-history-node-id="78" role="article" class="node node--type-pagina-inv-cpe node--view-mode-full clearfix">
+            <div class="node__container">
+                <div class="node__main-content clearfix">
+                    <header class="node__header">
+                        <h2 class="node__title title sr-only">
+                            <span class="field field--name-title field--type-string field--label-hidden">{{datos_carrera.nombre_carrera}}</span>
+                        </h2>
+                    </header>
+  
+                    <div class="field field--name-field-portada-inv-cpe field--type-image field--label-hidden field__item">
+                        <img loading="lazy" src="{{datos_carrera.url_imagen}}" width="1140" height="450" alt="{{datos_carrera.nombre_carrera}}" typeof="foaf:Image" />
+                    </div>
+  
+                    <div class="accordion-container">
+                        <div class="panel-group">
+                            <div *ngFor="let panel of panels; let i = index" class="panel">
                                 <div class="panel-heading" (click)="toggle(i)" [class.active]="isOpen(i)">
-                                  <div class="panel-title">
-                                    {{ panel.title }}
-                                  </div>
+                                    <div class="panel-title">
+                                        {{ panel.title }}
+                                    </div>
                                 </div>
                                 <div class="panel-collapse" *ngIf="isOpen(i)">
-                                  <div class="panel-body">
-                                    <div *ngIf="i === 0">
-                                     <p>Mision en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                    </div>
-                                    
-                                    <div *ngIf="i === 1">
-                                       <p>Vision en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                    </div>
-                                    
-                                    <div *ngIf="i === 2">
-                                    
-                                    </div>
-                                    
-                                      <div *ngIf="i === 3">
-                                        
-                                    </div>
+                                    <div class="panel-body">
+                                        <div *ngIf="i === 0">
+                                          <div class="mision-content">
+                                              <div [innerHTML]="formatDocumentText(datos_carrera.mision)"></div>
+                                          </div>
+                                        </div>
+                                        <div *ngIf="i === 1">
+                                          <div class="vision-content">
+                                              <div [innerHTML]="formatDocumentText(datos_carrera.vision)"></div>
+                                              </div>
+                                        </div>
+                                        <div *ngIf="i === 2">
+                                            <div class="objetivo-content">
+                                              <div [innerHTML]="formatDocumentText(datos_carrera.objetivo)"></div>
+                                              </div>
+                                        </div>
+                                        <div *ngIf="i === 3">
+                                            <div class="perfil-ingreso-content">
+                                              <div [innerHTML]="formatDocumentText(datos_carrera.perfil_ingreso)"></div>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="i === 4">
+                                            <div class="perfil-egreso-content">
+                                              <div [innerHTML]="formatDocumentText(datos_carrera.perfil_egreso)"></div>
+                                                </div>
+                                        </div>
+                                        <div *ngIf="i === 5">
+                                           
+                                        </div>
+                                        <div *ngIf="i === 6">
+                                          
+                                            <div class="universal">
+                                                <body>
+                                               
+                                                <table class="tabla-estudiantes"  *ngIf="alumnos_matriculados.length > 0; else noData">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>GENERACIÓN</th>
+                                                            <th>NÚMERO DE ALUMNOS</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="matriculados" *ngFor="let alumno of alumnos_matriculados">
+                                                            <td>{{alumno.Generacion}}</td>
+                                                            <td>{{alumno.Alumnos}}</td>
+                                                         </tr>
+                                                    </tbody>
+                                                </table>
+                                                <ng-template #noData>
+                                                    <p>Números de alumnos matriculados en revisión por parte de las autoridades universitarias correspondientes.</p>
+                                                </ng-template>
+                                            </body>
+                                        </div>
 
-                                     <div *ngIf="i === 4">
-                                       
-                                    </div>
-                                    
-                                    <div *ngIf="i === 5">
-                                        
-                                       </div>
-                                    <div *ngIf="i === 6">
-                                        <p>Numero de Alumnos Matriculados en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                    </div>
-                                    
-                                    <div *ngIf="i === 7">
-                                       
-                                    </div>
+                                        </div>
+                                        <div *ngIf="i === 7">
+                                           
+                                            <div *ngIf="nucleo_academico.length>0; else noData">
 
-                                     <div *ngIf="i === 9">
-                                        <p>Tutoria de Seguimiento Academico en revisión por parte de las autoridades universitarias correspondientes.</p>   
-                                     </div>
-
-                                 <div *ngIf="i === 8">
-                                       
-                                    </div>
-
-                                     <div *ngIf="i === 10">
-                                        <p>Productividad Academica Relevante en revisión por parte de las autoridades universitarias correspondientes.</p> 
-                                     </div>
-  
-                                     <div *ngIf="i === 11">
-                                        
-                                        <p>Vinculacion con Otros Sectores de la Sociedad en revisión por parte de las autoridades universitarias correspondientes.</p>
-
-                                     </div>
-
-                                     <div *ngIf="i === 12">
-                                        
-                                        <p>Egresados en revisión por parte de las autoridades universitarias correspondientes.</p>
-
-                                     </div>
-
-                                     <div *ngIf="i === 13">
-                                        
-                                        
-                                     </div>
-                                     
-                                     <div *ngIf="i === 14">
-                                        
-                                        <p>Informacion de Becas CONACYT en revisión por parte de las autoridades universitarias correspondientes.</p>
-                                     </div>
-                                  </div>
-                                
-                                
-                                
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          
-
+                                                <div class="universal">
+                                                  <body>
+                                                  <table class="tabla-estudiantes">
+                                                      <thead>
+                                                          <tr>
+                                                              <th>Nombre del Profesor</th>
+                                                              <th>Grado</th>
+                                                              <th>Instituto</th>
+                                                              <th>SNI</th>
+                                                              <th>PROMEP</th>
+                                                          </tr>
+                                                      </thead>
+                                                      <tbody>
+                                                          <tr *ngFor="let nucleo of nucleo_academico">
+                                                              <td>{{nucleo.nombre}}</td>
+                                                              <td>{{nucleo.grado}}</td>
+                                                              <td>{{nucleo.codigoInstituto}}</td>
+                                                              <td>{{nucleo.SNI}}</td>
+                                                              <td>{{nucleo.perfil_deseable}}</td>
+                                                          </tr>
+                                                      </tbody>
+                                                  </table>
+                                              </body>
+                                                </div>
+                                               </div>
+                                                <ng-template #noData>
+                                                    <div class="universal">
+                                                    <p>Núcleo Académico en revisión por parte de las autoridades universitarias correspondientes.</p>
+                                                </div>
+                                                </ng-template>
+                                            
+                                            
+                                        </div>
+                                        <div *ngIf="i === 8">
+                                            <div *ngIf="lineas_de_generacion.length > 0; else noData">
+                                            <div class="universal" *ngFor="let linea of lineas_de_generacion">
             
+                                                <div *ngIf="linea.descripcion_linea" [innerHTML]="formatDocumentText(linea.descripcion_linea)"></div>
+                                            </div>
+                                           </div>
+                                           <ng-template #noData>
+                                            <div class="universal">
+                                            <p>Líneas de Generación y Aplicación de Conocimiento del Programa en revisión por las autoridades universitarias correspondientes.</p>
+                                        </div>
+                                        </ng-template>
+                                      </div>
+                                      <div *ngIf="i === 9">
+                                        <div *ngIf="tutoria_segumiento.length>0; else noData">
+
+                                          <div class="universal">
+                                            <body>
+                                            <table class="tabla-estudiantes">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ALUMNO</th>
+                                                        <th>DIRECTOR DE TESIS</th>
+                                                        <th>TUTOR DE SEGUIMIENTO ACADÉMICO</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let tutoria of tutoria_segumiento">
+                                                        <td>{{tutoria.Alumno}}</td>
+                                                        <td>{{tutoria.grado_dir}} {{tutoria.nombre_dir}}</td>
+                                                        <td>{{tutoria.grado_tutor}} {{tutoria.nombre_tutor}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </body>
+                                    </div>
+                                </div>
+                                <ng-template #noData>
+                                <div class="universal">
+                                 <p>Tutoría de Seguimiento Académico revisión por las autoridades universitarias correspondientes.</p>
+                                </div>
+                                </ng-template>
+                                      </div>
+
+                                      <div *ngIf="i === 10">
+                                        <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
+
+                                       
+                                                            
+                                        <div class="universal">
+                                            <body>
+                                            <p style="text-align: center; font-size: 18px;"><strong>Publicaciones</strong></p>
+                                            <table class="tabla-publicaciones">   
+                                                <thead>
+                                                   
+                                                    <tr>
+                                                        <th class="publicacion-td">Publicación</th>
+                                                        <th class="autores-td">Autores</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="publicaciones" *ngFor="let publicacion of productividad_publicaciones">
+                                                        <td class="publicacion-td">{{publicacion.publicacion}}</td>
+                                                        <td  class="autores-td">{{publicacion.descripcion}}</td>
+                                                     </tr>
+                                                </tbody>
+                                            </table>
+                                        </body>
+                                    </div>
+                                </div>
+                                <ng-template #noData>
+                                <div class="universal">
+                                 <p>Productividad Académica Relevante en revisión por las autoridades universitarias correspondientes.</p>
+                                </div>
+                                </ng-template>
+                                      </div>
+                                      <div *ngIf="i === 11">
+                                        <div *ngIf="vinculacion_sector.length>0; else noData">
+                                        <div class="universal" *ngFor="let vinculacion of vinculacion_sector">
+                                            <div [innerHTML]="formatDocumentText(vinculacion.descripcion)"></div>
+                                        </div>
+                                        </div>
+                                        <ng-template #noData>
+                                        <div class="universal">
+                                            <p> Vinculación con otros Sectores de la Sociedad en revisión por las autoridades universitarias correspondientes.</p>
+                                        </div>
+                                        </ng-template>
+                                      </div>
+                                      <div *ngIf="i === 12">
+                                        <div class="universal">
+                                           <p>Egresados en revisión por las autoridades universitarias correspondientes.</p>
+                                        </div>
+                                      </div>
+                                      <div *ngIf="i === 13">
+                                        
+                                      </div>
+                                      <div *ngIf="i === 14">
+                                          <div class="beca-content">
+                                              <div [innerHTML]="formatDocumentText(datos_carrera.beca)"></div>
+                                          </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+  
                 </div>
-            </article>
-        </div>
+            </div>
+        </article>
     </div>
-</div>
+  </div>
+  

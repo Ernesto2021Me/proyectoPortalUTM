@@ -149,164 +149,158 @@ export class MaestriaEnAdministracionDeNegociosComponent implements OnInit {
     }
   }
 
+  formatDocumentText(text: string): string {
+    let formattedText = '';
+    let listLevel = 0; // Nivel actual de listas
+    let sublistStack: number[] = []; // Pila para manejar múltiples niveles de sublistas
 
-
-  formatText(text: string): string {
-    return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
-  }
-
-  formatText_2(text: string): string {
+    // Dividimos el texto en líneas para procesar cada línea por separado
     const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    if (lines.length === 0) return '';
-    const firstParagraph = `<p>${lines[0]}</p>`;
-    const isHeader = (line: string) => {
-      return line === "Objetivos Particulares:"
-      ||line==="CONOCIMIENTOS"
-      ||line==="HABILIDADES"
-      ||line==="ACTITUDES Y VALORES"
-      ||line==="ESTRUCTURA OCUPACIONAL";
-    };
 
-    let html = '';
-    let currentListItems: string[] = [];
-    for (const line of lines.slice(1)) {
-      if (isHeader(line)) {
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
 
-        if (currentListItems.length > 0) {
-          html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
-          currentListItems = [];
+        // Maneja "Título:" y "Subtitulo:"
+        if (line.startsWith('Título: ')) {
+            // Cierra todas las listas abiertas antes de los títulos
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const title = line.substring(8).trim();
+            formattedText += `<h1><strong>${title}</strong></h1>`;
+        } else if (line.startsWith('Subtitulo: ')) {
+            // Cierra todas las listas abiertas antes de los subtítulos
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const subtitle = line.substring(11).trim();
+            formattedText += `<p><strong>${subtitle}</strong></p>`;
+        } else if (line.startsWith('Subtituloinfo: ')) {
+            // Cierra todas las listas abiertas antes de la información
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const parts = line.substring(15).split(':');
+            const infoTitle = parts[0].trim();
+            const infoContent = parts[1].trim();
+            formattedText += `<p><strong>${infoTitle}:</strong> ${infoContent}</p>`;
+        } else if (line.startsWith('Lista_titulo:')) {
+            // Manejo de Lista_titulo
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const parts = line.substring(13).split(':');
+            const listTitle = parts[0].trim();
+            const listContent = parts[1] ? parts[1].trim() : '';
+            formattedText += `<p>${listTitle}:</p><ul>`;
+            if (listContent) {
+                formattedText += `<li>${listContent}</li>`;
+            }
+            listLevel = 1; // Marca que estamos en el nivel 1 de lista
+        } else if (line.startsWith('Lista_titulonegr:')) {
+            // Manejo de Lista_titulonegr
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const parts = line.substring(17).split(':');
+            const listTitle = parts[0].trim();
+            const listContent = parts[1] ? parts[1].trim() : '';
+            formattedText += `<p><strong>${listTitle}:</strong></p><ul>`;
+            if (listContent) {
+                formattedText += `<li><strong>${listContent}</strong></li>`;
+            }
+            listLevel = 1; // Marca que estamos en el nivel 1 de lista
+        } else if (line.startsWith('Sublista:')) {
+            // Manejo de Sublista
+            if (listLevel > 0) {
+                formattedText += '<ul>'; // Inicia una nueva sublista
+                sublistStack.push(1); // Incrementa el nivel de sublistas
+            } else {
+                formattedText += '<ul>'; // Inicia una nueva lista si no estamos en una lista principal
+                listLevel = 1; // Marca que estamos en el nivel 1 de lista
+            }
+        } else if (line.startsWith('endSublista')) {
+            // Cierre de Sublista
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>';
+                sublistStack.pop(); // Decrementa el nivel de sublistas
+            }
+        } else if (line.startsWith('Lista:')) {
+            // Manejo de Lista
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            if (listLevel > 0) {
+                formattedText += '</ul>';
+                listLevel = 0;
+            }
+            formattedText += '<ul>'; // Inicia una nueva lista sin el título
+            listLevel = 1; // Marca que estamos en el nivel 1 de lista
+        } else if (line.startsWith('Informacion:')) {
+            // Manejo de Informacion
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const infoContent = line.substring(12).trim();
+            formattedText += `<p>${infoContent}</p>`;
+        } else if (listLevel > 0) {
+            // Manejo de elementos de lista
+            formattedText += `<li>${line}</li>`;
+        } else if (sublistStack.length > 0) {
+            // Manejo de elementos de sublista
+            formattedText += `<li>${line}</li>`;
+        } else {
+            // Para líneas que no son listas ni títulos, se agregan tal cual
+            formattedText += `<p>${line}</p>`;
         }
-        html += `<li class="list"><strong>${line}</strong></li>`;
-      } else {
-        currentListItems.push(`<li>${line}</li>`);
-      }
     }
-    if (currentListItems.length > 0) {
-      html += `<ul  style="list-style-type: none;" class="reduce-spacing">${currentListItems.join('')}</ul>`;
+
+    // Cierra el último <ul> si está abierto
+    if (listLevel > 0) {
+        formattedText += '</ul>'.repeat(listLevel);
     }
-    return firstParagraph + '<ul>' + html + '</ul>';
-  }
-
-  formatText_3(text: string): string {
-    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    if (lines.length > 0) {
-      let firstParagraph = `<p>${lines[0]}</p>`;
-      let listItems = lines.slice(1).map(line => `<li>${line}</li>`).join('');
-      let list = `<ul class="reduce-spacing">${listItems}</ul>`;
-      return `${firstParagraph}${list}`;
+    if (sublistStack.length > 0) {
+        formattedText += '</ul>'.repeat(sublistStack.length);
     }
-    return '';
-  }
 
-  formatText_4(text: string): string {
-    const boldWords = ['Conocimientos:', 'Habilidades:', 'Actitudes y valores:']; // Palabras específicas en negrita
+    return formattedText;
+}
 
-    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    if (lines.length > 0) {
-      let firstParagraph = `<p>${lines[0]}</p>`;
-
-      // Función para poner en negrita las palabras específicas
-      const applyBold = (line: string): string => {
-        let formattedLine = line;
-        boldWords.forEach(word => {
-          // Escapar caracteres especiales en la palabra
-          const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-          // Expresión regular para buscar la palabra completa
-          const regex = new RegExp(escapedWord, 'gi');
-          formattedLine = formattedLine.replace(regex, `<strong>${word}</strong>`);
-        });
-        return formattedLine;
-      };
-
-      let listItems = lines.slice(1, -1).map(line => `<li>${applyBold(line)}</li>`).join('');
-      let lastParagraph = lines.length > 1 ? `<p>${applyBold(lines[lines.length - 1])}</p>` : '';
-
-      let list = `<ul class="reduce-spacing list">${listItems}</ul>`;
-      return `${firstParagraph}${list}${lastParagraph}`;
-    }
-    return '';
-  }
-
-   formatText_5(text: string): string {
-    const startMarkers = ['Poseer comprensión básica (a nivel de licenciatura) en las siguientes áreas:',
-      'Aptitudes requeridas:'];
-   const endMarkers = ['Deseable un nivel de inglés de al menos 450 puntos en el examen TOEFL o equivalente, respaldado con documento probatorio.',
-      'End sublist'];
-
-   const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-
-   if (lines.length === 0) return '';
-
-   let html = `<p>${lines[0]}</p>`;
-   let isSubList = false;
-   let listItems: string[] = [];
-   let subListItems: string[] = [];
-
-   for (let i = 1; i < lines.length; i++) {
-       const line = lines[i];
-
-       if (startMarkers.some(marker => line.startsWith(marker))) {
-           if (isSubList) subListItems.push('</ul>');
-           listItems.push(`<li>${line}</li>`);
-           subListItems = ['<ul class="reduce-spacing">'];
-           isSubList = true;
-       } else if (endMarkers.some(marker => line.startsWith(marker))) {
-           if (isSubList) {
-               subListItems.push('</ul>');
-               listItems.push(subListItems.join(''));
-               isSubList = false;
-               subListItems = [];
-           }
-           listItems.push(`<li>${line}</li>`);
-       } else {
-           if (isSubList) {
-               subListItems.push(`<li>${line}</li>`);
-           } else {
-               listItems.push(`<li>${line}</li>`);
-           }
-       }
-   }
-
-   if (isSubList) subListItems.push('</ul>');
-   if (subListItems.length > 0) listItems.push(subListItems.join(''));
-   const list = `<ul class="reduce-spacing">${listItems.join('')}</ul>`;
-
-   return `${html}${list}`;
-     }
-
-     
-      formatText_6(text: string): string {
-        // Texto que queremos reemplazar
-        const textToReplace = 'http://www.conacyt.mx/index.php/becas-y-posgrados/becas-nacionales.';
-        // HTML del enlace
-        const linkHtml = '<a href="http://www.conacyt.mx/index.php/becas-y-posgrados/becas-nacionales." target="_blank">http://www.conacyt.mx/index.php/becas-y-posgrados/becas-nacionales.</a>';
-    
-        // Reemplazamos el texto en el texto original con el enlace HTML
-        const modifiedText = text.replace(textToReplace, linkHtml);
-    
-        // Dividimos el texto en líneas, quitamos espacios innecesarios, eliminamos líneas vacías y convertimos en párrafos HTML
-        return modifiedText
-            .split('\n')
-            .map(line => line.trim())
-            .filter(line => line.length > 0)
-            .map(paragraph => `<p>${paragraph}</p>`)
-            .join('');
-    }
-    
-    formatText_7(text: string): string {
-      const paragraphs = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-  
-      if (paragraphs.length === 0) {
-          return '';
-      }
-  
-      const formattedParagraphs = paragraphs.map((paragraph, index) => {
-          return index === 0 
-              ? `<p><strong>${paragraph}</strong></p>` 
-              : `<p>${paragraph}</p>`;
-      });
-  
-      return formattedParagraphs.join('');
-  }
-    
 }

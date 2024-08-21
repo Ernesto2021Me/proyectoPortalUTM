@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CarrerasService } from 'src/app/services/carreras.service';
@@ -6,6 +6,12 @@ import { Informacion_careras_posgrados } from 'src/app/models/Informacion_carrer
 import { Carrera } from 'src/app/models/carreras';
 import { Nucleo_academico } from 'src/app/models/nucleo_academico';
 import { Lineas_de_generacion } from 'src/app/models/lineas_de_generacion';
+import { TutoriaSeguimiento } from 'src/app/models/tutoria_segumiento';
+import { Alumnos_matriculados } from 'src/app/models/alumnos_matriculados_posgrado';
+import { vinculacion_sector } from 'src/app/models/Vinculacion_sector';
+import { Productividad_academica_publicaciones } from 'src/app/models/productividad_academica_pub';
+import { Productividad_academica_eventos } from 'src/app/models/productividad-academica_event';
+import { Productividad_academica_proyectos } from 'src/app/models/productividad_academica_pro';
 @Component({
   selector: 'app-maestria-en-electronica-opcion-sistemas-inteligentes',
   templateUrl: './maestria-en-electronica-opcion-sistemas-inteligentes.component.html',
@@ -21,7 +27,12 @@ export class MaestriaEnElectronicaOpcionSistemasInteligentesComponent implements
     lineas_de_generacion: Lineas_de_generacion[]=[];
     panels: { title: string, content: string }[] = [];
     openIndex: number | null = null;
-  
+    tutoria_segumiento: TutoriaSeguimiento[]=[];
+    alumnos_matriculados: Alumnos_matriculados[]=[];
+    vinculacion_sector: vinculacion_sector[]=[];
+    productividad_publicaciones: Productividad_academica_publicaciones[]=[];
+    productividad_eventos: Productividad_academica_eventos[]=[];
+    productividad_proyectos: Productividad_academica_proyectos[]=[];
     urlMapping: { [key: string]: string } = {
       // Licenciaturas
       'Ingeniería en Computación': '/home/ensenanza/licenciaturas/ingenieria_en_computacion',
@@ -53,7 +64,7 @@ export class MaestriaEnElectronicaOpcionSistemasInteligentesComponent implements
       'Maestría en Tecnología Avanzada de Manufactura': '/home/ensenanza/posgrados/maestria_en_tecnologia_avanzada_de_manufactura',
       'Maestría en Ciencia de Datos': 'http://virtual.utm.mx/maestria_ciencia_datos.html',
       'Doctorado en Ciencias: Productos Naturales y Alimentos': '/home/ensenanza/posgrados/doctorado_en_ciencias_productos_naturales_alimentos',
-      'Doctorado en Electrónica Especialidad Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados',
+      'Doctorado en Electrónica, Opción: Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados',
       'Doctorado en Inteligencia Artificial': '/home/ensenanza/posgrados/doctorado_en_inteligencia_artificial',
       'Doctorado en Modelación Matemática': '/home/ensenanza/posgrados/doctorado_en_modelacion_matematica',
       'Doctorado en Robótica': '/home/ensenanza/posgrados/doctorado_en_robotica',
@@ -90,6 +101,12 @@ export class MaestriaEnElectronicaOpcionSistemasInteligentesComponent implements
     this.loadInformacion_carreras_posgrado();
     this.loadNucleo_academico();
     this.loadlineas_de_generacion();
+    this.loadtutoria_seguimiento();
+    this.loadalumnos_matriculados();
+    this.loadvinculacion_sector();
+    this.loadproductividad_publicaciones();
+    this.loadproductividad_eventos();
+    this.loadproductividad_proyectos();
   }
 
 
@@ -126,6 +143,47 @@ export class MaestriaEnElectronicaOpcionSistemasInteligentesComponent implements
     );
   }
   
+  private loadtutoria_seguimiento(){
+    this.carrerasService.tutoria_seguimiento('60').subscribe(
+      (res: any) => { this.tutoria_segumiento = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadalumnos_matriculados(){
+    this.carrerasService.alumnos_matriculados('60').subscribe(
+      (res: any) => { this.alumnos_matriculados = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadvinculacion_sector(){
+    this.carrerasService.vinculacion_sector('60').subscribe(
+      (res: any) => { this.vinculacion_sector = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadproductividad_publicaciones(){
+    this.carrerasService.productividad_publicaciones('60').subscribe(
+      (res: any) => { this.productividad_publicaciones = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadproductividad_eventos(){
+    this.carrerasService.productividad_eventos('60').subscribe(
+      (res: any) => { this.productividad_eventos = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadproductividad_proyectos(){
+    this.carrerasService.productividad_proyectos('60').subscribe(
+      (res: any) => { this.productividad_proyectos = res;},
+      (err) => console.error(err)
+    );
+  }
 
   toggle(index: number): void {
     this.openIndex = this.openIndex === index ? null : index;
@@ -151,75 +209,167 @@ export class MaestriaEnElectronicaOpcionSistemasInteligentesComponent implements
 
 
   
-  formatText(text: string): string {
-    return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
-  }
+  formatDocumentText(text: string): string {
+    let formattedText = '';
+    let listLevel = 0; // Nivel actual de listas
+    let sublistStack: number[] = []; // Pila para manejar múltiples niveles de sublistas
+    let newSublist = false; // Bandera para indicar si estamos en una nueva sublista
 
-  formatText_2(text: string): string {
+    // Dividimos el texto en líneas para procesar cada línea por separado
     const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    if (lines.length === 0) return '';
-    const firstParagraph = `<p>${lines[0]}</p>`;
-    const isHeader = (line: string) => {
-      return    line === "PROPÓSITOS DEL PROGRAMA"
-    };
-  
-    let html = '';
-    let currentListItems: string[] = [];
-    for (const line of lines.slice(1)) {
-      if (isHeader(line)) {
-       
-        if (currentListItems.length > 0) {
-          html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
-          currentListItems = []; 
-        }
-        html += `<li class="list"><strong>${line}</strong></li>`;
-      } else {
-        currentListItems.push(`<li>${line}</li>`);
-      }
-    }
-    if (currentListItems.length > 0) {
-      html += `<ul  style="list-style-type: none;" class="reduce-spacing">${currentListItems.join('')}</ul>`;
-    }
-    return firstParagraph + '<ul>' + html + '</ul>';
-  }
 
-  formatText_3(text: string): string {
-    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    if (lines.length > 0) {
-        let firstParagraph = `<p>${lines[0]}</p>`;
-        let listItems = lines.slice(1).map(line => `<li>${line}</li>`).join('');
-        let list = `<ul class="reduce-spacing">${listItems}</ul>`;
-        return `${firstParagraph}${list}`;
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+
+        // Maneja "Título:" y "Subtitulo:"
+        if (line.startsWith('Título: ')) {
+            // Cierra todas las listas abiertas antes de los títulos
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const title = line.substring(8).trim();
+            formattedText += `<h1><strong>${title}</strong></h1>`;
+        } else if (line.startsWith('Subtitulo: ')) {
+            // Cierra todas las listas abiertas antes de los subtítulos
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const subtitle = line.substring(11).trim();
+            formattedText += `<p><strong>${subtitle}</strong></p>`;
+        } else if (line.startsWith('Subtituloinfo: ')) {
+            // Cierra todas las listas abiertas antes de la información
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const parts = line.substring(15).split(':');
+            const infoTitle = parts[0].trim();
+            const infoContent = parts[1].trim();
+            formattedText += `<p><strong>${infoTitle}:</strong> ${infoContent}</p>`;
+        } else if (line.startsWith('Lista_titulo:')) {
+            // Manejo de Lista_titulo
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const parts = line.substring(13).split(':');
+            const listTitle = parts[0].trim();
+            const listContent = parts[1] ? parts[1].trim() : '';
+            formattedText += `<p>${listTitle}:</p><ul>`;
+            if (listContent) {
+                formattedText += `<li>${listContent}</li>`;
+            }
+            listLevel = 1; // Marca que estamos en el nivel 1 de lista
+        } else if (line.startsWith('Lista_titulonegr:')) {
+            // Manejo de Lista_titulonegr
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const parts = line.substring(17).split(':');
+            const listTitle = parts[0].trim();
+            const listContent = parts[1] ? parts[1].trim() : '';
+            formattedText += `<p><strong>${listTitle}:</strong></p><ul>`;
+            if (listContent) {
+                formattedText += `<li><strong>${listContent}</strong></li>`;
+            }
+            listLevel = 1; // Marca que estamos en el nivel 1 de lista
+        } else if (line.startsWith('Sublista:')) {
+            // Manejo de Sublista
+            if (listLevel > 0) {
+                // Si estamos en una lista principal y se inicia una sublista, se agrega el primer ítem como <li>
+                if (!newSublist) {
+                    formattedText += `<li>${line.substring(9).trim()}</li>`;
+                    newSublist = true; // Marca que ahora estamos en una sublista
+                }
+                formattedText += '<ul>'; // Inicia una nueva sublista
+                sublistStack.push(1); // Incrementa el nivel de sublistas
+            } else {
+                formattedText += '<ul>'; // Inicia una nueva lista si no estamos en una lista principal
+                listLevel = 1; // Marca que estamos en el nivel 1 de lista
+            }
+        } else if (line.startsWith('endSublista')) {
+            // Cierre de Sublista
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>';
+                sublistStack.pop(); // Decrementa el nivel de sublistas
+            }
+            newSublist = false; // Restablece la bandera cuando se cierra una sublista
+        } else if (line.startsWith('Lista:')) {
+            // Manejo de Lista
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            if (listLevel > 0) {
+                formattedText += '</ul>';
+                listLevel = 0;
+            }
+            formattedText += '<ul>'; // Inicia una nueva lista sin el título
+            listLevel = 1; // Marca que estamos en el nivel 1 de lista
+        } else if (line.startsWith('Informacion:')) {
+            // Manejo de Informacion
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const infoContent = line.substring(12).trim();
+            formattedText += `<p>${infoContent}</p>`;
+        } else if (listLevel > 0) {
+            // Manejo de elementos de lista
+            formattedText += `<li>${line}</li>`;
+        } else if (sublistStack.length > 0) {
+            // Manejo de elementos de sublista
+            formattedText += `<li>${line}</li>`;
+        } else {
+            // Para líneas que no son listas ni títulos, se agregan tal cual
+            formattedText += `<p>${line}</p>`;
+        }
     }
-    return '';
-     }
- 
-     formatText_4(text: string): string {
-      const boldWords = ['Conocimientos:', 'Habilidades:','Actitudes y valores:']; // Palabras específicas en negrita
-    
-      let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-      if (lines.length > 0) {
-          let firstParagraph = `<p>${lines[0]}</p>`;
-          
-          // Función para poner en negrita las palabras específicas
-          const applyBold = (line: string): string => {
-              let formattedLine = line;
-              boldWords.forEach(word => {
-                  // Escapar caracteres especiales en la palabra
-                  const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                  // Expresión regular para buscar la palabra completa
-                  const regex = new RegExp(escapedWord, 'gi');
-                  formattedLine = formattedLine.replace(regex, `<strong>${word}</strong>`);
-              });
-              return formattedLine;
-          };
-    
-          let listItems = lines.slice(1).map(line => `<li>${applyBold(line)}</li>`).join('');
-          let list = `<ul class="reduce-spacing list">${listItems}</ul>`;
-          return `${firstParagraph}${list}`;
-      }
-      return '';
+
+    // Cierra el último <ul> si está abierto
+    if (listLevel > 0) {
+        formattedText += '</ul>'.repeat(listLevel);
     }
+    if (sublistStack.length > 0) {
+        formattedText += '</ul>'.repeat(sublistStack.length);
+    }
+
+    return formattedText;
+}
+
 
    
 }

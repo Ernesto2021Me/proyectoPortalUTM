@@ -137,24 +137,12 @@ public async nucleo_academico(req: Request, res: Response): Promise<void> {
     const { Codigocarrera } = req.body;
     try {
         const resultado = await pool.query(`
-            SELECT
-                n.codigoCarrera,
-                i.nombre as codigoInstituto,
-                p.grado,
-                p.nombre,
-                p.correo,
-                n.descripcion_perfil,
-                n.SNI,
-                n.perfil_deseable,
-                n.image_url as imagen_url
-            FROM
-                nucleo_academico n
-            LEFT JOIN
-                profesores_posgrados p ON n.id_perfil = p.id
-            LEFT JOIN
-                institutos i on i.codigo=p.codigoInstituto
-            WHERE
-                n.codigoCarrera = ?
+            SELECT n.codigoCarrera, i.nombre as codigoInstituto, p.grado, p.nombre, p.correo, n.descripcion_perfil, n.SNI, n.perfil_deseable, n.image_url as imagen_url 
+FROM nucleo_academico n 
+LEFT JOIN profesores_posgrados p ON n.id_perfil = p.id 
+LEFT JOIN institutos i ON i.codigo = p.codigoInstituto 
+WHERE n.codigoCarrera = ?
+ORDER BY n.id;
         `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
     
         // Devolver los resultados como JSON

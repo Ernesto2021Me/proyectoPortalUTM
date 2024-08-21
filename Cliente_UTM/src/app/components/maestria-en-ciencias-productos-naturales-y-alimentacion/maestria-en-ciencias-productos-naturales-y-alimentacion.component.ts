@@ -54,7 +54,7 @@ export class MaestriaEnCienciasProductosNaturalesYAlimentacionComponent implemen
     'Maestría en Ciencias: Productos Naturales y Alimentos': '/home/ensenanza/posgrados/maestria_en_ciencias_productos_naturales_alimentacion',
     'Maestría en Diseño de Modas': '/home/ensenanza/posgrados/maestria_en_diseno_modas',
     'Maestría en Diseño de Muebles': '/home/ensenanza/posgrados/maestria_en_diseno_muebles',
-    'Maestría en Electrónica Opción en Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/maestria_en_electronica_en_sistemas_inteligentes',
+    'Maestría en Electrónica Opción: Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/maestria_en_electronica_en_sistemas_inteligentes',
     'Maestría en Ingeniería de Software': '/home/ensenanza/posgrados/maestria_en_ingenieria_de_software',
     'Maestría en Inteligencia Artificial': '/home/ensenanza/posgrados/maestria_en_inteligencia_artificial',
     'Maestría en Medios Interactivos': '/home/ensenanza/posgrados/maestria_en_medios_interactivos',
@@ -63,7 +63,7 @@ export class MaestriaEnCienciasProductosNaturalesYAlimentacionComponent implemen
     'Maestría en Tecnología Avanzada de Manufactura': '/home/ensenanza/posgrados/maestria_en_tecnologia_avanzada_de_manufactura',
     'Maestría en Ciencia de Datos': 'http://virtual.utm.mx/maestria_ciencia_datos.html',
     'Doctorado en Ciencias: Productos Naturales y Alimentos': '/home/ensenanza/posgrados/doctorado_en_ciencias_productos_naturales_alimentos',
-    'Doctorado en Electrónica Especialidad Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados',
+    'Doctorado en Electrónica, Opción: Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados',
     'Doctorado en Inteligencia Artificial': '/home/ensenanza/posgrados/doctorado_en_inteligencia_artificial',
     'Doctorado en Modelación Matemática': '/home/ensenanza/posgrados/doctorado_en_modelacion_matematica',
     'Doctorado en Robótica': '/home/ensenanza/posgrados/doctorado_en_robotica',
@@ -204,179 +204,165 @@ export class MaestriaEnCienciasProductosNaturalesYAlimentacionComponent implemen
     }
   }
 
+  formatDocumentText(text: string): string {
+    let formattedText = '';
+    let listLevel = 0; // Nivel actual de listas
+    let sublistStack: number[] = []; // Pila para manejar múltiples niveles de sublistas
+    let newSublist = false; // Bandera para indicar si estamos en una nueva sublista
 
-
-  formatText(text: string): string {
-    return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
-  }
-
-  formatText_2(text: string): string {
+    // Dividimos el texto en líneas para procesar cada línea por separado
     const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    if (lines.length === 0) return '';
-    const firstParagraph = `<p>${lines[0]}</p>`;
-    const isHeader = (line: string) => {
-      return line === "Objetivos Particulares"
-      ||line==="CONOCIMIENTOS"
-      ||line==="HABILIDADES"
-      ||line==="ACTITUDES Y VALORES"
-      ||line==="ESTRUCTURA OCUPACIONAL";
-    };
 
-    let html = '';
-    let currentListItems: string[] = [];
-    for (const line of lines.slice(1)) {
-      if (isHeader(line)) {
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
 
-        if (currentListItems.length > 0) {
-          html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
-          currentListItems = [];
+        // Maneja "Título:" y "Subtitulo:"
+        if (line.startsWith('Título: ')) {
+            // Cierra todas las listas abiertas antes de los títulos
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const title = line.substring(8).trim();
+            formattedText += `<h1><strong>${title}</strong></h1>`;
+        } else if (line.startsWith('Subtitulo: ')) {
+            // Cierra todas las listas abiertas antes de los subtítulos
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const subtitle = line.substring(11).trim();
+            formattedText += `<p><strong>${subtitle}</strong></p>`;
+        } else if (line.startsWith('Subtituloinfo: ')) {
+            // Cierra todas las listas abiertas antes de la información
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const parts = line.substring(15).split(':');
+            const infoTitle = parts[0].trim();
+            const infoContent = parts[1].trim();
+            formattedText += `<p><strong>${infoTitle}:</strong> ${infoContent}</p>`;
+        } else if (line.startsWith('Lista_titulo:')) {
+            // Manejo de Lista_titulo
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const parts = line.substring(13).split(':');
+            const listTitle = parts[0].trim();
+            const listContent = parts[1] ? parts[1].trim() : '';
+            formattedText += `<p>${listTitle}:</p><ul>`;
+            if (listContent) {
+                formattedText += `<li>${listContent}</li>`;
+            }
+            listLevel = 1; // Marca que estamos en el nivel 1 de lista
+        } else if (line.startsWith('Lista_titulonegr:')) {
+            // Manejo de Lista_titulonegr
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const parts = line.substring(17).split(':');
+            const listTitle = parts[0].trim();
+            const listContent = parts[1] ? parts[1].trim() : '';
+            formattedText += `<p><strong>${listTitle}:</strong></p><ul>`;
+            if (listContent) {
+                formattedText += `<li><strong>${listContent}</strong></li>`;
+            }
+            listLevel = 1; // Marca que estamos en el nivel 1 de lista
+        } else if (line.startsWith('Sublista:')) {
+            // Manejo de Sublista
+            if (listLevel > 0) {
+                // Si estamos en una lista principal y se inicia una sublista, se agrega el primer ítem como <li>
+                if (!newSublist) {
+                    formattedText += `<li>${line.substring(9).trim()}</li>`;
+                    newSublist = true; // Marca que ahora estamos en una sublista
+                }
+                formattedText += '<ul>'; // Inicia una nueva sublista
+                sublistStack.push(1); // Incrementa el nivel de sublistas
+            } else {
+                formattedText += '<ul>'; // Inicia una nueva lista si no estamos en una lista principal
+                listLevel = 1; // Marca que estamos en el nivel 1 de lista
+            }
+        } else if (line.startsWith('endSublista')) {
+            // Cierre de Sublista
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>';
+                sublistStack.pop(); // Decrementa el nivel de sublistas
+            }
+            newSublist = false; // Restablece la bandera cuando se cierra una sublista
+        } else if (line.startsWith('Lista:')) {
+            // Manejo de Lista
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            if (listLevel > 0) {
+                formattedText += '</ul>';
+                listLevel = 0;
+            }
+            formattedText += '<ul>'; // Inicia una nueva lista sin el título
+            listLevel = 1; // Marca que estamos en el nivel 1 de lista
+        } else if (line.startsWith('Informacion:')) {
+            // Manejo de Informacion
+            if (listLevel > 0) {
+                formattedText += '</ul>'.repeat(listLevel);
+                listLevel = 0;
+            }
+            // Cierra cualquier sublista abierta
+            if (sublistStack.length > 0) {
+                formattedText += '</ul>'.repeat(sublistStack.length);
+                sublistStack = [];
+            }
+            const infoContent = line.substring(12).trim();
+            formattedText += `<p>${infoContent}</p>`;
+        } else if (listLevel > 0) {
+            // Manejo de elementos de lista
+            formattedText += `<li>${line}</li>`;
+        } else if (sublistStack.length > 0) {
+            // Manejo de elementos de sublista
+            formattedText += `<li>${line}</li>`;
+        } else {
+            // Para líneas que no son listas ni títulos, se agregan tal cual
+            formattedText += `<p>${line}</p>`;
         }
-        html += `<li class="list"><strong>${line}</strong></li>`;
-      } else {
-        currentListItems.push(`<li>${line}</li>`);
-      }
-    }
-    if (currentListItems.length > 0) {
-      html += `<ul  style="list-style-type: none;" class="reduce-spacing">${currentListItems.join('')}</ul>`;
-    }
-    return firstParagraph + '<ul>' + html + '</ul>';
-  }
-
-  formatText_3(text: string): string {
-    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    if (lines.length > 0) {
-      let firstParagraph = `<p>${lines[0]}</p>`;
-      let listItems = lines.slice(1).map(line => `<li>${line}</li>`).join('');
-      let list = `<ul class="reduce-spacing">${listItems}</ul>`;
-      return `${firstParagraph}${list}`;
-    }
-    return '';
-  }
- 
-
-  formatText_4(text: string): string {
-    // Función auxiliar para escapar caracteres especiales en expresiones regulares
-    function escapeRegExp(string: string): string {
-        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
 
-    // Objeto con los textos a reemplazar y sus respectivos enlaces
-    const replacements: { [key: string]: string } = {
-        'Resumen Seminarios 2018': 'assets/pdf/carreras/posgrados/MCPNA/Resumen_seminarios_2018.pdf',
-        'Resumen Seminarios 2019': 'assets/pdf/carreras/posgrados/MCPNA/Resumen_seminarios_2019.pdf',
-        'Resumen Seminarios 2020': 'assets/pdf/carreras/posgrados/MCPNA/Resumen_seminarios_2020.pdf',
-        'Seminarios 2018 ': 'assets/pdf/carreras/posgrados/MCPNA/Programa_seminarios_2018.pdf',
-        'Seminarios 2019 ': 'assets/pdf/carreras/posgrados/MCPNA/Programa_seminarios_2019.pdf',
-        'Seminarios 2020 ': 'assets/pdf/carreras/posgrados/MCPNA/Programa_seminarios_2020.pdf',
-        'Reunión con apicultores': 'assets/pdf/carreras/posgrados/MCPNA/Relatoria_1_reunion_con_Apicultores.pdf',
-        'Taller para obtención de aceites esenciales': 'assets/pdf/carreras/posgrados/MCPNA/Relatoria_2_Taller_aceites_esenciales.pdf',
-        'Taller de secado solar': 'assets/pdf/carreras/posgrados/MCPNA/Relatoria_3_Taller_secado_solar.pdf',
-        'Memorias': 'assets/pdf/carreras/posgrados/MCPNA/MEMORIAS_DEL_III_FPNAyCP.pdf',
-        'Reporte técnico': 'javascript:void(0);'
-    };
-
-    // Ordenar las claves por longitud descendente para evitar reemplazos incorrectos
-    const orderedKeys = Object.keys(replacements).sort((a, b) => b.length - a.length);
-
-    // Reemplazamos los textos en el texto original con los enlaces HTML
-    let modifiedText = text;
-    orderedKeys.forEach(textToReplace => {
-        const url = replacements[textToReplace];
-        const linkHtml = `<a href="${url}" target="_blank">${textToReplace}</a>`;
-        
-        // Usamos una expresión regular con delimitadores de palabra para evitar reemplazos parciales
-        const escapedText = escapeRegExp(textToReplace);
-        const regex = new RegExp(`(?:^|\\W)${escapedText}(?:$|\\W)`, 'g');
-        modifiedText = modifiedText.replace(regex, (match) => {
-            return match.replace(textToReplace, linkHtml);
-        });
-    });
-
-    // Procesamos el texto modificado
-    let lines = modifiedText.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    if (lines.length > 0) {
-        let firstParagraph = `<p>${lines[0]}</p>`;
-        let listItems = lines.slice(1).map(line => `<li>${line}</li>`).join('');
-        let list = `<ul class="reduce-spacing">${listItems}</ul>`;
-        return `${firstParagraph}${list}`;
+    // Cierra el último <ul> si está abierto
+    if (listLevel > 0) {
+        formattedText += '</ul>'.repeat(listLevel);
     }
-    return '';
-}
-// Función auxiliar para escapar caracteres especiales en expresiones regulares
-
-
-      formatText_5(text: string): string {
-        const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    if (lines.length === 0) return '';
-    
-    const firstParagraph = `<p>${lines[0]}</p>`;
-    const secondParagraph = lines.length > 1 ? `<p>${lines[1]}</p>` : '';
-    
-    const isHeader = (line: string) => {
-      return line === "Conocimientos:" || line === "Habilidades:" || line === "Actitudes y Valores:";
-    };
-
-    let html = '';
-    let currentListItems: string[] = [];
-
-    for (const line of lines.slice(2)) {
-      if (isHeader(line)) {
-        if (currentListItems.length > 0) {
-          html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
-          currentListItems = []; 
-        }
-        html += `<li class="list"><strong>${line}</strong></li>`;
-      } else {
-        currentListItems.push(`<li>${line}</li>`);
-      }
-    }
-    if (currentListItems.length > 0) {
-      html += `<ul style="list-style-type: none;" class="reduce-spacing">${currentListItems.join('')}</ul>`;
+    if (sublistStack.length > 0) {
+        formattedText += '</ul>'.repeat(sublistStack.length);
     }
 
-    return `${firstParagraph}${secondParagraph}${html}`;
-}
-    
-    
-formatText_6(text: string): string {
-  // Objeto con los textos a reemplazar y sus respectivos enlaces
-  const replacements: { [key: string]: string } = {
-      'https://www.conacyt.gob.mx/Becas-nacionales.html.': 'https://www.conacyt.gob.mx/Becas-nacionales.html.',
-      'https://www.ejemplo.com': 'https://www.ejemplo.com',
-      // Añade más pares texto-enlace aquí según sea necesario
-  };
-
-  // Reemplazamos los textos en el texto original con los enlaces HTML
-  let modifiedText = text;
-  for (const [textToReplace, url] of Object.entries(replacements)) {
-      const linkHtml = `<a href="${url}" target="_blank">${url}</a>`;
-      modifiedText = modifiedText.replace(textToReplace, linkHtml);
-  }
-
-  // Dividimos el texto en líneas, quitamos espacios innecesarios, eliminamos líneas vacías y convertimos en párrafos HTML
-  return modifiedText
-      .split('\n')
-      .map(line => line.trim())
-      .filter(line => line.length > 0)
-      .map(paragraph => `<p>${paragraph}</p>`)
-      .join('');
-}
-
-  
-  formatText_7(text: string): string {
-    const paragraphs = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-
-    if (paragraphs.length === 0) {
-        return '';
-    }
-
-    const formattedParagraphs = paragraphs.map((paragraph, index) => {
-        return index === 0 
-            ? `<p><strong>${paragraph}</strong></p>` 
-            : `<p>${paragraph}</p>`;
-    });
-
-    return formattedParagraphs.join('');
+    return formattedText;
 }
 
     

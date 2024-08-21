@@ -3,7 +3,7 @@ export class Productividad_academica_eventos {
     Evento: string;
     Ponente: string;
     descripcion: string;
-    Año: string;
+    year: string;
 
     constructor() {
 
@@ -11,6 +11,6 @@ export class Productividad_academica_eventos {
         this.Evento = '';
         this.Ponente = '';
         this.descripcion = '';
-        this.Año='';
+        this.year='';
 }
 }

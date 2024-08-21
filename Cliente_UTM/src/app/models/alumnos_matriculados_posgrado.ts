@@ -3,13 +3,13 @@ export class Alumnos_matriculados {
     codigoCarrera: string;
     Generacion: string;
     Alumnos: string;
-    Año: string;
+    year: string;
 
     constructor() {
         this.id = 0;
         this.codigoCarrera = '';
         this.Generacion = '';
         this.Alumnos = '';
-        this.Año = '';
+        this.year = '';
     }
 }
