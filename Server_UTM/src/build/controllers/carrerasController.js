@@ -192,8 +192,8 @@ WHERE codigoCarrera= ?
             try {
                 const resultado = yield database_1.default.query(`
            SELECT * FROM 
-alumnos_matriculados_pos
-WHERE codigoCarrera= ?
+           MatriculadosPosgrados
+WHERE codcarrera= ?
         `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
                 // Devolver los resultados como JSON
                 res.json(resultado); // Asegúrate de acceder a 'rows' si esa es la propiedad que contiene los datos

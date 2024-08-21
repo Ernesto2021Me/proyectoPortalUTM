@@ -179,8 +179,8 @@ public async alumnos_matriculados(req: Request, res: Response): Promise<void> {
     try {
         const resultado = await pool.query(`
            SELECT * FROM 
-alumnos_matriculados_pos
-WHERE codigoCarrera= ?
+           MatriculadosPosgrados
+WHERE codcarrera= ?
         `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
     
         // Devolver los resultados como JSON

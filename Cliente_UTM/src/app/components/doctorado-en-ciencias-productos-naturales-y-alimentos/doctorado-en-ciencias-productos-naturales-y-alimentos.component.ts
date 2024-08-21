@@ -7,7 +7,7 @@ import { Carrera } from 'src/app/models/carreras';
 import { Nucleo_academico } from 'src/app/models/nucleo_academico';
 import { Lineas_de_generacion } from 'src/app/models/lineas_de_generacion';
 import { TutoriaSeguimiento } from 'src/app/models/tutoria_segumiento';
-import { Alumnos_matriculados } from 'src/app/models/alumnos_matriculados_posgrado';
+import { Alumnos_matriculados } from 'src/app/models/MatriculadosPosgrados';
 import { vinculacion_sector } from 'src/app/models/Vinculacion_sector';
 import { Productividad_academica_publicaciones } from 'src/app/models/productividad_academica_pub';
 import { Productividad_academica_eventos } from 'src/app/models/productividad-academica_event';
@@ -204,8 +204,6 @@ export class DoctoradoEnCienciasProductosNaturalesYAlimentosComponent implements
     }
   }
 
-
-
   formatDocumentText(text: string): string {
     let formattedText = '';
     let listLevel = 0; // Nivel actual de listas
@@ -274,7 +272,7 @@ export class DoctoradoEnCienciasProductosNaturalesYAlimentosComponent implements
             const parts = line.substring(13).split(':');
             const listTitle = parts[0].trim();
             const listContent = parts[1] ? parts[1].trim() : '';
-            formattedText += `<p>${listTitle}</p><ul>`;
+            formattedText += `<p>${listTitle}:</p><ul class="reduce-spacing">`;
             if (listContent) {
                 formattedText += `<li>${listContent}</li>`;
             }
@@ -293,7 +291,7 @@ export class DoctoradoEnCienciasProductosNaturalesYAlimentosComponent implements
             const parts = line.substring(17).split(':');
             const listTitle = parts[0].trim();
             const listContent = parts[1] ? parts[1].trim() : '';
-            formattedText += `<p><strong>${listTitle}</strong></p><ul>`;
+            formattedText += `<p><strong>${listTitle}</strong></p><ul class="reduce-spacing">`;
             if (listContent) {
                 formattedText += `<li><strong>${listContent}</strong></li>`;
             }
@@ -306,10 +304,10 @@ export class DoctoradoEnCienciasProductosNaturalesYAlimentosComponent implements
                     formattedText += `<li>${line.substring(9).trim()}</li>`;
                     newSublist = true; // Marca que ahora estamos en una sublista
                 }
-                formattedText += '<ul>'; // Inicia una nueva sublista
+                formattedText += '<ul class="reduce-spacing">'; // Inicia una nueva sublista
                 sublistStack.push(1); // Incrementa el nivel de sublistas
             } else {
-                formattedText += '<ul>'; // Inicia una nueva lista si no estamos en una lista principal
+                formattedText += '<ul class="reduce-spacing">'; // Inicia una nueva lista si no estamos en una lista principal
                 listLevel = 1; // Marca que estamos en el nivel 1 de lista
             }
         } else if (line.startsWith('endSublista')) {
@@ -329,7 +327,7 @@ export class DoctoradoEnCienciasProductosNaturalesYAlimentosComponent implements
                 formattedText += '</ul>';
                 listLevel = 0;
             }
-            formattedText += '<ul>'; // Inicia una nueva lista sin el título
+            formattedText += '<ul class="reduce-spacing">'; // Inicia una nueva lista sin el título
             listLevel = 1; // Marca que estamos en el nivel 1 de lista
         } else if (line.startsWith('Informacion:')) {
             // Manejo de Informacion
@@ -367,5 +365,4 @@ export class DoctoradoEnCienciasProductosNaturalesYAlimentosComponent implements
     return formattedText;
 }
 
-    
 }

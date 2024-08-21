@@ -639,13 +639,23 @@ h4{
 
 
 .publicaciones-td {
-    width: 800px; /* Ajusta el valor según sea necesario */
+    width: 150px; /* Ajusta el valor según sea necesario */
     overflow-wrap: break-word;
     }
 
 .autores-td {
-    width: 150px; /* Ajusta el valor según sea necesario */
+    width: 400px; /* Ajusta el valor según sea necesario */
     overflow-wrap: break-word;
     line-height: 1.2;
 }
 
+.eventos-td {
+    width: 400px; /* Ajusta el valor según sea necesario */
+    overflow-wrap: break-word;
+    }
+
+.eventos_autores-td {
+    width: 150px; /* Ajusta el valor según sea necesario */
+    overflow-wrap: break-word;
+    line-height: 1.2;
+}
