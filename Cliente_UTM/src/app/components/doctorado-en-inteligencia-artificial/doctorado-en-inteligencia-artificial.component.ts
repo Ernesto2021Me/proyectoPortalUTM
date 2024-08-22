@@ -15,7 +15,8 @@ import { Productividad_academica_proyectos } from 'src/app/models/productividad_
 @Component({
   selector: 'app-doctorado-en-inteligencia-artificial',
   templateUrl: './doctorado-en-inteligencia-artificial.component.html',
-  styleUrls: ['./doctorado-en-inteligencia-artificial.component.css']
+  styleUrls: ['./doctorado-en-inteligencia-artificial.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DoctoradoEnInteligenciaArtificialComponent implements OnInit {
   licenciaturas: Carrera[] = [];
@@ -203,168 +204,94 @@ export class DoctoradoEnInteligenciaArtificialComponent implements OnInit {
     }
   }
 
+  textToHtml(text: string): string {
+    const lines = text.split('\n');
+    const result: string[] = [];
+    let listStack: number[] = []; // Pila para rastrear el nivel de listas anidadas
+    let inList = false; // Bandera para saber si estamos dentro de una lista
 
+    // Función para procesar y reemplazar enlaces en una línea de texto
+    function processText(text: string): string {
+        // Procesar negritas
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        text = text.replace(/__(.*?)__/g, '<strong>$1</strong>');
 
-  formatDocumentText(text: string): string {
-    let formattedText = '';
-    let listLevel = 0; // Nivel actual de listas
-    let sublistStack: number[] = []; // Pila para manejar múltiples niveles de sublistas
-    let newSublist = false; // Bandera para indicar si estamos en una nueva sublista
+        // Procesar enlaces
+        text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2">$1</a>');
 
-    // Dividimos el texto en líneas para procesar cada línea por separado
-    const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+        return text;
+    }
 
-    for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-
-        // Maneja "Título:" y "Subtitulo:"
-        if (line.startsWith('Título: ')) {
-            // Cierra todas las listas abiertas antes de los títulos
-            if (listLevel > 0) {
-                formattedText += '</ul>'.repeat(listLevel);
-                listLevel = 0;
-            }
-            // Cierra cualquier sublista abierta
-            if (sublistStack.length > 0) {
-                formattedText += '</ul>'.repeat(sublistStack.length);
-                sublistStack = [];
-            }
-            const title = line.substring(8).trim();
-            formattedText += `<h1><strong>${title}</strong></h1>`;
-        } else if (line.startsWith('Subtitulo: ')) {
-            // Cierra todas las listas abiertas antes de los subtítulos
-            if (listLevel > 0) {
-                formattedText += '</ul>'.repeat(listLevel);
-                listLevel = 0;
-            }
-            // Cierra cualquier sublista abierta
-            if (sublistStack.length > 0) {
-                formattedText += '</ul>'.repeat(sublistStack.length);
-                sublistStack = [];
-            }
-            const subtitle = line.substring(11).trim();
-            formattedText += `<p><strong>${subtitle}</strong></p>`;
-        } else if (line.startsWith('Subtituloinfo: ')) {
-            // Cierra todas las listas abiertas antes de la información
-            if (listLevel > 0) {
-                formattedText += '</ul>'.repeat(listLevel);
-                listLevel = 0;
-            }
-            // Cierra cualquier sublista abierta
-            if (sublistStack.length > 0) {
-                formattedText += '</ul>'.repeat(sublistStack.length);
-                sublistStack = [];
-            }
-            const parts = line.substring(15).split(':');
-            const infoTitle = parts[0].trim();
-            const infoContent = parts[1].trim();
-            formattedText += `<p><strong>${infoTitle}:</strong> ${infoContent}</p>`;
-        } else if (line.startsWith('Lista_titulo:')) {
-            // Manejo de Lista_titulo
-            if (listLevel > 0) {
-                formattedText += '</ul>'.repeat(listLevel);
-                listLevel = 0;
-            }
-            // Cierra cualquier sublista abierta
-            if (sublistStack.length > 0) {
-                formattedText += '</ul>'.repeat(sublistStack.length);
-                sublistStack = [];
-            }
-            const parts = line.substring(13).split(':');
-            const listTitle = parts[0].trim();
-            const listContent = parts[1] ? parts[1].trim() : '';
-            formattedText += `<p>${listTitle}:</p><ul class="reduce-spacing">`;
-            if (listContent) {
-                formattedText += `<li>${listContent}</li>`;
-            }
-            listLevel = 1; // Marca que estamos en el nivel 1 de lista
-        } else if (line.startsWith('Lista_titulonegr:')) {
-            // Manejo de Lista_titulonegr
-            if (listLevel > 0) {
-                formattedText += '</ul>'.repeat(listLevel);
-                listLevel = 0;
-            }
-            // Cierra cualquier sublista abierta
-            if (sublistStack.length > 0) {
-                formattedText += '</ul>'.repeat(sublistStack.length);
-                sublistStack = [];
-            }
-            const parts = line.substring(17).split(':');
-            const listTitle = parts[0].trim();
-            const listContent = parts[1] ? parts[1].trim() : '';
-            formattedText += `<p><strong>${listTitle}</strong></p><ul class="reduce-spacing">`;
-            if (listContent) {
-                formattedText += `<li><strong>${listContent}</strong></li>`;
-            }
-            listLevel = 1; // Marca que estamos en el nivel 1 de lista
-        } else if (line.startsWith('Sublista:')) {
-            // Manejo de Sublista
-            if (listLevel > 0) {
-                // Si estamos en una lista principal y se inicia una sublista, se agrega el primer ítem como <li>
-                if (!newSublist) {
-                    formattedText += `<li>${line.substring(9).trim()}</li>`;
-                    newSublist = true; // Marca que ahora estamos en una sublista
+    for (const line of lines) {
+        // Identificar encabezados
+        const headerMatch = line.match(/^(\#{1,6})\s*(.*)$/);
+        if (headerMatch) {
+            const [_, hashes, content] = headerMatch;
+            const level = hashes.length;
+            if (inList) {
+                while (listStack.length > 0) {
+                    result.push('</li></' + (listStack.length > 1 ? 'ul>' : 'ul>'));
+                    listStack.pop();
                 }
-                formattedText += '<ul class="reduce-spacing">'; // Inicia una nueva sublista
-                sublistStack.push(1); // Incrementa el nivel de sublistas
+                inList = false;
+            }
+            result.push(`<h${level}>${processText(content)}</h${level}>`);
+            continue;
+        }
+
+        // Identificar listas
+        const listMatch = line.match(/^(\s*)([\*\-])\s*(.*)$/);
+        if (listMatch) {
+            const [_, spaces, marker, content] = listMatch;
+            const currentLevel = spaces.length / 2; // Asumimos que cada nivel de anidación usa 2 espacios
+            const isList = marker === '*' || marker === '-';
+            const listTag = isList ? 'ul' : 'ol';
+
+            while (listStack.length > currentLevel) {
+                result.push(`</li></${listStack[listStack.length - 1] === 0 ? 'ul>' : 'ul>'}`);
+                listStack.pop();
+            }
+
+            if (listStack.length === currentLevel) {
+                if (inList) {
+                    result.push('</li>');
+                }
+                result.push(`<${listTag}><li>${processText(content)}`);
+                inList = true;
+                listStack.push(currentLevel);
             } else {
-                formattedText += '<ul class="reduce-spacing">'; // Inicia una nueva lista si no estamos en una lista principal
-                listLevel = 1; // Marca que estamos en el nivel 1 de lista
+                result.push(`<${listTag}><li>${processText(content)}`);
+                inList = true;
+                listStack.push(currentLevel);
             }
-        } else if (line.startsWith('endSublista')) {
-            // Cierre de Sublista
-            if (sublistStack.length > 0) {
-                formattedText += '</ul>';
-                sublistStack.pop(); // Decrementa el nivel de sublistas
+            continue;
+        }
+
+        // Manejo de párrafos
+        if (inList) {
+            while (listStack.length > 0) {
+                result.push('</li></' + (listStack.length > 1 ? 'ul>' : 'ul>'));
+                listStack.pop();
             }
-            newSublist = false; // Restablece la bandera cuando se cierra una sublista
-        } else if (line.startsWith('Lista:')) {
-            // Manejo de Lista
-            if (sublistStack.length > 0) {
-                formattedText += '</ul>'.repeat(sublistStack.length);
-                sublistStack = [];
-            }
-            if (listLevel > 0) {
-                formattedText += '</ul>';
-                listLevel = 0;
-            }
-            formattedText += '<ul class="reduce-spacing">'; // Inicia una nueva lista sin el título
-            listLevel = 1; // Marca que estamos en el nivel 1 de lista
-        } else if (line.startsWith('Informacion:')) {
-            // Manejo de Informacion
-            if (listLevel > 0) {
-                formattedText += '</ul>'.repeat(listLevel);
-                listLevel = 0;
-            }
-            // Cierra cualquier sublista abierta
-            if (sublistStack.length > 0) {
-                formattedText += '</ul>'.repeat(sublistStack.length);
-                sublistStack = [];
-            }
-            const infoContent = line.substring(12).trim();
-            formattedText += `<p>${infoContent}</p>`;
-        } else if (listLevel > 0) {
-            // Manejo de elementos de lista
-            formattedText += `<li>${line}</li>`;
-        } else if (sublistStack.length > 0) {
-            // Manejo de elementos de sublista
-            formattedText += `<li>${line}</li>`;
-        } else {
-            // Para líneas que no son listas ni títulos, se agregan tal cual
-            formattedText += `<p>${line}</p>`;
+            inList = false;
+        }
+
+        // Procesar la línea del párrafo y agregar a resultados
+        const processedLine = processText(line);
+        if (processedLine.trim()) {
+            result.push(`<p>${processedLine}</p>`);
         }
     }
 
-    // Cierra el último <ul> si está abierto
-    if (listLevel > 0) {
-        formattedText += '</ul>'.repeat(listLevel);
-    }
-    if (sublistStack.length > 0) {
-        formattedText += '</ul>'.repeat(sublistStack.length);
+    // Cerramos cualquier lista abierta
+    while (listStack.length > 0) {
+        result.push('</li></' + (listStack.length > 1 ? 'ul>' : 'ul>'));
+        listStack.pop();
     }
 
-    return formattedText;
+    return result.join('\n');
 }
+
 
     
 }
