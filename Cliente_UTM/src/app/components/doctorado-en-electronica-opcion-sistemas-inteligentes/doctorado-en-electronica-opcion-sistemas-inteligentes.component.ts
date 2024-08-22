@@ -7,7 +7,7 @@ import { Carrera } from 'src/app/models/carreras';
 import { Nucleo_academico } from 'src/app/models/nucleo_academico';
 import { Lineas_de_generacion } from 'src/app/models/lineas_de_generacion';
 import { TutoriaSeguimiento } from 'src/app/models/tutoria_segumiento';
-import { Alumnos_matriculados } from 'src/app/models/alumnos_matriculados_posgrado';
+import { Alumnos_matriculados } from 'src/app/models/MatriculadosPosgrados';
 import { vinculacion_sector } from 'src/app/models/Vinculacion_sector';
 import { Productividad_academica_publicaciones } from 'src/app/models/productividad_academica_pub';
 import { Productividad_academica_eventos } from 'src/app/models/productividad-academica_event';

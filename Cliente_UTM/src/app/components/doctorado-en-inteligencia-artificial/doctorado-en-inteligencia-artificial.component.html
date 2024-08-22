@@ -157,13 +157,13 @@
                                                     <thead>
                                                         <tr>
                                                             <th>GENERACIÓN</th>
-                                                            <th>ALUMNOS</th>
+                                                            <th>NÚMERO DE ALUMNOS</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr class="matriculados" *ngFor="let alumno of alumnos_matriculados">
-                                                            <td>{{alumno.Generacion}}</td>
-                                                            <td>{{alumno.Alumnos}}</td>
+                                                            <td>{{alumno.generacion}}</td>
+                                                            <td>{{alumno.Alumno}}</td>
                                                          </tr>
                                                     </tbody>
                                                 </table>
@@ -177,8 +177,7 @@
                                         <div *ngIf="i === 7">
                                            
                                             <div class="universal universal2" *ngIf="nucleo_academico.length>0; else noData">
-                                               <p>Los profesores que integran el Núcleo Académico Básico están adscritos a los Institutos de: Física y Matemáticas, Computación, Hidrología, Ciencias Sociales y Humanidades y al CentroGeo* de Conacyt.</p>
-                                                <div *ngFor="let nucleo of nucleo_academico">
+                                                 <div *ngFor="let nucleo of nucleo_academico">
                                                   <h1>{{nucleo.grado}} {{nucleo.nombre}}</h1>
                                                   <div *ngIf="nucleo.correo">
                                                   <p><strong>Email:</strong> {{nucleo.correo}}</p>
@@ -254,40 +253,37 @@
                                       <div *ngIf="i === 10">
                                         
 
-                                          <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
+ <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
 
                                        
                                                             
                                         <div class="universal">
                                             <body>
-                                            <p>La Productividad Académica del Núcleo Académico Básico de la Maestría en Inteligencia Artificial incluye principalmente:
-
-                                                La producción académica más relevante de los últimos seis años se describe a continuación, comenzando con los artículos en revistas, capítulos de libros y memorias en extenso:</p>
                                             <table class="tabla-publicaciones" >   
                                                 <thead>
                                                    
                                                     <tr>
                                                         <th class="publicacion-td">Publicación</th>
-                                                        <th class="autores-td">Autores</th>
+                                                        <th class="publicacion-td">Autores</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr class="publicaciones" *ngFor="let publicacion of productividad_publicaciones">
                                                         <td class="publicacion-td">{{publicacion.publicacion}}</td>
-                                                        <td  class="autores-td">{{publicacion.descripcion}}</td>
-                                                     </tr>
+                                                        <td class="publicacion-td">{{publicacion.descripcion}}</td>
+                                                   
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </body>
                                          <br>
                                          <body>
-                                            <p >Participación en congresos, seminarios y talleres:</p>
-                                            <table class="tabla-publicaciones">   
+                                             <table class="tabla-publicaciones">   
                                                 <thead>
                                                    
                                                     <tr>
-                                                        <th class="eventos-td">Evento/Lugar</th>
-                                                        <th class="eventos_autores-td">Ponente</th>
+                                                        <th class="publicacion-td">Título/Congreso</th>
+                                                        <th class="autores-td">Autores</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -298,7 +294,8 @@
                                                 </tbody>
                                             </table>
                                         </body>
-                                        <br>
+                                        <br>       
+                                
                                     </div>
                                 </div>
                                 <ng-template #noData>

@@ -122,27 +122,27 @@
                                     <div class="panel-body">
                                         <div *ngIf="i === 0">
                                           <div class="mision-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.mision)"></div>
+                                              <div [innerHTML]="textToHtml(datos_carrera.mision)"></div>
                                           </div>
                                         </div>
                                         <div *ngIf="i === 1">
                                           <div class="vision-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.vision)"></div>
+                                              <div [innerHTML]="textToHtml(datos_carrera.vision)"></div>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 2">
                                             <div class="objetivo-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.objetivo)"></div>
+                                              <div [innerHTML]="textToHtml(datos_carrera.objetivo)"></div>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 3">
                                             <div class="perfil-ingreso-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.perfil_ingreso)"></div>
+                                              <div [innerHTML]="textToHtml(datos_carrera.perfil_ingreso)"></div>
                                             </div>
                                         </div>
                                         <div *ngIf="i === 4">
                                             <div class="perfil-egreso-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.perfil_egreso)"></div>
+                                              <div [innerHTML]="textToHtml(datos_carrera.perfil_egreso)"></div>
                                                 </div>
                                         </div>
                                         <div *ngIf="i === 5">
@@ -162,8 +162,8 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr class="matriculados" *ngFor="let alumno of alumnos_matriculados">
-                                                            <td>{{alumno.Generacion}}</td>
-                                                            <td>{{alumno.Alumnos}}</td>
+                                                            <td>{{alumno.generacion}}</td>
+                                                            <td>{{alumno.Alumno}}</td>
                                                          </tr>
                                                     </tbody>
                                                 </table>
@@ -177,8 +177,7 @@
                                         <div *ngIf="i === 7">
                                            
                                             <div class="universal universal2" *ngIf="nucleo_academico.length>0; else noData">
-                                               <p>Los profesores que integran el Núcleo Académico Básico están adscritos a los Institutos de: Física y Matemáticas, Computación, Hidrología, Ciencias Sociales y Humanidades y al CentroGeo* de Conacyt.</p>
-                                                <div *ngFor="let nucleo of nucleo_academico">
+                                                 <div *ngFor="let nucleo of nucleo_academico">
                                                   <h1>{{nucleo.grado}} {{nucleo.nombre}}</h1>
                                                   <div *ngIf="nucleo.correo">
                                                   <p><strong>Email:</strong> {{nucleo.correo}}</p>
@@ -211,7 +210,7 @@
                                             <div *ngIf="lineas_de_generacion.length > 0; else noData">
                                             <div class="universal" *ngFor="let linea of lineas_de_generacion">
             
-                                                <div *ngIf="linea.descripcion_linea" [innerHTML]="formatDocumentText(linea.descripcion_linea)"></div>
+                                                <div *ngIf="linea.descripcion_linea" [innerHTML]="textToHtml(linea.descripcion_linea)"></div>
                                             </div>
                                            </div>
                                            <ng-template #noData>
@@ -230,14 +229,14 @@
                                                     <tr>
                                                         <th>ALUMNO</th>
                                                         <th>DIRECTOR DE TESIS</th>
-                                                        <th>TUTOR DE SEGUIMIENTO ACADÉMICO</th>
+                                                        <th>CODIRECTOR DE TESIS</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr *ngFor="let tutoria of tutoria_segumiento">
                                                         <td>{{tutoria.Alumno}}</td>
                                                         <td>{{tutoria.grado_dir}} {{tutoria.nombre_dir}}</td>
-                                                        <td>{{tutoria.grado_tutor}} {{tutoria.nombre_tutor}}</td>
+                                                        <td>{{tutoria.grado_cod}} {{tutoria.nombre_cod}}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -252,15 +251,7 @@
                                       </div>
 
                                       <div *ngIf="i === 10">
-                                        <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
-            
-                                            <p>Participación en congresos, seminarios y talleres:</p>
-                                            
-                                            <div *ngFor="let proyectos of productividad_proyectos">
-                                            <p><strong>{{proyectos.descripcion}}.</strong> {{proyectos.Proyecto}}. Autores: <strong>{{proyectos.participantes}}</strong></p>
-                                            
-                                               
-                                        </div>
+                                        
 
  <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
 
@@ -268,65 +259,24 @@
                                                             
                                         <div class="universal">
                                             <body>
-                                            <p style="text-align: center; font-size: 18px;"><strong>Publicaciones</strong></p>
                                             <table class="tabla-publicaciones" >   
                                                 <thead>
                                                    
                                                     <tr>
                                                         <th class="publicacion-td">Publicación</th>
-                                                        <th class="autores-td">Autores</th>
+                                                     
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr class="publicaciones" *ngFor="let publicacion of productividad_publicaciones">
                                                         <td class="publicacion-td">{{publicacion.publicacion}}</td>
-                                                        <td  class="autores-td">{{publicacion.descripcion}}</td>
                                                      </tr>
                                                 </tbody>
                                             </table>
                                         </body>
                                          <br>
-                                         <body>
-                                            <p style="text-align: center; font-size: 18px;"><strong>Participación en Congresos de estudiantes del posgrado y profesores del núcleo académico básico</strong></p>
-                                            <table class="tabla-publicaciones">   
-                                                <thead>
-                                                   
-                                                    <tr>
-                                                        <th class="publicacion-td">Título/Congreso</th>
-                                                        <th class="autores-td">Autores</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class="publicaciones" *ngFor="let publicacion of productividad_eventos">
-                                                        <td class="publicacion-td">{{publicacion.Evento}} {{publicacion.descripcion}}</td>
-                                                        <td  class="autores-td">{{publicacion.Ponente}}</td>
-                                                     </tr>
-                                                </tbody>
-                                            </table>
-                                        </body>
-                                        <br>
-                                        <body>
-                                           <p style="text-align: center; font-size: 18px;"><strong>Participación en Congresos de estudiantes del posgrado y profesores del núcleo académico básico</strong></p>
-                                           <table class="tabla-publicaciones">   
-                                               <thead>
-                                                  
-                                                   <tr>
-                                                       <th class="publicacion-td">Descripción</th>
-                                                       <th class="autores-td">Autores</th>
-                                                   </tr>
-                                               </thead>
-                                               <tbody>
-                                                   <tr class="publicaciones" *ngFor="let publicacion of productividad_proyectos">
-                                                       <td class="publicacion-td">{{publicacion.Proyecto}}. {{publicacion.descripcion}}</td>
-                                                       <td  class="autores-td">{{publicacion.participantes}}</td>
-                                                    </tr>
-                                               </tbody>
-                                           </table>
-                                       </body>
-
-                                    </div>
-                                
                                         
+                                
                                     </div>
                                 </div>
                                 <ng-template #noData>
@@ -338,7 +288,7 @@
                                       <div *ngIf="i === 11">
                                         <div *ngIf="vinculacion_sector.length>0; else noData">
                                         <div class="universal" *ngFor="let vinculacion of vinculacion_sector">
-                                            <div [innerHTML]="formatDocumentText(vinculacion.descripcion)"></div>
+                                            <div [innerHTML]="textToHtml(vinculacion.descripcion)"></div>
                                         </div>
                                         </div>
                                         <ng-template #noData>
@@ -357,7 +307,7 @@
                                       </div>
                                       <div *ngIf="i === 14">
                                           <div class="beca-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.beca)"></div>
+                                              <div [innerHTML]="textToHtml(datos_carrera.beca)"></div>
                                           </div>
                                       </div>
                                     </div>
