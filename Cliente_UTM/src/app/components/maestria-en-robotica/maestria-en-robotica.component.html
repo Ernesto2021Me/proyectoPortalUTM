@@ -157,13 +157,15 @@
                                                     <thead>
                                                         <tr>
                                                             <th>GENERACIÓN</th>
+                                                            <th>AÑO</th>
                                                             <th>NÚMERO DE ALUMNOS</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr class="matriculados" *ngFor="let alumno of alumnos_matriculados">
-                                                            <td>{{alumno.Generacion}}</td>
-                                                            <td>{{alumno.Alumnos}}</td>
+                                                            <td>{{alumno.generacion}}</td>
+                                                            <td>{{alumno.year}}</td>
+                                                            <td>{{alumno.Alumno}}</td>
                                                          </tr>
                                                     </tbody>
                                                 </table>

@@ -6,7 +6,7 @@ import { Carrera } from 'src/app/models/carreras';
 import { Nucleo_academico } from 'src/app/models/nucleo_academico';
 import { Lineas_de_generacion } from 'src/app/models/lineas_de_generacion';
 import { TutoriaSeguimiento } from 'src/app/models/tutoria_segumiento';
-import { Alumnos_matriculados } from 'src/app/models/alumnos_matriculados_posgrado';
+import { Alumnos_matriculados } from 'src/app/models/MatriculadosPosgrados';
 import { vinculacion_sector } from 'src/app/models/Vinculacion_sector';
 import { Productividad_academica_publicaciones } from 'src/app/models/productividad_academica_pub';
 import { Productividad_academica_eventos } from 'src/app/models/productividad-academica_event';
@@ -124,62 +124,62 @@ export class MaestriaEnDisenoDeModasComponent implements OnInit {
     }
   
     private loadInformacion_carreras_posgrado(): void {
-      this.carrerasService.informacion_carrera_posgrado('51').subscribe(
+      this.carrerasService.informacion_carrera_posgrado('50').subscribe(
         (res: any) => { this.datos_carrera = res[0];},
         (err) => console.error(err)
       );
     }
   
     private loadNucleo_academico(){
-      this.carrerasService.nucleo_academico('51').subscribe(
+      this.carrerasService.nucleo_academico('50').subscribe(
         (res: any) => { this.nucleo_academico = res;},
         (err) => console.error(err)
       );
     }
   
     private loadlineas_de_generacion(){
-      this.carrerasService.linea_de_generacion('51').subscribe(
+      this.carrerasService.linea_de_generacion('50').subscribe(
         (res: any) => { this.lineas_de_generacion = res;},
         (err) => console.error(err)
       );
     }
     private loadtutoria_seguimiento(){
-      this.carrerasService.tutoria_seguimiento('51').subscribe(
+      this.carrerasService.tutoria_seguimiento('50').subscribe(
         (res: any) => { this.tutoria_segumiento = res;},
         (err) => console.error(err)
       );
     }
   
     private loadalumnos_matriculados(){
-      this.carrerasService.alumnos_matriculados('51').subscribe(
+      this.carrerasService.alumnos_matriculados('50').subscribe(
         (res: any) => { this.alumnos_matriculados = res;},
         (err) => console.error(err)
       );
     }
   
     private loadvinculacion_sector(){
-      this.carrerasService.vinculacion_sector('51').subscribe(
+      this.carrerasService.vinculacion_sector('50').subscribe(
         (res: any) => { this.vinculacion_sector = res;},
         (err) => console.error(err)
       );
     }
   
     private loadproductividad_publicaciones(){
-      this.carrerasService.productividad_publicaciones('51').subscribe(
+      this.carrerasService.productividad_publicaciones('50').subscribe(
         (res: any) => { this.productividad_publicaciones = res;},
         (err) => console.error(err)
       );
     }
   
     private loadproductividad_eventos(){
-      this.carrerasService.productividad_eventos('51').subscribe(
+      this.carrerasService.productividad_eventos('50').subscribe(
         (res: any) => { this.productividad_eventos = res;},
         (err) => console.error(err)
       );
     }
   
     private loadproductividad_proyectos(){
-      this.carrerasService.productividad_proyectos('51').subscribe(
+      this.carrerasService.productividad_proyectos('50').subscribe(
         (res: any) => { this.productividad_proyectos = res;},
         (err) => console.error(err)
       );
