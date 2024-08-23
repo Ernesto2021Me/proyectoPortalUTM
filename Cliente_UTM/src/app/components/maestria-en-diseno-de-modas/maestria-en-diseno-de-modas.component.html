@@ -1,191 +1,373 @@
 <div class="content">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
-      <h2 id="system-breadcrumb" class="visually-hidden"></h2>
-      <ol class="breadcrumb__items">
-          <li class="breadcrumb__item">
-              <a href="/home/web/">
-                  <span>Inicio</span>
-              </a>
-          </li>
-          <li class="breadcrumb__item">
-              <span class="breadcrumb__item-separator fa fa-angle-right"></span>
-              <a href="home/ensenanza">
-                  <span>Enseñanza</span>
-              </a>
-          </li>
-          <li class="breadcrumb__item">
-              <span class="breadcrumb__item-separator fa fa-angle-right"></span>
-              <a href="home/ensenanza/posgrados">
-                  <span>Posgrados</span>
-              </a>
-          </li>
-          <li class="breadcrumb__item">
-              <span class="breadcrumb__item-separator fa fa-angle-right"></span>
-              <span>{{datos_carrera.nombre_carrera}}</span>
-          </li>
-      </ol>
-  </nav>
-</div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+        <h2 id="system-breadcrumb" class="visually-hidden"></h2>
+        <ol class="breadcrumb__items">
+            <li class="breadcrumb__item">
+                <a href="/home/web/">
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__item-separator fa fa-angle-right"></span>
+                <a href="home/ensenanza">
+                    <span>Enseñanza</span>
+                </a>
+            </li>
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__item-separator fa fa-angle-right"></span>
+                <a href="home/ensenanza/posgrados">
+                    <span>Posgrados</span>
+                </a>
+            </li>
+            <li class="breadcrumb__item">
+                <span class="breadcrumb__item-separator fa fa-angle-right"></span>
+                <span>{{datos_carrera.nombre_carrera}}</span>
+            </li>
+        </ol>
+    </nav>
+  </div>
+  
+  <div class="wrapper">
+       <div class="region region-sidebar-first">
+            <nav role="navigation" aria-labelledby="block-menuensenanza-menu" id="block-menuensenanza" class="clearfix block block-menu navigation menu--menu-ensenanza">
+                <h4 class="visually-hidden" id="block-menuensenanza-menu">Menú-Enseñanza</h4>
+                <ul class="clearfix menu">
+                    <li class="menu-item menu-item--expanded menu-item--active-trail">
+                        <a href="/home/ensenanza/licenciaturas" data-drupal-link-system-path="node/38">Licenciaturas</a>
+                        <ul class="menu">
+                            <li class="menu-item menu-item--expanded menu-item--active-trail">
+                                <a href="/home/ensenanza/licenciaturas/huajuapan_de_leon" data-drupal-link-system-path="node/45">Huajuapan de Leon</a>
+                                <ul class="menu">
+                                    <li class="menu-item" *ngFor="let licenciatura of licenciaturas">
+                                        <a 
+                                            (click)="navigateTo(licenciatura.nombre)">
+                                          {{ licenciatura.nombre }}
+                                        </a>
+                                      </li>
+                                       
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item menu-item--expanded">
+                        <a href="/home/ensenanza/posgrados" data-drupal-link-system-path="node/37">Posgrados</a>
+                        <ul class="menu">
+                            <li class="menu-item menu-item--expanded">
+                                <a href="/home/ensenanza/posgrados/huajuapan_de_leon" data-drupal-link-system-path="node/58">Huajuapan de Leon</a>
+                                <ul class="menu">
+                                    <li class="menu-item" *ngFor="let posgrado of posgrados">
+                                        <a 
+                                        [ngClass]="{ 'highlight-red': posgrado.nombre === datos_carrera.nombre_carrera }"
+                                        
+                                          (click)="navigateTo(posgrado.nombre)">
+                                          {{ posgrado.nombre }}
+                                        </a>
+                                      </li> 
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/home/ensenanza/ingreso_a_licenciatura" data-drupal-link-system-path="node/36">Ingreso a Licenciatura</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/home/ensenanza/ingreso_a_posgrado" data-drupal-link-system-path="node/35">Ingreso a Posgrado</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/home/ensenanza/becas" data-drupal-link-system-path="node/34">Becas</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/home/ensenanza/bibliotecas" data-drupal-link-system-path="node/405">Bibliotecas</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/home/ensenanza/servicios_escolares" data-drupal-link-system-path="node/98">Servicios Escolares</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+  
+  <div class="content-container">
+    <div class="region region-content">
+        <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
+            <div class="content">
+                <h1 class="title page-title">
+                    <span class="field field--name-title field--type-string field--label-hidden">{{datos_carrera.nombre_carrera}}</span>
+                </h1>
+            </div>
+        </div>
+  
+        <article data-history-node-id="78" role="article" class="node node--type-pagina-inv-cpe node--view-mode-full clearfix">
+            <div class="node__container">
+                <div class="node__main-content clearfix">
+                    <header class="node__header">
+                        <h2 class="node__title title sr-only">
+                            <span class="field field--name-title field--type-string field--label-hidden">{{datos_carrera.nombre_carrera}}</span>
+                        </h2>
+                    </header>
+  
+                    <div class="field field--name-field-portada-inv-cpe field--type-image field--label-hidden field__item">
+                        <img loading="lazy" src="{{datos_carrera.url_imagen}}" width="1140" height="450" alt="{{datos_carrera.nombre_carrera}}" typeof="foaf:Image" />
+                    </div>
+  
+                    <div class="accordion-container">
+                        <div class="panel-group">
+                            <div *ngFor="let panel of panels; let i = index" class="panel">
+                                <div class="panel-heading" (click)="toggle(i)" [class.active]="isOpen(i)">
+                                    <div class="panel-title">
+                                        {{ panel.title }}
+                                    </div>
+                                </div>
+                                <div class="panel-collapse" *ngIf="isOpen(i)">
+                                    <div class="panel-body">
+                                        <div *ngIf="i === 0">
+                                          <div class="mision-content">
+                                              <div [innerHTML]=" textToHtml(datos_carrera.mision)"></div>
+                                          </div>
+                                        </div>
+                                        <div *ngIf="i === 1">
+                                          <div class="vision-content">
+                                              <div [innerHTML]=" textToHtml(datos_carrera.vision)"></div>
+                                              </div>
+                                        </div>
+                                        <div *ngIf="i === 2">
+                                            <div class="objetivo-content">
+                                              <div [innerHTML]=" textToHtml(datos_carrera.objetivo)"></div>
+                                              </div>
+                                        </div>
+                                        <div *ngIf="i === 3">
+                                            <div class="perfil-ingreso-content">
+                                              <div [innerHTML]=" textToHtml(datos_carrera.perfil_ingreso)"></div>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="i === 4">
+                                            <div class="perfil-egreso-content">
+                                              <div [innerHTML]=" textToHtml(datos_carrera.perfil_egreso)"></div>
+                                                </div>
+                                        </div>
+                                        <div *ngIf="i === 5">
+                                           
+                                        </div>
+                                        <div *ngIf="i === 6">
+                                          
+                                            <div class="universal">
+                                                <body>
+                                               
+                                                <table class="tabla-estudiantes"  *ngIf="alumnos_matriculados.length > 0; else noData">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>GENERACIÓN</th>
+                                                            <th>NÚMERO DE ALUMNOS</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="matriculados" *ngFor="let alumno of alumnos_matriculados">
+                                                            <td>{{alumno.Generacion}}</td>
+                                                            <td>{{alumno.Alumnos}}</td>
+                                                         </tr>
+                                                    </tbody>
+                                                </table>
+                                                <ng-template #noData>
+                                                    <p>Números de alumnos matriculados en revisión por parte de las autoridades universitarias correspondientes.</p>
+                                                </ng-template>
+                                            </body>
+                                        </div>
 
-<div class="wrapper">
-     <div class="region region-sidebar-first">
-          <nav role="navigation" aria-labelledby="block-menuensenanza-menu" id="block-menuensenanza" class="clearfix block block-menu navigation menu--menu-ensenanza">
-              <h4 class="visually-hidden" id="block-menuensenanza-menu">Menú-Enseñanza</h4>
-              <ul class="clearfix menu">
-                  <li class="menu-item menu-item--expanded menu-item--active-trail">
-                      <a href="/home/ensenanza/licenciaturas" data-drupal-link-system-path="node/38">Licenciaturas</a>
-                      <ul class="menu">
-                          <li class="menu-item menu-item--expanded menu-item--active-trail">
-                              <a href="/home/ensenanza/licenciaturas/huajuapan_de_leon" data-drupal-link-system-path="node/45">Huajuapan de Leon</a>
-                              <ul class="menu">
-                                  <li class="menu-item" *ngFor="let licenciatura of licenciaturas">
-                                      <a 
-                                          (click)="navigateTo(licenciatura.nombre)">
-                                        {{ licenciatura.nombre }}
-                                      </a>
-                                    </li>
-                                     
-                              </ul>
-                          </li>
-                      </ul>
-                  </li>
-                  <li class="menu-item menu-item--expanded">
-                      <a href="/home/ensenanza/posgrados" data-drupal-link-system-path="node/37">Posgrados</a>
-                      <ul class="menu">
-                          <li class="menu-item menu-item--expanded">
-                              <a href="/home/ensenanza/posgrados/huajuapan_de_leon" data-drupal-link-system-path="node/58">Huajuapan de Leon</a>
-                              <ul class="menu">
-                                  <li class="menu-item" *ngFor="let posgrado of posgrados">
-                                      <a 
-                                      [ngClass]="{ 'highlight-red': posgrado.nombre === datos_carrera.nombre_carrera }"
-                                      
-                                        (click)="navigateTo(posgrado.nombre)">
-                                        {{ posgrado.nombre }}
-                                      </a>
-                                    </li> 
-                              </ul>
-                          </li>
-                      </ul>
-                  </li>
-                  <li class="menu-item">
-                      <a href="/home/ensenanza/ingreso_a_licenciatura" data-drupal-link-system-path="node/36">Ingreso a Licenciatura</a>
-                  </li>
-                  <li class="menu-item">
-                      <a href="/home/ensenanza/ingreso_a_posgrado" data-drupal-link-system-path="node/35">Ingreso a Posgrado</a>
-                  </li>
-                  <li class="menu-item">
-                      <a href="/home/ensenanza/becas" data-drupal-link-system-path="node/34">Becas</a>
-                  </li>
-                  <li class="menu-item">
-                      <a href="/home/ensenanza/bibliotecas" data-drupal-link-system-path="node/405">Bibliotecas</a>
-                  </li>
-                  <li class="menu-item">
-                      <a href="/home/ensenanza/servicios_escolares" data-drupal-link-system-path="node/98">Servicios Escolares</a>
-                  </li>
-              </ul>
-          </nav>
-      </div>
+                                        </div>
+                                        <div *ngIf="i === 7">
+                                           
+                                            <div class="universal universal2" *ngIf="nucleo_academico.length>0; else noData">
+                                               <div *ngFor="let nucleo of nucleo_academico">
+                                                  <h1>{{nucleo.grado}} {{nucleo.nombre}}</h1>
+                                                  <div *ngIf="nucleo.correo">
+                                                  <p><strong>Email:</strong> {{nucleo.correo}}</p>
+                                                  </div>
+                                                  <div *ngIf="nucleo.SNI">
+                                                  <p><strong>Pertenencia al SNI:</strong> {{nucleo.SNI}}</p>
+                                                  </div>
+                                                  <div *ngIf="nucleo.perfil_deseable">
+                                                    <p><strong>Perfil deseable:</strong> {{nucleo.perfil_deseable}}</p>
+                                                    </div>
+                                                 <br>
+                                                  <div *ngIf="nucleo.imagen_url" class="profile-image">
+                                                    <img src="{{nucleo.imagen_url}}" alt="{{nucleo.nombre}}">
+                                                </div>
+                                                  <p>{{nucleo.descripcion_perfil}}</p>
+                                                  <br>
+                                                </div>
+                                            
+                                                </div>
+                                            
+                                                <ng-template #noData>
+                                                    <div class="universal">
+                                                    <p>Núcleo Académico en revisión por parte de las autoridades universitarias correspondientes.</p>
+                                                </div>
+                                                </ng-template>
+                                            
+                                            
+                                        </div>
+                                        <div *ngIf="i === 8">
+                                            <div *ngIf="lineas_de_generacion.length > 0; else noData">
+                                            <div class="universal" *ngFor="let linea of lineas_de_generacion">
+            
+                                                <div *ngIf="linea.descripcion_linea" [innerHTML]=" textToHtml(linea.descripcion_linea)"></div>
+                                            </div>
+                                           </div>
+                                           <ng-template #noData>
+                                            <div class="universal">
+                                            <p>Líneas de Generación y Aplicación de Conocimiento del Programa en revisión por las autoridades universitarias correspondientes.</p>
+                                        </div>
+                                        </ng-template>
+                                      </div>
+                                      <div *ngIf="i === 9">
+                                        <div *ngIf="tutoria_segumiento.length>0; else noData">
 
-<div class="content-container">
-  <div class="region region-content">
-      <div id="block-suneo-umar-page-title-ifm" class="clearfix block block-core block-page-title-block">
-          <div class="content">
-              <h1 class="title page-title">
-                  <span class="field field--name-title field--type-string field--label-hidden">{{datos_carrera.nombre_carrera}}</span>
-              </h1>
-          </div>
-      </div>
+                                          <div class="universal">
+                                            <body>
+                                            <table class="tabla-estudiantes">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ALUMNO</th>
+                                                        <th>DIRECTOR DE TESIS</th>
+                                                        <th>TUTOR DE SEGUIMIENTO ACADÉMICO</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let tutoria of tutoria_segumiento">
+                                                        <td>{{tutoria.Alumno}}</td>
+                                                        <td>{{tutoria.grado_dir}} {{tutoria.nombre_dir}}</td>
+                                                        <td>{{tutoria.grado_tutor}} {{tutoria.nombre_tutor}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </body>
+                                    </div>
+                                </div>
+                                <ng-template #noData>
+                                <div class="universal">
+                                 <p>Tutoría de Seguimiento Académico revisión por las autoridades universitarias correspondientes.</p>
+                                </div>
+                                </ng-template>
+                                      </div>
 
-      <article data-history-node-id="78" role="article" class="node node--type-pagina-inv-cpe node--view-mode-full clearfix">
-          <div class="node__container">
-              <div class="node__main-content clearfix">
-                  <header class="node__header">
-                      <h2 class="node__title title sr-only">
-                          <span class="field field--name-title field--type-string field--label-hidden">{{datos_carrera.nombre_carrera}}</span>
-                      </h2>
-                  </header>
+                                      <div *ngIf="i === 10">
+                                        <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
+            
+                                            <p>Participación en congresos, seminarios y talleres:</p>
+                                            
+                                            <div *ngFor="let proyectos of productividad_proyectos">
+                                            <p><strong>{{proyectos.descripcion}}.</strong> {{proyectos.Proyecto}}. Autores: <strong>{{proyectos.participantes}}</strong></p>
+                                            
+                                               
+                                        </div>
 
-                  <div class="field field--name-field-portada-inv-cpe field--type-image field--label-hidden field__item">
-                      <img loading="lazy" src="{{datos_carrera.url_imagen}}" width="1140" height="450" alt="{{datos_carrera.nombre_carrera}}" typeof="foaf:Image" />
-                  </div>
+ <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
 
-                  <div class="accordion-container">
-                      <div class="panel-group">
-                          <div *ngFor="let panel of panels; let i = index" class="panel">
-                              <div class="panel-heading" (click)="toggle(i)" [class.active]="isOpen(i)">
-                                  <div class="panel-title">
-                                      {{ panel.title }}
-                                  </div>
-                              </div>
-                              <div class="panel-collapse" *ngIf="isOpen(i)">
-                                  <div class="panel-body">
-                                      <div *ngIf="i === 0">
-                                        <div class="mision-content">
-                                            <div [innerHTML]="formatText(datos_carrera.mision)"></div>
+                                       
+                                                            
+                                        <div class="universal">
+                                            <body>
+                                            <p style="text-align: center; font-size: 18px;"><strong>Publicaciones</strong></p>
+                                            <table class="tabla-publicaciones" >   
+                                                <thead>
+                                                   
+                                                    <tr>
+                                                        <th class="publicacion-td">Publicación</th>
+                                                        <th class="autores-td">Autores</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="publicaciones" *ngFor="let publicacion of productividad_publicaciones">
+                                                        <td class="publicacion-td">{{publicacion.publicacion}}</td>
+                                                        <td  class="autores-td">{{publicacion.descripcion}}</td>
+                                                     </tr>
+                                                </tbody>
+                                            </table>
+                                        </body>
+                                         <br>
+                                         <body>
+                                            <p style="text-align: center; font-size: 18px;"><strong>Participación en Congresos de estudiantes del posgrado y profesores del núcleo académico básico</strong></p>
+                                            <table class="tabla-publicaciones">   
+                                                <thead>
+                                                   
+                                                    <tr>
+                                                        <th class="publicacion-td">Título/Congreso</th>
+                                                        <th class="autores-td">Autores</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="publicaciones" *ngFor="let publicacion of productividad_eventos">
+                                                        <td class="publicacion-td">{{publicacion.Evento}} {{publicacion.descripcion}}</td>
+                                                        <td  class="autores-td">{{publicacion.Ponente}}</td>
+                                                     </tr>
+                                                </tbody>
+                                            </table>
+                                        </body>
+                                        <br>
+                                        <body>
+                                           <p style="text-align: center; font-size: 18px;"><strong>Participación en Congresos de estudiantes del posgrado y profesores del núcleo académico básico</strong></p>
+                                           <table class="tabla-publicaciones">   
+                                               <thead>
+                                                  
+                                                   <tr>
+                                                       <th class="publicacion-td">Descripción</th>
+                                                       <th class="autores-td">Autores</th>
+                                                   </tr>
+                                               </thead>
+                                               <tbody>
+                                                   <tr class="publicaciones" *ngFor="let publicacion of productividad_proyectos">
+                                                       <td class="publicacion-td">{{publicacion.Proyecto}}. {{publicacion.descripcion}}</td>
+                                                       <td  class="autores-td">{{publicacion.participantes}}</td>
+                                                    </tr>
+                                               </tbody>
+                                           </table>
+                                       </body>
+
+                                    </div>
+                                
+                                        
+                                    </div>
+                                </div>
+                                <ng-template #noData>
+                                <div class="universal">
+                                 <p>Productividad Académica Relevante en revisión por las autoridades universitarias correspondientes.</p>
+                                </div>
+                                </ng-template>
+                                      </div>
+                                      <div *ngIf="i === 11">
+                                        <div *ngIf="vinculacion_sector.length>0; else noData">
+                                        <div class="universal" *ngFor="let vinculacion of vinculacion_sector">
+                                            <div [innerHTML]=" textToHtml(vinculacion.descripcion)"></div>
+                                        </div>
+                                        </div>
+                                        <ng-template #noData>
+                                        <div class="universal">
+                                            <p> Vinculación con otros Sectores de la Sociedad en revisión por las autoridades universitarias correspondientes.</p>
+                                        </div>
+                                        </ng-template>
+                                      </div>
+                                      <div *ngIf="i === 12">
+                                        <div class="universal">
+                                           <p>Egresados en revisión por las autoridades universitarias correspondientes.</p>
                                         </div>
                                       </div>
-                                      <div *ngIf="i === 1">
-                                        <div class="vision-content">
-                                            <div [innerHTML]="formatText(datos_carrera.vision)"></div>
-                                            </div>
+                                      <div *ngIf="i === 13">
+                                        
                                       </div>
-                                      <div *ngIf="i === 2">
-                                          <div class="objetivo-content">
-                                            <div [innerHTML]="formatText(datos_carrera.objetivo)"></div>
-                                            </div>
-                                      </div>
-                                      <div *ngIf="i === 3">
-                                          <div class="perfil-ingreso-content">
-                                            <div [innerHTML]="formatText_4(datos_carrera.perfil_ingreso)"></div>
+                                      <div *ngIf="i === 14">
+                                          <div class="beca-content">
+                                              <div [innerHTML]=" textToHtml(datos_carrera.beca)"></div>
                                           </div>
                                       </div>
-                                      <div *ngIf="i === 4">
-                                          <div class="perfil-egreso-content">
-                                            <div [innerHTML]="formatText_3(datos_carrera.perfil_egreso)"></div>
-                                              </div>
-                                      </div>
-                                      <div *ngIf="i === 5">
-                                         
-                                      </div>
-                                      <div *ngIf="i === 6">
-                                        
-                                              
-                                          
-                                      </div>
-                                      <div *ngIf="i === 7">
-                                         
-                                        <div class="universal"  *ngFor="let nucleo of nucleo_academico">            
-                                            <ul class="reduce-spancing">
-                                             <li style="margin-bottom: -20px;">{{nucleo.grado}} {{nucleo.nombre}}</li>
-                                            </ul>
-                                        </div>
-
-                                      </div>
-                                      <div *ngIf="i === 8">
-                                        <div class="universal" *ngFor="let linea of lineas_de_generacion">
-            
-                                            <div *ngIf="linea.descripcion_linea" [innerHTML]="formatText(linea.descripcion_linea)"></div>
-                                        </div>
                                     </div>
-                                    <div *ngIf="i === 9"></div>
-                                    <div *ngIf="i === 10"></div>
-                                    <div *ngIf="i === 11"></div>
-                                    <div *ngIf="i === 12"></div>
-                                    <div *ngIf="i === 13"></div>
-                                    <div *ngIf="i === 14">
-                                        <div class="beca-content">
-                                            <div [innerHTML]="formatText(datos_carrera.beca)"></div>
-                                        </div>
-                                    </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-              </div>
-          </div>
-      </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+  
+                </div>
+            </div>
+        </article>
+    </div>
   </div>
-</div>
+  

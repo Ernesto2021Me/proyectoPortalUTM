@@ -200,4 +200,91 @@ export class IngenieriaEnAlimentosComponent implements OnInit {
       return `${firstParagraph}${secondParagraph}${html}`;
   }
   
+  textToHtml(text: string): string {
+    const lines = text.split('\n');
+    const result: string[] = [];
+    let listStack: number[] = []; // Pila para rastrear el nivel de listas anidadas
+    let inList = false; // Bandera para saber si estamos dentro de una lista
+
+    // Función para procesar y reemplazar enlaces en una línea de texto
+    function processText(text: string): string {
+        // Procesar negritas
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        text = text.replace(/__(.*?)__/g, '<strong>$1</strong>');
+
+        // Procesar enlaces
+        text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2">$1</a>');
+
+        return text;
+    }
+
+    for (const line of lines) {
+        // Identificar encabezados
+        const headerMatch = line.match(/^(\#{1,6})\s*(.*)$/);
+        if (headerMatch) {
+            const [_, hashes, content] = headerMatch;
+            const level = hashes.length;
+            if (inList) {
+                while (listStack.length > 0) {
+                    result.push('</li></' + (listStack.length > 1 ? 'ul>' : 'ul>'));
+                    listStack.pop();
+                }
+                inList = false;
+            }
+            result.push(`<h${level}>${processText(content)}</h${level}>`);
+            continue;
+        }
+
+        // Identificar listas
+        const listMatch = line.match(/^(\s*)([\*\-])\s*(.*)$/);
+        if (listMatch) {
+            const [_, spaces, marker, content] = listMatch;
+            const currentLevel = spaces.length / 2; // Asumimos que cada nivel de anidación usa 2 espacios
+            const isList = marker === '*' || marker === '-';
+            const listTag = isList ? 'ul' : 'ol';
+
+            while (listStack.length > currentLevel) {
+                result.push(`</li></${listStack[listStack.length - 1] === 0 ? 'ul>' : 'ul>'}`);
+                listStack.pop();
+            }
+
+            if (listStack.length === currentLevel) {
+                if (inList) {
+                    result.push('</li>');
+                }
+                result.push(`<${listTag}><li>${processText(content)}`);
+                inList = true;
+                listStack.push(currentLevel);
+            } else {
+                result.push(`<${listTag}><li>${processText(content)}`);
+                inList = true;
+                listStack.push(currentLevel);
+            }
+            continue;
+        }
+
+        // Manejo de párrafos
+        if (inList) {
+            while (listStack.length > 0) {
+                result.push('</li></' + (listStack.length > 1 ? 'ul>' : 'ul>'));
+                listStack.pop();
+            }
+            inList = false;
+        }
+
+        // Procesar la línea del párrafo y agregar a resultados
+        const processedLine = processText(line);
+        if (processedLine.trim()) {
+            result.push(`<p>${processedLine}</p>`);
+        }
+    }
+
+    // Cerramos cualquier lista abierta
+    while (listStack.length > 0) {
+        result.push('</li></' + (listStack.length > 1 ? 'ul>' : 'ul>'));
+        listStack.pop();
+    }
+
+    return result.join('\n');
+}
 }

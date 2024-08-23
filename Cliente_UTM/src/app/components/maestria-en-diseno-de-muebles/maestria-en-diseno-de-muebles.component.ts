@@ -6,6 +6,12 @@ import { Informacion_careras_posgrados } from 'src/app/models/Informacion_carrer
 import { Carrera } from 'src/app/models/carreras';
 import { Nucleo_academico } from 'src/app/models/nucleo_academico';
 import { Lineas_de_generacion } from 'src/app/models/lineas_de_generacion';
+import { TutoriaSeguimiento } from 'src/app/models/tutoria_segumiento';
+import { Alumnos_matriculados } from 'src/app/models/alumnos_matriculados_posgrado';
+import { vinculacion_sector } from 'src/app/models/Vinculacion_sector';
+import { Productividad_academica_publicaciones } from 'src/app/models/productividad_academica_pub';
+import { Productividad_academica_eventos } from 'src/app/models/productividad-academica_event';
+import { Productividad_academica_proyectos } from 'src/app/models/productividad_academica_pro';
 @Component({
   selector: 'app-maestria-en-diseno-de-muebles',
   templateUrl: './maestria-en-diseno-de-muebles.component.html',
@@ -13,14 +19,21 @@ import { Lineas_de_generacion } from 'src/app/models/lineas_de_generacion';
   encapsulation: ViewEncapsulation.None
 })
 export class MaestriaEnDisenoDeMueblesComponent implements OnInit {
-  licenciaturas: Carrera[] = [];
+  
+  constructor(private carrerasService: CarrerasService, private router: Router) { }
+ licenciaturas: Carrera[] = [];
   posgrados: Carrera[] = [];
   datos_carrera = new Informacion_careras_posgrados();
   nucleo_academico: Nucleo_academico[]=[];
-  lineas_de_generacion:Lineas_de_generacion[]=[];
+  lineas_de_generacion: Lineas_de_generacion[]=[];
   panels: { title: string, content: string }[] = [];
   openIndex: number | null = null;
-
+  tutoria_segumiento: TutoriaSeguimiento[]=[];
+  alumnos_matriculados: Alumnos_matriculados[]=[];
+  vinculacion_sector: vinculacion_sector[]=[];
+  productividad_publicaciones: Productividad_academica_publicaciones[]=[];
+  productividad_eventos: Productividad_academica_eventos[]=[];
+  productividad_proyectos: Productividad_academica_proyectos[]=[];
   urlMapping: { [key: string]: string } = {
     // Licenciaturas
     'Ingeniería en Computación': '/home/ensenanza/licenciaturas/ingenieria_en_computacion',
@@ -52,18 +65,16 @@ export class MaestriaEnDisenoDeMueblesComponent implements OnInit {
     'Maestría en Tecnología Avanzada de Manufactura': '/home/ensenanza/posgrados/maestria_en_tecnologia_avanzada_de_manufactura',
     'Maestría en Ciencia de Datos': 'http://virtual.utm.mx/maestria_ciencia_datos.html',
     'Doctorado en Ciencias: Productos Naturales y Alimentos': '/home/ensenanza/posgrados/doctorado_en_ciencias_productos_naturales_alimentos',
-    'Doctorado en Electrónica Especialidad Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados',
+    'Doctorado en Electrónica, Opción: Sistemas Inteligentes Aplicados': '/home/ensenanza/posgrados/doctorado_en_electronica_especialidad_sistemas_inteligentes_aplicados',
     'Doctorado en Inteligencia Artificial': '/home/ensenanza/posgrados/doctorado_en_inteligencia_artificial',
     'Doctorado en Modelación Matemática': '/home/ensenanza/posgrados/doctorado_en_modelacion_matematica',
     'Doctorado en Robótica': '/home/ensenanza/posgrados/doctorado_en_robotica',
   }
-  constructor(private carrerasService: CarrerasService, private router: Router) { }
+  
 
   ngOnInit(): void {
     this.initializePanels();
     this.loadData();
-
-
   }
 
   private initializePanels(): void {
@@ -91,6 +102,12 @@ export class MaestriaEnDisenoDeMueblesComponent implements OnInit {
     this.loadInformacion_carreras_posgrado();
     this.loadNucleo_academico();
     this.loadlineas_de_generacion();
+    this.loadtutoria_seguimiento();
+    this.loadalumnos_matriculados();
+    this.loadvinculacion_sector();
+    this.loadproductividad_publicaciones();
+    this.loadproductividad_eventos();
+    this.loadproductividad_proyectos();
   }
 
 
@@ -113,14 +130,6 @@ export class MaestriaEnDisenoDeMueblesComponent implements OnInit {
     );
   }
 
-  toggle(index: number): void {
-    this.openIndex = this.openIndex === index ? null : index;
-  }
-
-  isOpen(index: number): boolean {
-    return this.openIndex === index;
-  }
- 
   private loadNucleo_academico(){
     this.carrerasService.nucleo_academico('51').subscribe(
       (res: any) => { this.nucleo_academico = res;},
@@ -134,11 +143,60 @@ export class MaestriaEnDisenoDeMueblesComponent implements OnInit {
       (err) => console.error(err)
     );
   }
+  private loadtutoria_seguimiento(){
+    this.carrerasService.tutoria_seguimiento('51').subscribe(
+      (res: any) => { this.tutoria_segumiento = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadalumnos_matriculados(){
+    this.carrerasService.alumnos_matriculados('51').subscribe(
+      (res: any) => { this.alumnos_matriculados = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadvinculacion_sector(){
+    this.carrerasService.vinculacion_sector('51').subscribe(
+      (res: any) => { this.vinculacion_sector = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadproductividad_publicaciones(){
+    this.carrerasService.productividad_publicaciones('51').subscribe(
+      (res: any) => { this.productividad_publicaciones = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadproductividad_eventos(){
+    this.carrerasService.productividad_eventos('51').subscribe(
+      (res: any) => { this.productividad_eventos = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  private loadproductividad_proyectos(){
+    this.carrerasService.productividad_proyectos('51').subscribe(
+      (res: any) => { this.productividad_proyectos = res;},
+      (err) => console.error(err)
+    );
+  }
+
+  toggle(index: number): void {
+    this.openIndex = this.openIndex === index ? null : index;
+  }
+
+  isOpen(index: number): boolean {
+    return this.openIndex === index;
+  }
+
   navigateTo(nombre_direccion: string): void {
     const url = this.urlMapping[nombre_direccion];
     if (url) {
       if (nombre_direccion === 'Licenciatura en Estudios Mexicanos' || nombre_direccion === 'Maestría en Ciencia de Datos') {
-
         window.location.href = url;
       } else {
         window.location.href = url;
@@ -150,75 +208,95 @@ export class MaestriaEnDisenoDeMueblesComponent implements OnInit {
 
 
 
-  formatText(text: string): string {
-    return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
-  }
+  textToHtml(text: string): string {
+    const lines = text.split('\n');
+    const result: string[] = [];
+    let listStack: number[] = []; // Pila para rastrear el nivel de listas anidadas
+    let inList = false; // Bandera para saber si estamos dentro de una lista
 
-  formatText_2(text: string): string {
-    const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    if (lines.length === 0) return '';
-    const firstParagraph = `<p>${lines[0]}</p>`;
-    const isHeader = (line: string) => {
-      return line === "PROPÓSITOS DEL PROGRAMA"
-    };
+    // Función para procesar y reemplazar enlaces en una línea de texto
+    function processText(text: string): string {
+        // Procesar negritas
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        text = text.replace(/__(.*?)__/g, '<strong>$1</strong>');
 
-    let html = '';
-    let currentListItems: string[] = [];
-    for (const line of lines.slice(1)) {
-      if (isHeader(line)) {
+        // Procesar enlaces
+        text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2">$1</a>');
 
-        if (currentListItems.length > 0) {
-          html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
-          currentListItems = [];
+        return text;
+    }
+
+    for (const line of lines) {
+        // Identificar encabezados
+        const headerMatch = line.match(/^(\#{1,6})\s*(.*)$/);
+        if (headerMatch) {
+            const [_, hashes, content] = headerMatch;
+            const level = hashes.length;
+            if (inList) {
+                while (listStack.length > 0) {
+                    result.push('</li></' + (listStack.length > 1 ? 'ul>' : 'ul>'));
+                    listStack.pop();
+                }
+                inList = false;
+            }
+            result.push(`<h${level}>${processText(content)}</h${level}>`);
+            continue;
         }
-        html += `<li class="list"><strong>${line}</strong></li>`;
-      } else {
-        currentListItems.push(`<li>${line}</li>`);
-      }
+
+        // Identificar listas
+        const listMatch = line.match(/^(\s*)([\*\-])\s*(.*)$/);
+        if (listMatch) {
+            const [_, spaces, marker, content] = listMatch;
+            const currentLevel = spaces.length / 2; // Asumimos que cada nivel de anidación usa 2 espacios
+            const isList = marker === '*' || marker === '-';
+            const listTag = isList ? 'ul' : 'ol';
+
+            while (listStack.length > currentLevel) {
+                result.push(`</li></${listStack[listStack.length - 1] === 0 ? 'ul>' : 'ul>'}`);
+                listStack.pop();
+            }
+
+            if (listStack.length === currentLevel) {
+                if (inList) {
+                    result.push('</li>');
+                }
+                result.push(`<${listTag}><li>${processText(content)}`);
+                inList = true;
+                listStack.push(currentLevel);
+            } else {
+                result.push(`<${listTag}><li>${processText(content)}`);
+                inList = true;
+                listStack.push(currentLevel);
+            }
+            continue;
+        }
+
+        // Manejo de párrafos
+        if (inList) {
+            while (listStack.length > 0) {
+                result.push('</li></' + (listStack.length > 1 ? 'ul>' : 'ul>'));
+                listStack.pop();
+            }
+            inList = false;
+        }
+
+        // Procesar la línea del párrafo y agregar a resultados
+        const processedLine = processText(line);
+        if (processedLine.trim()) {
+            result.push(`<p>${processedLine}</p>`);
+        }
     }
-    if (currentListItems.length > 0) {
-      html += `<ul  style="list-style-type: none;" class="reduce-spacing">${currentListItems.join('')}</ul>`;
+
+    // Cerramos cualquier lista abierta
+    while (listStack.length > 0) {
+        result.push('</li></' + (listStack.length > 1 ? 'ul>' : 'ul>'));
+        listStack.pop();
     }
-    return firstParagraph + '<ul>' + html + '</ul>';
-  }
 
-  formatText_3(text: string): string {
-    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    if (lines.length > 0) {
-      let firstParagraph = `<p>${lines[0]}</p>`;
-      let listItems = lines.slice(1).map(line => `<li>${line}</li>`).join('');
-      let list = `<ul class="reduce-spacing">${listItems}</ul>`;
-      return `${firstParagraph}${list}`;
-    }
-    return '';
-  }
+    return result.join('\n');
+}
 
-  formatText_4(text: string): string {
-    const boldWords = ['Conocimientos:', 'Habilidades:', 'Actitudes y valores:']; // Palabras específicas en negrita
 
-    let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    if (lines.length > 0) {
-      let firstParagraph = `<p>${lines[0]}</p>`;
 
-      // Función para poner en negrita las palabras específicas
-      const applyBold = (line: string): string => {
-        let formattedLine = line;
-        boldWords.forEach(word => {
-          // Escapar caracteres especiales en la palabra
-          const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-          // Expresión regular para buscar la palabra completa
-          const regex = new RegExp(escapedWord, 'gi');
-          formattedLine = formattedLine.replace(regex, `<strong>${word}</strong>`);
-        });
-        return formattedLine;
-      };
-
-      let listItems = lines.slice(1, -1).map(line => `<li>${applyBold(line)}</li>`).join('');
-      let lastParagraph = lines.length > 1 ? `<p>${applyBold(lines[lines.length - 1])}</p>` : '';
-
-      let list = `<ul class="reduce-spacing list">${listItems}</ul>`;
-      return `${firstParagraph}${list}${lastParagraph}`;
-    }
-    return '';
-  }
+    
 }

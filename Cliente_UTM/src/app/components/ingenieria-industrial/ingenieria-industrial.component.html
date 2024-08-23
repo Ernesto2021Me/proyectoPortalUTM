@@ -128,31 +128,31 @@
                                         </div>
                                         <div *ngIf="i === 1">
                                             <div class="mision-content">
-                                                <div [innerHTML]="formatText(datos_carrera.mision)"></div>
+                                                <div [innerHTML]=" textToHtml(datos_carrera.mision)"></div>
                                                
                                               </div>
                                         </div>
                                         <div *ngIf="i === 2">
                                             <div class="vision-content">
-                                                <div [innerHTML]="formatText(datos_carrera.vision)"></div>
+                                                <div [innerHTML]=" textToHtml(datos_carrera.vision)"></div>
                                        
                                               </div>
                                         </div>
                                         <div *ngIf="i === 3">
                                             <div class="objetivo-content">
-                                                <div [innerHTML]="formatText_2(datos_carrera.objetivo)"></div>
+                                                <div [innerHTML]="  textToHtml(datos_carrera.objetivo)"></div>
                                                
                                             </div>
                                         </div>
                                         <div *ngIf="i === 4">
                                             <div class="perfil-ingreso-content">
-                                                <div [innerHTML]="formatText_4(datos_carrera.perfil_ingreso)"></div>
+                                                <div [innerHTML]=" textToHtml(datos_carrera.perfil_ingreso)"></div>
 
                                                 </div>
                                         </div>
                                         <div *ngIf="i === 5">
                                             <div class="perfil-egreso-content">
-                                                <div [innerHTML]="formatText_3(datos_carrera.perfil_egreso)"></div>
+                                                <div [innerHTML]=" textToHtml(datos_carrera.perfil_egreso)"></div>
                                                          
                                                 
                                                   
@@ -160,7 +160,7 @@
                                         </div>
                                         <div *ngIf="i === 6">
                                             <div class="campo-de-accion-content">
-                                                <div [innerHTML]="formatText(datos_carrera.campo_accion)"></div>
+                                                <div [innerHTML]=" textToHtml(datos_carrera.campo_accion)"></div>
                                                 
                                             </div>
                                         </div>

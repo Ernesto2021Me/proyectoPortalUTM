@@ -122,27 +122,27 @@
                                     <div class="panel-body">
                                         <div *ngIf="i === 0">
                                           <div class="mision-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.mision)"></div>
+                                              <div [innerHTML]=" textToHtml(datos_carrera.mision)"></div>
                                           </div>
                                         </div>
                                         <div *ngIf="i === 1">
                                           <div class="vision-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.vision)"></div>
+                                              <div [innerHTML]=" textToHtml(datos_carrera.vision)"></div>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 2">
                                             <div class="objetivo-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.objetivo)"></div>
+                                              <div [innerHTML]=" textToHtml(datos_carrera.objetivo)"></div>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 3">
                                             <div class="perfil-ingreso-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.perfil_ingreso)"></div>
+                                              <div [innerHTML]=" textToHtml(datos_carrera.perfil_ingreso)"></div>
                                             </div>
                                         </div>
                                         <div *ngIf="i === 4">
                                             <div class="perfil-egreso-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.perfil_egreso)"></div>
+                                              <div [innerHTML]=" textToHtml(datos_carrera.perfil_egreso)"></div>
                                                 </div>
                                         </div>
                                         <div *ngIf="i === 5">
@@ -177,8 +177,7 @@
                                         <div *ngIf="i === 7">
                                            
                                             <div class="universal universal2" *ngIf="nucleo_academico.length>0; else noData">
-                                               <p>Los profesores que integran el Núcleo Académico Básico están adscritos a los Institutos de: Física y Matemáticas, Computación, Hidrología, Ciencias Sociales y Humanidades y al CentroGeo* de Conacyt.</p>
-                                                <div *ngFor="let nucleo of nucleo_academico">
+                                               <div *ngFor="let nucleo of nucleo_academico">
                                                   <h1>{{nucleo.grado}} {{nucleo.nombre}}</h1>
                                                   <div *ngIf="nucleo.correo">
                                                   <p><strong>Email:</strong> {{nucleo.correo}}</p>
@@ -211,7 +210,7 @@
                                             <div *ngIf="lineas_de_generacion.length > 0; else noData">
                                             <div class="universal" *ngFor="let linea of lineas_de_generacion">
             
-                                                <div *ngIf="linea.descripcion_linea" [innerHTML]="formatDocumentText(linea.descripcion_linea)"></div>
+                                                <div *ngIf="linea.descripcion_linea" [innerHTML]=" textToHtml(linea.descripcion_linea)"></div>
                                             </div>
                                            </div>
                                            <ng-template #noData>
@@ -338,7 +337,7 @@
                                       <div *ngIf="i === 11">
                                         <div *ngIf="vinculacion_sector.length>0; else noData">
                                         <div class="universal" *ngFor="let vinculacion of vinculacion_sector">
-                                            <div [innerHTML]="formatDocumentText(vinculacion.descripcion)"></div>
+                                            <div [innerHTML]=" textToHtml(vinculacion.descripcion)"></div>
                                         </div>
                                         </div>
                                         <ng-template #noData>
@@ -357,7 +356,7 @@
                                       </div>
                                       <div *ngIf="i === 14">
                                           <div class="beca-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.beca)"></div>
+                                              <div [innerHTML]=" textToHtml(datos_carrera.beca)"></div>
                                           </div>
                                       </div>
                                     </div>

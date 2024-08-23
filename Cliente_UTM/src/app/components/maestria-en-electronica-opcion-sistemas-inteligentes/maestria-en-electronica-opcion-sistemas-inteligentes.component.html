@@ -122,27 +122,27 @@
                                     <div class="panel-body">
                                         <div *ngIf="i === 0">
                                           <div class="mision-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.mision)"></div>
+                                              <div [innerHTML]=" textToHtml(datos_carrera.mision)"></div>
                                           </div>
                                         </div>
                                         <div *ngIf="i === 1">
                                           <div class="vision-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.vision)"></div>
+                                              <div [innerHTML]=" textToHtml(datos_carrera.vision)"></div>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 2">
                                             <div class="objetivo-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.objetivo)"></div>
+                                              <div [innerHTML]=" textToHtml(datos_carrera.objetivo)"></div>
                                               </div>
                                         </div>
                                         <div *ngIf="i === 3">
                                             <div class="perfil-ingreso-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.perfil_ingreso)"></div>
+                                              <div [innerHTML]=" textToHtml(datos_carrera.perfil_ingreso)"></div>
                                             </div>
                                         </div>
                                         <div *ngIf="i === 4">
                                             <div class="perfil-egreso-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.perfil_egreso)"></div>
+                                              <div [innerHTML]=" textToHtml(datos_carrera.perfil_egreso)"></div>
                                                 </div>
                                         </div>
                                         <div *ngIf="i === 5">
@@ -176,29 +176,34 @@
                                         </div>
                                         <div *ngIf="i === 7">
                                            
-                                            <body class="custom-body">
-                                                <div *ngIf="nucleo_academico.length > 0; else noData">
-                                                    <div *ngFor="let nucleo of nucleo_academico">
-                                                        <div *ngIf="nucleo.descripcion_perfil && nucleo.descripcion_perfil.trim().length > 0" class="profile-container">
-                                                            <div *ngIf="nucleo.imagen_url" class="profile-image">
-                                                                <img src="{{nucleo.imagen_url}}" alt="{{nucleo.nombre}}">
-                                                            </div>
-                                                            <div class="profile-text">
-                                                                <div class="profile">
-                                                                    <p><strong>{{nucleo.grado}} {{ nucleo.nombre }}</strong></p>
-                                                                    <p><strong><a [href]="'mailto:' + nucleo.correo">{{ nucleo.correo }}</a></strong></p>
-                                                                    <div [innerHTML]="formatDocumentText(nucleo.descripcion_perfil)"></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                            <div class="universal universal2" *ngIf="nucleo_academico.length>0; else noData">
+                                                <div *ngFor="let nucleo of nucleo_academico">
+                                                   <h1>{{nucleo.grado}} {{nucleo.nombre}}</h1>
+                                                   <div *ngIf="nucleo.correo">
+                                                   <p><strong>Email:</strong> {{nucleo.correo}}</p>
+                                                   </div>
+                                                   <div *ngIf="nucleo.SNI">
+                                                   <p><strong>Pertenencia al SNI:</strong> {{nucleo.SNI}}</p>
+                                                   </div>
+                                                   <div *ngIf="nucleo.perfil_deseable">
+                                                     <p><strong>Perfil deseable:</strong> {{nucleo.perfil_deseable}}</p>
+                                                     </div>
+                                                  <br>
+                                                   <div *ngIf="nucleo.imagen_url" class="profile-image">
+                                                     <img src="{{nucleo.imagen_url}}" alt="{{nucleo.nombre}}">
+                                                 </div>
+                                                   <p>{{nucleo.descripcion_perfil}}</p>
+                                                   <br>
+                                                 </div>
+                                             
+                                                 
                                                 </div>
                                                 <ng-template #noData>
                                                     <div class="universal">
                                                         <p>Núcleo Académico en revisión por parte de las autoridades universitarias correspondientes.</p>
                                                     </div>
                                                 </ng-template>
-                                            </body>
+                                          
                                             
                                             
                                         </div>
@@ -206,7 +211,7 @@
                                             <div *ngIf="lineas_de_generacion.length > 0; else noData">
                                             <div class="universal" *ngFor="let linea of lineas_de_generacion">
             
-                                                <div *ngIf="linea.descripcion_linea" [innerHTML]="formatDocumentText(linea.descripcion_linea)"></div>
+                                                <div *ngIf="linea.descripcion_linea" [innerHTML]=" textToHtml(linea.descripcion_linea)"></div>
                                             </div>
                                            </div>
                                            <ng-template #noData>
@@ -284,7 +289,7 @@
                                       <div *ngIf="i === 11">
                                         <div *ngIf="vinculacion_sector.length>0; else noData">
                                         <div class="universal" *ngFor="let vinculacion of vinculacion_sector">
-                                            <div [innerHTML]="formatDocumentText(vinculacion.descripcion)"></div>
+                                            <div [innerHTML]=" textToHtml(vinculacion.descripcion)"></div>
                                         </div>
                                         </div>
                                         <ng-template #noData>
@@ -303,7 +308,7 @@
                                       </div>
                                       <div *ngIf="i === 14">
                                           <div class="beca-content">
-                                              <div [innerHTML]="formatDocumentText(datos_carrera.beca)"></div>
+                                              <div [innerHTML]=" textToHtml(datos_carrera.beca)"></div>
                                           </div>
                                       </div>
                                     </div>

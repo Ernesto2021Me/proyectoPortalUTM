@@ -146,8 +146,18 @@ h1 {
      padding-left: 0; /* Elimina el margen izquierdo predeterminado */   
      margin-top: 5px;
      margin-left: 40px;
+     margin-bottom:-0.1cm;
  }
  
+ .universal li,
+.mision-content li,
+.vision-content li,
+.objetivo-content li,
+.perfil-ingreso-content li,
+.perfil-egreso-content li,
+.beca-content li {
+    margin-bottom: 0.5cm;
+ }
  .universal a:hover,
  .mision-content a:hover,
 .vision-content a:hover,
@@ -168,6 +178,7 @@ h1 {
      padding-left: 5px; /* Espacio para el triángulo, reduce el padding para acercarlo */
      margin-bottom: 2px; /* Espacio entre elementos */
      font-size: 15px;   
+     line-height: 1.5;
  }
  
  .reduce-spacing{

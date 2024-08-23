@@ -124,106 +124,93 @@ export class IngenieriaEnComputacionComponent implements OnInit {
     }
   }
 
-  formatText(text: string): string {
-    return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).map(paragraph => `<p>${paragraph}</p>`).join('');
-  }
+  textToHtml(text: string): string {
+    const lines = text.split('\n');
+    const result: string[] = [];
+    let listStack: number[] = []; // Pila para rastrear el nivel de listas anidadas
+    let inList = false; // Bandera para saber si estamos dentro de una lista
 
-  formatText_2(text: string): string {
-    const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    if (lines.length === 0) return '';
-    const firstParagraph = `<p>${lines[0]}</p>`;
-    const isHeader = (line: string) => {
-      return    line === "Conocimientos:"
-               || line=="Habilidades para:"
-               || line=="Actitudes y valores:"
-    };
-  
-    let html = '';
-    let currentListItems: string[] = [];
-    for (const line of lines.slice(1)) {
-      if (isHeader(line)) {
-       
-        if (currentListItems.length > 0) {
-          html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
-          currentListItems = []; 
-        }
-        html += `<li class="list"><strong>${line}</strong></li>`;
-      } else {
-        currentListItems.push(`<li>${line}</li>`);
-      }
+    // Función para procesar y reemplazar enlaces en una línea de texto
+    function processText(text: string): string {
+        // Procesar negritas
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        text = text.replace(/__(.*?)__/g, '<strong>$1</strong>');
+
+        // Procesar enlaces
+        text = text.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2">$1</a>');
+
+        return text;
     }
-    if (currentListItems.length > 0) {
-      html += `<ul  style="list-style-type: none;" class="reduce-spacing">${currentListItems.join('')}</ul>`;
-    }
-    return firstParagraph + '<ul>' + html + '</ul>';
-  }
-  
 
-  formatText_3(text: string): string {
-    const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-    if (lines.length === 0) return '';
-    
-    const firstParagraph = `<p>${lines[0]}</p>`;
-    const isHeader = (line: string) => {
-        return line === "Conocimientos:"
-            || line === "Habilidades:"
-            || line === "Actitudes y Valores:";
-    };
-
-    let html = '';
-    let currentListItems: string[] = [];
-    const lastThreeParagraphs = lines.slice(-3);  // Últimos tres párrafos
-
-    for (const line of lines.slice(1, -3)) {  // Excluye los últimos tres párrafos del procesamiento
-        if (isHeader(line)) {
-            if (currentListItems.length > 0) {
-                html += `<ul class="reduce-spacing">${currentListItems.join('')}</ul>`;
-                currentListItems = [];
+    for (const line of lines) {
+        // Identificar encabezados
+        const headerMatch = line.match(/^(\#{1,6})\s*(.*)$/);
+        if (headerMatch) {
+            const [_, hashes, content] = headerMatch;
+            const level = hashes.length;
+            if (inList) {
+                while (listStack.length > 0) {
+                    result.push('</li></' + (listStack.length > 1 ? 'ul>' : 'ul>'));
+                    listStack.pop();
+                }
+                inList = false;
             }
-            html += `<li class="list"><strong>${line}</strong></li>`;
-        } else {
-            currentListItems.push(`<li>${line}</li>`);
+            result.push(`<h${level}>${processText(content)}</h${level}>`);
+            continue;
+        }
+
+        // Identificar listas
+        const listMatch = line.match(/^(\s*)([\*\-])\s*(.*)$/);
+        if (listMatch) {
+            const [_, spaces, marker, content] = listMatch;
+            const currentLevel = spaces.length / 2; // Asumimos que cada nivel de anidación usa 2 espacios
+            const isList = marker === '*' || marker === '-';
+            const listTag = isList ? 'ul' : 'ol';
+
+            while (listStack.length > currentLevel) {
+                result.push(`</li></${listStack[listStack.length - 1] === 0 ? 'ul>' : 'ul>'}`);
+                listStack.pop();
+            }
+
+            if (listStack.length === currentLevel) {
+                if (inList) {
+                    result.push('</li>');
+                }
+                result.push(`<${listTag}><li>${processText(content)}`);
+                inList = true;
+                listStack.push(currentLevel);
+            } else {
+                result.push(`<${listTag}><li>${processText(content)}`);
+                inList = true;
+                listStack.push(currentLevel);
+            }
+            continue;
+        }
+
+        // Manejo de párrafos
+        if (inList) {
+            while (listStack.length > 0) {
+                result.push('</li></' + (listStack.length > 1 ? 'ul>' : 'ul>'));
+                listStack.pop();
+            }
+            inList = false;
+        }
+
+        // Procesar la línea del párrafo y agregar a resultados
+        const processedLine = processText(line);
+        if (processedLine.trim()) {
+            result.push(`<p>${processedLine}</p>`);
         }
     }
-    if (currentListItems.length > 0) {
-        html += `<ul style=" list-style-type: none;" class="reduce-spacing">${currentListItems.join('')}</ul>`;
+
+    // Cerramos cualquier lista abierta
+    while (listStack.length > 0) {
+        result.push('</li></' + (listStack.length > 1 ? 'ul>' : 'ul>'));
+        listStack.pop();
     }
 
-    // Añadir los últimos tres párrafos como <p>
-    const lastParagraphsHtml = lastThreeParagraphs.map(paragraph => `<p>${paragraph}</p>`).join('');
-
-    return firstParagraph + '<ul>' + html + '</ul>' + lastParagraphsHtml;
+    return result.join('\n');
 }
 
-formatText_4(text: string): string {
-  const boldWords = ['Análisis de Sistemas:', 'Auditoría Informática:']; // Palabras específicas en negrita
-
-  let lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-  if (lines.length > 0) {
-      let firstParagraph = `<p>${lines[0]}</p>`;
-      
-      // Función para poner en negrita las palabras específicas
-      const applyBold = (line: string): string => {
-          let formattedLine = line;
-          boldWords.forEach(word => {
-              // Escapar caracteres especiales en la palabra
-              const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-              // Expresión regular para buscar la palabra completa
-              const regex = new RegExp(escapedWord, 'gi');
-              formattedLine = formattedLine.replace(regex, `<strong>${word}</strong>`);
-          });
-          return formattedLine;
-      };
-
-      let listItems = lines.slice(1).map(line => `<li>${applyBold(line)}</li>`).join('');
-      let list = `<ul class="reduce-spacing list">${listItems}</ul>`;
-      return `${firstParagraph}${list}`;
-  }
-  return '';
-}
-
-
-  
-  
 }
 
