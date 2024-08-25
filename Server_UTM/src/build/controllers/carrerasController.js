@@ -150,12 +150,21 @@ GROUP BY
             const { Codigocarrera } = req.body;
             try {
                 const resultado = yield database_1.default.query(`
-            SELECT n.codigoCarrera, i.nombre as codigoInstituto, p.grado, p.nombre, p.correo, n.descripcion_perfil, n.SNI, n.perfil_deseable, n.image_url as imagen_url 
-FROM nucleo_academico n 
-LEFT JOIN profesores_posgrados p ON n.id_perfil = p.id 
-LEFT JOIN institutos i ON i.codigo = p.codigoInstituto 
-WHERE n.codigoCarrera = ?
-ORDER BY n.id;
+            SELECT np.codcarrera as codigoCarrera,
+i.nombre as codigoInstituto,
+n.grado,
+n.Nombre as nombre,
+n.correo,
+n.descripcion_per as descripcion_perfil,
+n.SNI,
+n.perfil_des as perfil_deseable,
+n.imagen as imagen_url
+FROM 
+NucleoAcademico_pos np
+LEFT JOIN NucleoAcademico n on np.id_nucleo=n.id
+LEFT JOIN institutos i on n.instituto=i.codigo
+WHERE np.codcarrera = ?
+ORDER BY np.id;
         `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
                 // Devolver los resultados como JSON
                 res.json(resultado); // Asegúrate de acceder a 'rows' si esa es la propiedad que contiene los datos
