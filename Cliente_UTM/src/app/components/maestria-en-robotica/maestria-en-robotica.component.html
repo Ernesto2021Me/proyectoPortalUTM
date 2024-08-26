@@ -274,80 +274,10 @@
                                       <div *ngIf="i === 10">
                                         <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
             
-                                            <p>Participación en congresos, seminarios y talleres:</p>
-                                            
-                                            <div *ngFor="let proyectos of productividad_proyectos">
-                                            <p><strong>{{proyectos.descripcion}}.</strong> {{proyectos.Proyecto}}. Autores: <strong>{{proyectos.participantes}}</strong></p>
-                                            
-                                               
-                                        </div>
-
- <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
-
-                                       
-                                                            
-                                        <div class="universal">
-                                            <body>
-                                            <p style="text-align: center; font-size: 18px;"><strong>Publicaciones</strong></p>
-                                            <table class="tabla-publicaciones" >   
-                                                <thead>
-                                                   
-                                                    <tr>
-                                                        <th class="publicacion-td">Publicación</th>
-                                                        <th class="autores-td">Autores</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class="publicaciones" *ngFor="let publicacion of productividad_publicaciones">
-                                                        <td class="publicacion-td">{{publicacion.publicacion}}</td>
-                                                        <td  class="autores-td">{{publicacion.descripcion}}</td>
-                                                     </tr>
-                                                </tbody>
-                                            </table>
-                                        </body>
-                                         <br>
-                                         <body>
-                                            <p style="text-align: center; font-size: 18px;"><strong>Participación en Congresos de estudiantes del posgrado y profesores del núcleo académico básico</strong></p>
-                                            <table class="tabla-publicaciones">   
-                                                <thead>
-                                                   
-                                                    <tr>
-                                                        <th class="publicacion-td">Título/Congreso</th>
-                                                        <th class="autores-td">Autores</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class="publicaciones" *ngFor="let publicacion of productividad_eventos">
-                                                        <td class="publicacion-td">{{publicacion.Evento}} {{publicacion.descripcion}}</td>
-                                                        <td  class="autores-td">{{publicacion.Ponente}}</td>
-                                                     </tr>
-                                                </tbody>
-                                            </table>
-                                        </body>
-                                        <br>
-                                        <body>
-                                           <p style="text-align: center; font-size: 18px;"><strong>Participación en Congresos de estudiantes del posgrado y profesores del núcleo académico básico</strong></p>
-                                           <table class="tabla-publicaciones">   
-                                               <thead>
-                                                  
-                                                   <tr>
-                                                       <th class="publicacion-td">Descripción</th>
-                                                       <th class="autores-td">Autores</th>
-                                                   </tr>
-                                               </thead>
-                                               <tbody>
-                                                   <tr class="publicaciones" *ngFor="let publicacion of productividad_proyectos">
-                                                       <td class="publicacion-td">{{publicacion.Proyecto}}. {{publicacion.descripcion}}</td>
-                                                       <td  class="autores-td">{{publicacion.participantes}}</td>
-                                                    </tr>
-                                               </tbody>
-                                           </table>
-                                       </body>
-
-                                    </div>
-                                
-                                        
-                                    </div>
+                                            <div class="universal" *ngFor="let publicacion of productividad_publicaciones; let i = index">
+    
+                                                <p><strong>{{i + 1}}.</strong> {{publicacion.autores}} {{publicacion.descripcion}}</p>            
+                                            </div>  
                                 </div>
                                 <ng-template #noData>
                                 <div class="universal">

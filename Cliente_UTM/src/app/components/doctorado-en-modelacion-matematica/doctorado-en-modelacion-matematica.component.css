@@ -635,27 +635,15 @@ h4{
     
     margin-left: 0px;
 }
-.tabla-publicaciones , .tabla-publicaciones  th, .tabla-publicaciones td {
-    border: 1px solid #ddd;
-}
-.tabla-publicaciones  th, .tabla-publicaciones td {
-    padding: 8px ;
-    text-align: left;
-   
-}
-.tabla-publicaciones  th {
-    background-color: #DDCC62; /* Color de fondo para el encabezado */
-    text-align: center;
-}
 
 
 .publicaciones-td {
-    width: 800px; /* Ajusta el valor según sea necesario */
+    width: 400px; /* Ajusta el valor según sea necesario */
     overflow-wrap: break-word;
     }
 
 .autores-td {
-    width: 150px; /* Ajusta el valor según sea necesario */
+    width: 80px; /* Ajusta el valor según sea necesario */
     overflow-wrap: break-word;
     line-height: 1.2;
 }

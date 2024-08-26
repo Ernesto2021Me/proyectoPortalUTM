@@ -250,49 +250,25 @@
                                       </div>
 
                                       <div *ngIf="i === 10">
-                                        
+                                        <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
 
- <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
-
-                                       
                                                             
                                         <div class="universal">
-                                            <body>
-                                            <table class="tabla-publicaciones" >   
+                                            <table class="tabla-publicaciones" border="1">
                                                 <thead>
-                                                   
                                                     <tr>
-                                                        <th class="publicacion-td">Publicación</th>
-                                                     
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class="publicaciones" *ngFor="let publicacion of productividad_publicaciones">
-                                                        <td class="publicacion-td">{{publicacion.publicacion}}</td>
-                                                     </tr>
-                                                </tbody>
-                                            </table>
-                                        </body>
-                                         <br>
-                                         <body>
-                                             <table class="tabla-publicaciones">   
-                                                <thead>
-                                                   
-                                                    <tr>
-                                                        <th class="publicacion-td">Título/Congreso</th>
+                                                        <th class="publicaciones-td">Publicación</th>
                                                         <th class="autores-td">Autores</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr class="publicaciones" *ngFor="let publicacion of productividad_eventos">
-                                                        <td class="publicacion-td">{{publicacion.Evento}} {{publicacion.descripcion}}</td>
-                                                        <td  class="autores-td">{{publicacion.Ponente}}</td>
-                                                     </tr>
+                                                    <tr style="text-align:left;"
+                                                        *ngFor="let publicacion of productividad_publicaciones">
+                                                        <td>{{publicacion.descripcion}}</td>
+                                                        <td>{{publicacion.autores}}</td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
-                                        </body>
-                                        <br>       
-                                
                                     </div>
                                 </div>
                                 <ng-template #noData>

@@ -275,33 +275,12 @@
                                       </div>
 
                                       <div *ngIf="i === 10">
-                                        
-
- <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
-
-                                       
-                                                            
-                                        <div class="universal">
-                                            <body>
-                                            <table class="tabla-publicaciones" >   
-                                                <thead>
-                                                   
-                                                    <tr>
-                                                        <th class="publicacion-td">Publicación</th>
-                                                     
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class="publicaciones" *ngFor="let publicacion of productividad_publicaciones">
-                                                        <td class="publicacion-td">{{publicacion.publicacion}}</td>
-                                                     </tr>
-                                                </tbody>
-                                            </table>
-                                        </body>
-                                         <br>
-                                        
-                                
-                                    </div>
+                                        <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
+                                            <div class="universal" *ngFor="let publicacion of productividad_publicaciones; let i = index">
+    
+                                                <p><strong>{{i + 1}}.</strong> {{publicacion.autores}} {{publicacion.descripcion}}</p>            
+                                            </div>  
+                              
                                 </div>
                                 <ng-template #noData>
                                 <div class="universal">

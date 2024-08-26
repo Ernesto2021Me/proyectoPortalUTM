@@ -250,26 +250,25 @@
                                       <div *ngIf="i === 10">
                                         <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
             
-                                        <div class="universal">
-                                            <p>La Productividad Académica del Núcleo Académico Básico de la Maestría en Inteligencia Artificial incluye principalmente: … .</p>
-                                            
-                                            <p>La producción académica más relevante de los últimos seis años se describe a continuación, comenzando con los artículos en revistas, capítulos de libros y memorias en extenso:</p>
-                                            
-                                            <div *ngFor="let publicaciones of productividad_publicaciones">
-                                            <p><strong>{{publicaciones.year}}:</strong></p>
-                                            <p style="text-align: center;"><strong>{{publicaciones.publicacion}}</strong></p>
-                                            <p>{{publicaciones.descripcion}}</p>
-                                               
-                                        </div> 
-                                            <br>
-                                            <p>Participación en congresos, seminarios y talleres:</p>
-                                            
-                                            <div *ngFor="let eventos of productividad_eventos">
-                                            <p><strong>{{eventos.descripcion}}.</strong> {{eventos.Evento}}. Ponente: <strong>{{eventos.Ponente}}</strong></p>
-                                            
-                                               
-                                        </div>
-                                        
+                                            <div class="universal">
+                                                <table class="tabla-publicaciones" border="1">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="autores-td">Año</th>
+                                                            <th class="autores-td">Tipo de Publicación</th>
+                                                            <th class="publicaciones-td">Descripcion</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr style="text-align:left;"
+                                                            *ngFor="let publicacion of productividad_publicaciones">
+                                                            <td style="text-align:center;">{{publicacion.year}}</td>
+                                                            <td>{{publicacion.publicacion}}</td>
+                                                            <td>{{publicacion.autores}} {{publicacion.descripcion}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                 
                                     </div>
                                 </div>
                                 <ng-template #noData>

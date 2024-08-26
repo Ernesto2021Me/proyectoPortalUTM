@@ -268,49 +268,28 @@
                                       </div>
 
                                       <div *ngIf="i === 10">
-                                        
-
- <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
+                                        <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
 
                                        
                                                             
                                         <div class="universal">
-                                            <body>
-                                            <table class="tabla-publicaciones" >   
+                                            <table class="tabla-publicaciones" border="1">
                                                 <thead>
-                                                   
                                                     <tr>
-                                                        <th class="publicacion-td">Publicación</th>
-                                                        <th class="publicacion-td">Autores</th>
+                                                        <th class="autores-td">Año</th>
+                                                        <th class="autores-td">Tipo de Publicación</th>
+                                                        <th class="publicaciones-td">Descripcion</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr class="publicaciones" *ngFor="let publicacion of productividad_publicaciones">
-                                                        <td class="publicacion-td">{{publicacion.publicacion}}</td>
-                                                        <td class="publicacion-td">{{publicacion.descripcion}}</td>
-                                                     </tr>
-                                                </tbody>
-                                            </table>
-                                        </body>
-                                         <br>
-                                         <body>
-                                             <table class="tabla-publicaciones">   
-                                                <thead>
-                                                   
-                                                    <tr>
-                                                        <th class="publicacion-td">Título/Congreso</th>
-                                                        <th class="autores-td">Autores</th>
+                                                    <tr style="text-align:left;"
+                                                        *ngFor="let publicacion of productividad_publicaciones">
+                                                        <td style="text-align:center;">{{publicacion.year}}</td>
+                                                        <td>{{publicacion.publicacion}}</td>
+                                                        <td>{{publicacion.autores}} {{publicacion.descripcion}}</td>
                                                     </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class="publicaciones" *ngFor="let publicacion of productividad_eventos">
-                                                        <td class="publicacion-td">{{publicacion.Evento}} {{publicacion.descripcion}}</td>
-                                                        <td  class="autores-td">{{publicacion.Ponente}}</td>
-                                                     </tr>
                                                 </tbody>
                                             </table>
-                                        </body>
-                                        <br>       
                                 
                                     </div>
                                 </div>

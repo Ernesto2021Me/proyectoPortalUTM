@@ -252,29 +252,13 @@
 
                                       <div *ngIf="i === 10">
                                         <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
-
-                                       
-                                                            
-                                        <div class="universal">
-                                            <body>
-                                            <p style="text-align: center; font-size: 18px;"><strong>Publicaciones</strong></p>
-                                            <table class="tabla-publicaciones">   
-                                                <thead>
-                                                   
-                                                    <tr>
-                                                        <th class="publicacion-td">Publicación</th>
-                                                        <th class="autores-td">Autores</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class="publicaciones" *ngFor="let publicacion of productividad_publicaciones">
-                                                        <td class="publicacion-td">{{publicacion.publicacion}}</td>
-                                                        <td  class="autores-td">{{publicacion.descripcion}}</td>
-                                                     </tr>
-                                                </tbody>
-                                            </table>
-                                        </body>
-                                    </div>
+                                            <div class="universal">
+                                                <p>Ejemplo de publicaciones del Núcleo Académico Básico a partir del 2018</p>
+                                            </div>
+                                            <div class="universal" *ngFor="let publicacion of productividad_publicaciones; let i = index">
+    
+                                                <p><strong>{{i + 1}}.</strong> {{publicacion.autores}} {{publicacion.descripcion}}</p>            
+                                            </div>   
                                 </div>
                                 <ng-template #noData>
                                 <div class="universal">
