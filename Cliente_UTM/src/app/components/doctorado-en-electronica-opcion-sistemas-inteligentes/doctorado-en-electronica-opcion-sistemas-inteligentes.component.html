@@ -177,24 +177,26 @@
                                         <div *ngIf="i === 7">
                                            
                                             <div class="universal universal2" *ngIf="nucleo_academico.length>0; else noData">
-                                                 <div *ngFor="let nucleo of nucleo_academico">
-                                                  <h1>{{nucleo.grado}} {{nucleo.nombre}}</h1>
-                                                  <div *ngIf="nucleo.correo">
-                                                  <p><strong>Email:</strong> {{nucleo.correo}}</p>
-                                                  </div>
-                                                  <div *ngIf="nucleo.SNI">
-                                                  <p><strong>Pertenencia al SNI:</strong> {{nucleo.SNI}}</p>
-                                                  </div>
-                                                  <div *ngIf="nucleo.perfil_deseable">
-                                                    <p><strong>Perfil deseable:</strong> {{nucleo.perfil_deseable}}</p>
-                                                    </div>
-                                                 <br>
-                                                  <div *ngIf="nucleo.imagen_url" class="profile-image">
-                                                    <img src="{{nucleo.imagen_url}}" alt="{{nucleo.nombre}}">
-                                                </div>
-                                                  <p>{{nucleo.descripcion_perfil}}</p>
-                                                  <br>
-                                                </div>
+                                                <table border="1">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nombre del Profesor</th>
+                                                            <th>Grado</th>
+                                                            <th>Instituto</th>
+                                                            <th>SNI</th>
+                                                            <th>PROMEP</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr style="text-align: center;" *ngFor="let nucleo of nucleo_academico">
+                                                            <td>{{nucleo.nombre}}</td>
+                                                            <td>{{nucleo.grado}}</td>
+                                                            <td>{{nucleo.codigoInstituto}}</td>
+                                                            <td>{{nucleo.SNI}}</td>
+                                                            <td>{{nucleo.perfil_deseable}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             
                                                 </div>
                                             

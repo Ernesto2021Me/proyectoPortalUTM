@@ -178,22 +178,9 @@
                                            
                                             <div class="universal universal2" *ngIf="nucleo_academico.length>0; else noData">
                                                <div *ngFor="let nucleo of nucleo_academico">
-                                                  <h1>{{nucleo.grado}} {{nucleo.nombre}}</h1>
-                                                  <div *ngIf="nucleo.correo">
-                                                  <p><strong>Email:</strong> {{nucleo.correo}}</p>
-                                                  </div>
-                                                  <div *ngIf="nucleo.SNI">
-                                                  <p><strong>Pertenencia al SNI:</strong> {{nucleo.SNI}}</p>
-                                                  </div>
-                                                  <div *ngIf="nucleo.perfil_deseable">
-                                                    <p><strong>Perfil deseable:</strong> {{nucleo.perfil_deseable}}</p>
-                                                    </div>
-                                                 <br>
-                                                  <div *ngIf="nucleo.imagen_url" class="profile-image">
-                                                    <img src="{{nucleo.imagen_url}}" alt="{{nucleo.nombre}}">
-                                                </div>
-                                                  <p>{{nucleo.descripcion_perfil}}</p>
-                                                  <br>
+                                                <ul>
+                                                    <li>{{nucleo.grado}} {{nucleo.nombre}}</li>
+                                                 </ul>
                                                 </div>
                                             
                                                 </div>

@@ -177,24 +177,22 @@
                                         <div *ngIf="i === 7">
                                            
                                             <div class="universal universal2" *ngIf="nucleo_academico.length>0; else noData">
-                                               <p>Los profesores que integran el Núcleo Académico Básico están adscritos a los Institutos de: Física y Matemáticas, Computación, Hidrología, Ciencias Sociales y Humanidades y al CentroGeo* de Conacyt.</p>
-                                                <div *ngFor="let nucleo of nucleo_academico">
-                                                  <h1>{{nucleo.grado}} {{nucleo.nombre}}</h1>
-                                                  <div *ngIf="nucleo.correo">
-                                                  <p><strong>Email:</strong> {{nucleo.correo}}</p>
-                                                  </div>
-                                                  <div *ngIf="nucleo.SNI">
-                                                  <p><strong>Pertenencia al SNI:</strong> {{nucleo.SNI}}</p>
-                                                  </div>
-                                                  <div *ngIf="nucleo.perfil_deseable">
-                                                    <p><strong>Perfil deseable:</strong> {{nucleo.perfil_deseable}}</p>
-                                                    </div>
-                                                  <div *ngIf="nucleo.imagen_url" class="profile-image">
-                                                    <img src="{{nucleo.imagen_url}}" alt="{{nucleo.nombre}}">
-                                                </div>
-                                                  <p>{{nucleo.descripcion_perfil}}</p>
-                                                  <br>
-                                                </div>
+                                                <table  border="1">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nombre del Profesor</th>
+                                                            <th>SNI</th>
+                                                            <th>PROMEP</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr style="text-align: center;" *ngFor="let nucleo of nucleo_academico">
+                                                            <td style="text-align: left;">{{nucleo.grado}} {{nucleo.nombre}}</td>
+                                                            <td>{{nucleo.SNI}}</td>
+                                                            <td>{{nucleo.perfil_deseable}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             
                                                 </div>
                                             

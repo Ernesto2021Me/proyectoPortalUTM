@@ -177,7 +177,23 @@
                                         <div *ngIf="i === 7">
                                            
                                             <div class="universal universal2" *ngIf="nucleo_academico.length>0; else noData">
-                                                 <div *ngFor="let nucleo of nucleo_academico">
+                                                <table  border="1">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nombre del Profesor</th>
+                                                            <th>SNI</th>
+                                                            <th>PROMEP</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr style="text-align: center;" *ngFor="let nucleo of nucleo_academico">
+                                                            <td style="text-align: left;">{{nucleo.grado}} {{nucleo.nombre}}</td>
+                                                            <td>{{nucleo.SNI}}</td>
+                                                            <td>{{nucleo.perfil_deseable}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div *ngFor="let nucleo of nucleo_academico">
                                                   <h1>{{nucleo.grado}} {{nucleo.nombre}}</h1>
                                                   <div *ngIf="nucleo.correo">
                                                   <p><strong>Email:</strong> {{nucleo.correo}}</p>
