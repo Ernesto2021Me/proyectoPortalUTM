@@ -243,9 +243,13 @@ WHERE codcarrera=?
             const { Codigocarrera } = req.body;
             try {
                 const resultado = yield database_1.default.query(`
-         SELECT * FROM 
-productividad_academica_publicaciones 
-WHERE codigoCarrera=?
+        SELECT p.codcarrera as codigoCarrera,
+p.year,
+p.tipo_publicacion as publicacion,
+p.descripcion,
+p.autores
+FROM ProductividadAcademica_pub p
+WHERE codcarrera=?
         `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
                 // Devolver los resultados como JSON
                 res.json(resultado); // Asegúrate de acceder a 'rows' si esa es la propiedad que contiene los datos

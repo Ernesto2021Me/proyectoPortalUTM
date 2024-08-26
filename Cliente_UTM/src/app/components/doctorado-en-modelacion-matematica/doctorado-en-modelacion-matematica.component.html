@@ -242,17 +242,19 @@
                                             <table border="1">
                                                 <thead>
                                                     <tr>
-                                                        <th>ALUMNO</th>
-                                                        <th>DIRECTOR DE TESIS</th>
-                                                        <th>TUTOR DE SEGUIMIENTO ACADÉMICO</th>
+                                                        <th>Generación</th>
+                                                        <th>Nombre del Estudiante</th>
+                                                        <th>Director de Tesis</th>
+                                                        <th>Codirector de Tesis</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr style="text-align: center;"
                                                         *ngFor="let tutoria of tutoria_segumiento">
+                                                        <td>{{tutoria.Generacion}}</td>
                                                         <td>{{tutoria.Alumno}}</td>
                                                         <td>{{tutoria.nombre_dir}}</td>
-                                                        <td>{{tutoria.nombre_tutor}}</td>
+                                                        <td>{{tutoria.nombre_cod}}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>

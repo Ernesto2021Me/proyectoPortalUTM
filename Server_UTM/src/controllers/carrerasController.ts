@@ -230,9 +230,13 @@ public async productividad_academica_pub(req: Request, res: Response): Promise<v
     const { Codigocarrera } = req.body;
     try {
         const resultado = await pool.query(`
-         SELECT * FROM 
-productividad_academica_publicaciones 
-WHERE codigoCarrera=?
+        SELECT p.codcarrera as codigoCarrera,
+p.year,
+p.tipo_publicacion as publicacion,
+p.descripcion,
+p.autores
+FROM ProductividadAcademica_pub p
+WHERE codcarrera=?
         `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
     
         // Devolver los resultados como JSON
