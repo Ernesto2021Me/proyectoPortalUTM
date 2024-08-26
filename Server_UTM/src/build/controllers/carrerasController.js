@@ -218,28 +218,16 @@ WHERE codcarrera= ?
             const { Codigocarrera } = req.body;
             try {
                 const resultado = yield database_1.default.query(`
-         SELECT
-    t.codigoCarrera,
-    t.Alumno,
-    t.Generacion,
-    dir.grado As grado_dir,
-    dir.nombre AS nombre_dir,  -- Nombre del director
-    cod.grado AS grado_cod,   
-    cod.nombre AS nombre_cod,  -- Nombre del codirector
-    tuto.grado As grado_tutor,
-    tuto.nombre AS nombre_tutor, -- Nombre del tutor
-    t.tema_tes,
-    t.linea_inv
-FROM
-    tutoria_seguimiento t
-LEFT JOIN
-    profesores_posgrados dir ON dir.id = t.dir_tes  -- Unir por el ID del director
-LEFT JOIN
-    profesores_posgrados cod ON cod.id = t.codir_tes  -- Unir por el ID del codirector
-LEFT JOIN
-    profesores_posgrados tuto ON tuto.id = t.tutor_tes  -- Unir por el ID del tutor
-WHERE
-    t.codigoCarrera =?
+        SELECT t.codcarrera as codigoCarrera,
+t.alumno as Alumno,
+t.generacion as Generacion,
+t.director as nombre_dir,
+t.codirector as nombre_cod,
+t.tutor as nombre_tutor,
+t.tema_tesis as tema_tes,
+t.linea_investigacion as linea_inv
+FROM TutoriaPosgrados t
+WHERE codcarrera=?
         `, [Codigocarrera]); // Reemplaza Codigocarrera con la variable que contiene el valor del código de carrera
                 // Devolver los resultados como JSON
                 res.json(resultado); // Asegúrate de acceder a 'rows' si esa es la propiedad que contiene los datos

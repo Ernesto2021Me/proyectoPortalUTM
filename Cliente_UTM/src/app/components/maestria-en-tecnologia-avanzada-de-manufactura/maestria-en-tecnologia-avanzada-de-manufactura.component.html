@@ -221,8 +221,7 @@
                                         <div *ngIf="tutoria_segumiento.length>0; else noData">
 
                                           <div class="universal">
-                                            <body>
-                                            <table class="tabla-estudiantes">
+                                            <table border="1">
                                                 <thead>
                                                     <tr>
                                                         <th>ALUMNO</th>
@@ -231,14 +230,14 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let tutoria of tutoria_segumiento">
+                                                    <tr style="text-align: center;"
+                                                        *ngFor="let tutoria of tutoria_segumiento">
                                                         <td>{{tutoria.Alumno}}</td>
-                                                        <td>{{tutoria.grado_dir}} {{tutoria.nombre_dir}}</td>
-                                                        <td>{{tutoria.grado_tutor}} {{tutoria.nombre_tutor}}</td>
+                                                        <td>{{tutoria.nombre_dir}}</td>
+                                                        <td>{{tutoria.nombre_tutor}}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                        </body>
                                     </div>
                                 </div>
                                 <ng-template #noData>
