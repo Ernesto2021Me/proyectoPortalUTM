@@ -646,4 +646,27 @@ h4{
     overflow-wrap: break-word;
     line-height: 1.2;
 }
-
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+.custom-table th, .custom-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.custom-table th {
+    background-color: #f4f4f4;
+}
+.custom-table caption {
+    font-weight: bold;
+    margin: 10px 0;
+}
+.semester-cell {
+    background-color: #e2e2e2;
+    font-weight: bold;
+}
+.content-cell {
+    white-space: pre-wrap; /* Allows line breaks in the content */
+}

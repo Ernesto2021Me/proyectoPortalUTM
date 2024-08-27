@@ -660,3 +660,24 @@ h4{
     line-height: 1.2;
 }
 
+.sem-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+.sem-table th, .sem-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.sem-table th {
+    background-color: #f4f4f4;
+}
+.sem-table caption {
+    font-weight: bold;
+    margin: 10px 0;
+}
+.semester-cell {
+    background-color: #e2e2e2;
+    font-weight: bold;
+}

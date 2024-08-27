@@ -146,7 +146,159 @@
                                                 </div>
                                         </div>
                                         <div *ngIf="i === 5">
-                                           
+                                            <body>
+
+                                                <!-- Tabla de Materias por Semestre -->
+                                                <table>
+                                                    <caption>Materias por Semestre</caption>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Semestre</th>
+                                                            <th>Materias</th>
+                                                            <th>Créditos</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- Primer Semestre -->
+                                                        <tr>
+                                                            <td rowspan="4">Primer Semestre</td>
+                                                            <td>Seminario de Tesis I</td>
+                                                            <td>8</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Inteligencia Artificial</td>
+                                                            <td>7</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aprendizaje Máquina</td>
+                                                            <td>7</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Programación Lógica y Funcional</td>
+                                                            <td>7</td>
+                                                        </tr>
+                                                        <!-- Segundo Semestre -->
+                                                        <tr>
+                                                            <td rowspan="4">Segundo Semestre</td>
+                                                            <td>Seminario de Tesis II</td>
+                                                            <td>8</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Conocimiento y Razonamiento</td>
+                                                            <td>7</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Aprendizaje Profundo</td>
+                                                            <td>7</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa I</td>
+                                                            <td>7</td>
+                                                        </tr>
+                                                        <!-- Tercer Semestre -->
+                                                        <tr>
+                                                            <td rowspan="3">Tercer Semestre</td>
+                                                            <td>Seminario de Tesis III</td>
+                                                            <td>8</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Análisis de Datos</td>
+                                                            <td>7</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa II</td>
+                                                            <td>7</td>
+                                                        </tr>
+                                                        <!-- Cuarto Semestre -->
+                                                        <tr>
+                                                            <td rowspan="2">Cuarto Semestre</td>
+                                                            <td>Seminario de Tesis IV</td>
+                                                            <td>8</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Algoritmos y Complejidad</td>
+                                                            <td>7</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            
+                                                <!-- Materias Optativas -->
+                                                <div class="section-title">Materias Optativas</div>
+                                                <table>
+                                                    <caption>Listado de Materias Optativas</caption>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Semestre/Optativa</th>
+                                                            <th>Materias</th>
+                                                            <th>Línea de Generación y Aplicación del Conocimiento (LGAC)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- Segundo Semestre -->
+                                                        <tr>
+                                                            <td>Optativa I</td>
+                                                            <td>Procesamiento de imágenes</td>
+                                                            <td>LGAC-1</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa I</td>
+                                                            <td>Lingüística computacional</td>
+                                                            <td>LGAC-2</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa I</td>
+                                                            <td>Cómputo científico en problemas geoespaciales</td>
+                                                            <td>LGAC-3</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa I</td>
+                                                            <td>Aprendizaje automático en problemas geoespaciales</td>
+                                                            <td>LGAC-3</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa I</td>
+                                                            <td>Razonamiento automático</td>
+                                                            <td>LGAC-4</td>
+                                                        </tr>
+                                                        <!-- Tercer Semestre -->
+                                                        <tr>
+                                                            <td>Optativa II</td>
+                                                            <td>Procesamiento de imágenes con redes neuronales</td>
+                                                            <td>LGAC-1</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa II</td>
+                                                            <td>Visión computacional</td>
+                                                            <td>LGAC-1</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa II</td>
+                                                            <td>Procesamiento de lenguaje natural</td>
+                                                            <td>LGAC-2</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa II</td>
+                                                            <td>Visualización de datos aplicada a aprendizaje automático</td>
+                                                            <td>LGAC-3</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa II</td>
+                                                            <td>Razonamiento no clásico</td>
+                                                            <td>LGAC-4</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            
+                                                <!-- Líneas de Generación y Aplicación del Conocimiento -->
+                                                <div class="section-title">Líneas de Generación y Aplicación del Conocimiento (LGAC)</div>
+                                                <ul>
+                                                    <li><strong>LGAC-1:</strong> Procesamiento inteligente en señales e imágenes (PS)</li>
+                                                    <li><strong>LGAC-2:</strong> Procesamiento de lenguaje natural (LN)</li>
+                                                    <li><strong>LGAC-3:</strong> GeoComputación científica y geointeligencia (GC)</li>
+                                                    <li><strong>LGAC-4:</strong> Razonamiento automático (RA)</li>
+                                                </ul>
+                                            
+                                            </body>
                                         </div>
                                         <div *ngIf="i === 6">
                                           

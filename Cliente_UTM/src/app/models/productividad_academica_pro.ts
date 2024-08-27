@@ -1,16 +1,17 @@
 export class Productividad_academica_proyectos {
     codigoCarrera: string;
+    year: string;
     Proyecto: string;
-    participantes: string;
     descripcion: string;
-   
+    participantes: string;
 
     constructor() {
 
         this.codigoCarrera = '';
+        this.year='';
         this.Proyecto = '';
-        this.participantes = '';
         this.descripcion = '';
+        this.participantes = '';
       
 }
 }

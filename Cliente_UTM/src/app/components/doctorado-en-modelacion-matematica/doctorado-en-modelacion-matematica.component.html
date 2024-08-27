@@ -146,7 +146,209 @@
                                                 </div>
                                         </div>
                                         <div *ngIf="i === 5">
-                                           
+                                            <body>
+
+                                                <!-- Tabla de Asignaturas Semestrales -->
+                                                <table>
+                                                    <caption>Asignaturas Semestrales</caption>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Semestre</th>
+                                                            <th>Materias</th>
+                                                            <th>Clave</th>
+                                                            <th>Créditos</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- Primer Semestre -->
+                                                        <tr>
+                                                            <td rowspan="2">Primer Semestre</td>
+                                                            <td>Modelación Matemática</td>
+                                                            <td>291101</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Inteligencia Artificial</td>
+                                                            <td>291102</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <!-- Segundo Semestre -->
+                                                        <tr>
+                                                            <td rowspan="2">Segundo Semestre</td>
+                                                            <td>Ciencia de Datos</td>
+                                                            <td>291201</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa I</td>
+                                                            <td>-</td>
+                                                            <td>-</td>
+                                                        </tr>
+                                                        <!-- Tercer Semestre -->
+                                                        <tr>
+                                                            <td rowspan="2">Tercer Semestre</td>
+                                                            <td>Cómputo Cuántico</td>
+                                                            <td>291301</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa II</td>
+                                                            <td>-</td>
+                                                            <td>-</td>
+                                                        </tr>
+                                                        <!-- Cuarto Semestre -->
+                                                        <tr>
+                                                            <td rowspan="2">Cuarto Semestre</td>
+                                                            <td>Seminario de Tesis I</td>
+                                                            <td>291401</td>
+                                                            <td>12</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa III</td>
+                                                            <td>-</td>
+                                                            <td>-</td>
+                                                        </tr>
+                                                        <!-- Quinto Semestre -->
+                                                        <tr>
+                                                            <td>Quinto Semestre</td>
+                                                            <td>Seminario de Tesis II</td>
+                                                            <td>291501</td>
+                                                            <td>12</td>
+                                                        </tr>
+                                                        <!-- Sexto Semestre -->
+                                                        <tr>
+                                                            <td>Sexto Semestre</td>
+                                                            <td>Seminario de Tesis III</td>
+                                                            <td>291601</td>
+                                                            <td>12</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            
+                                                <!-- Tabla de Asignaturas Optativas -->
+                                                <table>
+                                                    <caption>Asignaturas Optativas</caption>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Línea de Investigación</th>
+                                                            <th>Asignaturas</th>
+                                                            <th>Clave</th>
+                                                            <th>Créditos</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- Ecuaciones Diferenciales y Problemas Inversos -->
+                                                        <tr>
+                                                            <td rowspan="5">Ecuaciones Diferenciales y Problemas Inversos</td>
+                                                            <td>Ecuaciones Diferenciales Parciales</td>
+                                                            <td>291701ED</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Biología Matemática</td>
+                                                            <td>291702ED</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Problemas Inversos</td>
+                                                            <td>291703ED</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Análisis Funcional</td>
+                                                            <td>291704ED</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Espacios de Sobolev y Aplicaciones</td>
+                                                            <td>291705ED</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <!-- Optimización y Aproximación de Funciones -->
+                                                        <tr>
+                                                            <td rowspan="5">Optimización y Aproximación de Funciones</td>
+                                                            <td>Lattices de Banach y Operadores Positivos</td>
+                                                            <td>291706OA</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Espacios de Complejidad de Algoritmos</td>
+                                                            <td>291707OA</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Análisis Asimétrico</td>
+                                                            <td>291708OA</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Introducción a la Teoría de Aproximación</td>
+                                                            <td>291709OA</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optimización Aplicada</td>
+                                                            <td>291710OA</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <!-- Modelación Estocástica y Estadística -->
+                                                        <tr>
+                                                            <td rowspan="5">Modelación Estocástica y Estadística</td>
+                                                            <td>Modelación Financiera Avanzada</td>
+                                                            <td>291711EE</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Procesos Estocásticos Avanzado</td>
+                                                            <td>291712EE</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Análisis Multivariado</td>
+                                                            <td>291713EE</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Series de Tiempo</td>
+                                                            <td>291714EE</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Estadística Bayesiana</td>
+                                                            <td>291715EE</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <!-- Topología y Sistemas Dinámicos -->
+                                                        <tr>
+                                                            <td rowspan="5">Topología y Sistemas Dinámicos</td>
+                                                            <td>Ecuaciones en Diferencias</td>
+                                                            <td>291716TS</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Dinámica Topológica Avanzada</td>
+                                                            <td>291717TS</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Dinámica Colectiva</td>
+                                                            <td>291718TS</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Modelos Matemáticos en Biología Mediante Sistemas Dinámicos Discretos</td>
+                                                            <td>291719TS</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Modelos Matemáticos en Economía y Finanzas Mediante Sistemas Dinámicos Discretos</td>
+                                                            <td>291720TS</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            
+                                            </body>
                                         </div>
                                         <div *ngIf="i === 6">
                                           

@@ -146,7 +146,270 @@
                                                 </div>
                                         </div>
                                         <div *ngIf="i === 5">
-                                           
+                                            <body>
+
+                                                <!-- Tabla de Asignaturas por Semestre -->
+                                                <table class="custom-table">
+                                                    <caption>Asignaturas por Semestre</caption>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Semestre</th>
+                                                            <th>Asignaturas</th>
+                                                            <th>Clave</th>
+                                                            <th>Seriación</th>
+                                                           <th>Horas con Docente</th>
+                                                            <th>Horas Independientes</th>
+                                                            <th>Créditos</th>
+                                                            <th>Instalaciones</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- Primer Semestre -->
+                                                        <tr>
+                                                            <td rowspan="4" class="semester-cell">Primer Semestre</td>
+                                                            <td>Síntesis de materiales</td>
+                                                            <td>300101</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>54</td>
+                                                            <td>8</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tópicos Selectos de Matemáticas</td>
+                                                            <td>300102</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>54</td>
+                                                            <td>8</td>
+                                                            <td>A</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Química de materiales</td>
+                                                            <td>300103</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>54</td>
+                                                            <td>8</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Seminario de Tesis I</td>
+                                                            <td>300104</td>
+                                                            <td>-</td>
+                                                            <td>64</td>
+                                                            <td>120</td>
+                                                            <td>10</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <!-- Segundo Semestre -->
+                                                        <tr>
+                                                            <td rowspan="4" class="semester-cell">Segundo Semestre</td>
+                                                            <td>Física del Estado Sólido</td>
+                                                            <td>300201</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>54</td>
+                                                            <td>8</td>
+                                                            <td>A</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Fisicoquímica de los Materiales</td>
+                                                            <td>300202</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>54</td>
+                                                            <td>8</td>
+                                                            <td>A</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Seminario de tesis II</td>
+                                                            <td>300203</td>
+                                                            <td>300104</td>
+                                                            <td>64</td>
+                                                            <td>120</td>
+                                                            <td>10</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa I</td>
+                                                            <td>-</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>74</td>
+                                                            <td>9</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <!-- Tercer Semestre -->
+                                                        <tr>
+                                                            <td rowspan="3" class="semester-cell">Tercer Semestre</td>
+                                                            <td>Técnicas de Caracterización de Materiales</td>
+                                                            <td>300301</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>54</td>
+                                                            <td>8</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Seminario de tesis III</td>
+                                                            <td>300302</td>
+                                                            <td>300203</td>
+                                                            <td>64</td>
+                                                            <td>120</td>
+                                                            <td>10</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa II</td>
+                                                            <td>-</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>74</td>
+                                                            <td>9</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <!-- Cuarto Semestre -->
+                                                        <tr>
+                                                            <td rowspan="1" class="semester-cell">Cuarto Semestre</td>
+                                                            <td>Seminario de Tesis IV</td>
+                                                            <td>300401</td>
+                                                            <td>300302</td>
+                                                            <td>64</td>
+                                                            <td>120</td>
+                                                            <td>10</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            
+                                                <!-- Tabla de Asignaturas Optativas -->
+                                                <table class="custom-table">
+                                                    <caption>Asignaturas Optativas</caption>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Asignaturas</th>
+                                                            <th>Clave</th>
+                                                            <th>Seriación</th>
+                                                            <th>Horas con Docente</th>
+                                                             <th>Horas Independientes</th>
+                                                            <th>Créditos</th>
+                                                            <th>Instalaciones</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Cinética de Reacciones Químicas</td>
+                                                            <td>300501</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>74</td>
+                                                            <td>9</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Luminiscencia en Materiales Sólidos</td>
+                                                            <td>300502</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>74</td>
+                                                            <td>9</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Interacción de la Luz con la Materia</td>
+                                                            <td>300503</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>74</td>
+                                                            <td>9</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Introducción a la Superconductividad</td>
+                                                            <td>300504</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>74</td>
+                                                            <td>9</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Sistemas dispersos en Ciencia de Materiales</td>
+                                                            <td>300505</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>74</td>
+                                                            <td>9</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Polímeros</td>
+                                                            <td>300506</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>74</td>
+                                                            <td>9</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Caracterización Óptica de Películas Delgadas</td>
+                                                            <td>300507</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>74</td>
+                                                            <td>9</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Cerámica Electrónica</td>
+                                                            <td>300508</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>74</td>
+                                                            <td>9</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Semiconductores y Dieléctricos</td>
+                                                            <td>300509</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>74</td>
+                                                            <td>9</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Espectroscopia Vibracional</td>
+                                                            <td>300510</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>74</td>
+                                                            <td>9</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Polímeros Supramoleculares en Solución</td>
+                                                            <td>300511</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>74</td>
+                                                            <td>9</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Propiedades Magnéticas de Materiales</td>
+                                                            <td>300512</td>
+                                                            <td>-</td>
+                                                            <td>85</td>
+                                                            <td>74</td>
+                                                            <td>9</td>
+                                                            <td>A-L</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            
+                                            </body>
                                         </div>
                                         <div *ngIf="i === 6">
                                           

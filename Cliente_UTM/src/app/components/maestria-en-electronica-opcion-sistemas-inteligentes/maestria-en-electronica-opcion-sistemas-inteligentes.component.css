@@ -659,4 +659,28 @@ h4{
     overflow-wrap: break-word;
     line-height: 1.2;
 }
-
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f4f4f4;
+}
+caption {
+    font-weight: bold;
+    margin: 10px 0;
+}
+.semester-cell {
+    background-color: #e2e2e2;
+    font-weight: bold;
+}
+.highlight {
+    background-color: #ffffcc;
+    font-weight: bold;
+}

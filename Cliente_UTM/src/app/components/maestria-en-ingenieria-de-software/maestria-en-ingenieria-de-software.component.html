@@ -146,7 +146,166 @@
                                                 </div>
                                         </div>
                                         <div *ngIf="i === 5">
-                                           
+                                            <body>
+
+                                                <!-- Tabla de Asignaturas por Semestre -->
+                                                <table>
+                                                    <caption>Asignaturas por Semestre</caption>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Semestre</th>
+                                                            <th>Asignaturas</th>
+                                                            <th>Créditos</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- Primer Semestre -->
+                                                        <tr>
+                                                            <td rowspan="4" class="highlight">Primer Semestre</td>
+                                                            <td>Ingeniería de Requisitos</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Gestión de Proyectos</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa I</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Seminario de Tesis I</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <!-- Segundo Semestre -->
+                                                        <tr>
+                                                            <td rowspan="4" class="highlight">Segundo Semestre</td>
+                                                            <td>Especificación Formal</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Minería de Datos</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa II</td>
+                                                            <td>8</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Seminario de Tesis II</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <!-- Tercer Semestre -->
+                                                        <tr>
+                                                            <td rowspan="4" class="highlight">Tercer Semestre</td>
+                                                            <td>Aseguramiento de la Calidad del Software</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Medición del Software</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Optativa III</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Seminario de Tesis III</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <!-- Cuarto Semestre -->
+                                                        <tr>
+                                                            <td rowspan="2" class="highlight">Cuarto Semestre</td>
+                                                            <td>Proyecto de Investigación</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Seminario de Tesis IV</td>
+                                                            <td>10</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            
+                                                <!-- Requisitos Mínimos -->
+                                                <div class="section-title">Requisitos Mínimos</div>
+                                                <ul>
+                                                    <li>Número mínimo de créditos que se deberán acreditar en las asignaturas optativas: <strong>30</strong></li>
+                                                    <li>Número mínimo de horas que se deberán acreditar en las asignaturas optativas, bajo la conducción de un docente: <strong>255</strong></li>
+                                                    <li>Número mínimo de horas que se deberán acreditar en las asignaturas optativas, en forma independiente: <strong>270</strong></li>
+                                                </ul>
+                                            
+                                                <!-- Actividades de Aprendizaje -->
+                                                <div class="section-title">Actividades de Aprendizaje</div>
+                                                <ul>
+                                                    <li>Exposición por parte del maestro, lectura de artículos científicos con ejemplos específicos para los temas de cada asignatura, análisis de casos de estudio.</li>
+                                                    <li>Revisión bibliográfica, redacción de ensayos, presentación de seminarios.</li>
+                                                    <li>Desarrollo de proyectos cortos y/o largos como parte de las asignaturas.</li>
+                                                    <li>Desarrollo de proyectos vinculados con empresas reales (en caso de aplicar).</li>
+                                                    <li>Impartición de seminarios académicos con universidades vinculadas.</li>
+                                                    <li>Impartición de seminarios I+D con empresas vinculadas.</li>
+                                                </ul>
+                                            
+                                                <!-- Criterios y Procedimientos de Evaluación y Acreditación -->
+                                                <div class="section-title">Criterios y Procedimientos de Evaluación y Acreditación</div>
+                                                <ul>
+                                                    <li>Exámenes, exposiciones, trabajos escritos y de laboratorio, experimentación con empresas y/o sector gubernamental.</li>
+                                                </ul>
+                                            
+                                                <!-- Listado de Asignaturas Optativas -->
+                                                <table>
+                                                    <caption>Listado de Asignaturas Optativas</caption>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Asignatura</th>
+                                                            <th>Créditos</th>
+                                                            <th>LIES</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Análisis de Textos para la Ingeniería de Requisitos</td>
+                                                            <td>10</td>
+                                                            <td>Actualidad y tendencias en el Desarrollo de Software</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Diseño, Modelado y Arquitectura de Software</td>
+                                                            <td>10</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Evaluación y Mejora de los Procesos de Software</td>
+                                                            <td>10</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Validación y Verificación de Requisitos de Software</td>
+                                                            <td>10</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Análisis Semántico sobre Documentos del Desarrollo de Software</td>
+                                                            <td>10</td>
+                                                            <td>Innovación y aplicaciones de la Ingeniería de Software</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Calidad del Software con Modelos Predictivos</td>
+                                                            <td>10</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Ingeniería de Software para el Desarrollo de Sistemas de Aprendizaje</td>
+                                                            <td>10</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Predicción de Errores en la Ingeniería de Software</td>
+                                                            <td>10</td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            
+                                            </body>
                                         </div>
                                         <div *ngIf="i === 6">
                                           
