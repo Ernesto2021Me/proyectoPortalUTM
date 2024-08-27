@@ -270,6 +270,22 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
+
+                                            <table class="tabla-publicaciones" border="1">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="publicaciones-td">Título/Congreso</th>
+                                                        <th class="autores-td">Autores</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr style="text-align:left;"
+                                                        *ngFor="let evento of productividad_eventos">
+                                                        <td>{{evento.descripcion}}</td>
+                                                        <td>{{evento.Ponente}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                     </div>
                                 </div>
                                 <ng-template #noData>

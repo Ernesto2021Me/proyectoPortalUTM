@@ -253,11 +253,17 @@
 
                                       <div *ngIf="i === 10">
                                         <div *ngIf="productividad_publicaciones.length > 0 || productividad_eventos.length > 0 || productividad_proyectos.length>0; else noData">
-                   
-                                            <div class="universal" *ngFor="let publicacion of productividad_publicaciones; let i = index">
+                                            <div  class="universal" >
+                                            <div *ngFor="let publicacion of productividad_publicaciones; let i = index">
     
                                             <p><strong>{{i + 1}}.</strong> {{publicacion.autores}} {{publicacion.descripcion}}</p>            
-                                        </div>               
+                                        </div>  
+                                             <p><strong>Congresos:</strong></p>
+                                        <div *ngFor="let evento of productividad_eventos; let i = index">
+    
+                                            <p><strong>{{i + 1}}.</strong> {{evento.Ponente}} {{evento.descripcion}}</p>            
+                                        </div>     
+                                    </div>               
                                 </div>
                                 <ng-template #noData>
                                 <div class="universal">
